@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+# Zentinel plugin — process plugin protocol v1 (stdin JSON → stdout JSON).
+#
+# Commands:
+#   generate-config  — generate the FSN-managed KDL upstreams+routes block
+#                      and (on first run) write the full config file.
+#
+# Input:  PluginContext  (JSON on stdin)
+# Output: PluginResponse (JSON on stdout)
+#
+# The generated KDL is returned as a file write in the response.
+# Core writes the file; this script does not touch the filesystem.
+
+import json
+import sys
+
+MARKER_START = "# === FSN-MANAGED-START ==="
+MARKER_END   = "# === FSN-MANAGED-END ==="
+
+PROTOCOL = 1
+
+
+# ── KDL generation ────────────────────────────────────────────────────────────
+
+def upstream_block(name: str, port: int, upstream_tls: bool) -> str:
+    scheme = "https" if upstream_tls else "http"
+    return (
+        f'    upstream "{name}" {{\n'
+        f'        targets {{\n'
+        f'            target {{\n'
+        f'                address "{name}:{port}"\n'
+        f'                scheme "{scheme}"\n'
+        f'            }}\n'
+        f'        }}\n'
+        f'    }}\n'
+    )
+
+
+def route_blocks(name: str, domains: list[str], routes: list[dict]) -> str:
+    out = []
+    for domain in domains:
+        route_name = domain.replace(".", "-")
+
+        # Build per-route path matchers (if the service has multiple routes).
+        if len(routes) == 1 and routes[0]["path"] == "/":
+            path_block = ""
+        else:
+            path_parts = "\n".join(
+                f'            path "{r["path"]}"' for r in routes
+            )
+            path_block = f"\n{path_parts}"
+
+        out.append(
+            f'    route "{route_name}" {{\n'
+            f'        matches {{\n'
+            f'            host "{domain}"{path_block}\n'
+            f'        }}\n'
+            f'        upstream "{name}"\n'
+            f'    }}\n'
+        )
+    return "".join(out)
+
+
+def generate_managed_section(peers: list[dict]) -> str:
+    upstreams = ""
+    routes    = ""
+
+    for peer in peers:
+        types = peer.get("types", [])
+        # Skip internal services (database, cache) and the proxy itself.
+        if "database" in types or "cache" in types or "proxy" in types:
+            continue
+
+        name         = peer["name"]
+        port         = peer["port"]
+        domain       = peer["domain"]
+        upstream_tls = peer.get("upstream_tls", False)
+        peer_routes  = peer.get("routes", [{"id": "main", "path": "/", "strip": False}])
+
+        # Collect all domains (primary + any alias domains from peer metadata).
+        domains = [domain]
+        # alias_domains are not in PeerService yet — extend when added.
+
+        upstreams += upstream_block(name, port, upstream_tls)
+        routes    += route_blocks(name, domains, peer_routes)
+
+    return (
+        f"{MARKER_START}\n"
+        f"upstreams {{\n{upstreams}}}\n"
+        f"routes {{\n{routes}}}\n"
+        f"{MARKER_END}\n"
+    )
+
+
+def generate_full_config(instance: dict, peers: list[dict], env: dict) -> str:
+    acme_email = env.get("ACME_EMAIL", "")
+    managed    = generate_managed_section(peers)
+    email_line = f'\n    email "{acme_email}"' if acme_email else ""
+
+    return (
+        "# Zentinel proxy configuration\n"
+        "# Lines outside the FSN-MANAGED block can be edited freely.\n"
+        "\n"
+        "server {\n"
+        "    admin off\n"
+        f"    auto_https on{email_line}\n"
+        "}\n"
+        "\n"
+        "listeners {\n"
+        '    listener "http" {\n'
+        '        address "0.0.0.0:80"\n'
+        "    }\n"
+        '    listener "https" {\n'
+        '        address "0.0.0.0:443"\n'
+        "    }\n"
+        "}\n"
+        "\n"
+        f"{managed}\n"
+    )
+
+
+def upsert_managed_section(existing: str, peers: list[dict]) -> str:
+    managed = generate_managed_section(peers)
+    start   = existing.find(MARKER_START)
+    end     = existing.find(MARKER_END)
+    if start != -1 and end != -1:
+        end_of_block = end + len(MARKER_END)
+        return existing[:start] + managed + existing[end_of_block:]
+    return existing.rstrip() + "\n\n" + managed + "\n"
+
+
+# ── Command handlers ──────────────────────────────────────────────────────────
+
+def cmd_generate_config(ctx: dict) -> dict:
+    instance = ctx["instance"]
+    peers    = ctx.get("peers", [])
+    env      = ctx.get("env", {})
+    dest     = instance["data_root"] + "/config/zentinel.kdl"
+
+    # Check if existing content was provided (future: Core may pass it in env).
+    # For now we always generate the full config — on re-runs the managed
+    # section overwrites itself idempotently.
+    content = generate_full_config(instance, peers, env)
+
+    return {
+        "protocol": PROTOCOL,
+        "logs": [{"level": "info", "message": f"generated zentinel.kdl → {dest}"}],
+        "files": [{"dest": dest, "content": content, "mode": 0o644}],
+        "commands": [],
+        "error": "",
+    }
+
+
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def main() -> None:
+    try:
+        ctx = json.load(sys.stdin)
+    except json.JSONDecodeError as exc:
+        out = {"protocol": PROTOCOL, "logs": [], "files": [], "commands": [],
+               "error": f"invalid JSON on stdin: {exc}"}
+        print(json.dumps(out))
+        sys.exit(1)
+
+    if ctx.get("protocol", 0) != PROTOCOL:
+        out = {"protocol": PROTOCOL, "logs": [], "files": [], "commands": [],
+               "error": f"unsupported protocol {ctx.get('protocol')} (expected {PROTOCOL})"}
+        print(json.dumps(out))
+        sys.exit(1)
+
+    command = ctx.get("command", "")
+
+    if command == "generate-config":
+        result = cmd_generate_config(ctx)
+    else:
+        result = {"protocol": PROTOCOL, "logs": [], "files": [], "commands": [],
+                  "error": f"unknown command: {command}"}
+
+    print(json.dumps(result))
+
+
+if __name__ == "__main__":
+    main()

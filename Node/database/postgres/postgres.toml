@@ -1,7 +1,8 @@
 [module]
-name        = "postgres"
-alias       = []
-type        = "database"
+name         = "postgres"
+alias        = []
+type         = "database"
+capabilities = ["database_postgres"]
 author      = "FreeSynergy.Node"
 version     = "0.0.1"
 tags        = ["database", "sql"]

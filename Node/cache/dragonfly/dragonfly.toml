@@ -1,7 +1,8 @@
 [module]
 name        = "dragonfly"
 alias       = []
-type        = "cache"
+type         = "cache"
+capabilities = ["cache_redis"]
 author      = "FreeSynergy.Node"
 version     = "0.0.1"
 tags        = ["cache", "redis-compatible"]

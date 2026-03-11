@@ -1,4 +1,4 @@
-# Module class definition – maps to modules/observability/openobserver/openobserver.toml
+# Module class definition – maps to modules/monitoring/openobserver/openobserver.toml
 #
 # Field order (MANDATORY per RULES.md):
 #   module → vars → load → container → environment → setup
@@ -9,10 +9,10 @@
 [module]
 name        = "openobserver"
 alias       = ["o2", "logs", "monitoring"]
-type        = "observability"
+type        = "monitoring"
 author      = "FreeSynergy.Node"
 version     = "0.0.1"
-tags        = ["observability", "logs", "metrics", "traces", "monitoring"]
+tags        = ["monitoring", "observability", "logs", "metrics", "traces"]
 description = "OpenObserve – observability platform for logs, metrics and traces"
 website     = "https://openobserve.ai"
 repository  = "https://github.com/openobserve/openobserve"

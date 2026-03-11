@@ -2,6 +2,7 @@
 name        = "stalwart"
 alias       = ["mail"]
 type        = "mail"
+capabilities = ["mail_jmap"]
 author      = "FreeSynergy.Node"
 version     = "0.0.1"
 tags        = ["mail", "smtp", "imap", "jmap", "caldav", "carddav"]

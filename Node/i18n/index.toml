@@ -2,7 +2,7 @@
 #
 # Lists all available community language files.
 # The TUI reads this index from the Store to show downloadable languages
-# in Settings → Language.
+# in Settings → Languages.
 #
 # Fields:
 #   code         — BCP 47 language code (e.g. "de", "fr", "es")
@@ -13,9 +13,94 @@
 #   file         — Path relative to this index file
 
 [[languages]]
-code         = "de"
-name         = "Deutsch"
-api_version  = 1
-completeness = 100
-translator   = "FreeSynergy Team"
-file         = "de.toml"
+code = "be"; name = "Беларуская"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "be.toml"
+
+[[languages]]
+code = "bg"; name = "Български"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "bg.toml"
+
+[[languages]]
+code = "bn"; name = "বাংলা"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "bn.toml"
+
+[[languages]]
+code = "cs"; name = "Čeština"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "cs.toml"
+
+[[languages]]
+code = "da"; name = "Dansk"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "da.toml"
+
+[[languages]]
+code = "de"; name = "Deutsch"; api_version = 1; completeness = 100; translator = "FreeSynergy Team"; file = "de.toml"
+
+[[languages]]
+code = "el"; name = "Ελληνικά"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "el.toml"
+
+[[languages]]
+code = "es"; name = "Español"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "es.toml"
+
+[[languages]]
+code = "et"; name = "Eesti"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "et.toml"
+
+[[languages]]
+code = "fi"; name = "Suomi"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "fi.toml"
+
+[[languages]]
+code = "fr"; name = "Français"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "fr.toml"
+
+[[languages]]
+code = "hi"; name = "हिन्दी"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "hi.toml"
+
+[[languages]]
+code = "hr"; name = "Hrvatski"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "hr.toml"
+
+[[languages]]
+code = "hu"; name = "Magyar"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "hu.toml"
+
+[[languages]]
+code = "it"; name = "Italiano"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "it.toml"
+
+[[languages]]
+code = "lt"; name = "Lietuvių"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "lt.toml"
+
+[[languages]]
+code = "lv"; name = "Latviešu"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "lv.toml"
+
+[[languages]]
+code = "nl"; name = "Nederlands"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "nl.toml"
+
+[[languages]]
+code = "no"; name = "Norsk"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "no.toml"
+
+[[languages]]
+code = "pl"; name = "Polski"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "pl.toml"
+
+[[languages]]
+code = "pt"; name = "Português"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "pt.toml"
+
+[[languages]]
+code = "ro"; name = "Română"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ro.toml"
+
+[[languages]]
+code = "ru"; name = "Русский"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ru.toml"
+
+[[languages]]
+code = "sk"; name = "Slovenčina"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sk.toml"
+
+[[languages]]
+code = "sl"; name = "Slovenščina"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sl.toml"
+
+[[languages]]
+code = "sq"; name = "Shqip"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sq.toml"
+
+[[languages]]
+code = "sr"; name = "Српски"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sr.toml"
+
+[[languages]]
+code = "sv"; name = "Svenska"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sv.toml"
+
+[[languages]]
+code = "tr"; name = "Türkçe"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "tr.toml"
+
+[[languages]]
+code = "uk"; name = "Українська"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "uk.toml"
+
+[[languages]]
+code = "ur"; name = "اردو"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ur.toml"

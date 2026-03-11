@@ -1,0 +1,21 @@
+# FreeSynergy.Node – i18n language index
+#
+# Lists all available community language files.
+# The TUI reads this index from the Store to show downloadable languages
+# in Settings → Language.
+#
+# Fields:
+#   code         — BCP 47 language code (e.g. "de", "fr", "es")
+#   name         — Native language name
+#   api_version  — Must match TRANSLATION_API_VERSION in i18n.rs
+#   completeness — Percentage of keys translated (0–100)
+#   translator   — Who created/maintains this file
+#   file         — Path relative to this index file
+
+[[languages]]
+code         = "de"
+name         = "Deutsch"
+api_version  = 1
+completeness = 100
+translator   = "FreeSynergy Team"
+file         = "de.toml"

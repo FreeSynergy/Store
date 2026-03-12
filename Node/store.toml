@@ -1,0 +1,35 @@
+# FreeSynergy Store — Root Manifest
+#
+# Location Descriptor: the single entry point for the FSN store.
+# Points to all available catalogs with their integrity hashes.
+#
+# Chain of Trust:
+#   [Binary] pinned Ed25519 public key
+#     → [Fetch] store.toml  (Ed25519 signature in store.toml.sig)
+#       → [Fetch] catalog/*.toml  (SHA256 verified against this file)
+#         → [Fetch] individual files  (SHA256 verified against catalog)
+#
+# Pattern: Chain of Trust (security), Composite (manifest → catalogs → entries)
+#
+# store.toml.sig  — Ed25519 signature of this file (generated on release)
+# public_key      — base64-encoded Ed25519 public key (also pinned in FSN binary)
+#
+# URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/Node/store.toml
+
+[store]
+name       = "FreeSynergy Official Store"
+id         = "freesynergy-official"
+version    = 1
+public_key = "TODO:ed25519-public-key-base64"   # generated with: fsn store keygen
+
+[[catalogs]]
+id     = "modules"
+url    = "catalog/modules.toml"
+sha256 = "78dc11d1151e3848f8181942e1c24ce3dd7b5cef40b90b03ba50af9c71d86876"
+size   = 6380
+
+[[catalogs]]
+id     = "i18n"
+url    = "catalog/i18n.toml"
+sha256 = "7d9889121665646f84c210fd40dcf5fe58439d8338eb68b7370828a16eb65b6f"
+size   = 8444

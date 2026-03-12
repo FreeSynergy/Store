@@ -1,0 +1,144 @@
+# FreeSynergy Store — Module Catalog
+#
+# File Listing: lists every available module with its location and integrity hash.
+# This file is referenced by store.toml; its own SHA256 is stored there.
+#
+# Pattern: Composite (catalog → entries), Strategy (hash verification per entry)
+#
+# Fields:
+#   id       — flat module identifier (no type-based hierarchy)
+#   name     — display name
+#   file     — path relative to Store/Node/ root
+#   sha256   — SHA256 of the referenced file (hex)
+#   size     — file size in bytes
+
+# ── Proxy ─────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "zentinel"
+name   = "Zentinel"
+file   = "modules/proxy/zentinel/zentinel.toml"
+sha256 = "23029ba9ace775806c700518e51fc74eab587c37962a789d13f72b8c947f6b3a"
+size   = 2299
+
+[[modules]]
+id     = "zentinel-control-plane"
+name   = "Zentinel Control Plane"
+file   = "modules/proxy/zentinel/zentinel-control-plane/zentinel-control-plane.toml"
+sha256 = "173b129b0c86a62220fc5c22684cb090390e18b33eca409f2ee04ea7d41b3483"
+size   = 2093
+
+# ── IAM ───────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "kanidm"
+name   = "Kanidm"
+file   = "modules/iam/kanidm/kanidm.toml"
+sha256 = "01f3fe64c70a9d142dd52b8c284c4b5d675d590f18e4d515647bda1af5ddd5d5"
+size   = 1414
+
+# ── Git ───────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "forgejo"
+name   = "Forgejo"
+file   = "modules/git/forgejo/forgejo.toml"
+sha256 = "8abe1a18c638ae96c1afc8df4c861d374e534f567ad344fe1ee9d60903b82692"
+size   = 4569
+
+# ── Wiki ──────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "outline"
+name   = "Outline"
+file   = "modules/wiki/outline/outline.toml"
+sha256 = "d7b8c78d63d154a0bb4ee9325bc740a728f49d9307535e13c417ae047e718c52"
+size   = 4334
+
+# ── Mail ──────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "stalwart"
+name   = "Stalwart"
+file   = "modules/mail/stalwart/stalwart.toml"
+sha256 = "9721ec19894ce50da5248d27009e0043eab3bdae685a88e46d35fb7a8ca539db"
+size   = 1962
+
+# ── Chat ──────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "tuwunel"
+name   = "Tuwunel"
+file   = "modules/chat/tuwunel/tuwunel.toml"
+sha256 = "006a6608692df7ea8ec8ff4a8e078b17dd76f3d6a30cb66ad90daa42bedf79da"
+size   = 2274
+
+# ── Collab ────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "cryptpad"
+name   = "CryptPad"
+file   = "modules/collab/cryptpad/cryptpad.toml"
+sha256 = "b2e5a2030300fff379aca6b283143cf011aeb204add4dce2216ca88184239667"
+size   = 2187
+
+# ── Tasks ─────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "vikunja"
+name   = "Vikunja"
+file   = "modules/tasks/vikunja/vikunja.toml"
+sha256 = "035b3846ef4728dc2cb61250835d208ef34716706f8a10f30b7786600d6808ba"
+size   = 3704
+
+# ── Tickets ───────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "pretix"
+name   = "Pretix"
+file   = "modules/tickets/pretix/pretix.toml"
+sha256 = "4e7b93c774b8fe9fbc16257a049580a663b6414d7dadabb0fbf5a1cfe1082804"
+size   = 4336
+
+# ── Maps ──────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "umap"
+name   = "uMap"
+file   = "modules/maps/umap/umap.toml"
+sha256 = "0a002c68fab59989d228bac5dcc00f9310821767c67cef7dc6cb46c27d269e78"
+size   = 2578
+
+# ── Monitoring ────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "openobserver"
+name   = "OpenObserve"
+file   = "modules/monitoring/openobserver/openobserver.toml"
+sha256 = "1b1cfa1915ddcd1f6c3db4b4706ac88b65be484b96f136c72d8458020b60ab09"
+size   = 2507
+
+[[modules]]
+id     = "otel-collector"
+name   = "OpenTelemetry Collector"
+file   = "modules/monitoring/otel-collector/otel-collector.toml"
+sha256 = "62f27db8c8d1e4a039f18596b4f0fa7e3554c334ee791135bcb780ef40b5e18f"
+size   = 2049
+
+# ── Database ──────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "postgres"
+name   = "PostgreSQL"
+file   = "modules/database/postgres/postgres.toml"
+sha256 = "2c7af9bffebee7fc4cf82f6cea3bcd1bba943a9b669c2bc3a9384791f7c352c9"
+size   = 1462
+
+# ── Cache ─────────────────────────────────────────────────────────────────────
+
+[[modules]]
+id     = "dragonfly"
+name   = "Dragonfly"
+file   = "modules/cache/dragonfly/dragonfly.toml"
+sha256 = "c392fa0c6d373ead660e8283e7478084b1c65ba7a4740d54b03175ecf67ff285"
+size   = 1915

@@ -55,7 +55,16 @@ code = "hr"; name = "Hrvatski"; api_version = 1; completeness = 100; translator 
 code = "hu"; name = "Magyar"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "hu.toml"
 
 [[languages]]
+code = "id"; name = "Bahasa Indonesia"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "id.toml"
+
+[[languages]]
 code = "it"; name = "Italiano"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "it.toml"
+
+[[languages]]
+code = "ja"; name = "日本語"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ja.toml"
+
+[[languages]]
+code = "ko"; name = "한국어"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ko.toml"
 
 [[languages]]
 code = "lt"; name = "Lietuvių"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "lt.toml"
@@ -104,3 +113,48 @@ code = "uk"; name = "Українська"; api_version = 1; completeness = 100;
 
 [[languages]]
 code = "ur"; name = "اردو"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ur.toml"
+
+[[languages]]
+code = "vi"; name = "Tiếng Việt"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "vi.toml"
+
+[[languages]]
+code = "am"; name = "አማርኛ"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "am.toml"
+
+[[languages]]
+code = "ar"; name = "العربية"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ar.toml"
+
+[[languages]]
+code = "fa"; name = "فارسی"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "fa.toml"
+
+[[languages]]
+code = "ha"; name = "Hausa"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ha.toml"
+
+[[languages]]
+code = "jv"; name = "Basa Jawa"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "jv.toml"
+
+[[languages]]
+code = "mr"; name = "मराठी"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "mr.toml"
+
+[[languages]]
+code = "pa"; name = "ਪੰਜਾਬੀ"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "pa.toml"
+
+[[languages]]
+code = "ps"; name = "پښتو"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ps.toml"
+
+[[languages]]
+code = "sw"; name = "Kiswahili"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "sw.toml"
+
+[[languages]]
+code = "ta"; name = "தமிழ்"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "ta.toml"
+
+[[languages]]
+code = "te"; name = "తెలుగు"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "te.toml"
+
+[[languages]]
+code = "th"; name = "ภาษาไทย"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "th.toml"
+
+[[languages]]
+code = "yo"; name = "Yorùbá"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "yo.toml"
+
+[[languages]]
+code = "yue"; name = "粵語"; api_version = 1; completeness = 100; translator = "AI Assistant"; file = "yue.toml"

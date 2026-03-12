@@ -1,0 +1,209 @@
+# FreeSynergy Store — i18n Catalog
+#
+# File Listing: lists every available language file with its location and integrity hash.
+# This file is referenced by store.toml; its own SHA256 is stored there.
+#
+# Pattern: Composite (catalog → entries), Strategy (hash verification per entry)
+#
+# Fields:
+#   code     — BCP 47 language code
+#   name     — native language name
+#   file     — path relative to Store/Node/ root
+#   sha256   — SHA256 of the referenced file (hex)
+#   size     — file size in bytes
+
+[[languages]]
+code = "am"; name = "አማርኛ"
+file = "i18n/am.toml"; sha256 = "de7cce2a4ce49afdbb9246f423948ab9f85f63cb625aa9db1a2598f544200520"; size = 16761
+
+[[languages]]
+code = "ar"; name = "العربية"
+file = "i18n/ar.toml"; sha256 = "c96ba90868e46d680c85c298934fd0a08702287798e5312d7c8e6a763e020e8a"; size = 15349
+
+[[languages]]
+code = "be"; name = "Беларуская"
+file = "i18n/be.toml"; sha256 = "3737c4576f27017de64823caee4b927d7161e4e9090305897a8e2f3a7e0ec145"; size = 17319
+
+[[languages]]
+code = "bg"; name = "Български"
+file = "i18n/bg.toml"; sha256 = "91ee1d6f9e9a0afdd1bfa7cfd0d47f28eb08056c71c00cc0e2375637a895b3ff"; size = 17279
+
+[[languages]]
+code = "bn"; name = "বাংলা"
+file = "i18n/bn.toml"; sha256 = "d447c78c96f4affd139aec156ebbc12d7e5086d8fced1b250104f33f285c5c85"; size = 20637
+
+[[languages]]
+code = "cs"; name = "Čeština"
+file = "i18n/cs.toml"; sha256 = "136233518aeef6e4baad2492ae5b001234477004ec3f5fcc37d1b191869f0797"; size = 13322
+
+[[languages]]
+code = "da"; name = "Dansk"
+file = "i18n/da.toml"; sha256 = "14b513fcaed7642abfbe339df0f64c4a96e6770a6e9d545fb8bc9ec1f7459d17"; size = 12563
+
+[[languages]]
+code = "de"; name = "Deutsch"
+file = "i18n/de.toml"; sha256 = "5957d198bf7dfcbe31c50dc4b3089d7be1e5aca1c7d5936555418432e92a038a"; size = 12667
+
+[[languages]]
+code = "el"; name = "Ελληνικά"
+file = "i18n/el.toml"; sha256 = "ea390aeb91af22e4cdfc98e1e734837c511c0a310d9569738bcfef1b354317b3"; size = 18168
+
+[[languages]]
+code = "es"; name = "Español"
+file = "i18n/es.toml"; sha256 = "158f5ea974c2d23fa11b78c4608edf8d663e84bdabd963232b1865eee5a5968d"; size = 13337
+
+[[languages]]
+code = "et"; name = "Eesti"
+file = "i18n/et.toml"; sha256 = "b874fe4ca10d1c74231a82e7457201c115301b3b45d63b30df1197436531e5d9"; size = 12722
+
+[[languages]]
+code = "fa"; name = "فارسی"
+file = "i18n/fa.toml"; sha256 = "0bf7c0ef3ccca65e8a6999038b3006e724f65fbca23434ec3492ed9ea7684a7c"; size = 15704
+
+[[languages]]
+code = "fi"; name = "Suomi"
+file = "i18n/fi.toml"; sha256 = "f487d3b75aa421ad633394deb1065ebab162463e7dfc1d7cb3de4a17cfa28aee"; size = 13503
+
+[[languages]]
+code = "fr"; name = "Français"
+file = "i18n/fr.toml"; sha256 = "e5e29fb63feb485f280cf4096a2622cb43ea49e5d306baa00a37e8c5e3ec3a9c"; size = 12936
+
+[[languages]]
+code = "ha"; name = "Hausa"
+file = "i18n/ha.toml"; sha256 = "ccaf57b3a6ebe0fe3ae2d574fca808fbe1096aac9223a9728d6d8d8ea640e460"; size = 12891
+
+[[languages]]
+code = "hi"; name = "हिन्दी"
+file = "i18n/hi.toml"; sha256 = "627cb2c71ec4690fbf5ea6726cbeb72d5a8964e7f5276ccdef795677abb05163"; size = 20302
+
+[[languages]]
+code = "hr"; name = "Hrvatski"
+file = "i18n/hr.toml"; sha256 = "06a52d01a4db49577d70bdc2b1bcd58c6e5ec271f8bd482e86cb57ae951df86a"; size = 12918
+
+[[languages]]
+code = "hu"; name = "Magyar"
+file = "i18n/hu.toml"; sha256 = "1e077325694f13dce602abc96e6e73f125d182f005c6091d15eba3b21b850008"; size = 13222
+
+[[languages]]
+code = "id"; name = "Bahasa Indonesia"
+file = "i18n/id.toml"; sha256 = "d07be0594976e1e81ee8ce476b4ba86fe1b624504dc6c311389d4d04236a47e0"; size = 12363
+
+[[languages]]
+code = "it"; name = "Italiano"
+file = "i18n/it.toml"; sha256 = "054808cc31138b90e1c49de1a453638790894d3fccefbf84252152255229d603"; size = 12950
+
+[[languages]]
+code = "ja"; name = "日本語"
+file = "i18n/ja.toml"; sha256 = "3a79f8307f8cea3748a597945c41c850dc441c0898ae0a9cf0ec1a36f07c06d6"; size = 14803
+
+[[languages]]
+code = "jv"; name = "Basa Jawa"
+file = "i18n/jv.toml"; sha256 = "cdf5ccd18c089754deb33df533c61885fc4279a2e4abe5842953d236d29a927f"; size = 12617
+
+[[languages]]
+code = "ko"; name = "한국어"
+file = "i18n/ko.toml"; sha256 = "07bac38d1ea4f7de88679f441336c9538f34017bf5518ad29ad3311394c15494"; size = 13474
+
+[[languages]]
+code = "lt"; name = "Lietuvių"
+file = "i18n/lt.toml"; sha256 = "e6f2081b58351a8435c1ada309fc4163355bac2247a2dfcd97699c4712b0bb8e"; size = 13690
+
+[[languages]]
+code = "lv"; name = "Latviešu"
+file = "i18n/lv.toml"; sha256 = "8ddd40142d9e1aed5461b82aafb8acd32ee304445ffa3d3fc7854a248f2f836d"; size = 13503
+
+[[languages]]
+code = "mr"; name = "मराठी"
+file = "i18n/mr.toml"; sha256 = "b94a4df63996e145987793b9831606d81bf3965c44a1843882db7b79f6310ec1"; size = 20209
+
+[[languages]]
+code = "nl"; name = "Nederlands"
+file = "i18n/nl.toml"; sha256 = "62d35fd766ebbb5b9e1e13a4ea9fde481be29ba8a82ff28a1105b1c65fdf4cf8"; size = 12273
+
+[[languages]]
+code = "no"; name = "Norsk"
+file = "i18n/no.toml"; sha256 = "740d094919714b35bc9ac80f8a3e568b599a31ad7c7251804f58aaac916bd409"; size = 12574
+
+[[languages]]
+code = "pa"; name = "ਪੰਜਾਬੀ"
+file = "i18n/pa.toml"; sha256 = "0ed9c01eeddbf005cc852e739e9da576360c0a31b09076dfc72dfeb7d213ca74"; size = 19578
+
+[[languages]]
+code = "pl"; name = "Polski"
+file = "i18n/pl.toml"; sha256 = "21ed01dfacc15e54bdbc99937ba7e253aea399fb3f3249d81e206a14d7df0448"; size = 12371
+
+[[languages]]
+code = "ps"; name = "پښتو"
+file = "i18n/ps.toml"; sha256 = "e9084850efddae32e2316cd71067cf4dd43a0019b173f9d614e81abcbb23b52d"; size = 15278
+
+[[languages]]
+code = "pt"; name = "Português"
+file = "i18n/pt.toml"; sha256 = "026d48de6191f7f8450583aaaceab0f6a2d14c22f2d1835856e131b933eea964"; size = 12537
+
+[[languages]]
+code = "ro"; name = "Română"
+file = "i18n/ro.toml"; sha256 = "d1ff5b1fe4d1ab62a84b30ced04ea2c254da035c5e3071b37f8f3f751a420afb"; size = 13224
+
+[[languages]]
+code = "ru"; name = "Русский"
+file = "i18n/ru.toml"; sha256 = "705234121ab0dd44a0fa72f3c015dfa690b9807b1e7bc6a5bd09bb2c8626e735"; size = 17546
+
+[[languages]]
+code = "sk"; name = "Slovenčina"
+file = "i18n/sk.toml"; sha256 = "7117b1e401e0a75092210404492a82b2d188ed020d7b8e5a38a996afa4211e3f"; size = 13429
+
+[[languages]]
+code = "sl"; name = "Slovenščina"
+file = "i18n/sl.toml"; sha256 = "439cf426220306922923d4790806a1c69024be0f2c6dd9580b72de74e2bb29e8"; size = 12996
+
+[[languages]]
+code = "sq"; name = "Shqip"
+file = "i18n/sq.toml"; sha256 = "bd25922dca0b5c361eb37098dc7c8a6fad209c544cabae1662e0292895ecdcb9"; size = 13302
+
+[[languages]]
+code = "sr"; name = "Српски"
+file = "i18n/sr.toml"; sha256 = "81696390adb04f67f705cec467ef3dd008299ad4b9e897edf2355ca15dd6472d"; size = 17058
+
+[[languages]]
+code = "sv"; name = "Svenska"
+file = "i18n/sv.toml"; sha256 = "e7b129a70602688f07afc8d3437d4d81f01c2140c5d9143d670991ca7644c363"; size = 12687
+
+[[languages]]
+code = "sw"; name = "Kiswahili"
+file = "i18n/sw.toml"; sha256 = "f33042677457b962e3d62dba5e45840e90ab984e6e5189b941417f0ec2d4ddff"; size = 12864
+
+[[languages]]
+code = "ta"; name = "தமிழ்"
+file = "i18n/ta.toml"; sha256 = "51e7fb20a7cb2f499602af31d7d5e3b1229c59a69c39fc5c88fd03617e03aa62"; size = 23226
+
+[[languages]]
+code = "te"; name = "తెలుగు"
+file = "i18n/te.toml"; sha256 = "9289311660f6106387066ab47a764bf8fa89421b1a623531704fc004c0c44256"; size = 23210
+
+[[languages]]
+code = "th"; name = "ภาษาไทย"
+file = "i18n/th.toml"; sha256 = "43388b4fd4fb5f0035cc591e237f07bbebb2521750edd81f5056f8f9b2a241e5"; size = 20444
+
+[[languages]]
+code = "tr"; name = "Türkçe"
+file = "i18n/tr.toml"; sha256 = "192a1a3d2d8c5218d53ea2a2d2ac8b3ae59521d3ae4c0f6df33dc56633e94118"; size = 13001
+
+[[languages]]
+code = "uk"; name = "Українська"
+file = "i18n/uk.toml"; sha256 = "421df8b67f00ffa50cf10160ababe8e0b968fbd0665463e17b51f31ec5039449"; size = 17460
+
+[[languages]]
+code = "ur"; name = "اردو"
+file = "i18n/ur.toml"; sha256 = "06170d57f59d70aa8c7bf0dfca40aba0d736b2c9048e11ce59f5705cbd5327f5"; size = 15934
+
+[[languages]]
+code = "vi"; name = "Tiếng Việt"
+file = "i18n/vi.toml"; sha256 = "748d815f9023dbe6946a3bf8cfc5214b04c68bd938e3df206e86417cfd2d0fa0"; size = 14446
+
+[[languages]]
+code = "yo"; name = "Yorùbá"
+file = "i18n/yo.toml"; sha256 = "6b1ea6ee86cad76c80401f8c5542709a55db800a5f808141128390ed56787c97"; size = 15513
+
+[[languages]]
+code = "yue"; name = "粵語"
+file = "i18n/yue.toml"; sha256 = "00fe7cc56380784c9fcae56c3cadb871dd0ac9e00af5d30ff2115584a3f34331"; size = 12655

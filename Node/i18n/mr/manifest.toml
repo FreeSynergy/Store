@@ -1,0 +1,22 @@
+# FreeSynergy Store — i18n package manifest
+
+[package]
+id          = 'i18n/mr'
+name        = 'मराठी'
+version     = '1.0.0'
+category    = 'i18n.locale'
+description = 'मराठी translation for FreeSynergy.Node'
+license     = 'Apache-2.0'
+author      = 'FreeSynergy'
+tags        = ['i18n', 'mr']
+
+[package.compat]
+min_app_version = '0.1.0'
+projects        = ['Node']
+
+[i18n]
+locale_code  = 'mr'
+native_name  = 'मराठी'
+direction    = 'ltr'
+completeness = 100
+api_version  = 1

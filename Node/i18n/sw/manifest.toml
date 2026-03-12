@@ -1,0 +1,22 @@
+# FreeSynergy Store — i18n package manifest
+
+[package]
+id          = 'i18n/sw'
+name        = 'Kiswahili'
+version     = '1.0.0'
+category    = 'i18n.locale'
+description = 'Kiswahili translation for FreeSynergy.Node'
+license     = 'Apache-2.0'
+author      = 'FreeSynergy'
+tags        = ['i18n', 'sw']
+
+[package.compat]
+min_app_version = '0.1.0'
+projects        = ['Node']
+
+[i18n]
+locale_code  = 'sw'
+native_name  = 'Kiswahili'
+direction    = 'ltr'
+completeness = 100
+api_version  = 1

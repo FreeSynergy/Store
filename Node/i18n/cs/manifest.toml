@@ -1,0 +1,22 @@
+# FreeSynergy Store — i18n package manifest
+
+[package]
+id          = 'i18n/cs'
+name        = 'Čeština'
+version     = '1.0.0'
+category    = 'i18n.locale'
+description = 'Čeština translation for FreeSynergy.Node'
+license     = 'Apache-2.0'
+author      = 'FreeSynergy'
+tags        = ['i18n', 'cs']
+
+[package.compat]
+min_app_version = '0.1.0'
+projects        = ['Node']
+
+[i18n]
+locale_code  = 'cs'
+native_name  = 'Čeština'
+direction    = 'ltr'
+completeness = 100
+api_version  = 1

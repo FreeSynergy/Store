@@ -1,0 +1,22 @@
+# FreeSynergy Store — i18n package manifest
+
+[package]
+id          = 'i18n/vi'
+name        = 'Tiếng Việt'
+version     = '1.0.0'
+category    = 'i18n.locale'
+description = 'Tiếng Việt translation for FreeSynergy.Node'
+license     = 'Apache-2.0'
+author      = 'FreeSynergy'
+tags        = ['i18n', 'vi']
+
+[package.compat]
+min_app_version = '0.1.0'
+projects        = ['Node']
+
+[i18n]
+locale_code  = 'vi'
+native_name  = 'Tiếng Việt'
+direction    = 'ltr'
+completeness = 100
+api_version  = 1

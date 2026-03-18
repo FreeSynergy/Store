@@ -1,0 +1,43 @@
+name: Validate Store
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate store catalog
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Store
+        uses: actions/checkout@v4
+        with:
+          path: Store
+
+      - name: Checkout FreeSynergy.Node
+        uses: actions/checkout@v4
+        with:
+          repository: FreeSynergy/Node
+          path: Node
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            Node/cli/target
+          key: ubuntu-validate-cargo-${{ hashFiles('Node/cli/Cargo.lock') }}
+          restore-keys: ubuntu-validate-cargo-
+
+      - name: Build fsn-builder
+        working-directory: Node/cli
+        run: cargo build --release -p fsn-builder
+
+      - name: Validate node catalog
+        run: Node/cli/target/release/fsn-builder validate-store Store node

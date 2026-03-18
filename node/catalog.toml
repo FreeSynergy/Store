@@ -24,7 +24,7 @@ name        = "Zentinel"
 category    = "deploy.proxy"
 version     = "0.1.0"
 description = "Pingora-based reverse proxy with automatic TLS, DNS challenge support and KDL-driven config"
-icon        = "modules/proxy/zentinel/zentinel.svg"
+icon        = "homarrlabs/traefik.svg"
 license     = "Apache-2.0"
 path        = "node/modules/proxy/zentinel"
 tags        = ["proxy", "tls", "pingora", "acme", "kdl"]
@@ -35,7 +35,7 @@ name        = "Kanidm"
 category    = "deploy.iam"
 version     = "0.1.0"
 description = "Lightweight, Rust-native identity provider with WebAuthn, LDAP and OAuth2"
-icon        = "modules/iam/kanidm/kanidm.svg"
+icon        = "homarrlabs/kanidm.svg"
 license     = "MPL-2.0"
 path        = "node/modules/iam/kanidm"
 tags        = ["iam", "auth", "webauthn", "ldap", "oauth2"]
@@ -46,7 +46,7 @@ name        = "Forgejo"
 category    = "deploy.git"
 version     = "0.1.0"
 description = "Self-hosted, community-driven Git forge — lightweight and privacy-friendly"
-icon        = "modules/git/forgejo/forgejo.svg"
+icon        = "homarrlabs/forgejo.svg"
 license     = "GPL-3.0"
 path        = "node/modules/git/forgejo"
 tags        = ["git", "forge", "ci", "issues"]
@@ -57,7 +57,7 @@ name        = "Outline"
 category    = "deploy.wiki"
 version     = "0.1.0"
 description = "Modern, beautiful knowledge base with real-time collaboration"
-icon        = "modules/wiki/outline/outline.svg"
+icon        = "homarrlabs/outline.svg"
 license     = "BSL-1.1"
 path        = "node/modules/wiki/outline"
 tags        = ["wiki", "knowledge-base", "collaboration", "markdown"]
@@ -68,7 +68,7 @@ name        = "Stalwart"
 category    = "deploy.mail"
 version     = "0.1.0"
 description = "All-in-one mail server: SMTP, IMAP, JMAP, webmail and admin UI"
-icon        = "modules/mail/stalwart/stalwart.svg"
+icon        = "homarrlabs/stalwart.svg"
 license     = "AGPL-3.0"
 path        = "node/modules/mail/stalwart"
 tags        = ["mail", "smtp", "imap", "jmap", "webmail"]
@@ -79,7 +79,7 @@ name        = "Tuwunel"
 category    = "deploy.chat"
 version     = "0.1.0"
 description = "High-performance Matrix homeserver — fork of Conduit, written in Rust"
-icon        = "modules/chat/tuwunel/tuwunel.svg"
+icon        = "homarrlabs/matrix.svg"
 license     = "Apache-2.0"
 path        = "node/modules/chat/tuwunel"
 tags        = ["chat", "matrix", "federation", "rust"]
@@ -90,7 +90,7 @@ name        = "CryptPad"
 category    = "deploy.collab"
 version     = "0.1.0"
 description = "End-to-end encrypted collaborative office suite — documents, sheets, presentations"
-icon        = "modules/collab/cryptpad/cryptpad.svg"
+icon        = "homarrlabs/cryptpad.svg"
 license     = "AGPL-3.0"
 path        = "node/modules/collab/cryptpad"
 tags        = ["collab", "office", "encrypted", "privacy"]
@@ -101,7 +101,7 @@ name        = "Vikunja"
 category    = "deploy.tasks"
 version     = "0.1.0"
 description = "Open-source to-do app and project manager with REST API and CalDAV"
-icon        = "modules/tasks/vikunja/vikunja.svg"
+icon        = "homarrlabs/vikunja.svg"
 license     = "AGPL-3.0"
 path        = "node/modules/tasks/vikunja"
 tags        = ["tasks", "todo", "projects", "caldav"]
@@ -112,7 +112,7 @@ name        = "Pretix"
 category    = "deploy.tickets"
 version     = "0.1.0"
 description = "Event ticketing system with shop, badges and check-in app"
-icon        = "modules/tickets/pretix/pretix.svg"
+icon        = "homarrlabs/pretix.svg"
 license     = "AGPL-3.0"
 path        = "node/modules/tickets/pretix"
 tags        = ["tickets", "events", "shop", "checkin"]
@@ -123,7 +123,7 @@ name        = "uMap"
 category    = "deploy.maps"
 version     = "0.1.0"
 description = "Create and share maps using OpenStreetMap layers — no account required"
-icon        = "modules/maps/umap/umap.svg"
+icon        = "homarrlabs/openstreetmap.svg"
 license     = "LGPL-3.0"
 path        = "node/modules/maps/umap"
 tags        = ["maps", "openstreetmap", "geo", "sharing"]
@@ -134,7 +134,7 @@ name        = "OpenObserve"
 category    = "deploy.monitoring"
 version     = "0.1.0"
 description = "Cloud-native observability platform — logs, metrics, traces in one UI"
-icon        = "modules/monitoring/openobserver/openobserver.svg"
+icon        = "homarrlabs/open-observe.svg"
 license     = "AGPL-3.0"
 path        = "node/modules/monitoring/openobserver"
 tags        = ["monitoring", "observability", "logs", "metrics", "traces"]
@@ -145,7 +145,7 @@ name        = "PostgreSQL"
 category    = "deploy.database"
 version     = "0.1.0"
 description = "The world's most advanced open-source relational database"
-icon        = "modules/database/postgres/postgres.svg"
+icon        = "homarrlabs/postgresql.svg"
 license     = "PostgreSQL"
 path        = "node/modules/database/postgres"
 tags        = ["database", "sql", "postgres", "relational"]
@@ -156,108 +156,110 @@ name        = "Dragonfly"
 category    = "deploy.cache"
 version     = "0.1.0"
 description = "Modern in-memory store — drop-in Redis/Memcached replacement, 25x faster"
-icon        = "modules/cache/dragonfly/dragonfly.svg"
+icon        = "homarrlabs/redis.svg"
 license     = "BSL-1.1"
 path        = "node/modules/cache/dragonfly"
 tags        = ["cache", "redis", "memcached", "in-memory"]
 
 # ── Locales ───────────────────────────────────────────────────────────────────
+# All locales share the same We10X locale icon (preferences-desktop-locale).
+# icon = "we10x/apps/scalable/preferences-desktop-locale.svg"
 
 [[locales]]
-code = "am"; name = "አማርኛ";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/am"
+code = "am"; name = "አማርኛ";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/am"
 [[locales]]
-code = "ar"; name = "العربية";       version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; path        = "node/i18n/ar"
+code = "ar"; name = "العربية";       version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ar"
 [[locales]]
-code = "be"; name = "Беларуская";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/be"
+code = "be"; name = "Беларуская";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/be"
 [[locales]]
-code = "bg"; name = "Български";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/bg"
+code = "bg"; name = "Български";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/bg"
 [[locales]]
-code = "bn"; name = "বাংলা";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/bn"
+code = "bn"; name = "বাংলা";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/bn"
 [[locales]]
-code = "cs"; name = "Čeština";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/cs"
+code = "cs"; name = "Čeština";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/cs"
 [[locales]]
-code = "da"; name = "Dansk";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/da"
+code = "da"; name = "Dansk";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/da"
 [[locales]]
-code = "de"; name = "Deutsch";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/de"
+code = "de"; name = "Deutsch";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/de"
 [[locales]]
-code = "el"; name = "Ελληνικά";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/el"
+code = "el"; name = "Ελληνικά";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/el"
 [[locales]]
-code = "es"; name = "Español";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/es"
+code = "es"; name = "Español";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/es"
 [[locales]]
-code = "et"; name = "Eesti";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/et"
+code = "et"; name = "Eesti";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/et"
 [[locales]]
-code = "fa"; name = "فارسی";         version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; path        = "node/i18n/fa"
+code = "fa"; name = "فارسی";         version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/fa"
 [[locales]]
-code = "fi"; name = "Suomi";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/fi"
+code = "fi"; name = "Suomi";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/fi"
 [[locales]]
-code = "fr"; name = "Français";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/fr"
+code = "fr"; name = "Français";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/fr"
 [[locales]]
-code = "ha"; name = "Hausa";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ha"
+code = "ha"; name = "Hausa";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ha"
 [[locales]]
-code = "hi"; name = "हिन्दी";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/hi"
+code = "hi"; name = "हिन्दी";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/hi"
 [[locales]]
-code = "hr"; name = "Hrvatski";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/hr"
+code = "hr"; name = "Hrvatski";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/hr"
 [[locales]]
-code = "hu"; name = "Magyar";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/hu"
+code = "hu"; name = "Magyar";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/hu"
 [[locales]]
-code = "id"; name = "Bahasa Indonesia"; version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/id"
+code = "id"; name = "Bahasa Indonesia"; version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/id"
 [[locales]]
-code = "it"; name = "Italiano";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/it"
+code = "it"; name = "Italiano";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/it"
 [[locales]]
-code = "ja"; name = "日本語";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ja"
+code = "ja"; name = "日本語";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ja"
 [[locales]]
-code = "jv"; name = "Basa Jawa";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/jv"
+code = "jv"; name = "Basa Jawa";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/jv"
 [[locales]]
-code = "ko"; name = "한국어";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ko"
+code = "ko"; name = "한국어";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ko"
 [[locales]]
-code = "lt"; name = "Lietuvių";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/lt"
+code = "lt"; name = "Lietuvių";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/lt"
 [[locales]]
-code = "lv"; name = "Latviešu";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/lv"
+code = "lv"; name = "Latviešu";     version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/lv"
 [[locales]]
-code = "mr"; name = "मराठी";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/mr"
+code = "mr"; name = "मराठी";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/mr"
 [[locales]]
-code = "nl"; name = "Nederlands";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/nl"
+code = "nl"; name = "Nederlands";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/nl"
 [[locales]]
-code = "no"; name = "Norsk";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/no"
+code = "no"; name = "Norsk";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/no"
 [[locales]]
-code = "pa"; name = "ਪੰਜਾਬੀ";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/pa"
+code = "pa"; name = "ਪੰਜਾਬੀ";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/pa"
 [[locales]]
-code = "pl"; name = "Polski";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/pl"
+code = "pl"; name = "Polski";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/pl"
 [[locales]]
-code = "ps"; name = "پښتو";          version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; path        = "node/i18n/ps"
+code = "ps"; name = "پښتو";          version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ps"
 [[locales]]
-code = "pt"; name = "Português";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/pt"
+code = "pt"; name = "Português";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/pt"
 [[locales]]
-code = "ro"; name = "Română";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ro"
+code = "ro"; name = "Română";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ro"
 [[locales]]
-code = "ru"; name = "Русский";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ru"
+code = "ru"; name = "Русский";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ru"
 [[locales]]
-code = "sk"; name = "Slovenčina";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sk"
+code = "sk"; name = "Slovenčina";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sk"
 [[locales]]
-code = "sl"; name = "Slovenščina";  version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sl"
+code = "sl"; name = "Slovenščina";  version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sl"
 [[locales]]
-code = "sq"; name = "Shqip";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sq"
+code = "sq"; name = "Shqip";        version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sq"
 [[locales]]
-code = "sr"; name = "Српски";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sr"
+code = "sr"; name = "Српски";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sr"
 [[locales]]
-code = "sv"; name = "Svenska";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sv"
+code = "sv"; name = "Svenska";      version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sv"
 [[locales]]
-code = "sw"; name = "Kiswahili";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/sw"
+code = "sw"; name = "Kiswahili";    version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/sw"
 [[locales]]
-code = "ta"; name = "தமிழ்";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/ta"
+code = "ta"; name = "தமிழ்";          version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ta"
 [[locales]]
-code = "te"; name = "తెలుగు";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/te"
+code = "te"; name = "తెలుగు";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/te"
 [[locales]]
-code = "th"; name = "ภาษาไทย";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/th"
+code = "th"; name = "ภาษาไทย";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/th"
 [[locales]]
-code = "tr"; name = "Türkçe";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/tr"
+code = "tr"; name = "Türkçe";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/tr"
 [[locales]]
-code = "uk"; name = "Українська";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/uk"
+code = "uk"; name = "Українська";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/uk"
 [[locales]]
-code = "ur"; name = "اردو";          version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; path        = "node/i18n/ur"
+code = "ur"; name = "اردو";          version = "1.0.0"; completeness = 100; direction = "rtl"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/ur"
 [[locales]]
-code = "vi"; name = "Tiếng Việt";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/vi"
+code = "vi"; name = "Tiếng Việt";   version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/vi"
 [[locales]]
-code = "yo"; name = "Yorùbá";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/yo"
+code = "yo"; name = "Yorùbá";       version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/yo"
 [[locales]]
-code = "yue"; name = "粵語";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; path        = "node/i18n/yue"
+code = "yue"; name = "粵語";         version = "1.0.0"; completeness = 100; direction = "ltr"; api_version = 1; icon = "we10x/apps/scalable/preferences-desktop-locale.svg"; path = "node/i18n/yue"

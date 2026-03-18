@@ -14,7 +14,7 @@
 # store.toml.sig  — Ed25519 signature of this file (generated on release)
 # public_key      — base64-encoded Ed25519 public key (also pinned in FSN binary)
 #
-# URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/Node/store.toml
+# URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/node/store.toml
 
 [store]
 name       = "FreeSynergy Official Store"

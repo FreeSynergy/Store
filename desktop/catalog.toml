@@ -1,0 +1,76 @@
+# FreeSynergy Store — Desktop Catalog
+#
+# URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/desktop/catalog.toml
+#
+# Lists all packages distributed via the Desktop Store:
+#   - Managers (built-in desktop components)
+#
+# Field order (packages): id → name → kind → category → version → description
+#   → icon → license → author → tags
+
+[catalog]
+project      = "Desktop"
+generated_at = "2026-03-19T00:00:00Z"
+version      = "1.0.0"
+
+# ── Managers ──────────────────────────────────────────────────────────────────
+
+[[packages]]
+id          = "manager-language"
+name        = "Language Manager"
+kind        = "manager"
+category    = "managers.language"
+version     = "1.0.0"
+description = "Install and switch interface language packs."
+icon        = "🌐"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["manager", "language", "i18n", "builtin"]
+
+[[packages]]
+id          = "manager-theme"
+name        = "Theme Manager"
+kind        = "manager"
+category    = "managers.theme"
+version     = "1.0.0"
+description = "Browse and apply desktop color themes."
+icon        = "🎨"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["manager", "theme", "appearance", "builtin"]
+
+[[packages]]
+id          = "manager-icons"
+name        = "Icons Manager"
+kind        = "manager"
+category    = "managers.icons"
+version     = "1.0.0"
+description = "Install custom icon sets for the desktop."
+icon        = "🖼"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["manager", "icons", "appearance", "builtin"]
+
+[[packages]]
+id          = "manager-container-app"
+name        = "Container App Manager"
+kind        = "manager"
+category    = "managers.container_app"
+version     = "1.0.0"
+description = "Manage Podman container apps and services."
+icon        = "📦"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["manager", "container", "podman", "builtin"]
+
+[[packages]]
+id          = "manager-bots"
+name        = "Bots Manager"
+kind        = "manager"
+category    = "managers.bots"
+version     = "1.0.0"
+description = "Configure and manage automation bots."
+icon        = "🤖"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["manager", "bots", "automation", "builtin"]

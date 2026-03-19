@@ -17,3 +17,5 @@ direction    = "ltr"
 completeness = 100
 
 programs = ["node", "desktop", "init"]
+family      = "Austroasiatic"
+continent   = "Asia"

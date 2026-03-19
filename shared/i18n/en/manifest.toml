@@ -23,3 +23,5 @@ completeness = 100
 
 # Programs covered by this language pack
 programs = ["node", "desktop", "init"]
+family      = "Indo-European"
+continent   = "Europe"

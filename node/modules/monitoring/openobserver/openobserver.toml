@@ -10,7 +10,8 @@
 name        = "openobserver"
 alias       = ["o2", "logs", "monitoring"]
 type        = "monitoring"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["monitoring", "observability", "logs", "metrics", "traces"]
 description = "OpenObserve – observability platform for logs, metrics and traces"

@@ -10,7 +10,8 @@
 name        = "pretix"
 alias       = ["tickets", "events"]
 type        = "tickets"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["tickets", "events", "registration", "shop"]
 description = "pretix – ticket sales and event registration with plugins"

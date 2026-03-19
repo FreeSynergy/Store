@@ -10,7 +10,8 @@
 name        = "umap"
 alias       = ["maps", "karten"]
 type        = "maps"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["maps", "openstreetmap", "geodata", "collaboration"]
 description = "uMap – collaborative maps with OpenStreetMap layers"

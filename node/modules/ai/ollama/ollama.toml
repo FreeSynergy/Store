@@ -7,7 +7,8 @@
 name        = "ollama"
 alias       = ["llm"]
 type        = "ai"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["ai", "llm", "inference", "ollama", "local-ai"]
 description = "Ollama local LLM inference server"

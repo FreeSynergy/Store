@@ -23,6 +23,7 @@ version     = "0.1.0"
 description = "Modular deployment engine for self-hosted services — CLI + API"
 icon        = "shared/icons/freesynergy-node.svg"
 license     = "MIT"
+author     = "Kal El"
 tags        = ["server", "deployment", "infrastructure", "cli"]
 repo        = "https://github.com/FreeSynergy/Node"
 
@@ -42,6 +43,7 @@ version     = "0.1.0"
 description = "Management UI for FreeSynergy — WebView-based desktop application"
 icon        = "shared/icons/freesynergy-desktop.svg"
 license     = "MIT"
+author     = "Kal El"
 tags        = ["desktop", "ui", "management", "webview"]
 repo        = "https://github.com/FreeSynergy/Desktop"
 
@@ -61,6 +63,7 @@ version     = "0.1.0"
 description = "Bootstrap tool — clones the Store and installs FreeSynergy on a new machine"
 icon        = "shared/icons/freesynergy-init.svg"
 license     = "MIT"
+author     = "Kal El"
 tags        = ["bootstrap", "install", "init", "setup"]
 repo        = "https://github.com/FreeSynergy/Init"
 

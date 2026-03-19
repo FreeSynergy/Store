@@ -2,7 +2,8 @@
 name        = "tuwunel"
 alias       = ["matrix", "chat"]
 type        = "chat"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["chat", "matrix", "messaging", "federation"]
 description = "Tuwunel Matrix homeserver (successor to conduwuit)"

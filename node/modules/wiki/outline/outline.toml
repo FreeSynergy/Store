@@ -2,7 +2,8 @@
 name        = "outline"
 alias       = ["wiki"]
 type        = "wiki"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["wiki", "knowledge", "docs"]
 description = "Outline collaborative wiki and knowledge base"

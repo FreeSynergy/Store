@@ -2,7 +2,8 @@
 name        = "forgejo"
 alias       = ["git"]
 type        = "git"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["git", "code", "forge"]
 description = "Forgejo self-hosted Git service"

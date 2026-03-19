@@ -26,6 +26,7 @@ version     = "0.1.0"
 description = "Pingora-based reverse proxy with automatic TLS, DNS challenge support and KDL-driven config"
 icon        = "homarrlabs/traefik.svg"
 license     = "Apache-2.0"
+author     = "Kal El"
 path        = "node/modules/proxy/zentinel"
 tags        = ["proxy", "tls", "pingora", "acme", "kdl"]
 
@@ -37,6 +38,7 @@ version     = "0.1.0"
 description = "Lightweight, Rust-native identity provider with WebAuthn, LDAP and OAuth2"
 icon        = "homarrlabs/kanidm.svg"
 license     = "MPL-2.0"
+author     = "Kal El"
 path        = "node/modules/iam/kanidm"
 tags        = ["iam", "auth", "webauthn", "ldap", "oauth2"]
 
@@ -48,6 +50,7 @@ version     = "0.1.0"
 description = "Self-hosted, community-driven Git forge — lightweight and privacy-friendly"
 icon        = "homarrlabs/forgejo.svg"
 license     = "GPL-3.0"
+author     = "Kal El"
 path        = "node/modules/git/forgejo"
 tags        = ["git", "forge", "ci", "issues"]
 
@@ -59,6 +62,7 @@ version     = "0.1.0"
 description = "Modern, beautiful knowledge base with real-time collaboration"
 icon        = "homarrlabs/outline.svg"
 license     = "BSL-1.1"
+author     = "Kal El"
 path        = "node/modules/wiki/outline"
 tags        = ["wiki", "knowledge-base", "collaboration", "markdown"]
 
@@ -70,6 +74,7 @@ version     = "0.1.0"
 description = "All-in-one mail server: SMTP, IMAP, JMAP, webmail and admin UI"
 icon        = "homarrlabs/stalwart.svg"
 license     = "AGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/mail/stalwart"
 tags        = ["mail", "smtp", "imap", "jmap", "webmail"]
 
@@ -81,6 +86,7 @@ version     = "0.1.0"
 description = "High-performance Matrix homeserver — fork of Conduit, written in Rust"
 icon        = "homarrlabs/matrix.svg"
 license     = "Apache-2.0"
+author     = "Kal El"
 path        = "node/modules/chat/tuwunel"
 tags        = ["chat", "matrix", "federation", "rust"]
 
@@ -92,6 +98,7 @@ version     = "0.1.0"
 description = "End-to-end encrypted collaborative office suite — documents, sheets, presentations"
 icon        = "homarrlabs/cryptpad.svg"
 license     = "AGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/collab/cryptpad"
 tags        = ["collab", "office", "encrypted", "privacy"]
 
@@ -103,6 +110,7 @@ version     = "0.1.0"
 description = "Open-source to-do app and project manager with REST API and CalDAV"
 icon        = "homarrlabs/vikunja.svg"
 license     = "AGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/tasks/vikunja"
 tags        = ["tasks", "todo", "projects", "caldav"]
 
@@ -114,6 +122,7 @@ version     = "0.1.0"
 description = "Event ticketing system with shop, badges and check-in app"
 icon        = "homarrlabs/pretix.svg"
 license     = "AGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/tickets/pretix"
 tags        = ["tickets", "events", "shop", "checkin"]
 
@@ -125,6 +134,7 @@ version     = "0.1.0"
 description = "Create and share maps using OpenStreetMap layers — no account required"
 icon        = "homarrlabs/openstreetmap.svg"
 license     = "LGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/maps/umap"
 tags        = ["maps", "openstreetmap", "geo", "sharing"]
 
@@ -136,6 +146,7 @@ version     = "0.1.0"
 description = "Cloud-native observability platform — logs, metrics, traces in one UI"
 icon        = "homarrlabs/open-observe.svg"
 license     = "AGPL-3.0"
+author     = "Kal El"
 path        = "node/modules/monitoring/openobserver"
 tags        = ["monitoring", "observability", "logs", "metrics", "traces"]
 
@@ -147,6 +158,7 @@ version     = "0.1.0"
 description = "The world's most advanced open-source relational database"
 icon        = "homarrlabs/postgresql.svg"
 license     = "PostgreSQL"
+author     = "Kal El"
 path        = "node/modules/database/postgres"
 tags        = ["database", "sql", "postgres", "relational"]
 
@@ -158,6 +170,7 @@ version     = "0.1.0"
 description = "Modern in-memory store — drop-in Redis/Memcached replacement, 25x faster"
 icon        = "homarrlabs/redis.svg"
 license     = "BSL-1.1"
+author     = "Kal El"
 path        = "node/modules/cache/dragonfly"
 tags        = ["cache", "redis", "memcached", "in-memory"]
 
@@ -169,6 +182,7 @@ version     = "0.0.1"
 description = "Local LLM inference server — run open models like Llama, Mistral and Gemma on your hardware"
 icon        = "homarrlabs/ollama.svg"
 license     = "MIT"
+author     = "Kal El"
 path        = "node/modules/ai/ollama"
 tags        = ["ai", "llm", "inference", "ollama", "local-ai", "gpu"]
 

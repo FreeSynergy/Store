@@ -17,7 +17,8 @@ description  = "Pingora-based reverse proxy with automatic TLS, DNS challenge su
 icon         = "proxy/zentinel/zentinel.svg"
 website      = "https://github.com/zentinelproxy/zentinel"
 repository   = "https://github.com/zentinelproxy/zentinel"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["proxy", "tls", "pingora", "acme", "kdl"]
 
 # ── IAM ───────────────────────────────────────────────────────────────────────
@@ -31,7 +32,8 @@ description  = "Lightweight, Rust-native identity provider with WebAuthn, LDAP a
 icon         = "iam/kanidm/kanidm.svg"
 website      = "https://kanidm.com"
 repository   = "https://github.com/kanidm/kanidm"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["iam", "auth", "webauthn", "ldap", "oauth2"]
 
 # ── Git ───────────────────────────────────────────────────────────────────────
@@ -45,7 +47,8 @@ description  = "Self-hosted, community-driven Git forge — lightweight and priv
 icon         = "git/forgejo/forgejo.svg"
 website      = "https://forgejo.org"
 repository   = "https://codeberg.org/forgejo/forgejo"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["git", "forge", "ci", "issues"]
 
 # ── Wiki ──────────────────────────────────────────────────────────────────────
@@ -59,7 +62,8 @@ description  = "Modern, beautiful knowledge base with real-time collaboration"
 icon         = "wiki/outline/outline.svg"
 website      = "https://www.getoutline.com"
 repository   = "https://github.com/outline/outline"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["wiki", "knowledge-base", "collaboration", "markdown"]
 
 # ── Mail ──────────────────────────────────────────────────────────────────────
@@ -73,7 +77,8 @@ description  = "All-in-one mail server: SMTP, IMAP, JMAP, webmail and admin UI"
 icon         = "mail/stalwart/stalwart.svg"
 website      = "https://stalw.art"
 repository   = "https://github.com/stalwartlabs/mail-server"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["mail", "smtp", "imap", "jmap", "webmail"]
 
 # ── Chat ──────────────────────────────────────────────────────────────────────
@@ -87,7 +92,8 @@ description  = "High-performance Matrix homeserver — fork of Conduit, written 
 icon         = "chat/tuwunel/tuwunel.svg"
 website      = "https://tuwunel.de"
 repository   = "https://github.com/tuwunel/tuwunel"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["chat", "matrix", "federation", "rust"]
 
 # ── Collab ────────────────────────────────────────────────────────────────────
@@ -101,7 +107,8 @@ description  = "End-to-end encrypted collaborative office suite — documents, s
 icon         = "collab/cryptpad/cryptpad.svg"
 website      = "https://cryptpad.org"
 repository   = "https://github.com/cryptpad/cryptpad"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["collab", "office", "encrypted", "privacy"]
 
 # ── Tasks ─────────────────────────────────────────────────────────────────────
@@ -115,7 +122,8 @@ description  = "Open-source to-do app and project manager with REST API and CalD
 icon         = "tasks/vikunja/vikunja.svg"
 website      = "https://vikunja.io"
 repository   = "https://kolaente.dev/vikunja/vikunja"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["tasks", "todo", "projects", "caldav"]
 
 # ── Tickets ───────────────────────────────────────────────────────────────────
@@ -129,7 +137,8 @@ description  = "Event ticketing system with shop, badges and check-in app"
 icon         = "tickets/pretix/pretix.svg"
 website      = "https://pretix.eu"
 repository   = "https://github.com/pretix/pretix"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["tickets", "events", "shop", "checkin"]
 
 # ── Maps ──────────────────────────────────────────────────────────────────────
@@ -143,7 +152,8 @@ description  = "Create and share maps using OpenStreetMap layers — no account 
 icon         = "maps/umap/umap.svg"
 website      = "https://umap-project.org"
 repository   = "https://github.com/umap-project/umap"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["maps", "openstreetmap", "geo", "sharing"]
 
 # ── Monitoring ────────────────────────────────────────────────────────────────
@@ -157,7 +167,8 @@ description  = "Cloud-native observability platform — logs, metrics, traces in
 icon         = "monitoring/openobserver/openobserver.svg"
 website      = "https://openobserve.ai"
 repository   = "https://github.com/openobserve/openobserve"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["monitoring", "observability", "logs", "metrics", "traces"]
 
 # ── Database ──────────────────────────────────────────────────────────────────
@@ -171,7 +182,8 @@ description  = "The world's most advanced open-source relational database"
 icon         = "database/postgres/postgres.svg"
 website      = "https://www.postgresql.org"
 repository   = "https://github.com/postgres/postgres"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["database", "sql", "postgres", "relational"]
 
 # ── Cache ─────────────────────────────────────────────────────────────────────
@@ -185,5 +197,6 @@ description  = "Modern in-memory store — drop-in Redis/Memcached replacement, 
 icon         = "cache/dragonfly/dragonfly.svg"
 website      = "https://www.dragonflydb.io"
 repository   = "https://github.com/dragonflydb/dragonfly"
-author       = "FreeSynergy"
+author       = "Kal El"
+license       = "MIT"
 tags         = ["cache", "redis", "memcached", "in-memory"]

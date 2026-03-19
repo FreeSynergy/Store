@@ -10,7 +10,8 @@
 name        = "otel-collector"
 alias       = ["otel", "telemetry"]
 type        = "monitoring"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["monitoring", "opentelemetry", "collector", "logs", "metrics", "traces"]
 description = "OpenTelemetry Collector – collects logs, metrics and traces from all platform services"

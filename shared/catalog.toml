@@ -20,6 +20,7 @@ version       = "1.0.0"
 description   = "Deep navy dark theme — the default FreeSynergy color scheme"
 icon          = "shared/themes/midnight-blue/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["dark", "navy", "midnight", "default", "built-in"]
 path          = "shared/themes/midnight-blue"
 
@@ -31,6 +32,7 @@ version       = "1.0.0"
 description   = "Clean light theme with soft whites and a blue primary accent"
 icon          = "shared/themes/cloud-white/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["light", "white", "clean", "minimal"]
 path          = "shared/themes/cloud-white"
 
@@ -42,6 +44,7 @@ version       = "1.0.0"
 description   = "Calm dark theme inspired by the Nord color palette — cool greys and arctic blues"
 icon          = "shared/themes/nordic-dark/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["dark", "nordic", "nord", "cool", "arctic"]
 path          = "shared/themes/nordic-dark"
 
@@ -55,6 +58,7 @@ version       = "1.0.0"
 description   = "Real-time clock and date display — updates every second"
 icon          = "shared/widgets/clock/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["clock", "time", "date", "built-in"]
 path          = "shared/widgets/clock"
 
@@ -66,6 +70,7 @@ version       = "1.0.0"
 description   = "Displays hostname, uptime, memory and disk usage — refreshes every 10 seconds"
 icon          = "shared/widgets/system-info/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["system", "monitor", "memory", "disk", "uptime", "built-in"]
 path          = "shared/widgets/system-info"
 
@@ -77,6 +82,7 @@ version       = "1.0.0"
 description   = "Shows recent messages received via the FreeSynergy message bus"
 icon          = "shared/widgets/messages/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["messages", "chat", "notifications", "bus"]
 path          = "shared/widgets/messages"
 
@@ -88,6 +94,7 @@ version       = "1.0.0"
 description   = "Personal task checklist — works standalone or syncs with a task service"
 icon          = "shared/widgets/my-tasks/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["tasks", "todo", "checklist", "productivity", "built-in"]
 path          = "shared/widgets/my-tasks"
 
@@ -99,6 +106,7 @@ version       = "1.0.0"
 description   = "Simple freeform text pad for quick notes on the desktop"
 icon          = "shared/widgets/quick-notes/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["notes", "text", "memo", "freeform", "built-in"]
 path          = "shared/widgets/quick-notes"
 
@@ -110,6 +118,7 @@ version       = "0.1.0"
 description   = "Current weather conditions and short-range forecast for your location"
 icon          = "shared/widgets/weather/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["weather", "forecast", "temperature", "coming-soon"]
 path          = "shared/widgets/weather"
 
@@ -123,6 +132,7 @@ version       = "1.0.0"
 description   = "English (United States) language pack — the base language for FreeSynergy"
 icon          = "shared/i18n/en/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["english", "en", "en-US", "language", "built-in"]
 path          = "shared/i18n/en"
 
@@ -134,102 +144,103 @@ version       = "1.0.0"
 description   = "German (Germany) language pack — vollständige Deutsche Übersetzung für FreeSynergy"
 icon          = "shared/i18n/de/icon.svg"
 license       = "MIT"
+author       = "Kal El"
 tags          = ["german", "deutsch", "de", "de-DE", "language", "built-in"]
 path          = "shared/i18n/de"
 
 [[packages]]
-id = "lang-am"; name = "አማርኛ";         type = "language"; version = "1.0.0"; description = "Amharic language pack for FreeSynergy"; icon = "shared/i18n/am/icon.svg"; license = "Apache-2.0"; tags = ["am", "amharic", "language"]; path = "shared/i18n/am"
+id = "lang-am"; name = "አማርኛ";         type = "language"; version = "1.0.0"; description = "Amharic language pack for FreeSynergy"; icon = "shared/i18n/am/icon.svg"; license = "Apache-2.0"; tags = ["am", "amharic", "language"]; author = "Kal El"; path = "shared/i18n/am"
 [[packages]]
-id = "lang-ar"; name = "العربية";       type = "language"; version = "1.0.0"; description = "Arabic language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ar/icon.svg"; license = "Apache-2.0"; tags = ["ar", "arabic", "language", "rtl"]; path = "shared/i18n/ar"
+id = "lang-ar"; name = "العربية";       type = "language"; version = "1.0.0"; description = "Arabic language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ar/icon.svg"; license = "Apache-2.0"; tags = ["ar", "arabic", "language", "rtl"]; author = "Kal El"; path = "shared/i18n/ar"
 [[packages]]
-id = "lang-be"; name = "Беларуская";   type = "language"; version = "1.0.0"; description = "Belarusian language pack for FreeSynergy"; icon = "shared/i18n/be/icon.svg"; license = "Apache-2.0"; tags = ["be", "belarusian", "language"]; path = "shared/i18n/be"
+id = "lang-be"; name = "Беларуская";   type = "language"; version = "1.0.0"; description = "Belarusian language pack for FreeSynergy"; icon = "shared/i18n/be/icon.svg"; license = "Apache-2.0"; tags = ["be", "belarusian", "language"]; author = "Kal El"; path = "shared/i18n/be"
 [[packages]]
-id = "lang-bg"; name = "Български";    type = "language"; version = "1.0.0"; description = "Bulgarian language pack for FreeSynergy"; icon = "shared/i18n/bg/icon.svg"; license = "Apache-2.0"; tags = ["bg", "bulgarian", "language"]; path = "shared/i18n/bg"
+id = "lang-bg"; name = "Български";    type = "language"; version = "1.0.0"; description = "Bulgarian language pack for FreeSynergy"; icon = "shared/i18n/bg/icon.svg"; license = "Apache-2.0"; tags = ["bg", "bulgarian", "language"]; author = "Kal El"; path = "shared/i18n/bg"
 [[packages]]
-id = "lang-bn"; name = "বাংলা";         type = "language"; version = "1.0.0"; description = "Bengali language pack for FreeSynergy"; icon = "shared/i18n/bn/icon.svg"; license = "Apache-2.0"; tags = ["bn", "bengali", "language"]; path = "shared/i18n/bn"
+id = "lang-bn"; name = "বাংলা";         type = "language"; version = "1.0.0"; description = "Bengali language pack for FreeSynergy"; icon = "shared/i18n/bn/icon.svg"; license = "Apache-2.0"; tags = ["bn", "bengali", "language"]; author = "Kal El"; path = "shared/i18n/bn"
 [[packages]]
-id = "lang-cs"; name = "Čeština";      type = "language"; version = "1.0.0"; description = "Czech language pack for FreeSynergy"; icon = "shared/i18n/cs/icon.svg"; license = "Apache-2.0"; tags = ["cs", "czech", "language"]; path = "shared/i18n/cs"
+id = "lang-cs"; name = "Čeština";      type = "language"; version = "1.0.0"; description = "Czech language pack for FreeSynergy"; icon = "shared/i18n/cs/icon.svg"; license = "Apache-2.0"; tags = ["cs", "czech", "language"]; author = "Kal El"; path = "shared/i18n/cs"
 [[packages]]
-id = "lang-da"; name = "Dansk";        type = "language"; version = "1.0.0"; description = "Danish language pack for FreeSynergy"; icon = "shared/i18n/da/icon.svg"; license = "Apache-2.0"; tags = ["da", "danish", "language"]; path = "shared/i18n/da"
+id = "lang-da"; name = "Dansk";        type = "language"; version = "1.0.0"; description = "Danish language pack for FreeSynergy"; icon = "shared/i18n/da/icon.svg"; license = "Apache-2.0"; tags = ["da", "danish", "language"]; author = "Kal El"; path = "shared/i18n/da"
 [[packages]]
-id = "lang-el"; name = "Ελληνικά";     type = "language"; version = "1.0.0"; description = "Greek language pack for FreeSynergy"; icon = "shared/i18n/el/icon.svg"; license = "Apache-2.0"; tags = ["el", "greek", "language"]; path = "shared/i18n/el"
+id = "lang-el"; name = "Ελληνικά";     type = "language"; version = "1.0.0"; description = "Greek language pack for FreeSynergy"; icon = "shared/i18n/el/icon.svg"; license = "Apache-2.0"; tags = ["el", "greek", "language"]; author = "Kal El"; path = "shared/i18n/el"
 [[packages]]
-id = "lang-es"; name = "Español";      type = "language"; version = "1.0.0"; description = "Spanish language pack for FreeSynergy"; icon = "shared/i18n/es/icon.svg"; license = "Apache-2.0"; tags = ["es", "spanish", "language"]; path = "shared/i18n/es"
+id = "lang-es"; name = "Español";      type = "language"; version = "1.0.0"; description = "Spanish language pack for FreeSynergy"; icon = "shared/i18n/es/icon.svg"; license = "Apache-2.0"; tags = ["es", "spanish", "language"]; author = "Kal El"; path = "shared/i18n/es"
 [[packages]]
-id = "lang-et"; name = "Eesti";        type = "language"; version = "1.0.0"; description = "Estonian language pack for FreeSynergy"; icon = "shared/i18n/et/icon.svg"; license = "Apache-2.0"; tags = ["et", "estonian", "language"]; path = "shared/i18n/et"
+id = "lang-et"; name = "Eesti";        type = "language"; version = "1.0.0"; description = "Estonian language pack for FreeSynergy"; icon = "shared/i18n/et/icon.svg"; license = "Apache-2.0"; tags = ["et", "estonian", "language"]; author = "Kal El"; path = "shared/i18n/et"
 [[packages]]
-id = "lang-fa"; name = "فارسی";         type = "language"; version = "1.0.0"; description = "Persian language pack for FreeSynergy (RTL)"; icon = "shared/i18n/fa/icon.svg"; license = "Apache-2.0"; tags = ["fa", "persian", "farsi", "language", "rtl"]; path = "shared/i18n/fa"
+id = "lang-fa"; name = "فارسی";         type = "language"; version = "1.0.0"; description = "Persian language pack for FreeSynergy (RTL)"; icon = "shared/i18n/fa/icon.svg"; license = "Apache-2.0"; tags = ["fa", "persian", "farsi", "language", "rtl"]; author = "Kal El"; path = "shared/i18n/fa"
 [[packages]]
-id = "lang-fi"; name = "Suomi";        type = "language"; version = "1.0.0"; description = "Finnish language pack for FreeSynergy"; icon = "shared/i18n/fi/icon.svg"; license = "Apache-2.0"; tags = ["fi", "finnish", "language"]; path = "shared/i18n/fi"
+id = "lang-fi"; name = "Suomi";        type = "language"; version = "1.0.0"; description = "Finnish language pack for FreeSynergy"; icon = "shared/i18n/fi/icon.svg"; license = "Apache-2.0"; tags = ["fi", "finnish", "language"]; author = "Kal El"; path = "shared/i18n/fi"
 [[packages]]
-id = "lang-fr"; name = "Français";     type = "language"; version = "1.0.0"; description = "French language pack for FreeSynergy"; icon = "shared/i18n/fr/icon.svg"; license = "Apache-2.0"; tags = ["fr", "french", "language"]; path = "shared/i18n/fr"
+id = "lang-fr"; name = "Français";     type = "language"; version = "1.0.0"; description = "French language pack for FreeSynergy"; icon = "shared/i18n/fr/icon.svg"; license = "Apache-2.0"; tags = ["fr", "french", "language"]; author = "Kal El"; path = "shared/i18n/fr"
 [[packages]]
-id = "lang-ha"; name = "Hausa";        type = "language"; version = "1.0.0"; description = "Hausa language pack for FreeSynergy"; icon = "shared/i18n/ha/icon.svg"; license = "Apache-2.0"; tags = ["ha", "hausa", "language"]; path = "shared/i18n/ha"
+id = "lang-ha"; name = "Hausa";        type = "language"; version = "1.0.0"; description = "Hausa language pack for FreeSynergy"; icon = "shared/i18n/ha/icon.svg"; license = "Apache-2.0"; tags = ["ha", "hausa", "language"]; author = "Kal El"; path = "shared/i18n/ha"
 [[packages]]
-id = "lang-hi"; name = "हिन्दी";          type = "language"; version = "1.0.0"; description = "Hindi language pack for FreeSynergy"; icon = "shared/i18n/hi/icon.svg"; license = "Apache-2.0"; tags = ["hi", "hindi", "language"]; path = "shared/i18n/hi"
+id = "lang-hi"; name = "हिन्दी";          type = "language"; version = "1.0.0"; description = "Hindi language pack for FreeSynergy"; icon = "shared/i18n/hi/icon.svg"; license = "Apache-2.0"; tags = ["hi", "hindi", "language"]; author = "Kal El"; path = "shared/i18n/hi"
 [[packages]]
-id = "lang-hr"; name = "Hrvatski";     type = "language"; version = "1.0.0"; description = "Croatian language pack for FreeSynergy"; icon = "shared/i18n/hr/icon.svg"; license = "Apache-2.0"; tags = ["hr", "croatian", "language"]; path = "shared/i18n/hr"
+id = "lang-hr"; name = "Hrvatski";     type = "language"; version = "1.0.0"; description = "Croatian language pack for FreeSynergy"; icon = "shared/i18n/hr/icon.svg"; license = "Apache-2.0"; tags = ["hr", "croatian", "language"]; author = "Kal El"; path = "shared/i18n/hr"
 [[packages]]
-id = "lang-hu"; name = "Magyar";       type = "language"; version = "1.0.0"; description = "Hungarian language pack for FreeSynergy"; icon = "shared/i18n/hu/icon.svg"; license = "Apache-2.0"; tags = ["hu", "hungarian", "language"]; path = "shared/i18n/hu"
+id = "lang-hu"; name = "Magyar";       type = "language"; version = "1.0.0"; description = "Hungarian language pack for FreeSynergy"; icon = "shared/i18n/hu/icon.svg"; license = "Apache-2.0"; tags = ["hu", "hungarian", "language"]; author = "Kal El"; path = "shared/i18n/hu"
 [[packages]]
-id = "lang-id"; name = "Bahasa Indonesia"; type = "language"; version = "1.0.0"; description = "Indonesian language pack for FreeSynergy"; icon = "shared/i18n/id/icon.svg"; license = "Apache-2.0"; tags = ["id", "indonesian", "language"]; path = "shared/i18n/id"
+id = "lang-id"; name = "Bahasa Indonesia"; type = "language"; version = "1.0.0"; description = "Indonesian language pack for FreeSynergy"; icon = "shared/i18n/id/icon.svg"; license = "Apache-2.0"; tags = ["id", "indonesian", "language"]; author = "Kal El"; path = "shared/i18n/id"
 [[packages]]
-id = "lang-it"; name = "Italiano";     type = "language"; version = "1.0.0"; description = "Italian language pack for FreeSynergy"; icon = "shared/i18n/it/icon.svg"; license = "Apache-2.0"; tags = ["it", "italian", "language"]; path = "shared/i18n/it"
+id = "lang-it"; name = "Italiano";     type = "language"; version = "1.0.0"; description = "Italian language pack for FreeSynergy"; icon = "shared/i18n/it/icon.svg"; license = "Apache-2.0"; tags = ["it", "italian", "language"]; author = "Kal El"; path = "shared/i18n/it"
 [[packages]]
-id = "lang-ja"; name = "日本語";         type = "language"; version = "1.0.0"; description = "Japanese language pack for FreeSynergy"; icon = "shared/i18n/ja/icon.svg"; license = "Apache-2.0"; tags = ["ja", "japanese", "language"]; path = "shared/i18n/ja"
+id = "lang-ja"; name = "日本語";         type = "language"; version = "1.0.0"; description = "Japanese language pack for FreeSynergy"; icon = "shared/i18n/ja/icon.svg"; license = "Apache-2.0"; tags = ["ja", "japanese", "language"]; author = "Kal El"; path = "shared/i18n/ja"
 [[packages]]
-id = "lang-jv"; name = "Basa Jawa";    type = "language"; version = "1.0.0"; description = "Javanese language pack for FreeSynergy"; icon = "shared/i18n/jv/icon.svg"; license = "Apache-2.0"; tags = ["jv", "javanese", "language"]; path = "shared/i18n/jv"
+id = "lang-jv"; name = "Basa Jawa";    type = "language"; version = "1.0.0"; description = "Javanese language pack for FreeSynergy"; icon = "shared/i18n/jv/icon.svg"; license = "Apache-2.0"; tags = ["jv", "javanese", "language"]; author = "Kal El"; path = "shared/i18n/jv"
 [[packages]]
-id = "lang-ko"; name = "한국어";         type = "language"; version = "1.0.0"; description = "Korean language pack for FreeSynergy"; icon = "shared/i18n/ko/icon.svg"; license = "Apache-2.0"; tags = ["ko", "korean", "language"]; path = "shared/i18n/ko"
+id = "lang-ko"; name = "한국어";         type = "language"; version = "1.0.0"; description = "Korean language pack for FreeSynergy"; icon = "shared/i18n/ko/icon.svg"; license = "Apache-2.0"; tags = ["ko", "korean", "language"]; author = "Kal El"; path = "shared/i18n/ko"
 [[packages]]
-id = "lang-lt"; name = "Lietuvių";     type = "language"; version = "1.0.0"; description = "Lithuanian language pack for FreeSynergy"; icon = "shared/i18n/lt/icon.svg"; license = "Apache-2.0"; tags = ["lt", "lithuanian", "language"]; path = "shared/i18n/lt"
+id = "lang-lt"; name = "Lietuvių";     type = "language"; version = "1.0.0"; description = "Lithuanian language pack for FreeSynergy"; icon = "shared/i18n/lt/icon.svg"; license = "Apache-2.0"; tags = ["lt", "lithuanian", "language"]; author = "Kal El"; path = "shared/i18n/lt"
 [[packages]]
-id = "lang-lv"; name = "Latviešu";     type = "language"; version = "1.0.0"; description = "Latvian language pack for FreeSynergy"; icon = "shared/i18n/lv/icon.svg"; license = "Apache-2.0"; tags = ["lv", "latvian", "language"]; path = "shared/i18n/lv"
+id = "lang-lv"; name = "Latviešu";     type = "language"; version = "1.0.0"; description = "Latvian language pack for FreeSynergy"; icon = "shared/i18n/lv/icon.svg"; license = "Apache-2.0"; tags = ["lv", "latvian", "language"]; author = "Kal El"; path = "shared/i18n/lv"
 [[packages]]
-id = "lang-mr"; name = "मराठी";          type = "language"; version = "1.0.0"; description = "Marathi language pack for FreeSynergy"; icon = "shared/i18n/mr/icon.svg"; license = "Apache-2.0"; tags = ["mr", "marathi", "language"]; path = "shared/i18n/mr"
+id = "lang-mr"; name = "मराठी";          type = "language"; version = "1.0.0"; description = "Marathi language pack for FreeSynergy"; icon = "shared/i18n/mr/icon.svg"; license = "Apache-2.0"; tags = ["mr", "marathi", "language"]; author = "Kal El"; path = "shared/i18n/mr"
 [[packages]]
-id = "lang-nl"; name = "Nederlands";   type = "language"; version = "1.0.0"; description = "Dutch language pack for FreeSynergy"; icon = "shared/i18n/nl/icon.svg"; license = "Apache-2.0"; tags = ["nl", "dutch", "language"]; path = "shared/i18n/nl"
+id = "lang-nl"; name = "Nederlands";   type = "language"; version = "1.0.0"; description = "Dutch language pack for FreeSynergy"; icon = "shared/i18n/nl/icon.svg"; license = "Apache-2.0"; tags = ["nl", "dutch", "language"]; author = "Kal El"; path = "shared/i18n/nl"
 [[packages]]
-id = "lang-no"; name = "Norsk";        type = "language"; version = "1.0.0"; description = "Norwegian language pack for FreeSynergy"; icon = "shared/i18n/no/icon.svg"; license = "Apache-2.0"; tags = ["no", "norwegian", "language"]; path = "shared/i18n/no"
+id = "lang-no"; name = "Norsk";        type = "language"; version = "1.0.0"; description = "Norwegian language pack for FreeSynergy"; icon = "shared/i18n/no/icon.svg"; license = "Apache-2.0"; tags = ["no", "norwegian", "language"]; author = "Kal El"; path = "shared/i18n/no"
 [[packages]]
-id = "lang-pa"; name = "ਪੰਜਾਬੀ";         type = "language"; version = "1.0.0"; description = "Punjabi language pack for FreeSynergy"; icon = "shared/i18n/pa/icon.svg"; license = "Apache-2.0"; tags = ["pa", "punjabi", "language"]; path = "shared/i18n/pa"
+id = "lang-pa"; name = "ਪੰਜਾਬੀ";         type = "language"; version = "1.0.0"; description = "Punjabi language pack for FreeSynergy"; icon = "shared/i18n/pa/icon.svg"; license = "Apache-2.0"; tags = ["pa", "punjabi", "language"]; author = "Kal El"; path = "shared/i18n/pa"
 [[packages]]
-id = "lang-pl"; name = "Polski";       type = "language"; version = "1.0.0"; description = "Polish language pack for FreeSynergy"; icon = "shared/i18n/pl/icon.svg"; license = "Apache-2.0"; tags = ["pl", "polish", "language"]; path = "shared/i18n/pl"
+id = "lang-pl"; name = "Polski";       type = "language"; version = "1.0.0"; description = "Polish language pack for FreeSynergy"; icon = "shared/i18n/pl/icon.svg"; license = "Apache-2.0"; tags = ["pl", "polish", "language"]; author = "Kal El"; path = "shared/i18n/pl"
 [[packages]]
-id = "lang-ps"; name = "پښتو";          type = "language"; version = "1.0.0"; description = "Pashto language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ps/icon.svg"; license = "Apache-2.0"; tags = ["ps", "pashto", "language", "rtl"]; path = "shared/i18n/ps"
+id = "lang-ps"; name = "پښتو";          type = "language"; version = "1.0.0"; description = "Pashto language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ps/icon.svg"; license = "Apache-2.0"; tags = ["ps", "pashto", "language", "rtl"]; author = "Kal El"; path = "shared/i18n/ps"
 [[packages]]
-id = "lang-pt"; name = "Português";    type = "language"; version = "1.0.0"; description = "Portuguese language pack for FreeSynergy"; icon = "shared/i18n/pt/icon.svg"; license = "Apache-2.0"; tags = ["pt", "portuguese", "language"]; path = "shared/i18n/pt"
+id = "lang-pt"; name = "Português";    type = "language"; version = "1.0.0"; description = "Portuguese language pack for FreeSynergy"; icon = "shared/i18n/pt/icon.svg"; license = "Apache-2.0"; tags = ["pt", "portuguese", "language"]; author = "Kal El"; path = "shared/i18n/pt"
 [[packages]]
-id = "lang-ro"; name = "Română";       type = "language"; version = "1.0.0"; description = "Romanian language pack for FreeSynergy"; icon = "shared/i18n/ro/icon.svg"; license = "Apache-2.0"; tags = ["ro", "romanian", "language"]; path = "shared/i18n/ro"
+id = "lang-ro"; name = "Română";       type = "language"; version = "1.0.0"; description = "Romanian language pack for FreeSynergy"; icon = "shared/i18n/ro/icon.svg"; license = "Apache-2.0"; tags = ["ro", "romanian", "language"]; author = "Kal El"; path = "shared/i18n/ro"
 [[packages]]
-id = "lang-ru"; name = "Русский";      type = "language"; version = "1.0.0"; description = "Russian language pack for FreeSynergy"; icon = "shared/i18n/ru/icon.svg"; license = "Apache-2.0"; tags = ["ru", "russian", "language"]; path = "shared/i18n/ru"
+id = "lang-ru"; name = "Русский";      type = "language"; version = "1.0.0"; description = "Russian language pack for FreeSynergy"; icon = "shared/i18n/ru/icon.svg"; license = "Apache-2.0"; tags = ["ru", "russian", "language"]; author = "Kal El"; path = "shared/i18n/ru"
 [[packages]]
-id = "lang-sk"; name = "Slovenčina";   type = "language"; version = "1.0.0"; description = "Slovak language pack for FreeSynergy"; icon = "shared/i18n/sk/icon.svg"; license = "Apache-2.0"; tags = ["sk", "slovak", "language"]; path = "shared/i18n/sk"
+id = "lang-sk"; name = "Slovenčina";   type = "language"; version = "1.0.0"; description = "Slovak language pack for FreeSynergy"; icon = "shared/i18n/sk/icon.svg"; license = "Apache-2.0"; tags = ["sk", "slovak", "language"]; author = "Kal El"; path = "shared/i18n/sk"
 [[packages]]
-id = "lang-sl"; name = "Slovenščina";  type = "language"; version = "1.0.0"; description = "Slovenian language pack for FreeSynergy"; icon = "shared/i18n/sl/icon.svg"; license = "Apache-2.0"; tags = ["sl", "slovenian", "language"]; path = "shared/i18n/sl"
+id = "lang-sl"; name = "Slovenščina";  type = "language"; version = "1.0.0"; description = "Slovenian language pack for FreeSynergy"; icon = "shared/i18n/sl/icon.svg"; license = "Apache-2.0"; tags = ["sl", "slovenian", "language"]; author = "Kal El"; path = "shared/i18n/sl"
 [[packages]]
-id = "lang-sq"; name = "Shqip";        type = "language"; version = "1.0.0"; description = "Albanian language pack for FreeSynergy"; icon = "shared/i18n/sq/icon.svg"; license = "Apache-2.0"; tags = ["sq", "albanian", "language"]; path = "shared/i18n/sq"
+id = "lang-sq"; name = "Shqip";        type = "language"; version = "1.0.0"; description = "Albanian language pack for FreeSynergy"; icon = "shared/i18n/sq/icon.svg"; license = "Apache-2.0"; tags = ["sq", "albanian", "language"]; author = "Kal El"; path = "shared/i18n/sq"
 [[packages]]
-id = "lang-sr"; name = "Српски";       type = "language"; version = "1.0.0"; description = "Serbian language pack for FreeSynergy"; icon = "shared/i18n/sr/icon.svg"; license = "Apache-2.0"; tags = ["sr", "serbian", "language"]; path = "shared/i18n/sr"
+id = "lang-sr"; name = "Српски";       type = "language"; version = "1.0.0"; description = "Serbian language pack for FreeSynergy"; icon = "shared/i18n/sr/icon.svg"; license = "Apache-2.0"; tags = ["sr", "serbian", "language"]; author = "Kal El"; path = "shared/i18n/sr"
 [[packages]]
-id = "lang-sv"; name = "Svenska";      type = "language"; version = "1.0.0"; description = "Swedish language pack for FreeSynergy"; icon = "shared/i18n/sv/icon.svg"; license = "Apache-2.0"; tags = ["sv", "swedish", "language"]; path = "shared/i18n/sv"
+id = "lang-sv"; name = "Svenska";      type = "language"; version = "1.0.0"; description = "Swedish language pack for FreeSynergy"; icon = "shared/i18n/sv/icon.svg"; license = "Apache-2.0"; tags = ["sv", "swedish", "language"]; author = "Kal El"; path = "shared/i18n/sv"
 [[packages]]
-id = "lang-sw"; name = "Kiswahili";    type = "language"; version = "1.0.0"; description = "Swahili language pack for FreeSynergy"; icon = "shared/i18n/sw/icon.svg"; license = "Apache-2.0"; tags = ["sw", "swahili", "language"]; path = "shared/i18n/sw"
+id = "lang-sw"; name = "Kiswahili";    type = "language"; version = "1.0.0"; description = "Swahili language pack for FreeSynergy"; icon = "shared/i18n/sw/icon.svg"; license = "Apache-2.0"; tags = ["sw", "swahili", "language"]; author = "Kal El"; path = "shared/i18n/sw"
 [[packages]]
-id = "lang-ta"; name = "தமிழ்";          type = "language"; version = "1.0.0"; description = "Tamil language pack for FreeSynergy"; icon = "shared/i18n/ta/icon.svg"; license = "Apache-2.0"; tags = ["ta", "tamil", "language"]; path = "shared/i18n/ta"
+id = "lang-ta"; name = "தமிழ்";          type = "language"; version = "1.0.0"; description = "Tamil language pack for FreeSynergy"; icon = "shared/i18n/ta/icon.svg"; license = "Apache-2.0"; tags = ["ta", "tamil", "language"]; author = "Kal El"; path = "shared/i18n/ta"
 [[packages]]
-id = "lang-te"; name = "తెలుగు";         type = "language"; version = "1.0.0"; description = "Telugu language pack for FreeSynergy"; icon = "shared/i18n/te/icon.svg"; license = "Apache-2.0"; tags = ["te", "telugu", "language"]; path = "shared/i18n/te"
+id = "lang-te"; name = "తెలుగు";         type = "language"; version = "1.0.0"; description = "Telugu language pack for FreeSynergy"; icon = "shared/i18n/te/icon.svg"; license = "Apache-2.0"; tags = ["te", "telugu", "language"]; author = "Kal El"; path = "shared/i18n/te"
 [[packages]]
-id = "lang-th"; name = "ภาษาไทย";       type = "language"; version = "1.0.0"; description = "Thai language pack for FreeSynergy"; icon = "shared/i18n/th/icon.svg"; license = "Apache-2.0"; tags = ["th", "thai", "language"]; path = "shared/i18n/th"
+id = "lang-th"; name = "ภาษาไทย";       type = "language"; version = "1.0.0"; description = "Thai language pack for FreeSynergy"; icon = "shared/i18n/th/icon.svg"; license = "Apache-2.0"; tags = ["th", "thai", "language"]; author = "Kal El"; path = "shared/i18n/th"
 [[packages]]
-id = "lang-tr"; name = "Türkçe";       type = "language"; version = "1.0.0"; description = "Turkish language pack for FreeSynergy"; icon = "shared/i18n/tr/icon.svg"; license = "Apache-2.0"; tags = ["tr", "turkish", "language"]; path = "shared/i18n/tr"
+id = "lang-tr"; name = "Türkçe";       type = "language"; version = "1.0.0"; description = "Turkish language pack for FreeSynergy"; icon = "shared/i18n/tr/icon.svg"; license = "Apache-2.0"; tags = ["tr", "turkish", "language"]; author = "Kal El"; path = "shared/i18n/tr"
 [[packages]]
-id = "lang-uk"; name = "Українська";   type = "language"; version = "1.0.0"; description = "Ukrainian language pack for FreeSynergy"; icon = "shared/i18n/uk/icon.svg"; license = "Apache-2.0"; tags = ["uk", "ukrainian", "language"]; path = "shared/i18n/uk"
+id = "lang-uk"; name = "Українська";   type = "language"; version = "1.0.0"; description = "Ukrainian language pack for FreeSynergy"; icon = "shared/i18n/uk/icon.svg"; license = "Apache-2.0"; tags = ["uk", "ukrainian", "language"]; author = "Kal El"; path = "shared/i18n/uk"
 [[packages]]
-id = "lang-ur"; name = "اردو";          type = "language"; version = "1.0.0"; description = "Urdu language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ur/icon.svg"; license = "Apache-2.0"; tags = ["ur", "urdu", "language", "rtl"]; path = "shared/i18n/ur"
+id = "lang-ur"; name = "اردو";          type = "language"; version = "1.0.0"; description = "Urdu language pack for FreeSynergy (RTL)"; icon = "shared/i18n/ur/icon.svg"; license = "Apache-2.0"; tags = ["ur", "urdu", "language", "rtl"]; author = "Kal El"; path = "shared/i18n/ur"
 [[packages]]
-id = "lang-vi"; name = "Tiếng Việt";   type = "language"; version = "1.0.0"; description = "Vietnamese language pack for FreeSynergy"; icon = "shared/i18n/vi/icon.svg"; license = "Apache-2.0"; tags = ["vi", "vietnamese", "language"]; path = "shared/i18n/vi"
+id = "lang-vi"; name = "Tiếng Việt";   type = "language"; version = "1.0.0"; description = "Vietnamese language pack for FreeSynergy"; icon = "shared/i18n/vi/icon.svg"; license = "Apache-2.0"; tags = ["vi", "vietnamese", "language"]; author = "Kal El"; path = "shared/i18n/vi"
 [[packages]]
-id = "lang-yo"; name = "Yorùbá";       type = "language"; version = "1.0.0"; description = "Yoruba language pack for FreeSynergy"; icon = "shared/i18n/yo/icon.svg"; license = "Apache-2.0"; tags = ["yo", "yoruba", "language"]; path = "shared/i18n/yo"
+id = "lang-yo"; name = "Yorùbá";       type = "language"; version = "1.0.0"; description = "Yoruba language pack for FreeSynergy"; icon = "shared/i18n/yo/icon.svg"; license = "Apache-2.0"; tags = ["yo", "yoruba", "language"]; author = "Kal El"; path = "shared/i18n/yo"
 [[packages]]
-id = "lang-yue"; name = "粵語";         type = "language"; version = "1.0.0"; description = "Cantonese language pack for FreeSynergy"; icon = "shared/i18n/yue/icon.svg"; license = "Apache-2.0"; tags = ["yue", "cantonese", "language"]; path = "shared/i18n/yue"
+id = "lang-yue"; name = "粵語";         type = "language"; version = "1.0.0"; description = "Cantonese language pack for FreeSynergy"; icon = "shared/i18n/yue/icon.svg"; license = "Apache-2.0"; tags = ["yue", "cantonese", "language"]; author = "Kal El"; path = "shared/i18n/yue"

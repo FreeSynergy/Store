@@ -10,7 +10,8 @@
 name        = "zentinel"
 alias       = []
 type        = "proxy"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["proxy", "reverse-proxy", "tls"]
 description = "Zentinel reverse proxy with automatic TLS"

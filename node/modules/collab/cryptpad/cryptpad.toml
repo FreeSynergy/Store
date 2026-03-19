@@ -2,7 +2,8 @@
 name        = "cryptpad"
 alias       = ["collab", "pad"]
 type        = "collab"
-author      = "FreeSynergy.Node"
+author      = "Kal El"
+license      = "MIT"
 version     = "0.0.1"
 tags        = ["collab", "office", "encrypted"]
 description = "CryptPad end-to-end encrypted collaborative office suite"

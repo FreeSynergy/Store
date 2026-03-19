@@ -31,13 +31,13 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-            Node/cli/target
-          key: ubuntu-validate-cargo-${{ hashFiles('Node/cli/Cargo.lock') }}
+            Node/validator/target
+          key: ubuntu-validate-cargo-${{ hashFiles('Node/validator/Cargo.lock') }}
           restore-keys: ubuntu-validate-cargo-
 
-      - name: Build fsn-builder
-        working-directory: Node/cli
-        run: cargo build --release -p fsn-builder
+      - name: Build fsn-store-validator
+        working-directory: Node/validator
+        run: cargo build --release
 
       - name: Validate node catalog
-        run: Node/cli/target/release/fsn-builder validate-store Store node
+        run: Node/validator/target/release/fsn-store-validator Store node

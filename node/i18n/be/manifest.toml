@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "be"
+native_name  = "Беларуская"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "cs"
+native_name  = "Čeština"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

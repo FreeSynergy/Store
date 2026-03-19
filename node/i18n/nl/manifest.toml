@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "nl"
+native_name  = "Nederlands"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

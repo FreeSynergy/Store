@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "th"
+native_name  = "ภาษาไทย"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "bn"
+native_name  = "বাংলা"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

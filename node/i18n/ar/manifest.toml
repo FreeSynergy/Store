@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "ar"
+native_name  = "العربية"
+direction    = "rtl"
+completeness = 100
+api_version  = 1

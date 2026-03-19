@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "sv"
+native_name  = "Svenska"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

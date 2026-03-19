@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "ro"
+native_name  = "Română"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

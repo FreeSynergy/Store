@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "el"
+native_name  = "Ελληνικά"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

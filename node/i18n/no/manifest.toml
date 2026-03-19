@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "no"
+native_name  = "Norsk"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

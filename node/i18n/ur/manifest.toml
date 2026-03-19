@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "ur"
+native_name  = "اردو"
+direction    = "rtl"
+completeness = 100
+api_version  = 1

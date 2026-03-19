@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "bg"
+native_name  = "Български"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

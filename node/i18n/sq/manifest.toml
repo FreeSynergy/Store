@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "sq"
+native_name  = "Shqip"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

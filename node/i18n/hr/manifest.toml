@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "hr"
+native_name  = "Hrvatski"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

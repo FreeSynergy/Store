@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "fa"
+native_name  = "فارسی"
+direction    = "rtl"
+completeness = 100
+api_version  = 1

@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "lv"
+native_name  = "Latviešu"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

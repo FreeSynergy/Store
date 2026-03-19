@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "te"
+native_name  = "తెలుగు"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

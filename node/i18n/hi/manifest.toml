@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "hi"
+native_name  = "हिन्दी"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

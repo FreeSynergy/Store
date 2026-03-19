@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "fr"
+native_name  = "Français"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

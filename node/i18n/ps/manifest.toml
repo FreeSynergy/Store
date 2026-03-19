@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "ps"
+native_name  = "پښتو"
+direction    = "rtl"
+completeness = 100
+api_version  = 1

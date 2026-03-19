@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "sw"
+native_name  = "Kiswahili"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

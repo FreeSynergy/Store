@@ -1,0 +1,879 @@
+# actions
+# actions.toml — UI-Aktionsbeschriftungen (Deutsch)
+
+[actions]
+save         = "Speichern"
+cancel       = "Abbrechen"
+delete       = "Löschen"
+create       = "Erstellen"
+edit         = "Bearbeiten"
+add          = "Hinzufügen"
+remove       = "Entfernen"
+install      = "Installieren"
+uninstall    = "Deinstallieren"
+update       = "Aktualisieren"
+back         = "Zurück"
+next         = "Weiter"
+prev         = "Vorherige"
+close        = "Schließen"
+open         = "Öffnen"
+search       = "Suchen"
+filter       = "Filtern"
+confirm      = "Bestätigen"
+help         = "Hilfe"
+reload       = "Neu laden"
+refresh      = "Aktualisieren"
+submit       = "Absenden"
+reset        = "Zurücksetzen"
+copy         = "Kopieren"
+paste        = "Einfügen"
+import       = "Importieren"
+export       = "Exportieren"
+download     = "Herunterladen"
+upload       = "Hochladen"
+deploy       = "Deployen"
+start        = "Starten"
+stop         = "Stoppen"
+restart      = "Neustarten"
+enable       = "Aktivieren"
+disable      = "Deaktivieren"
+view         = "Anzeigen"
+preview      = "Vorschau"
+select       = "Auswählen"
+deselect     = "Abwählen"
+select_all   = "Alle auswählen"
+clear        = "Leeren"
+apply        = "Anwenden"
+login        = "Anmelden"
+logout       = "Abmelden"
+generate     = "Generieren"
+
+# labels
+# labels.toml — UI-Beschriftungen (Deutsch)
+
+[labels]
+name              = "Name"
+description       = "Beschreibung"
+version           = "Version"
+type              = "Typ"
+status            = "Status"
+created           = "Erstellt"
+updated           = "Aktualisiert"
+search            = "Suchen…"
+no_items          = "Keine Einträge"
+select_all        = "Alle auswählen"
+deselect_all      = "Alle abwählen"
+show_more         = "Mehr anzeigen"
+show_less         = "Weniger anzeigen"
+filter_by         = "Filtern nach"
+sort_by           = "Sortieren nach"
+ascending         = "Aufsteigend"
+descending        = "Absteigend"
+optional          = "Optional"
+required          = "Pflichtfeld"
+enabled           = "Aktiviert"
+disabled          = "Deaktiviert"
+yes               = "Ja"
+no                = "Nein"
+loading           = "Laden…"
+empty             = "Leer"
+unknown           = "Unbekannt"
+none              = "Keine"
+all               = "Alle"
+other             = "Andere"
+language          = "Sprache"
+theme             = "Design"
+settings          = "Einstellungen"
+category          = "Kategorie"
+tags              = "Tags"
+actions           = "Aktionen"
+details           = "Details"
+id                = "ID"
+date              = "Datum"
+size              = "Größe"
+
+# notifications
+# notifications.toml — Erfolgs- und Statusmeldungen (Deutsch)
+
+[notifications]
+saved               = "Gespeichert."
+deleted             = "Gelöscht."
+updated             = "Aktualisiert."
+installed           = "Installiert."
+uninstalled         = "Deinstalliert."
+deployed            = "Deployed."
+started             = "Gestartet."
+stopped             = "Gestoppt."
+restarted           = "Neugestartet."
+copied              = "In Zwischenablage kopiert."
+connection_restored = "Verbindung wiederhergestellt."
+sync_completed      = "Synchronisierung abgeschlossen."
+import_completed    = "Import abgeschlossen."
+export_completed    = "Export abgeschlossen."
+changes_discarded   = "Änderungen verworfen."
+secret_generated    = "Neues Secret generiert."
+backup_created      = "Backup erstellt."
+
+# status
+# status.toml — Statusbezeichnungen (Deutsch)
+
+[status]
+running      = "Läuft"
+stopped      = "Gestoppt"
+starting     = "Startet"
+stopping     = "Stoppt"
+error        = "Fehler"
+warning      = "Warnung"
+healthy      = "Gesund"
+unhealthy    = "Ungesund"
+unknown      = "Unbekannt"
+loading      = "Lädt"
+syncing      = "Synchronisiert"
+synced       = "Synchronisiert"
+pending      = "Ausstehend"
+failed       = "Fehlgeschlagen"
+success      = "Erfolgreich"
+active       = "Aktiv"
+inactive     = "Inaktiv"
+enabled      = "Aktiviert"
+disabled     = "Deaktiviert"
+installed    = "Installiert"
+not_installed = "Nicht installiert"
+updating     = "Aktualisiert"
+deploying    = "Wird deployed"
+deployed     = "Deployed"
+offline      = "Offline"
+online       = "Online"
+connected    = "Verbunden"
+disconnected = "Getrennt"
+
+# errors
+# errors.toml — Fehlermeldungen (Deutsch)
+
+[errors]
+# Allgemein
+not_found               = "Nicht gefunden"
+permission_denied       = "Zugriff verweigert"
+network_error           = "Netzwerkfehler"
+parse_error             = "Analysefehler"
+timeout                 = "Zeitüberschreitung"
+internal_error          = "Interner Fehler"
+invalid_input           = "Ungültige Eingabe"
+already_exists          = "Existiert bereits"
+not_supported           = "Nicht unterstützt"
+connection_failed       = "Verbindung fehlgeschlagen"
+authentication_failed   = "Authentifizierung fehlgeschlagen"
+config_error            = "Konfigurationsfehler"
+io_error                = "E/A-Fehler"
+plugin_error            = "Plugin-Fehler"
+deploy_failed           = "Deployment fehlgeschlagen"
+install_failed          = "Installation fehlgeschlagen"
+update_failed           = "Aktualisierung fehlgeschlagen"
+sync_failed             = "Synchronisierung fehlgeschlagen"
+backup_failed           = "Backup fehlgeschlagen"
+unexpected              = "Ein unerwarteter Fehler ist aufgetreten"
+try_again               = "Bitte versuche es erneut"
+not_implemented         = "Noch nicht implementiert"
+deprecated              = "Veraltet — bitte Nachfolger verwenden"
+operation_cancelled     = "Vorgang abgebrochen"
+
+# Dateisystem
+file_not_found          = "Datei nicht gefunden"
+file_read_failed        = "Datei konnte nicht gelesen werden"
+file_write_failed       = "Datei konnte nicht geschrieben werden"
+file_permission_denied  = "Keine Berechtigung für diese Datei"
+file_already_exists     = "Datei existiert bereits"
+file_too_large          = "Datei zu groß"
+dir_not_found           = "Verzeichnis nicht gefunden"
+dir_not_empty           = "Verzeichnis ist nicht leer"
+
+# Netzwerk
+connection_timeout      = "Verbindungszeitüberschreitung"
+connection_refused      = "Verbindung abgelehnt"
+dns_failed              = "DNS-Auflösung fehlgeschlagen"
+tls_failed              = "TLS-Handshake fehlgeschlagen"
+http_error              = "HTTP-Fehler"
+api_error               = "API-Fehler"
+rate_limited            = "Zu viele Anfragen — bitte warten"
+
+# Authentifizierung
+auth_token_expired      = "Token abgelaufen — bitte erneut anmelden"
+auth_token_invalid      = "Ungültiges Token"
+auth_user_not_found     = "Benutzer nicht gefunden"
+auth_user_locked        = "Benutzerkonto gesperrt"
+
+# Konfiguration
+config_invalid          = "Ungültige Konfiguration"
+config_missing_field    = "Pflichtfeld fehlt in der Konfiguration"
+config_invalid_value    = "Ungültiger Konfigurationswert"
+config_parse_failed     = "Konfiguration konnte nicht gelesen werden"
+config_version_mismatch = "Konfigurationsversion nicht kompatibel"
+
+# Datenbank
+db_connection_failed    = "Datenbankverbindung fehlgeschlagen"
+db_query_failed         = "Datenbankabfrage fehlgeschlagen"
+db_migration_failed     = "Datenbankmigration fehlgeschlagen"
+db_not_found            = "Datensatz nicht gefunden"
+db_duplicate            = "Doppelter Eintrag"
+db_constraint           = "Integritätsbedingung verletzt"
+
+# Container / Deployment
+container_not_found     = "Container nicht gefunden"
+container_start_failed  = "Container konnte nicht gestartet werden"
+container_health_failed = "Healthcheck fehlgeschlagen"
+image_pull_failed       = "Image konnte nicht heruntergeladen werden"
+
+# Sync / CRDT
+sync_conflict           = "Synchronisationskonflikt — gleichzeitige Änderungen auf beiden Seiten"
+sync_peer_unreachable   = "Peer nicht erreichbar"
+
+# Plugin / Store
+plugin_not_found        = "Plugin nicht gefunden"
+plugin_incompatible     = "Plugin-Version nicht kompatibel"
+plugin_wasm_failed      = "WASM-Plugin Ausführungsfehler"
+store_unreachable       = "Store nicht erreichbar — verwende lokalen Cache"
+
+# Validierung
+validation_required         = "Pflichtfeld"
+validation_too_short        = "Zu kurz"
+validation_too_long         = "Zu lang"
+validation_invalid_email    = "Ungültige E-Mail-Adresse"
+validation_invalid_url      = "Ungültige URL"
+validation_invalid_format   = "Ungültiges Format"
+validation_out_of_range     = "Wert außerhalb des gültigen Bereichs"
+validation_pattern_mismatch = "Entspricht nicht dem erforderlichen Muster"
+
+# nouns
+# nouns.toml — Domänen-Substantive (Deutsch)
+
+[nouns]
+host         = "Host"
+project      = "Projekt"
+service      = "Dienst"
+module       = "Modul"
+plugin       = "Plugin"
+user         = "Benutzer"
+domain       = "Domain"
+backup       = "Backup"
+config       = "Konfiguration"
+log          = "Protokoll"
+key          = "Schlüssel"
+secret       = "Geheimnis"
+certificate  = "Zertifikat"
+network      = "Netzwerk"
+container    = "Container"
+volume       = "Volume"
+port         = "Port"
+proxy        = "Proxy"
+database     = "Datenbank"
+cache        = "Cache"
+queue        = "Warteschlange"
+event        = "Ereignis"
+bot          = "Bot"
+channel      = "Kanal"
+theme        = "Theme"
+language     = "Sprache"
+role         = "Rolle"
+permission   = "Berechtigung"
+token        = "Token"
+session      = "Sitzung"
+version      = "Version"
+tag          = "Tag"
+name         = "Name"
+description  = "Beschreibung"
+category     = "Kategorie"
+author       = "Autor"
+license      = "Lizenz"
+
+# phrases
+# phrases.toml — Häufige UI-Phrasen (Deutsch)
+
+[phrases]
+confirm_delete       = "{item} löschen? Dies kann nicht rückgängig gemacht werden."
+confirm_action       = "Bist du sicher, dass du {action} möchtest?"
+save_success         = "{item} erfolgreich gespeichert."
+delete_success       = "{item} erfolgreich gelöscht."
+install_success      = "{item} erfolgreich installiert."
+update_success       = "{item} erfolgreich aktualisiert."
+load_failed          = "{item} konnte nicht geladen werden."
+save_failed          = "{item} konnte nicht gespeichert werden."
+no_items             = "Keine {items} gefunden."
+loading_items        = "{items} werden geladen..."
+select_item          = "{item} auswählen"
+enter_name           = "Namen für {item} eingeben"
+unsaved_changes      = "Du hast nicht gespeicherte Änderungen."
+changes_saved        = "Alle Änderungen gespeichert."
+operation_failed     = "Operation fehlgeschlagen: {reason}"
+are_you_sure         = "Bist du sicher?"
+cannot_be_undone     = "Diese Aktion kann nicht rückgängig gemacht werden."
+leave_without_saving = "Ohne Speichern verlassen?"
+
+# time
+# time.toml — Zeit- und Datumsbeschriftungen (Deutsch)
+
+[time]
+now          = "Gerade eben"
+never        = "Nie"
+today        = "Heute"
+yesterday    = "Gestern"
+tomorrow     = "Morgen"
+seconds_ago  = "vor {n}s"
+minutes_ago  = "vor {n}m"
+hours_ago    = "vor {n}h"
+days_ago     = "vor {n}d"
+in_seconds   = "in {n}s"
+in_minutes   = "in {n}m"
+in_hours     = "in {n}h"
+in_days      = "in {n}d"
+last_seen    = "Zuletzt gesehen {when}"
+created_at   = "Erstellt {when}"
+updated_at   = "Aktualisiert {when}"
+expires_at   = "Läuft ab {when}"
+uptime       = "Laufzeit: {duration}"
+
+# validation
+# validation.toml — Validierungsmeldungen (Deutsch)
+
+[validation]
+required           = "{field} ist erforderlich."
+too_short          = "{field} muss mindestens {min} Zeichen lang sein."
+too_long           = "{field} darf maximal {max} Zeichen lang sein."
+invalid_format     = "{field} hat ein ungültiges Format."
+already_exists     = "{field} existiert bereits."
+not_available      = "{field} ist nicht verfügbar."
+must_be_unique     = "{field} muss eindeutig sein."
+invalid_email      = "Bitte gib eine gültige E-Mail-Adresse ein."
+invalid_url        = "Bitte gib eine gültige URL ein."
+invalid_domain     = "Bitte gib einen gültigen Domainnamen ein."
+invalid_port       = "Port muss eine Zahl zwischen 1 und 65535 sein."
+invalid_version    = "Bitte gib eine gültige Version ein (z.B. 1.0.0)."
+no_special_chars   = "{field} darf keine Sonderzeichen enthalten."
+only_alphanumeric  = "{field} darf nur Buchstaben und Zahlen enthalten."
+passwords_mismatch = "Passwörter stimmen nicht überein."
+
+# help
+# help.toml — Hilfetext und Tastaturbefehle (Deutsch)
+
+[help]
+press_key        = "{key} drücken"
+press_to_action  = "{key} drücken, um {action}"
+navigate         = "Mit Pfeiltasten navigieren"
+navigate_tabs    = "Tabs wechseln mit Strg+← / Strg+→"
+submit           = "Speichern mit Strg+S"
+cancel_action    = "Abbrechen mit Esc"
+open_help        = "F1 für Hilfe drücken"
+search_hint      = "Zum Suchen tippen..."
+no_results       = "Keine Ergebnisse für \"{query}\""
+more_info        = "Weitere Informationen"
+see_docs         = "Dokumentation ansehen"
+example          = "Beispiel: {example}"
+tip              = "Tipp: {tip}"
+note             = "Hinweis: {note}"
+warning          = "Warnung: {warning}"
+
+# confirmations
+# confirmations.toml — Bestätigungsdialoge (Deutsch)
+
+[confirmations]
+delete            = "Löschen? Diese Aktion kann nicht rückgängig gemacht werden."
+restart           = "Neu starten?"
+deploy            = "Deployen?"
+logout            = "Abmelden?"
+unsaved_changes   = "Ungespeicherte Änderungen vorhanden. Trotzdem verlassen?"
+overwrite         = "Existiert bereits. Überschreiben?"
+reset             = "Alle Einstellungen auf Standard zurücksetzen?"
+remove_plugin     = "Plugin entfernen? Alle Daten gehen verloren."
+wipe_data         = "Alle Daten löschen? Diese Aktion kann nicht rückgängig gemacht werden."
+stop              = "Stoppen?"
+cancel_op         = "Vorgang abbrechen?"
+apply             = "Änderungen übernehmen?"
+import            = "Importieren und vorhandene Daten überschreiben?"
+sync              = "Jetzt synchronisieren?"
+generate_secret   = "Neues Secret generieren? Das alte Secret geht verloren."
+
+
+# ── Desktop App Strings ──────────────────────────────────────────────────────
+
+# fsd-shell
+
+[shell.menu]
+about             = "Über FreeSynergy…"
+quit              = "Beenden"
+launcher          = "App-Starter"
+view              = "Ansicht"
+fullscreen        = "Vollbild"
+services          = "Dienste"
+tools             = "Werkzeuge"
+help              = "Hilfe"
+theme             = "Design"
+rendering_mode    = "Darstellungsmodus"
+open_conductor    = "Conductor öffnen"
+start_all         = "Alle starten"
+stop_all          = "Alle stoppen"
+open_store        = "Store öffnen"
+open_studio       = "Studio öffnen"
+open_tasks        = "Aufgaben öffnen"
+open_bots         = "Bots öffnen"
+install_package   = "Paket installieren…"
+documentation     = "Dokumentation"
+report_bug        = "Fehler melden…"
+keyboard_shortcuts = "Tastenkürzel"
+
+[shell.avatar]
+profile  = "Profil"
+sign_out = "Abmelden"
+
+[shell.window]
+maximize = "Maximieren"
+close    = "Schließen"
+
+[shell.launcher]
+search_placeholder = "Apps suchen…"
+no_apps            = "Keine Apps gefunden für \"{query}\""
+page               = "Seite {n} / {total}"
+
+[shell.notifications]
+title   = "Benachrichtigungen"
+count   = "{n} insgesamt"
+empty   = "Keine Benachrichtigungen"
+dismiss = "Verwerfen"
+
+[shell.nav]
+tasks        = "Aufgaben"
+bots         = "Bots"
+conductor    = "Conductor"
+browser      = "Browser"
+lenses       = "Linsen"
+store        = "Store"
+studio       = "Studio"
+builder      = "Builder"
+settings     = "Einstellungen"
+profile      = "Profil"
+ai_assistant = "KI-Assistent"
+help         = "Hilfe"
+section_apps            = "Apps"
+section_system          = "System"
+managers                = "Manager"
+manager_language        = "Sprache"
+manager_theme           = "Theme"
+manager_icons           = "Icons"
+manager_container_app   = "Container-Apps"
+manager_bots            = "Bots"
+
+[profile]
+title = "Profil"
+
+[profile.btn]
+upload_photo    = "Foto hochladen"
+add_key         = "+ Schlüssel hinzufügen"
+link_account    = "+ Konto verknüpfen"
+add_capability  = "+ Fähigkeit hinzufügen"
+save            = "Profil speichern"
+connect         = "Verbinden"
+verify          = "Verifizieren"
+
+[profile.label]
+display_name = "Anzeigename"
+email        = "E-Mail"
+bio          = "Biografie"
+timezone     = "Zeitzone"
+key_label    = "Schlüsselbezeichnung"
+public_key   = "Öffentlicher Schlüssel"
+provider     = "Anbieter"
+subject      = "Betreff"
+
+[profile.section]
+ssh_keys        = "SSH-Schlüssel"
+linked_accounts = "Verknüpfte Konten"
+capabilities    = "Persönliche Fähigkeiten"
+
+[profile.msg]
+saved      = "Profil gespeichert."
+save_failed = "Speichern fehlgeschlagen: {error}"
+
+[profile.status]
+verified = "Verifiziert"
+
+[profile.capability]
+messenger    = "Messenger-Konto"
+task_manager = "Aufgabenverwaltung"
+mailbox      = "Postfach"
+llm_assistant = "KI-Assistent"
+
+# fsd-conductor
+
+[container]
+title = "Container-Verwaltung"
+
+[container.section]
+installed   = "Installiert"
+install_new = "Neu installieren"
+build       = "Erstellen"
+logs        = "Logs"
+
+[container.services]
+empty        = "Noch keine Dienste installiert."
+empty_hint   = "Store öffnen, um den ersten Dienst zu installieren."
+not_found    = "Keine FSN-Dienste gefunden. Erst ein Projekt deployen."
+running_count = "{running}/{count} laufend"
+install_btn  = "Dienst installieren"
+
+[container.tab]
+config = "Konfiguration"
+module = "Modul"
+logs   = "Logs"
+
+[container.env]
+heading      = "Umgebungsvariablen"
+saved_hint   = "Gespeichert. Dienst neu starten, um die Änderungen zu übernehmen."
+restart_hint = "Nach dem Speichern den Dienst neu starten, damit die Änderungen wirksam werden."
+
+[container.logs]
+title            = "Logs: {service}"
+follow           = "Folgen"
+empty_no_service = "Einen Dienst auswählen, um seine Logs anzuzeigen."
+empty            = "Noch keine Logs für {service}."
+
+[container.build]
+title       = "Erstellen & Veröffentlichen"
+description = "docker-compose.yml einfügen, analysieren und als FreeSynergy-Paket veröffentlichen."
+yaml_label  = "docker-compose.yml"
+analyze_btn = "Analysieren"
+publish_btn = "Im Store veröffentlichen"
+placeholder_results = "Analyseergebnisse erscheinen hier"
+
+# fsd-store
+
+[store]
+title              = "Store"
+search_placeholder = "Pakete suchen…"
+loading_catalog    = "Katalog wird geladen…"
+unavailable        = "Store nicht verfügbar"
+offline_hint       = "Offline-Cache wird verwendet, falls vorhanden. Internetverbindung prüfen."
+no_match           = "Keine Pakete gefunden für \"{search}\"."
+back_to_browser    = "Zurück zum Browser"
+
+[store.filter]
+all       = "Alle"
+installed = "Installiert"
+available = "Verfügbar"
+updatable = "Aktualisierbar"
+
+[store.tab]
+all       = "Alle"
+managers  = "Manager"
+services  = "Dienste"
+plugins   = "Plugins"
+languages = "Sprachen"
+themes    = "Designs"
+widgets   = "Widgets"
+bots      = "Bots"
+bridges   = "Bridges"
+tasks     = "Aufgaben"
+installed = "Installiert"
+updates   = "Updates"
+settings  = "Einstellungen"
+
+[store.status]
+installed        = "Installiert ✓"
+update_available = "Update verfügbar"
+
+[store.section]
+capabilities   = "Fähigkeiten"
+package_info   = "Paket-Info"
+store_packages = "Store-Pakete"
+
+[store.dialog]
+remove_title         = "{name} entfernen?"
+remove_body          = "Das Paket wird aus dem Registry entfernt und heruntergeladene Dateien werden gelöscht."
+remove_service_title = "{name} entfernen?"
+remove_service_body  = "Der Dienst wird gestoppt und die systemd-Unit deaktiviert. Daten-Volumes bleiben erhalten."
+
+[store.installed]
+no_packages = "Noch keine Pakete aus dem Store installiert."
+no_services = "Keine FSN-Dienste installiert. Mit fsn deploy ein Projekt deployen."
+
+[store.updates]
+no_metadata   = "Update-Erkennung erfordert Deployment-Metadaten."
+run_deploy    = "fsn deploy ausführen, um Updates zu prüfen und anzuwenden."
+catalog_count = "{n} Paket(e) im Katalog verfügbar."
+
+[store.settings]
+title          = "Repository-Einstellungen"
+description    = "Paketquellen konfigurieren, aus denen Dienste gesucht und installiert werden."
+btn_add        = "+ Repository hinzufügen"
+empty          = "Keine Repositories konfiguriert."
+badge_primary  = "offiziell"
+badge_disabled = "deaktiviert"
+label_name     = "Name"
+label_url      = "URL"
+label_git_url  = "Git-URL"
+label_local_path = "Lokaler Pfad"
+
+[store.install]
+success = "Installation erfolgreich"
+failed  = "Installation fehlgeschlagen"
+
+[store.wizard]
+step_overview    = "Übersicht"
+step_configure   = "Konfigurieren"
+step_confirm     = "Bestätigen"
+step_installing  = "Installieren"
+step_done        = "Fertig"
+overview_title   = "{name} installieren"
+version_type     = "Version: {version} · Typ: {kind}"
+configure_title  = "{name} konfigurieren"
+configure_language = "Das Sprachpaket wird heruntergeladen und lokal gespeichert. Nach der Installation unter Einstellungen → Sprache auswählen."
+configure_theme  = "Das Theme-CSS wird heruntergeladen und lokal gespeichert. Nach der Installation unter Einstellungen → Erscheinungsbild aktivieren."
+configure_widget = "Das Widget wird registriert. Über Desktop bearbeiten → Widget hinzufügen zum Desktop hinzufügen."
+configure_none   = "Für diesen Pakettyp ist keine weitere Konfiguration erforderlich."
+confirm_title    = "Bereit zur Installation"
+confirm_body     = "Auf Installieren klicken, um {name} v{version} herunterzuladen und zu registrieren."
+compose_saved_to = "Die Compose-Datei wird gespeichert unter:"
+compose_conductor_hint = "Anschließend generiert fsn conductor install die Quadlet-Unit und startet den Dienst."
+installing       = "{name} wird installiert…"
+done_title       = "{name} installiert"
+done_container   = "Conductor öffnen, um den Dienst zu starten und zu konfigurieren."
+done_language    = "Unter Einstellungen → Sprache auswählen."
+done_theme       = "Unter Einstellungen → Erscheinungsbild aktivieren."
+done_widget      = "Über Desktop bearbeiten → Widget hinzufügen zum Desktop hinzufügen."
+done_generic     = "Paket ist einsatzbereit."
+install_failed   = "Installation fehlgeschlagen"
+error_body       = "Installation fehlgeschlagen."
+env_vars_hint    = "Umgebungsvariablen für diesen Dienst eingeben (eine pro Zeile, KEY=VALUE)."
+env_vars_body    = "Diese werden in .env neben der Compose-Datei gespeichert. Werte können später ausgefüllt werden."
+detecting_vars   = "Variablen werden erkannt…"
+env_tip          = "Tipp: Die Datei kann später unter ~/.local/share/fsn/services/<name>/.env bearbeitet werden."
+
+# fsd-settings
+
+[settings]
+title = "Einstellungen"
+
+[settings.section]
+appearance = "Erscheinungsbild"
+language   = "Sprache"
+roles      = "Dienstrollen"
+accounts   = "Konten"
+desktop    = "Desktop"
+shortcuts  = "Tastenkürzel"
+
+[settings.appearance]
+color_theme         = "Farbdesign"
+installed_themes    = "Installierte Designs"
+remove_theme_title  = "Design entfernen?"
+remove_theme_body   = "Die Theme-CSS-Datei wird vom Datenträger gelöscht."
+window_chrome       = "Fensterrahmen"
+animations          = "Animationen"
+animations_hint     = "Für reduzierte Bewegung oder bessere Performance deaktivieren"
+transparency        = "Fenstertransparenz"
+transparent         = "Transparent"
+opaque              = "Undurchsichtig"
+component_style     = "Komponentenstil"
+button_style        = "Schaltflächenstil"
+sidebar_style       = "Seitenleistenstil"
+wallpaper           = "Hintergrundbild"
+wallpaper_color     = "Farbe"
+wallpaper_gradients = "Farbverläufe"
+btn_upload_file     = "Aus Datei hochladen"
+btn_reset_wallpaper = "Auf Standard zurücksetzen"
+custom_editor       = "Benutzerdefinierter Theme-Editor"
+editor_prefix_hint  = "Präfix wird automatisch hinzugefügt."
+editor_empty_error  = "Theme-CSS ist leer."
+editor_missing_vars = "Erforderliche Variablen fehlen: {vars}"
+editor_applied      = "Design angewendet"
+btn_apply_preview   = "Vorschau anwenden"
+
+[settings.language]
+title              = "Sprache"
+interface_label    = "Oberflächensprache"
+installed_count    = "({count} installiert)"
+btn_hide           = "Verfügbare Sprachen ausblenden"
+btn_show_more      = "Weitere Sprachen installieren…"
+available_heading  = "Zur Installation verfügbar"
+all_installed      = "Alle verfügbaren Sprachen sind bereits installiert."
+applied            = "Sprache angewendet."
+
+[settings.accounts]
+title              = "Konten"
+description        = "OIDC-Anbieter für Single Sign-On über alle Dienste konfigurieren."
+btn_connect        = "+ Anbieter verbinden"
+form_title         = "Neuer OIDC-Anbieter"
+label_client_id    = "Client-ID"
+label_discovery_url = "Discovery-URL"
+label_scopes       = "Scopes"
+scopes_hint        = "Standard: \"openid email profile\", wenn leer gelassen."
+btn_save           = "Anbieter speichern"
+empty              = "Noch keine Anbieter verbunden."
+empty_hint         = "Einen OIDC-Anbieter (z.B. Kanidm) verbinden, um SSO für die Dienste zu aktivieren."
+btn_disconnect     = "Trennen"
+
+[settings.roles]
+title       = "Dienstrollen"
+description = "Festlegen, welcher installierte Dienst welche Systemfunktion übernimmt. Ähnlich wie MIME-Typen — aber für Fähigkeiten."
+not_assigned = "— nicht zugewiesen —"
+
+[settings.desktop]
+title             = "Desktop"
+display_mode      = "Anzeigemodus"
+next_launch_hint  = "Wird beim nächsten Start wirksam."
+taskbar_position  = "Taskleistenposition"
+sidebar_position  = "Seitenleistenposition"
+sidebar_collapsed = "Mit eingeklappter Seitenleiste starten"
+mode_window       = "Natives OS-Fenster (Standard)"
+mode_web          = "Browser / Webserver"
+mode_tui          = "Terminal-Oberfläche"
+
+[settings.shortcuts]
+title          = "Tastenkürzel"
+search_placeholder = "Aktionen suchen…"
+press_keys     = "Tasten drücken…"
+recording_hint = "Tastenkombination drücken — Escape zum Abbrechen"
+action_open_settings = "Einstellungen öffnen"
+action_launcher      = "App-Starter"
+action_quit          = "Beenden"
+action_fullscreen    = "Vollbild"
+action_sidebar       = "Seitenleiste anzeigen"
+action_store         = "Store öffnen"
+action_install       = "Paket installieren"
+action_tasks         = "Aufgaben öffnen"
+action_conductor     = "Conductor öffnen"
+action_studio        = "Studio öffnen"
+action_bots          = "Bots öffnen"
+action_help          = "Hilfe öffnen"
+action_shortcuts     = "Tastenkürzel"
+action_close         = "Fenster schließen"
+
+# fsd-bots
+[bots]
+title = "Bot-Verwaltung"
+
+[bots.section]
+accounts   = "Konten"
+bots       = "Bots"
+broadcast  = "Nachrichten"
+gatekeeper = "Türsteher"
+
+# fsd-builder
+
+[builder]
+title = "Builder"
+
+[builder.section]
+container_app = "Container App"
+bridge        = "Bridge"
+i18n          = "i18n-Editor"
+resources     = "Ressourcen"
+
+[builder.i18n]
+language_label   = "SPRACHE"
+no_packs         = "Keine Sprachpakete installiert. Im Store installieren."
+file_path_hint   = "Dateipfad"
+unsaved          = "● ungespeichert"
+save_btn         = "Speichern"
+no_toml_title    = "Keine ui.toml für diese Sprache gefunden."
+no_toml_hint     = "Im Store installieren oder manuell erstellen unter:"
+
+# fsd-browser
+
+[browser]
+title         = "Browser"
+url_placeholder = "URL oder Suche eingeben…"
+new_tab       = "Neuer Tab"
+close_tab     = "Tab schließen"
+reload        = "Neu laden"
+go_back       = "Zurück"
+go_forward    = "Vorwärts"
+bookmarks     = "Lesezeichen"
+history       = "Verlauf"
+downloads     = "Downloads"
+empty_tab     = "Neuer Tab"
+
+[browser.bookmarks]
+add      = "Seite als Lesezeichen speichern"
+remove   = "Lesezeichen entfernen"
+empty    = "Noch keine Lesezeichen."
+added    = "Lesezeichen hinzugefügt."
+removed  = "Lesezeichen entfernt."
+
+[browser.history]
+empty  = "Noch kein Verlauf."
+clear  = "Verlauf löschen"
+
+[browser.downloads]
+saving    = "Wird in S3 gespeichert…"
+saved     = "Gespeichert unter /shared/downloads/{name}"
+error     = "Download fehlgeschlagen: {error}"
+empty     = "Noch keine Downloads."
+
+# fsd-lenses
+
+[lenses]
+title        = "Linsen"
+new_lens     = "Neue Linse"
+delete_lens  = "Löschen"
+empty        = "Noch keine Linsen. Erstelle eine, um Daten aus deinen Diensten zu bündeln."
+search_hint  = "Suchbegriff oder Thema (z.B. 'Helfa Köln', 'Projekt Alpha')…"
+
+[lenses.form]
+name         = "Linsenname"
+query        = "Suchabfrage"
+create       = "Linse erstellen"
+cancel       = "Abbrechen"
+
+[lenses.item]
+open_link    = "Öffnen"
+no_data      = "Keine Daten für diese Rolle verfügbar."
+loading      = "Dienste werden abgefragt…"
+role_wiki    = "Wiki"
+role_chat    = "Chat"
+role_git     = "Git"
+role_map     = "Karte"
+role_tasks   = "Aufgaben"
+role_iam     = "IAM"
+
+# fsd-managers
+
+[managers]
+title  = "Manager"
+saved  = "Übernommen."
+
+[managers.section]
+language       = "Sprache"
+theme          = "Theme"
+icons          = "Icons"
+container_apps = "Container-Apps"
+bots           = "Bots"
+
+[managers.language]
+title       = "Sprachmanager"
+description = "Aktive Oberflächensprache auswählen. Änderungen gelten für alle FreeSynergy-Programme."
+
+[managers.theme]
+title       = "Thememanager"
+description = "Aktives UI-Theme auswählen. Änderungen gelten für alle FreeSynergy-Programme."
+
+[managers.icons]
+title       = "Iconmanager"
+description = "Verfügbare Icon-Sets für die FreeSynergy-Oberfläche."
+no_sets     = "Keine Icon-Sets gefunden. FreeSynergy.Icons-Repository prüfen."
+
+[managers.container_apps]
+title       = "Container-App-Manager"
+description = "Containerisierte Anwendungen auf diesem Node verwalten."
+empty       = "Noch keine Container-Apps installiert. Im Store Apps installieren."
+
+[managers.bots]
+title       = "Bot-Manager"
+placeholder = "Bot-Verwaltung folgt demnächst."
+
+# fsd-theme
+[theme]
+title = "Theme-Verwaltung"
+
+[theme.section]
+themes = "Themes"
+colors = "Farben"
+cursor = "Mauszeiger"
+chrome = "Fenster-Stil"
+

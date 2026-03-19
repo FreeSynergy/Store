@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "pl"
+native_name  = "Polski"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

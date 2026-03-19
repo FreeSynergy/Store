@@ -1,0 +1,6 @@
+[i18n]
+locale_code  = "ko"
+native_name  = "한국어"
+direction    = "ltr"
+completeness = 100
+api_version  = 1

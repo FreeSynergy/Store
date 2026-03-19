@@ -3,7 +3,9 @@
 # URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/desktop/catalog.toml
 #
 # Lists all packages distributed via the Desktop Store:
-#   - Managers (built-in desktop components)
+#   - Manager Bundle (groups all built-in desktop managers)
+#   - Individual Managers (built-in desktop components)
+#   - Demo/placeholder Apps
 #
 # Field order (packages): id → name → kind → category → version → description
 #   → icon → license → author → tags
@@ -12,6 +14,29 @@
 project      = "Desktop"
 generated_at = "2026-03-19T00:00:00Z"
 version      = "1.0.0"
+
+# ── Manager Bundle ─────────────────────────────────────────────────────────────
+# All built-in managers are grouped under this single bundle entry.
+# Individual managers are discoverable via the bundle's capabilities list.
+
+[[packages]]
+id           = "bundle-managers"
+name         = "Manager Bundle"
+kind         = "bundle"
+category     = "bundles.managers"
+version      = "1.0.0"
+description  = "All built-in FreeSynergy desktop managers — language, theme, icons, container apps, and bots."
+icon         = "we10x/apps/scalable/extension-manager.svg"
+license      = "MIT"
+author       = "Kal El"
+tags         = ["bundle", "managers", "builtin"]
+capabilities = [
+  "manager-language",
+  "manager-theme",
+  "manager-icons",
+  "manager-container-app",
+  "manager-bots",
+]
 
 # ── Managers ──────────────────────────────────────────────────────────────────
 
@@ -22,7 +47,7 @@ kind        = "manager"
 category    = "managers.language"
 version     = "1.0.0"
 description = "Install and switch interface language packs."
-icon        = "🌐"
+icon        = "we10x/apps/scalable/preferences-desktop-locale.svg"
 license     = "MIT"
 author      = "Kal El"
 tags        = ["manager", "language", "i18n", "builtin"]
@@ -34,7 +59,7 @@ kind        = "manager"
 category    = "managers.theme"
 version     = "1.0.0"
 description = "Browse and apply desktop color themes."
-icon        = "🎨"
+icon        = "we10x/apps/scalable/preferences-desktop-plasma-theme.svg"
 license     = "MIT"
 author      = "Kal El"
 tags        = ["manager", "theme", "appearance", "builtin"]
@@ -46,7 +71,7 @@ kind        = "manager"
 category    = "managers.icons"
 version     = "1.0.0"
 description = "Install custom icon sets for the desktop."
-icon        = "🖼"
+icon        = "we10x/apps/scalable/preferences-desktop-icons.svg"
 license     = "MIT"
 author      = "Kal El"
 tags        = ["manager", "icons", "appearance", "builtin"]
@@ -58,7 +83,7 @@ kind        = "manager"
 category    = "managers.container_app"
 version     = "1.0.0"
 description = "Manage Podman container apps and services."
-icon        = "📦"
+icon        = "we10x/apps/scalable/docker.svg"
 license     = "MIT"
 author      = "Kal El"
 tags        = ["manager", "container", "podman", "builtin"]
@@ -70,7 +95,22 @@ kind        = "manager"
 category    = "managers.bots"
 version     = "1.0.0"
 description = "Configure and manage automation bots."
-icon        = "🤖"
+icon        = "we10x/apps/scalable/activitywatch.svg"
 license     = "MIT"
 author      = "Kal El"
 tags        = ["manager", "bots", "automation", "builtin"]
+
+# ── Demo App ──────────────────────────────────────────────────────────────────
+# Placeholder showing what native FreeSynergy apps will look like.
+
+[[packages]]
+id          = "demo-hello-app"
+name        = "Hello App (Demo)"
+kind        = "app"
+category    = "apps.demo"
+version     = "0.1.0"
+description = "A minimal demo app — shows how native FreeSynergy apps appear in the Store. Not yet functional."
+icon        = "we10x/apps/scalable/application-default-icon.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["demo", "placeholder", "app"]

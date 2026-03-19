@@ -21,6 +21,7 @@ version      = "1.0.0"
 [[packages]]
 id          = "proxy/zentinel"
 name        = "Zentinel"
+kind        = "container"
 category    = "deploy.proxy"
 version     = "0.1.0"
 description = "Pingora-based reverse proxy with automatic TLS, DNS challenge support and KDL-driven config"
@@ -33,6 +34,7 @@ tags        = ["proxy", "tls", "pingora", "acme", "kdl"]
 [[packages]]
 id          = "iam/kanidm"
 name        = "Kanidm"
+kind        = "container"
 category    = "deploy.iam"
 version     = "0.1.0"
 description = "Lightweight, Rust-native identity provider with WebAuthn, LDAP and OAuth2"
@@ -45,6 +47,7 @@ tags        = ["iam", "auth", "webauthn", "ldap", "oauth2"]
 [[packages]]
 id          = "git/forgejo"
 name        = "Forgejo"
+kind        = "container"
 category    = "deploy.git"
 version     = "0.1.0"
 description = "Self-hosted, community-driven Git forge — lightweight and privacy-friendly"
@@ -57,6 +60,7 @@ tags        = ["git", "forge", "ci", "issues"]
 [[packages]]
 id          = "wiki/outline"
 name        = "Outline"
+kind        = "container"
 category    = "deploy.wiki"
 version     = "0.1.0"
 description = "Modern, beautiful knowledge base with real-time collaboration"
@@ -69,6 +73,7 @@ tags        = ["wiki", "knowledge-base", "collaboration", "markdown"]
 [[packages]]
 id          = "mail/stalwart"
 name        = "Stalwart"
+kind        = "container"
 category    = "deploy.mail"
 version     = "0.1.0"
 description = "All-in-one mail server: SMTP, IMAP, JMAP, webmail and admin UI"
@@ -81,6 +86,7 @@ tags        = ["mail", "smtp", "imap", "jmap", "webmail"]
 [[packages]]
 id          = "chat/tuwunel"
 name        = "Tuwunel"
+kind        = "container"
 category    = "deploy.chat"
 version     = "0.1.0"
 description = "High-performance Matrix homeserver — fork of Conduit, written in Rust"
@@ -93,6 +99,7 @@ tags        = ["chat", "matrix", "federation", "rust"]
 [[packages]]
 id          = "collab/cryptpad"
 name        = "CryptPad"
+kind        = "container"
 category    = "deploy.collab"
 version     = "0.1.0"
 description = "End-to-end encrypted collaborative office suite — documents, sheets, presentations"
@@ -105,6 +112,7 @@ tags        = ["collab", "office", "encrypted", "privacy"]
 [[packages]]
 id          = "tasks/vikunja"
 name        = "Vikunja"
+kind        = "container"
 category    = "deploy.tasks"
 version     = "0.1.0"
 description = "Open-source to-do app and project manager with REST API and CalDAV"
@@ -117,6 +125,7 @@ tags        = ["tasks", "todo", "projects", "caldav"]
 [[packages]]
 id          = "tickets/pretix"
 name        = "Pretix"
+kind        = "container"
 category    = "deploy.tickets"
 version     = "0.1.0"
 description = "Event ticketing system with shop, badges and check-in app"
@@ -129,6 +138,7 @@ tags        = ["tickets", "events", "shop", "checkin"]
 [[packages]]
 id          = "maps/umap"
 name        = "uMap"
+kind        = "container"
 category    = "deploy.maps"
 version     = "0.1.0"
 description = "Create and share maps using OpenStreetMap layers — no account required"
@@ -141,6 +151,7 @@ tags        = ["maps", "openstreetmap", "geo", "sharing"]
 [[packages]]
 id          = "monitoring/openobserver"
 name        = "OpenObserve"
+kind        = "container"
 category    = "deploy.monitoring"
 version     = "0.1.0"
 description = "Cloud-native observability platform — logs, metrics, traces in one UI"
@@ -153,6 +164,7 @@ tags        = ["monitoring", "observability", "logs", "metrics", "traces"]
 [[packages]]
 id          = "database/postgres"
 name        = "PostgreSQL"
+kind        = "container"
 category    = "deploy.database"
 version     = "0.1.0"
 description = "The world's most advanced open-source relational database"
@@ -165,6 +177,7 @@ tags        = ["database", "sql", "postgres", "relational"]
 [[packages]]
 id          = "cache/dragonfly"
 name        = "Dragonfly"
+kind        = "container"
 category    = "deploy.cache"
 version     = "0.1.0"
 description = "Modern in-memory store — drop-in Redis/Memcached replacement, 25x faster"
@@ -177,6 +190,7 @@ tags        = ["cache", "redis", "memcached", "in-memory"]
 [[packages]]
 id          = "ai/ollama"
 name        = "Ollama"
+kind        = "container"
 category    = "deploy.ai"
 version     = "0.0.1"
 description = "Local LLM inference server — run open models like Llama, Mistral and Gemma on your hardware"

@@ -1,0 +1,19 @@
+# Basa Jawa language pack
+[meta]
+id            = "lang-jv"
+name          = "Basa Jawa"
+resource_type = "language"
+description   = "Basa Jawa language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["jv", "language"]
+
+[language]
+locale       = "jv-ID"
+display_name = "Basa Jawa"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

@@ -1,0 +1,19 @@
+# Türkçe language pack
+[meta]
+id            = "lang-tr"
+name          = "Türkçe"
+resource_type = "language"
+description   = "Türkçe language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["tr", "language"]
+
+[language]
+locale       = "tr-TR"
+display_name = "Türkçe"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

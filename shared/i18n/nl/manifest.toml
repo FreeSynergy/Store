@@ -1,0 +1,19 @@
+# Nederlands language pack
+[meta]
+id            = "lang-nl"
+name          = "Nederlands"
+resource_type = "language"
+description   = "Nederlands language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["nl", "language"]
+
+[language]
+locale       = "nl-NL"
+display_name = "Nederlands"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

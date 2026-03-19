@@ -1,0 +1,19 @@
+# Shqip language pack
+[meta]
+id            = "lang-sq"
+name          = "Shqip"
+resource_type = "language"
+description   = "Shqip language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["sq", "language"]
+
+[language]
+locale       = "sq-AL"
+display_name = "Shqip"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

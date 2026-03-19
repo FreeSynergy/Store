@@ -1,0 +1,19 @@
+# Português language pack
+[meta]
+id            = "lang-pt"
+name          = "Português"
+resource_type = "language"
+description   = "Português language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["pt", "language"]
+
+[language]
+locale       = "pt-PT"
+display_name = "Português"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

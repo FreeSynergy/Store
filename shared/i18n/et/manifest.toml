@@ -1,0 +1,19 @@
+# Eesti language pack
+[meta]
+id            = "lang-et"
+name          = "Eesti"
+resource_type = "language"
+description   = "Eesti language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["et", "language"]
+
+[language]
+locale       = "et-EE"
+display_name = "Eesti"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

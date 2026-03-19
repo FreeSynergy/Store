@@ -1,0 +1,19 @@
+# ภาษาไทย language pack
+[meta]
+id            = "lang-th"
+name          = "ภาษาไทย"
+resource_type = "language"
+description   = "ภาษาไทย language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["th", "language"]
+
+[language]
+locale       = "th-TH"
+display_name = "ภาษาไทย"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

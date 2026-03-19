@@ -1,0 +1,19 @@
+# العربية language pack
+[meta]
+id            = "lang-ar"
+name          = "العربية"
+resource_type = "language"
+description   = "العربية language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ar", "language"]
+
+[language]
+locale       = "ar-SA"
+display_name = "العربية"
+direction    = "rtl"
+completeness = 100
+
+programs = ["node"]

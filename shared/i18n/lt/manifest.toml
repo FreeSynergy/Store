@@ -1,0 +1,19 @@
+# Lietuvių language pack
+[meta]
+id            = "lang-lt"
+name          = "Lietuvių"
+resource_type = "language"
+description   = "Lietuvių language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["lt", "language"]
+
+[language]
+locale       = "lt-LT"
+display_name = "Lietuvių"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

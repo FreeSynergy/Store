@@ -1,0 +1,19 @@
+# தமிழ் language pack
+[meta]
+id            = "lang-ta"
+name          = "தமிழ்"
+resource_type = "language"
+description   = "தமிழ் language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ta", "language"]
+
+[language]
+locale       = "ta-IN"
+display_name = "தமிழ்"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

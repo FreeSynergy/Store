@@ -1,0 +1,19 @@
+# हिन्दी language pack
+[meta]
+id            = "lang-hi"
+name          = "हिन्दी"
+resource_type = "language"
+description   = "हिन्दी language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["hi", "language"]
+
+[language]
+locale       = "hi-IN"
+display_name = "हिन्दी"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

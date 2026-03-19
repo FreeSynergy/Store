@@ -1,0 +1,19 @@
+# Hausa language pack
+[meta]
+id            = "lang-ha"
+name          = "Hausa"
+resource_type = "language"
+description   = "Hausa language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ha", "language"]
+
+[language]
+locale       = "ha-NG"
+display_name = "Hausa"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

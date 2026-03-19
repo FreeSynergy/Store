@@ -1,17 +1,18 @@
-# Weather widget — current conditions and forecast
+# Weather widget — current conditions and short forecast
 #
-# Coming soon — no service role required (uses public weather APIs).
+# Uses free, no-account weather APIs only.
+# Location can be set manually or determined automatically via device geolocation.
 
 [meta]
 id            = "weather"
 name          = "Weather"
 resource_type = "widget"
-description   = "Current weather conditions and short-range forecast for your location"
-version       = "0.1.0"
+description   = "Current weather and short forecast — free APIs only, no account required"
+version       = "1.0.0"
 author        = "FreeSynergy"
 license       = "MIT"
 icon          = "icon.svg"
-tags          = ["weather", "forecast", "temperature", "coming-soon"]
+tags          = ["weather", "forecast", "temperature", "geolocation", "free"]
 
 required_roles = []
 data_sources   = []
@@ -19,13 +20,106 @@ data_sources   = []
 refresh_interval_secs = 900
 
 [min_size]
-columns = 3
+columns = 2
 rows    = 2
 
 [max_size]
 columns = 6
-rows    = 3
+rows    = 4
 
 [default_size]
 columns = 3
 rows    = 2
+
+# ── Widget Settings ───────────────────────────────────────────────────────────
+
+# ── Data Source ───────────────────────────────────────────────────────────────
+
+[[settings]]
+key         = "provider"
+label       = "Weather Provider"
+description = "Which free weather service to use — all options require no account or API key"
+type        = "select"
+default     = "open-meteo"
+options     = [
+  { value = "open-meteo",   label = "Open-Meteo (free, no account, open-source)" },
+  { value = "wttr-in",      label = "wttr.in (free, terminal-friendly)" },
+  { value = "openweathermap-free", label = "OpenWeatherMap (free tier, no credit card)" },
+  { value = "met-no",       label = "MET Norway (free, official Norwegian Met service)" },
+  { value = "pirateweather", label = "Pirate Weather (free tier, Dark Sky-compatible)" },
+]
+
+# Note: open-meteo is the default — it is fully open-source, GDPR-compliant,
+# runs in Europe, and requires absolutely no account or API key.
+
+# ── Location ──────────────────────────────────────────────────────────────────
+
+[[settings]]
+key         = "location_mode"
+label       = "Location Mode"
+description = "How to determine your location for weather data"
+type        = "select"
+default     = "manual"
+options     = [
+  { value = "manual",   label = "Manual — enter a city or coordinates" },
+  { value = "auto",     label = "Automatic — use device geolocation (if available)" },
+]
+
+[[settings]]
+key         = "location_city"
+label       = "City or Location"
+description = "Type a city name to search for it — shown when Location Mode is 'Manual'"
+type        = "location_search"
+default     = ""
+placeholder = "e.g. Berlin, London, Tokyo"
+depends_on  = { key = "location_mode", value = "manual" }
+
+[[settings]]
+key         = "location_lat"
+label       = "Latitude"
+description = "GPS latitude (auto-filled when you select a city, or from device geolocation)"
+type        = "float"
+default     = 0.0
+hidden      = true
+
+[[settings]]
+key         = "location_lon"
+label       = "Longitude"
+description = "GPS longitude (auto-filled when you select a city, or from device geolocation)"
+type        = "float"
+default     = 0.0
+hidden      = true
+
+# ── Display ───────────────────────────────────────────────────────────────────
+
+[[settings]]
+key         = "unit"
+label       = "Temperature Unit"
+description = "Celsius or Fahrenheit"
+type        = "select"
+default     = "celsius"
+options     = [
+  { value = "celsius",    label = "Celsius (°C)" },
+  { value = "fahrenheit", label = "Fahrenheit (°F)" },
+]
+
+[[settings]]
+key         = "show_forecast"
+label       = "Show Forecast"
+description = "Display a short 3-day forecast below the current conditions"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_wind"
+label       = "Show Wind"
+description = "Display wind speed and direction"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_humidity"
+label       = "Show Humidity"
+description = "Display relative humidity percentage"
+type        = "bool"
+default     = false

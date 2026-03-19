@@ -1,0 +1,19 @@
+# Čeština language pack
+[meta]
+id            = "lang-cs"
+name          = "Čeština"
+resource_type = "language"
+description   = "Čeština language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["cs", "language"]
+
+[language]
+locale       = "cs-CZ"
+display_name = "Čeština"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

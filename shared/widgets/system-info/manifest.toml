@@ -1,18 +1,17 @@
-# System Info widget — hostname, uptime, memory and disk usage
+# System Info widget — hardware and OS metrics
 #
-# Built-in widget, no external service roles required.
-# Reads local system metrics directly.
+# Built-in widget, reads local system data directly.
 
 [meta]
 id            = "system-info"
 name          = "System Info"
 resource_type = "widget"
-description   = "Displays hostname, uptime, memory and disk usage — refreshes every 10 seconds"
+description   = "Displays system metrics — hostname, uptime, CPU, memory, disk, network and more"
 version       = "1.0.0"
 author        = "FreeSynergy"
 license       = "MIT"
 icon          = "icon.svg"
-tags          = ["system", "monitor", "memory", "disk", "uptime", "built-in"]
+tags          = ["system", "monitor", "memory", "disk", "cpu", "network", "uptime", "built-in"]
 
 required_roles = []
 data_sources   = []
@@ -24,9 +23,110 @@ columns = 3
 rows    = 2
 
 [max_size]
-columns = 6
-rows    = 3
+columns = 8
+rows    = 6
 
 [default_size]
 columns = 4
-rows    = 2
+rows    = 3
+
+# ── Widget Settings ───────────────────────────────────────────────────────────
+# Checkboxes: which metrics to display in the widget.
+
+[[settings]]
+key         = "show_hostname"
+label       = "Hostname"
+description = "Show the machine's hostname"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_os"
+label       = "Operating System"
+description = "Show OS name and kernel version"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_uptime"
+label       = "Uptime"
+description = "Show how long the system has been running"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_cpu_model"
+label       = "CPU Model"
+description = "Show the CPU name and core count"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_cpu_usage"
+label       = "CPU Usage"
+description = "Show current CPU usage as a percentage"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_memory"
+label       = "Memory (RAM)"
+description = "Show used / total RAM"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_swap"
+label       = "Swap"
+description = "Show swap/virtual memory usage"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_disk"
+label       = "Disk Usage"
+description = "Show used / total disk space for the root filesystem"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "disk_path"
+label       = "Disk Path"
+description = "Filesystem path to monitor (e.g. / or /home)"
+type        = "string"
+default     = "/"
+
+[[settings]]
+key         = "show_network"
+label       = "Network Traffic"
+description = "Show current download and upload speed"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_ip"
+label       = "IP Address"
+description = "Show the primary local IP address"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_load"
+label       = "System Load"
+description = "Show the 1/5/15-minute load averages"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_temps"
+label       = "Temperatures"
+description = "Show CPU and GPU temperatures (if sensor data is available)"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "show_processes"
+label       = "Running Processes"
+description = "Show number of running processes"
+type        = "bool"
+default     = false

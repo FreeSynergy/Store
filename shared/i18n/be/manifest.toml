@@ -1,0 +1,19 @@
+# Беларуская language pack
+[meta]
+id            = "lang-be"
+name          = "Беларуская"
+resource_type = "language"
+description   = "Беларуская language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["be", "language"]
+
+[language]
+locale       = "be-BY"
+display_name = "Беларуская"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

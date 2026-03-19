@@ -1,0 +1,19 @@
+# فارسی language pack
+[meta]
+id            = "lang-fa"
+name          = "فارسی"
+resource_type = "language"
+description   = "فارسی language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["fa", "language"]
+
+[language]
+locale       = "fa-IR"
+display_name = "فارسی"
+direction    = "rtl"
+completeness = 100
+
+programs = ["node"]

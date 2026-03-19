@@ -1,0 +1,19 @@
+# Yorùbá language pack
+[meta]
+id            = "lang-yo"
+name          = "Yorùbá"
+resource_type = "language"
+description   = "Yorùbá language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["yo", "language"]
+
+[language]
+locale       = "yo-NG"
+display_name = "Yorùbá"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

@@ -1,0 +1,19 @@
+# Slovenščina language pack
+[meta]
+id            = "lang-sl"
+name          = "Slovenščina"
+resource_type = "language"
+description   = "Slovenščina language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["sl", "language"]
+
+[language]
+locale       = "sl-SI"
+display_name = "Slovenščina"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

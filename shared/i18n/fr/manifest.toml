@@ -1,0 +1,19 @@
+# Français language pack
+[meta]
+id            = "lang-fr"
+name          = "Français"
+resource_type = "language"
+description   = "Français language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["fr", "language"]
+
+[language]
+locale       = "fr-FR"
+display_name = "Français"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

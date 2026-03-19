@@ -1,0 +1,19 @@
+# Kiswahili language pack
+[meta]
+id            = "lang-sw"
+name          = "Kiswahili"
+resource_type = "language"
+description   = "Kiswahili language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["sw", "language"]
+
+[language]
+locale       = "sw-KE"
+display_name = "Kiswahili"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

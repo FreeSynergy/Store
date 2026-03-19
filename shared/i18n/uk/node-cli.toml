@@ -1,0 +1,294 @@
+# FreeSynergy.Node — Українська translation
+# Auto-migrated from flat format. Edit ui.toml to update translations.
+
+[meta]
+code         = 'uk'
+name         = 'Українська'
+api_version  = 1
+completeness = 100
+
+[confirm]
+quit = 'Справді вийти?  J=Так  інша клавіша=Ні'
+delete.project = 'Справді видалити проєкт?  J=Так  інша клавіша=Ні'
+delete.service = 'Видалити сервіс?  J=Так  інша клавіша=Ні'
+delete.host = 'Справді видалити хост?  J=Так  інша клавіша=Ні'
+stop.service = 'Зупинити сервіс?  J=Так  інша клавіша=Ні'
+
+[ctx]
+edit = 'Редагувати'
+delete = 'Видалити'
+deploy = 'Розгорнути'
+start = 'Запустити'
+stop = 'Зупинити'
+logs = 'Показати журнали'
+
+[dash]
+services = 'Сервіси'
+col.name = 'Назва'
+col.type = 'Тип'
+col.domain = 'Домен'
+col.status = 'Стан'
+hint = '↑↓=Навіг  /=Пошук  y=Копіювати  n=Новий  e=Редагувати  x=Видалити  Tab=Серв.  q=Вихід'
+hint.host = '↑↓=Навіг  n=Новий хост  e=Редагувати  s=Запустити  x=Видалити  Tab=Деталі  q=Вихід'
+hint.service = '↑↓=Навіг  n=Новий сервіс  e=Редагувати  s=Запустити  x=Видалити  Tab=Деталі  q=Вихід'
+hint.services = '↑↓=Навіг  Пробіл=Вибір  s=Запустити  r=Перезапустити  x=Зупинити  d=Розгорнути  l=Журнали  y=Копіювати  q=Вихід'
+hint.confirm = 'Справді видалити проєкт?  J=Так  N=Скасувати'
+no_projects = '(Немає створеного проєкту)'
+no_project_selected = 'Не вибрано проєкт'
+no_services = '(Немає налаштованих сервісів)'
+hint.f1 = 'F1=Довідка'
+hint.quit = 'q=Вихід'
+new_project = '+ Новий проєкт'
+new_service = '+ Новий сервіс'
+new_host = '+ Новий хост'
+filter.empty = '(немає результатів)'
+hint.filter = 'Esc=Закрити  ↑↓=Навіг  Enter=Вибрати  Символ=Пошук'
+tab.projects = 'Проєкти'
+tab.hosts = 'Хости'
+tab.services = 'Сервіси'
+tab.store = 'Магазин'
+tab.settings = '⚙ Налаштування'
+hint.multiselect = 'Пробіл=Вибрати  s=Запустити всі  x=Зупинити всі  u=Скасувати вибір'
+
+[deploy]
+title = 'Експорт Compose'
+hint = 'q=Закрити'
+running = '↻ Виконується...'
+
+[form]
+submit.edit = 'Зберегти'
+tab.project = 'Проєкт'
+tab.options = 'Опції'
+textarea.hint = 'Tab=Наступне поле  Enter=Новий рядок  Alt+Enter=Надіслати  Esc=Назад'
+confirm.leave = 'Відкинути зміни та закрити?  J=Так  інша клавіша=Ні'
+hint.ctrl = '^←=Попередня вкладка  ^→=Наступна вкладка  ^C=Вихід'
+required = "* Обов'язкове поле"
+all_required_filled = "✓ Всі обов'язкові поля заповнені"
+missing_required = "Обов'язкове поле(я) ще порожнє"
+multiselect.none = '(Нічого не вибрано)'
+error = 'Помилка'
+submit = 'Створити проєкт'
+submit.service = 'Створити сервіс'
+submit.host = 'Створити хост'
+project.name = 'Назва проєкту'
+project.name.hint = 'Коротка назва без пробілів, напр. мійпроєкт'
+project.domain = 'Домен'
+project.domain.hint = 'Основний домен, напр. приклад.ua (похідне від назви проєкту)'
+project.description = 'Опис'
+project.description.hint = "Короткий опис проєкту (необов'язково)"
+project.path = 'Каталог встановлення'
+project.path.hint = 'Де fsn зберігає дані (створюється, якщо не існує)'
+project.email = 'Контактна електронна пошта'
+project.email.hint = "Для сповіщень Let's Encrypt (похідне від домену)"
+options.language = 'Основна мова (↑↓ для вибору)'
+options.version = 'Версія'
+tab.service = 'Сервіс'
+tab.network = 'Мережа'
+tab.env = 'Середовище'
+new_service = 'Новий сервіс'
+edit_service = 'Редагувати сервіс'
+service.name = 'Назва сервісу'
+service.name.hint = 'Назва екземпляра, напр. forgejo (унікальна в проєкті)'
+service.class = 'Тип сервісу (↑↓ для вибору)'
+service.tags = 'Теги (через кому)'
+service.tags.hint = "Необов'язкові теги, напр. внутрішній,критичний"
+service.alias = 'Псевдонім піддомену'
+service.alias.hint = "Необов'язковий псевдонім, напр. git → git.<домен>"
+service.subdomain = 'Піддомен'
+service.subdomain.hint = 'Піддомен для цього екземпляра (похідне від назви)'
+service.port = "Порт (необов'язково)"
+service.env = 'Змінні середовища'
+service.env.hint = '↑↓=Рядок  Tab=Стовпець  Enter=Новий рядок  ↓=Новий рядок в кінці'
+tab.host = 'Хост'
+tab.system = 'Система'
+tab.dns = 'DNS / TLS'
+new_host = 'Новий хост'
+edit_host = 'Редагувати хост'
+host.name = "Ім'я хоста"
+host.name.hint = "Унікальне ім'я, напр. сервер1 (без пробілів)"
+host.alias = 'Псевдонім'
+host.alias.hint = "Відображуване ім'я, напр. основний або резервний"
+host.address = 'IP-адреса / FQDN'
+host.address.hint = 'Основна IPv4-адреса або FQDN, напр. 192.168.1.1'
+host.project = 'Проєкт'
+host.ssh_user = 'SSH-користувач'
+host.ssh_port = 'SSH-порт'
+host.install_dir = 'Каталог встановлення'
+host.install_dir.hint = 'Базовий каталог на цьому хості, напр. /opt/fsn'
+host.dns_provider = 'DNS-провайдер (↑↓ для вибору)'
+host.acme_provider = 'ACME-провайдер (↑↓ для вибору)'
+host.acme_email = 'ACME електронна пошта'
+host.acme_email.hint = "Контактна електронна пошта для Let's Encrypt (похідне від адреси)"
+tab.bot = 'Бот'
+submit.bot = 'Створити бота'
+bot.name = "Ім'я бота"
+bot.name.hint = "Унікальне ім'я, напр. matrix-бот (без пробілів)"
+bot.type = 'Тип бота (↑↓ для вибору)'
+bot.class = 'Клас бота (↑↓ для вибору)'
+bot.description = 'Опис'
+bot.tags = 'Теги'
+bot.tags.hint = 'Теги через кому, напр. сповіщення,тривоги'
+hint = 'Enter=Наступне поле  Tab=Змінити вкладку  ↑↓=Вибір  ^S=Надіслати  Esc=Закрити'
+tab.services = 'Сервіси'
+project.tags = 'Теги (через кому)'
+project.tags.hint = "Необов'язкові теги, напр. виробництво,внутрішній"
+project.iam = 'IAM сервіс (назва екземпляра)'
+project.iam.hint = 'Назва IAM екземпляра, напр. kanidm'
+project.wiki = 'Wiki сервіс (назва екземпляра)'
+project.wiki.hint = 'Назва Wiki екземпляра, напр. outline'
+project.mail = 'Поштовий сервіс (назва екземпляра)'
+project.mail.hint = 'Назва поштового екземпляра, напр. stalwart'
+project.monitoring = 'Моніторинг (назва екземпляра)'
+project.monitoring.hint = 'Назва екземпляра моніторингу, напр. netdata'
+project.git = 'Git сервіс (назва екземпляра)'
+project.git.hint = 'Назва Git екземпляра, напр. forgejo'
+host.proxy = 'Проксі екземпляр'
+host.proxy.hint = 'Назва Zentinel екземпляра на цьому хості (типово: zentinel)'
+
+[help]
+title = 'Довідка (F1)'
+close_hint = 'F1=Закрити'
+nav = 'Навігація'
+nav.select = 'Вибрати рядок'
+nav.open = 'Відкрити / Підтвердити'
+nav.panel = 'Змінити панель'
+new_project = 'Створити новий проєкт'
+lang = 'Змінити мову'
+quit = 'Вихід'
+deploy = 'Розгорнути проєкт'
+export = 'Експортувати Compose'
+delete = 'Видалити'
+form.project = 'Форма проєкту'
+form.host = 'Форма хоста'
+form.service = 'Форма сервісу'
+form.bot = 'Форма бота'
+form.next = 'Наступне поле'
+form.prev = 'Попереднє поле'
+form.select = 'Вибрати опцію'
+form.advance = 'Наступна вкладка'
+form.submit = 'Надіслати форму'
+form.tab_next = 'Наступна вкладка'
+form.tab_prev = 'Попередня вкладка'
+form.cancel = 'Скасувати / Закрити'
+field = 'Це поле'
+settings = 'Налаштування'
+
+[lang]
+label = 'Мова'
+de = 'Німецька'
+en = 'Англійська'
+uk = 'Українська'
+fr = 'Французька'
+es = 'Іспанська'
+it = 'Італійська'
+pt = 'Португальська'
+nl = 'Голландська'
+pl = 'Польська'
+ro = 'Румунська'
+hu = 'Угорська'
+cs = 'Чеська'
+sk = 'Словацька'
+bg = 'Болгарська'
+hr = 'Хорватська'
+sr = 'Сербська'
+el = 'Грецька'
+sv = 'Шведська'
+no = 'Норвезька'
+da = 'Датська'
+fi = 'Фінська'
+sq = 'Албанська'
+sl = 'Словенська'
+et = 'Естонська'
+lv = 'Латвійська'
+lt = 'Литовська'
+
+[logs]
+hint = 'q=Закрити  ↑↓=Прокрутка'
+
+[new]
+resource.title = 'Створити нове'
+project = 'Новий проєкт'
+host = 'Новий хост'
+service = 'Новий сервіс'
+bot = 'Новий бот'
+resource.hint = '↑↓=Вибір  Enter=Відкрити  Esc=Скасувати'
+
+[popup]
+hint.single = '↑↓=Вибрати  Enter=OK  Esc=Скасувати'
+hint.multi = '↑↓=Вибрати  Пробіл=Вибрати  Enter=OK  Esc=Скасувати'
+
+[settings]
+title = 'Налаштування – Магазини модулів'
+hint = 'A=Додати  D=Видалити  Пробіл=Активний/Неактивний  Esc=Назад'
+stores.header = 'Налаштовані магазини'
+store.enabled = '✓ активний'
+store.disabled = '✗ неактивний'
+store.add.prompt = 'URL магазину (напр. https://github.com/твої/модулі):'
+store.name.prompt = 'Назва магазину:'
+empty = '(Немає налаштованих магазинів)'
+tab.stores = 'Магазини'
+tab.languages = 'Мови'
+lang.title = 'Доступні мови'
+lang.builtin = '(вбудована)'
+lang.active = '● активна'
+lang.inactive = '  неактивна'
+lang.complete = 'повна'
+lang.api_ok = 'актуальна'
+lang.api_warn = '⚠ Конфлікт версій'
+lang.none = '(Немає встановлених мов — завантажте з магазину)'
+lang.hint = '↑↓=Навіг  Enter=Активувати  Delete=Видалити  Tab=Змінити вкладку  Esc=Назад'
+stores.hint = 'A=Додати  D=Видалити  Пробіл=Активний/Неактивний  Tab=Змінити вкладку  Esc=Назад'
+
+[sidebar]
+projects = 'Проєкти'
+hosts = 'Хости'
+services = 'Сервіси'
+system = 'Система'
+
+[status]
+running = '● Активний'
+stopped = '○ Зупинений'
+error = '✗ Помилка'
+unknown = '? Невідомо'
+
+[sys]
+host = 'Хост'
+user = 'Користувач'
+ip = 'IP-адреса'
+ram = 'RAM'
+cpu = 'Ядра CPU'
+uptime = 'Час роботи'
+podman = 'Podman'
+arch = 'Архітектура'
+
+[task]
+new_project = 'Проєкт'
+new_host = 'Хост'
+new_proxy = 'Проксі'
+new_iam = 'IAM'
+new_mail = 'Пошта'
+new_service = 'Сервіс'
+
+[welcome]
+title = 'Ласкаво просимо до FreeSynergy.Node'
+subtitle = 'Децентралізована інфраструктура — вільна та самокерована'
+new_project = 'Новий проєкт'
+open_project = 'Відкрити існуючий проєкт'
+open_disabled = '(невдовзі)'
+hint = '←→=Вибір  Enter=Підтвердити  L=Мова  q=Вихід'
+edit_project = 'Редагувати проєкт'
+
+[wizard]
+title = 'Майстер'
+hint = 'Tab=Наступне поле  ^Enter=Зберегти  Esc=Скасувати'
+
+[field_help]
+name = 'Унікальна коротка назва. Тільки малі літери, цифри та дефіси. Використовується для назв файлів і контейнерів.'
+domain = 'Основний домен без http://. Можливі символи підстановки: *.приклад.ua. Піддомени виводяться автоматично.'
+description = "Необов'язковий опис. Можливе багаторядкове введення. Показується в огляді проєкту."
+email = "Адреса електронної пошти для Let's Encrypt (ACME). Контактують у разі проблем із сертифікатами."
+acme_email = "Адреса електронної пошти для Let's Encrypt (ACME). Контактують у разі проблем із сертифікатами."
+address = 'IPv4-адреса або FQDN хоста. Приклад: 192.168.1.10 або сервер.приклад.ua'
+subdomain = 'Піддомен цього екземпляра. Автоматично виводиться з назви. Результат: піддомен.домен.tld'
+install_dir = 'Базовий каталог для даних і конфігурації. Створюється, якщо не існує.'
+ssh_port = 'Типово 22. Інші порти можливі з міркувань безпеки, напр. 2222.'

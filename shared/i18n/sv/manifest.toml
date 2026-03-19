@@ -1,0 +1,19 @@
+# Svenska language pack
+[meta]
+id            = "lang-sv"
+name          = "Svenska"
+resource_type = "language"
+description   = "Svenska language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["sv", "language"]
+
+[language]
+locale       = "sv-SE"
+display_name = "Svenska"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

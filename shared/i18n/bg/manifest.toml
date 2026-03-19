@@ -1,0 +1,19 @@
+# Български language pack
+[meta]
+id            = "lang-bg"
+name          = "Български"
+resource_type = "language"
+description   = "Български language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["bg", "language"]
+
+[language]
+locale       = "bg-BG"
+display_name = "Български"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

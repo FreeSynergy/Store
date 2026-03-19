@@ -1,0 +1,19 @@
+# Norsk language pack
+[meta]
+id            = "lang-no"
+name          = "Norsk"
+resource_type = "language"
+description   = "Norsk language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["no", "language"]
+
+[language]
+locale       = "no-NO"
+display_name = "Norsk"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

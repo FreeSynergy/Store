@@ -1,0 +1,19 @@
+# Српски language pack
+[meta]
+id            = "lang-sr"
+name          = "Српски"
+resource_type = "language"
+description   = "Српски language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["sr", "language"]
+
+[language]
+locale       = "sr-RS"
+display_name = "Српски"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

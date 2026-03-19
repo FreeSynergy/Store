@@ -1,26 +1,32 @@
-# Messages widget — recent messages from the message bus
+# Messages widget — recent messages from connected services
 #
-# Requires a chat service (Matrix homeserver or similar) to be installed.
+# Icons are critical here — each message source has its own icon for instant visual identification.
+# Requires a chat service (Matrix/Tuwunel or similar) installed and reachable via the bus.
 
 [meta]
 id            = "messages"
 name          = "Messages"
 resource_type = "widget"
-description   = "Shows recent messages received via the FreeSynergy message bus"
+description   = "Shows recent messages from connected chat and mail services — filter by source, sender or type"
 version       = "1.0.0"
 author        = "FreeSynergy"
 license       = "MIT"
 icon          = "icon.svg"
-tags          = ["messages", "chat", "notifications", "bus"]
+tags          = ["messages", "chat", "mail", "notifications", "bus", "filter"]
 
 [[required_roles]]
-roles = ["chat"]
+roles = ["chat", "smtp"]
 mode  = "any"
 
 [[data_sources]]
-label     = "Unread Messages"
+label     = "Chat Messages"
 role      = "chat"
 bus_topic = "chat.unread.messages"
+
+[[data_sources]]
+label     = "Mail"
+role      = "smtp"
+bus_topic = "mail.unread.messages"
 
 refresh_interval_secs = 30
 
@@ -29,9 +35,90 @@ columns = 3
 rows    = 2
 
 [max_size]
-columns = 6
-rows    = 4
+columns = 8
+rows    = 6
 
 [default_size]
 columns = 4
 rows    = 3
+
+# ── Widget Settings ───────────────────────────────────────────────────────────
+
+# ── Columns ───────────────────────────────────────────────────────────────────
+# Icons are ALWAYS shown — they are the primary visual identifier per message source.
+
+[[settings]]
+key         = "column_icon"
+label       = "Source Icon"
+description = "Show the icon of the service the message comes from (always recommended — makes sources instantly recognizable)"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "column_subject"
+label       = "Subject / Preview"
+description = "Show the message subject or first line of the body"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "column_sender"
+label       = "Sender"
+description = "Show who sent the message"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "column_datetime"
+label       = "Date & Time"
+description = "Show when the message was received"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "column_source_label"
+label       = "Source Name"
+description = "Show the name of the service alongside the icon (e.g. 'Matrix', 'Mail')"
+type        = "bool"
+default     = false
+
+# ── Filters ───────────────────────────────────────────────────────────────────
+
+[[settings]]
+key         = "filter_sources"
+label       = "Show Sources"
+description = "Which services to show messages from — leave empty to show all"
+type        = "service_list"
+role_filter = ["chat", "smtp"]
+default     = []
+
+[[settings]]
+key         = "filter_unread_only"
+label       = "Unread Only"
+description = "Only show messages that have not been read yet"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "filter_mentions_only"
+label       = "Mentions Only"
+description = "Only show messages where you were mentioned or the message is a direct message"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "max_messages"
+label       = "Maximum Messages"
+description = "How many messages to show at once"
+type        = "int"
+default     = 10
+min         = 1
+max         = 50
+
+[[settings]]
+key         = "sender_filter"
+label       = "Sender Filter"
+description = "Only show messages from specific senders (comma-separated usernames or addresses)"
+type        = "string"
+default     = ""
+placeholder = "e.g. alice, @bob:matrix.org"

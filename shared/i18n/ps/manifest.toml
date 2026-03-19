@@ -1,0 +1,19 @@
+# پښتو language pack
+[meta]
+id            = "lang-ps"
+name          = "پښتو"
+resource_type = "language"
+description   = "پښتو language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ps", "language"]
+
+[language]
+locale       = "ps-AF"
+display_name = "پښتو"
+direction    = "rtl"
+completeness = 100
+
+programs = ["node"]

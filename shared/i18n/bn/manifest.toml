@@ -1,0 +1,19 @@
+# বাংলা language pack
+[meta]
+id            = "lang-bn"
+name          = "বাংলা"
+resource_type = "language"
+description   = "বাংলা language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["bn", "language"]
+
+[language]
+locale       = "bn-BD"
+display_name = "বাংলা"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

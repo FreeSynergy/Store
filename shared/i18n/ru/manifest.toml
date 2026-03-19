@@ -1,0 +1,19 @@
+# Русский language pack
+[meta]
+id            = "lang-ru"
+name          = "Русский"
+resource_type = "language"
+description   = "Русский language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ru", "language"]
+
+[language]
+locale       = "ru-RU"
+display_name = "Русский"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

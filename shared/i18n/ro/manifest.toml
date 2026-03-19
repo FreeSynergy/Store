@@ -1,0 +1,19 @@
+# Română language pack
+[meta]
+id            = "lang-ro"
+name          = "Română"
+resource_type = "language"
+description   = "Română language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ro", "language"]
+
+[language]
+locale       = "ro-RO"
+display_name = "Română"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

@@ -1,0 +1,19 @@
+# 한국어 language pack
+[meta]
+id            = "lang-ko"
+name          = "한국어"
+resource_type = "language"
+description   = "한국어 language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ko", "language"]
+
+[language]
+locale       = "ko-KR"
+display_name = "한국어"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

@@ -1,0 +1,19 @@
+# Dansk language pack
+[meta]
+id            = "lang-da"
+name          = "Dansk"
+resource_type = "language"
+description   = "Dansk language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["da", "language"]
+
+[language]
+locale       = "da-DK"
+display_name = "Dansk"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

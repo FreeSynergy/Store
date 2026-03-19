@@ -1,0 +1,19 @@
+# Suomi language pack
+[meta]
+id            = "lang-fi"
+name          = "Suomi"
+resource_type = "language"
+description   = "Suomi language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["fi", "language"]
+
+[language]
+locale       = "fi-FI"
+display_name = "Suomi"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

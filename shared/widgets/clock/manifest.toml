@@ -11,7 +11,7 @@ version       = "1.0.0"
 author        = "FreeSynergy"
 license       = "MIT"
 icon          = "icon.svg"
-tags          = ["clock", "time", "date", "built-in"]
+tags          = ["clock", "time", "date", "timezone", "built-in"]
 
 required_roles = []
 data_sources   = []
@@ -23,9 +23,61 @@ columns = 2
 rows    = 1
 
 [max_size]
-columns = 4
-rows    = 2
+columns = 6
+rows    = 4
 
 [default_size]
 columns = 3
 rows    = 2
+
+# ── Widget Settings ───────────────────────────────────────────────────────────
+# These fields are shown in the Widget Manager when the user configures this widget.
+
+[[settings]]
+key         = "show_date"
+label       = "Show Date"
+description = "Display the current date below the time"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "show_seconds"
+label       = "Show Seconds"
+description = "Display seconds in the time display"
+type        = "bool"
+default     = false
+
+[[settings]]
+key         = "format_24h"
+label       = "24-Hour Format"
+description = "Use 24-hour clock instead of 12-hour (AM/PM)"
+type        = "bool"
+default     = true
+
+[[settings]]
+key         = "timezone"
+label       = "Primary Timezone"
+description = "Timezone for the main clock display (e.g. Europe/Berlin, America/New_York)"
+type        = "timezone"
+default     = "local"
+
+[[settings]]
+key         = "extra_timezones"
+label       = "Additional Timezones"
+description = "Show extra clocks for other timezones — one per line (e.g. America/New_York, Asia/Tokyo)"
+type        = "timezone_list"
+default     = []
+max_items   = 3
+
+[[settings]]
+key         = "date_format"
+label       = "Date Format"
+description = "How to display the date"
+type        = "select"
+default     = "long"
+options     = [
+  { value = "long",    label = "Wednesday, 19 March 2026" },
+  { value = "medium",  label = "19 March 2026" },
+  { value = "short",   label = "19.03.2026" },
+  { value = "iso",     label = "2026-03-19" },
+]

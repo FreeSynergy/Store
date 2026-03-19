@@ -1,0 +1,19 @@
+# मराठी language pack
+[meta]
+id            = "lang-mr"
+name          = "मराठी"
+resource_type = "language"
+description   = "मराठी language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["mr", "language"]
+
+[language]
+locale       = "mr-IN"
+display_name = "मराठी"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

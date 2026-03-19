@@ -1,0 +1,19 @@
+# اردو language pack
+[meta]
+id            = "lang-ur"
+name          = "اردو"
+resource_type = "language"
+description   = "اردو language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["ur", "language"]
+
+[language]
+locale       = "ur-PK"
+display_name = "اردو"
+direction    = "rtl"
+completeness = 100
+
+programs = ["node"]

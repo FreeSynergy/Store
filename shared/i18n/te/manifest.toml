@@ -1,0 +1,19 @@
+# తెలుగు language pack
+[meta]
+id            = "lang-te"
+name          = "తెలుగు"
+resource_type = "language"
+description   = "తెలుగు language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["te", "language"]
+
+[language]
+locale       = "te-IN"
+display_name = "తెలుగు"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

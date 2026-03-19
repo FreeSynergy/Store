@@ -1,0 +1,19 @@
+# Hrvatski language pack
+[meta]
+id            = "lang-hr"
+name          = "Hrvatski"
+resource_type = "language"
+description   = "Hrvatski language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["hr", "language"]
+
+[language]
+locale       = "hr-HR"
+display_name = "Hrvatski"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

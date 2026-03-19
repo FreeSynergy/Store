@@ -1,0 +1,19 @@
+# Ελληνικά language pack
+[meta]
+id            = "lang-el"
+name          = "Ελληνικά"
+resource_type = "language"
+description   = "Ελληνικά language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["el", "language"]
+
+[language]
+locale       = "el-GR"
+display_name = "Ελληνικά"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

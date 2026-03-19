@@ -1,0 +1,19 @@
+# Bahasa Indonesia language pack
+[meta]
+id            = "lang-id"
+name          = "Bahasa Indonesia"
+resource_type = "language"
+description   = "Bahasa Indonesia language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["id", "language"]
+
+[language]
+locale       = "id-ID"
+display_name = "Bahasa Indonesia"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

@@ -1,0 +1,19 @@
+# ਪੰਜਾਬੀ language pack
+[meta]
+id            = "lang-pa"
+name          = "ਪੰਜਾਬੀ"
+resource_type = "language"
+description   = "ਪੰਜਾਬੀ language pack for FreeSynergy — includes Node CLI strings"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "Apache-2.0"
+icon          = "icon.svg"
+tags          = ["pa", "language"]
+
+[language]
+locale       = "pa-IN"
+display_name = "ਪੰਜਾਬੀ"
+direction    = "ltr"
+completeness = 100
+
+programs = ["node"]

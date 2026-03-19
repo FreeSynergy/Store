@@ -1,0 +1,25 @@
+# English language pack — built-in default language
+#
+# This package provides English (en-US) translations for all FreeSynergy programs.
+# EN is the base language — all programs ship with EN strings built in.
+# This manifest makes EN discoverable and installable like any other language pack.
+
+[meta]
+id            = "lang-en"
+name          = "English"
+resource_type = "language"
+description   = "English (United States) language pack — the base language for FreeSynergy"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["english", "en", "en-US", "language", "built-in"]
+
+[language]
+locale       = "en-US"
+display_name = "English"
+direction    = "ltr"
+completeness = 100
+
+# Programs covered by this language pack
+programs = ["node", "desktop", "init"]

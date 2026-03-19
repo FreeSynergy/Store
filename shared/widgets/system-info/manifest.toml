@@ -1,0 +1,32 @@
+# System Info widget — hostname, uptime, memory and disk usage
+#
+# Built-in widget, no external service roles required.
+# Reads local system metrics directly.
+
+[meta]
+id            = "system-info"
+name          = "System Info"
+resource_type = "widget"
+description   = "Displays hostname, uptime, memory and disk usage — refreshes every 10 seconds"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["system", "monitor", "memory", "disk", "uptime", "built-in"]
+
+required_roles = []
+data_sources   = []
+
+refresh_interval_secs = 10
+
+[min_size]
+columns = 3
+rows    = 2
+
+[max_size]
+columns = 6
+rows    = 3
+
+[default_size]
+columns = 4
+rows    = 2

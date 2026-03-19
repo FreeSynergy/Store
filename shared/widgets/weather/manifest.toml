@@ -1,0 +1,31 @@
+# Weather widget — current conditions and forecast
+#
+# Coming soon — no service role required (uses public weather APIs).
+
+[meta]
+id            = "weather"
+name          = "Weather"
+resource_type = "widget"
+description   = "Current weather conditions and short-range forecast for your location"
+version       = "0.1.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["weather", "forecast", "temperature", "coming-soon"]
+
+required_roles = []
+data_sources   = []
+
+refresh_interval_secs = 900
+
+[min_size]
+columns = 3
+rows    = 2
+
+[max_size]
+columns = 6
+rows    = 3
+
+[default_size]
+columns = 3
+rows    = 2

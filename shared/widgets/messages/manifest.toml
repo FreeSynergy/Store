@@ -1,0 +1,37 @@
+# Messages widget — recent messages from the message bus
+#
+# Requires a chat service (Matrix homeserver or similar) to be installed.
+
+[meta]
+id            = "messages"
+name          = "Messages"
+resource_type = "widget"
+description   = "Shows recent messages received via the FreeSynergy message bus"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["messages", "chat", "notifications", "bus"]
+
+[[required_roles]]
+roles = ["chat"]
+mode  = "any"
+
+[[data_sources]]
+label     = "Unread Messages"
+role      = "chat"
+bus_topic = "chat.unread.messages"
+
+refresh_interval_secs = 30
+
+[min_size]
+columns = 3
+rows    = 2
+
+[max_size]
+columns = 6
+rows    = 4
+
+[default_size]
+columns = 4
+rows    = 3

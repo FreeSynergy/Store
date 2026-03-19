@@ -161,6 +161,17 @@ license     = "BSL-1.1"
 path        = "node/modules/cache/dragonfly"
 tags        = ["cache", "redis", "memcached", "in-memory"]
 
+[[packages]]
+id          = "ai/ollama"
+name        = "Ollama"
+category    = "deploy.ai"
+version     = "0.0.1"
+description = "Local LLM inference server — run open models like Llama, Mistral and Gemma on your hardware"
+icon        = "homarrlabs/ollama.svg"
+license     = "MIT"
+path        = "node/modules/ai/ollama"
+tags        = ["ai", "llm", "inference", "ollama", "local-ai", "gpu"]
+
 # ── Locales ───────────────────────────────────────────────────────────────────
 # All locales share the same We10X locale icon (preferences-desktop-locale).
 # icon = "we10x/apps/scalable/preferences-desktop-locale.svg"

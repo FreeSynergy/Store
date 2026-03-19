@@ -1,0 +1,43 @@
+# Midnight Blue — dark color scheme (built-in default theme)
+#
+# CSS variables are stored WITHOUT prefix here.
+# Each program adds its own prefix on load (e.g. --fsn- for Desktop).
+
+[meta]
+id            = "midnight-blue"
+name          = "Midnight Blue"
+resource_type = "color_scheme"
+description   = "Deep navy dark theme — the default FreeSynergy color scheme"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["dark", "navy", "midnight", "default", "built-in"]
+
+[colors]
+# Backgrounds
+bg_base     = "#0f172a"
+bg_surface  = "#1e293b"
+bg_elevated = "#293548"
+bg_card     = "#1e293b"
+bg_input    = "#1e293b"
+
+# Text
+text_primary   = "#f1f5f9"
+text_secondary = "#94a3b8"
+text_muted     = "#64748b"
+
+# Accent — Cyan (FreeSynergy brand color)
+primary       = "#00bcd4"
+primary_hover = "#00acc1"
+primary_text  = "#ffffff"
+accent        = "#06b6d4"
+
+# Semantic
+success = "#10b981"
+warning = "#f59e0b"
+error   = "#ef4444"
+
+# Borders
+border       = "#334155"
+border_focus = "#00bcd4"

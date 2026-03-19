@@ -1,0 +1,43 @@
+# Nordic Dark — dark color scheme inspired by the Nord palette
+#
+# CSS variables are stored WITHOUT prefix here.
+# Each program adds its own prefix on load (e.g. --fsn- for Desktop).
+
+[meta]
+id            = "nordic-dark"
+name          = "Nordic Dark"
+resource_type = "color_scheme"
+description   = "Calm dark theme inspired by the Nord color palette — cool greys and arctic blues"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["dark", "nordic", "nord", "cool", "arctic"]
+
+[colors]
+# Backgrounds (Nord Polar Night)
+bg_base     = "#2e3440"
+bg_surface  = "#3b4252"
+bg_elevated = "#434c5e"
+bg_card     = "#3b4252"
+bg_input    = "#3b4252"
+
+# Text (Nord Snow Storm)
+text_primary   = "#eceff4"
+text_secondary = "#d8dee9"
+text_muted     = "#4c566a"
+
+# Accent — Nord Frost (arctic blue)
+primary       = "#88c0d0"
+primary_hover = "#8fbcbb"
+primary_text  = "#2e3440"
+accent        = "#81a1c1"
+
+# Semantic (Nord Aurora)
+success = "#a3be8c"
+warning = "#ebcb8b"
+error   = "#bf616a"
+
+# Borders
+border       = "#4c566a"
+border_focus = "#88c0d0"

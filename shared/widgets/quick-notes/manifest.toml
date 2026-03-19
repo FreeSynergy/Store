@@ -1,0 +1,29 @@
+# Quick Notes widget — simple freeform text pad
+#
+# Built-in widget, no external service required.
+
+[meta]
+id            = "quick-notes"
+name          = "Quick Notes"
+resource_type = "widget"
+description   = "Simple freeform text pad for quick notes on the desktop"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["notes", "text", "memo", "freeform", "built-in"]
+
+required_roles = []
+data_sources   = []
+
+[min_size]
+columns = 3
+rows    = 2
+
+[max_size]
+columns = 6
+rows    = 5
+
+[default_size]
+columns = 4
+rows    = 3

@@ -1,0 +1,43 @@
+# Cloud White — light color scheme
+#
+# CSS variables are stored WITHOUT prefix here.
+# Each program adds its own prefix on load (e.g. --fsn- for Desktop).
+
+[meta]
+id            = "cloud-white"
+name          = "Cloud White"
+resource_type = "color_scheme"
+description   = "Clean light theme with soft whites and a blue primary accent"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["light", "white", "clean", "minimal"]
+
+[colors]
+# Backgrounds
+bg_base     = "#f8fafc"
+bg_surface  = "#ffffff"
+bg_elevated = "#f1f5f9"
+bg_card     = "#ffffff"
+bg_input    = "#f8fafc"
+
+# Text
+text_primary   = "#0f172a"
+text_secondary = "#475569"
+text_muted     = "#94a3b8"
+
+# Accent — Ocean Blue
+primary       = "#0077b6"
+primary_hover = "#023e8a"
+primary_text  = "#ffffff"
+accent        = "#0096c7"
+
+# Semantic
+success = "#059669"
+warning = "#d97706"
+error   = "#dc2626"
+
+# Borders
+border       = "#e2e8f0"
+border_focus = "#0077b6"

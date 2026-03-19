@@ -1,0 +1,24 @@
+# German language pack — built-in second language
+#
+# This package provides German (de-DE) translations for all FreeSynergy programs.
+# DE ships built in alongside EN.
+
+[meta]
+id            = "lang-de"
+name          = "Deutsch"
+resource_type = "language"
+description   = "German (Germany) language pack — vollständige Deutsche Übersetzung für FreeSynergy"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["german", "deutsch", "de", "de-DE", "language", "built-in"]
+
+[language]
+locale       = "de-DE"
+display_name = "Deutsch"
+direction    = "ltr"
+completeness = 100
+
+# Programs covered by this language pack
+programs = ["node", "desktop", "init"]

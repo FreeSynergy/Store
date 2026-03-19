@@ -1,0 +1,35 @@
+# My Tasks widget — personal task checklist
+#
+# Built-in widget with in-memory task list.
+# With a task-management service installed, tasks persist across sessions.
+
+[meta]
+id            = "my-tasks"
+name          = "My Tasks"
+resource_type = "widget"
+description   = "Personal task checklist — works standalone or syncs with a task service"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["tasks", "todo", "checklist", "productivity", "built-in"]
+
+# No required roles — works standalone; syncs with tasks role when available.
+required_roles = []
+
+[[data_sources]]
+label     = "My Tasks"
+role      = "tasks"
+bus_topic = "tasks.user.list"
+
+[min_size]
+columns = 3
+rows    = 2
+
+[max_size]
+columns = 6
+rows    = 5
+
+[default_size]
+columns = 4
+rows    = 3

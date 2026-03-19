@@ -1,0 +1,31 @@
+# Clock widget — real-time clock and date display
+#
+# Built-in widget, no external service roles required.
+
+[meta]
+id            = "clock"
+name          = "Clock"
+resource_type = "widget"
+description   = "Real-time clock and date display — updates every second"
+version       = "1.0.0"
+author        = "FreeSynergy"
+license       = "MIT"
+icon          = "icon.svg"
+tags          = ["clock", "time", "date", "built-in"]
+
+required_roles = []
+data_sources   = []
+
+refresh_interval_secs = 1
+
+[min_size]
+columns = 2
+rows    = 1
+
+[max_size]
+columns = 4
+rows    = 2
+
+[default_size]
+columns = 3
+rows    = 2

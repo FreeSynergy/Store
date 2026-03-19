@@ -3,8 +3,8 @@
 id            = "lang-lv"
 name          = "Latviešu"
 resource_type = "language"
-description   = "Latviešu language pack for FreeSynergy — includes Node CLI strings"
-version       = "1.0.0"
+description   = "Latviešu language pack for FreeSynergy"
+version       = "1.1.0"
 author        = "FreeSynergy"
 license       = "Apache-2.0"
 icon          = "icon.svg"
@@ -16,4 +16,4 @@ display_name = "Latviešu"
 direction    = "ltr"
 completeness = 100
 
-programs = ["node"]
+programs = ["node", "desktop", "init"]

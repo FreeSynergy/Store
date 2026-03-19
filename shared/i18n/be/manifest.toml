@@ -3,8 +3,8 @@
 id            = "lang-be"
 name          = "Беларуская"
 resource_type = "language"
-description   = "Беларуская language pack for FreeSynergy — includes Node CLI strings"
-version       = "1.0.0"
+description   = "Беларуская language pack for FreeSynergy"
+version       = "1.1.0"
 author        = "FreeSynergy"
 license       = "Apache-2.0"
 icon          = "icon.svg"
@@ -16,4 +16,4 @@ display_name = "Беларуская"
 direction    = "ltr"
 completeness = 100
 
-programs = ["node"]
+programs = ["node", "desktop", "init"]

@@ -1,0 +1,76 @@
+# FreeSynergy Store — Apps Catalog
+#
+# URL: https://raw.githubusercontent.com/FreeSynergy/Store/main/apps/catalog.toml
+#
+# Lists all standalone FreeSynergy application binaries.
+# Binaries are distributed via GitHub Releases — no binaries in this repo.
+#
+# Field order: id → name → kind → category → version → description
+#              → icon → license → author → tags
+
+[catalog]
+project      = "Apps"
+generated_at = "2026-03-19T00:00:00Z"
+version      = "1.0.0"
+
+# ── FreeSynergy Apps ──────────────────────────────────────────────────────────
+
+[[packages]]
+id          = "fsn-node"
+name        = "FreeSynergy Node"
+kind        = "app"
+category    = "apps.system"
+version     = "0.1.0"
+description = "Modular deployment engine for self-hosted services — CLI + API."
+icon        = "shared/icons/freesynergy-node.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["server", "deployment", "infrastructure", "cli", "system"]
+
+[[packages]]
+id          = "fsn-desktop"
+name        = "FreeSynergy Desktop"
+kind        = "app"
+category    = "apps.system"
+version     = "0.1.0"
+description = "Management UI for FreeSynergy — WebView-based desktop application."
+icon        = "shared/icons/freesynergy-desktop.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["desktop", "ui", "management", "system"]
+
+[[packages]]
+id          = "fsn-init"
+name        = "FreeSynergy Init"
+kind        = "app"
+category    = "apps.system"
+version     = "0.1.0"
+description = "Bootstrap tool — installs FreeSynergy on a new machine from a single command."
+icon        = "shared/icons/freesynergy-init.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["bootstrap", "install", "setup", "system"]
+
+[[packages]]
+id          = "fsn-browser"
+name        = "FreeSynergy Browser"
+kind        = "app"
+category    = "apps.tools"
+version     = "0.1.0"
+description = "Integrated web browser — displays service UIs with automatic IAM token injection, tab support, and S3 download integration."
+icon        = "shared/icons/freesynergy-browser.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["browser", "webview", "services", "tools"]
+
+[[packages]]
+id          = "fsn-store"
+name        = "FreeSynergy Store"
+kind        = "app"
+category    = "apps.system"
+version     = "1.0.0"
+description = "Package registry — app manifests, container modules, themes, icons, widgets, bots, and task templates."
+icon        = "shared/icons/freesynergy-store.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["store", "packages", "registry", "catalog", "system"]

@@ -74,3 +74,35 @@ macos-x86_64   = "https://github.com/FreeSynergy/Init/releases/download/v{versio
 macos-aarch64  = "https://github.com/FreeSynergy/Init/releases/download/v{version}/fsn-init-aarch64-macos.tar.gz"
 windows-x86_64 = "https://github.com/FreeSynergy/Init/releases/download/v{version}/fsn-init-x86_64-windows.zip"
 source         = "https://github.com/FreeSynergy/Init"
+
+[[packages]]
+id          = "browser"
+name        = "FreeSynergy Browser"
+type        = "app"
+version     = "0.1.0"
+description = "Integrated web browser — displays service UIs with automatic IAM token injection, tab support, and S3 download integration"
+icon        = "shared/icons/freesynergy-browser.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["browser", "webview", "ui", "services"]
+repo        = "https://github.com/FreeSynergy/Browser"
+
+[packages.distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/Browser/releases/download/v{version}/fsn-browser-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/Browser/releases/download/v{version}/fsn-browser-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/Browser/releases/download/v{version}/fsn-browser-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/Browser/releases/download/v{version}/fsn-browser-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/Browser/releases/download/v{version}/fsn-browser-x86_64-windows.zip"
+source         = "https://github.com/FreeSynergy/Browser"
+
+[[packages]]
+id          = "store"
+name        = "FreeSynergy Store"
+type        = "store"
+version     = "1.0.0"
+description = "Package registry — app manifests, container modules, themes, icons, widgets, bots, and task templates"
+icon        = "shared/icons/freesynergy-store.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["store", "packages", "registry", "catalog"]
+repo        = "https://github.com/FreeSynergy/Store"

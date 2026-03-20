@@ -46,7 +46,7 @@ install_dir = "{{ project_root }}/bin/mistral"
 # mistralrs serve -p <port> -m <model_id> [--isq <type>]
 # model_id can be a HuggingFace repo ID (auto-downloaded + cached) or a local path to a .gguf file.
 # ISQ (In-Situ Quantization): mistral.rs quantizes the model in-memory — no pre-quantized file needed.
-cmd         = "{{ binary.install_dir }}/mistralrs serve --port {{ mistral_port }} --serve-ip {{ mistral_host }} --max-seqs {{ mistral_max_seqs }} -m {{ mistral_model_id }}{{ ' --isq ' ~ mistral_isq if mistral_isq else '' }}"
+cmd         = "{{ binary.install_dir }}/mistralrs serve --port {{ mistral_port }} --host {{ mistral_host }} --max-seqs {{ mistral_max_seqs }} -m {{ mistral_model_id }}{{ ' --isq ' ~ mistral_isq if mistral_isq else '' }}"
 pid_file    = "{{ module_vars.pid_file }}"
 log_file    = "{{ module_vars.log_file }}"
 stop_signal = "SIGTERM"

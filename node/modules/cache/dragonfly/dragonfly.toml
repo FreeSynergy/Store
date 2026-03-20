@@ -53,6 +53,69 @@ DFLY_default_lua_flags          = "allow-undeclared-keys"
 DFLY_logtostderr                = "true"
 DFLY_v                          = "{{ dragonfly_log_level | default('1') }}"
 
+[[variables]]
+name        = "DFLY_requirepass"
+description = "Password clients must present to authenticate. Stored in vault and injected at runtime. Leave empty only in fully trusted private networks."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "DFLY_port"
+description = "TCP port Dragonfly listens on. Must match what clients use to connect (default: 6379, Redis-compatible)."
+required    = true
+default     = "6379"
+
+[[variables]]
+name        = "DFLY_bind"
+description = "IP address Dragonfly binds to. '0.0.0.0' means all interfaces — correct when accessed only via the internal Podman network."
+required    = true
+default     = "0.0.0.0"
+
+[[variables]]
+name        = "DFLY_maxmemory"
+description = "Maximum memory Dragonfly may use before evicting entries. Accepts suffixes: mb, gb. Set to roughly 70 % of available RAM for the cache workload."
+default     = "2gb"
+
+[[variables]]
+name        = "DFLY_proactor_threads"
+description = "Number of worker threads for the proactor I/O engine. 0 = auto-detect based on available CPU cores (recommended for most deployments)."
+default     = "0"
+
+[[variables]]
+name        = "DFLY_cache_mode"
+description = "Enable cache eviction mode: when memory is full, least-recently-used keys are evicted instead of returning an error. Set to 'true' for pure caching workloads."
+default     = "false"
+
+[[variables]]
+name        = "DFLY_enable_heartbeat_eviction"
+description = "Allow eviction during the background heartbeat pass in addition to the main eviction path. Helps sustain throughput under sustained memory pressure."
+default     = "false"
+
+[[variables]]
+name        = "DFLY_dbfilename"
+description = "Filename for RDB snapshots (e.g. 'dump.rdb'). Empty string disables persistence — appropriate when Dragonfly is used as a pure cache."
+default     = ""
+
+[[variables]]
+name        = "DFLY_dir"
+description = "Directory where RDB snapshot files are written. Empty string disables persistence. Must be a writable path inside the container volume."
+default     = ""
+
+[[variables]]
+name        = "DFLY_default_lua_flags"
+description = "Default execution flags for Lua scripts. 'allow-undeclared-keys' permits scripts to access keys not declared in their KEYS array — required by some Redis clients."
+default     = "allow-undeclared-keys"
+
+[[variables]]
+name        = "DFLY_logtostderr"
+description = "Write log output to stderr instead of a log file. 'true' is the correct setting for containerized deployments where logs are collected via journald."
+default     = "true"
+
+[[variables]]
+name        = "DFLY_v"
+description = "Log verbosity level. 0 = errors only, 1 = minimal informational messages, 2+ = verbose debug output. Use 1 for production."
+default     = "1"
+
 [[setup.fields]]
 key           = "vault_cache_password"
 label         = "Dragonfly cache password"

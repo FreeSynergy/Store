@@ -46,9 +46,25 @@ start_period = "60s"
 # Set OLLAMA_HOST to bind on all interfaces so the proxy can reach it.
 OLLAMA_HOST    = "0.0.0.0:11434"
 # Optional: keep models loaded even when idle (uses more RAM).
-OLLAMA_KEEP_ALIVE = "5m"
+OLLAMA_KEEP_ALIVE = "{{ ollama_keep_alive | default('5m') }}"
 # Optional: limit to a specific GPU (e.g. "0" for the first GPU).
 # NVIDIA_VISIBLE_DEVICES = "all"
+
+[[variables]]
+name        = "OLLAMA_HOST"
+description = "Address and port Ollama listens on. '0.0.0.0:11434' binds on all interfaces so the reverse proxy can reach the container. Do not change unless you have a specific network layout."
+required    = true
+default     = "0.0.0.0:11434"
+
+[[variables]]
+name        = "OLLAMA_KEEP_ALIVE"
+description = "How long Ollama keeps a model loaded in memory after the last request. Accepts Go duration strings: '5m', '1h', '-1' (always loaded). Longer values trade RAM for faster response on the next request."
+default     = "5m"
+
+[[variables]]
+name        = "NVIDIA_VISIBLE_DEVICES"
+description = "Which NVIDIA GPUs Ollama may use. 'all' = every available GPU. Set to a comma-separated index list (e.g. '0,1') to restrict to specific cards. Leave unset on CPU-only hosts."
+default     = "all"
 
 [setup]
 

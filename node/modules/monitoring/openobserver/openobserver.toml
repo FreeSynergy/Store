@@ -69,6 +69,56 @@ ZO_WAL_MEMORY_MODE_ENABLED = "{{ openobserver_wal_memory | default('true') }}"
 # Log level
 RUST_LOG              = "{{ openobserver_log_level | default('info') }}"
 
+[[variables]]
+name        = "ZO_ROOT_USER_EMAIL"
+description = "Email address for the built-in root admin account created on first start. Used to log in before OIDC is configured. Should be a real address in case of account recovery."
+required    = true
+
+[[variables]]
+name        = "ZO_ROOT_USER_PASSWORD"
+description = "Password for the root admin account. Auto-generated and stored in vault. Change it via the UI after first login and before connecting OIDC."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "ZO_DATA_DIR"
+description = "Directory inside the container where OpenObserve stores all its data (WAL, indexes, streams). Backed by the named volume. Do not change unless you remount accordingly."
+required    = true
+default     = "/data"
+
+[[variables]]
+name        = "ZO_HTTP_PORT"
+description = "HTTP port the OpenObserve API and dashboard listen on. The reverse proxy forwards traffic here. Also used by the OTel collector to push logs, metrics and traces."
+required    = true
+default     = "5080"
+
+[[variables]]
+name        = "ZO_HTTP_ADDR"
+description = "IP address to bind the HTTP server to. '0.0.0.0' binds all interfaces — correct for container deployments where the proxy reaches the container over the Podman network."
+required    = true
+default     = "0.0.0.0"
+
+[[variables]]
+name        = "ZO_GRPC_PORT"
+description = "gRPC port for high-throughput telemetry ingestion (OTLP/gRPC). Used by the OTel collector as an alternative to the HTTP endpoint. Must be unique per host."
+default     = "5081"
+
+[[variables]]
+name        = "ZO_TELEMETRY"
+description = "Send anonymous usage statistics to the OpenObserve team. Set to 'false' for private deployments. Telemetry includes aggregate metrics only, no log content."
+required    = true
+default     = "false"
+
+[[variables]]
+name        = "ZO_WAL_MEMORY_MODE_ENABLED"
+description = "Keep the Write-Ahead Log in memory instead of flushing to disk on every write. 'true' significantly improves ingest throughput at the cost of up to ~1 s of data loss on crash."
+default     = "true"
+
+[[variables]]
+name        = "RUST_LOG"
+description = "Log verbosity filter for the Rust runtime. 'info' for production. 'debug' for troubleshooting ingestion or query issues. Accepts per-module syntax: 'openobserve=debug,info'."
+default     = "info"
+
 [[setup.fields]]
 key         = "vault_openobserver_admin_email"
 label       = "OpenObserve admin email"

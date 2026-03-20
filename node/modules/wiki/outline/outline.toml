@@ -76,6 +76,123 @@ ENABLE_UPDATES                = "false"
 DEFAULT_LANGUAGE              = "{{ outline_language | default('en_US') }}"
 LOG_LEVEL                     = "{{ log_level | default('info') }}"
 
+[[variables]]
+name        = "NODE_ENV"
+description = "Node.js runtime environment. Must be 'production' for all deployed instances — this enables minification, disables debug tooling and activates security headers."
+required    = true
+default     = "production"
+
+[[variables]]
+name        = "URL"
+description = "Full public HTTPS URL of this Outline instance. Used to build links in email notifications and for CORS. Must match the proxy hostname exactly."
+required    = true
+
+[[variables]]
+name        = "SECRET_KEY"
+description = "Cryptographic secret for signing cookies and tokens. Must be at least 32 characters. Auto-generated and stored in vault. Rotating this value will invalidate all active sessions."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "UTILS_SECRET"
+description = "Second secret key used for internal utility operations (e.g. file export signing). Auto-generated and stored in vault. Keep separate from SECRET_KEY."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "DATABASE_CONNECTION_POOL_MIN"
+description = "Minimum number of idle Postgres connections kept open. Empty = use Outline's default (1). Increase on high-traffic instances to reduce connection setup latency."
+default     = ""
+
+[[variables]]
+name        = "DATABASE_CONNECTION_POOL_MAX"
+description = "Maximum number of Postgres connections the pool may open. Empty = use Outline's default (5). Increase on high-traffic instances; must not exceed Postgres's max_connections limit."
+default     = ""
+
+[[variables]]
+name        = "PGSSLMODE"
+description = "PostgreSQL SSL mode. 'disable' is correct when Postgres runs in the same Podman network. Use 'require' or 'verify-full' only when connecting to an external database."
+required    = true
+default     = "disable"
+
+[[variables]]
+name        = "OIDC_CLIENT_ID"
+description = "OAuth2 client ID registered in Kanidm for Outline. Default 'outline' matches the Kanidm setup guide. Change only if you registered the client under a different name."
+default     = "outline"
+
+[[variables]]
+name        = "OIDC_CLIENT_SECRET"
+description = "OAuth2 client secret from Kanidm. Create an OAuth2 client named 'outline' in Kanidm and paste the generated secret here."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "OIDC_USERNAME_CLAIM"
+description = "OIDC claim used as the Outline username. 'preferred_username' maps to the Kanidm username. Use 'email' if you prefer email addresses as usernames."
+default     = "preferred_username"
+
+[[variables]]
+name        = "OIDC_DISPLAY_NAME"
+description = "Label shown on the 'Sign in with …' button on the Outline login page. Short and recognizable: 'Login', 'Kanidm', or your organization name."
+default     = "Login"
+
+[[variables]]
+name        = "OIDC_SCOPES"
+description = "OAuth2 scopes to request from Kanidm. 'openid profile email' is the minimum for Outline to identify users and send notifications."
+default     = "openid profile email"
+
+[[variables]]
+name        = "FILE_STORAGE"
+description = "Backend for uploaded files and images. 'local' stores files in FILE_STORAGE_LOCAL_ROOT_DIR on the volume. Alternative: 's3' for object storage (requires additional S3 vars)."
+required    = true
+default     = "local"
+
+[[variables]]
+name        = "FILE_STORAGE_UPLOAD_MAX_SIZE"
+description = "Maximum allowed upload file size in bytes. Default 262144000 = 250 MB. Increase for teams that share large files; decrease to conserve disk space."
+default     = "262144000"
+
+[[variables]]
+name        = "SMTP_HOST"
+description = "Hostname of the SMTP server for sending invitation emails and notifications. When using Stalwart, this is its container name. Leave empty to disable email."
+default     = ""
+
+[[variables]]
+name        = "SMTP_PORT"
+description = "SMTP port. 587 = STARTTLS (recommended with Stalwart). 465 = implicit TLS. Leave empty when SMTP_HOST is empty."
+default     = ""
+
+[[variables]]
+name        = "SMTP_FROM_EMAIL"
+description = "Sender address for Outline notifications and invitations. Must be a valid address accepted by the SMTP server."
+default     = ""
+
+[[variables]]
+name        = "SMTP_REPLY_EMAIL"
+description = "Reply-To address for Outline emails. Users who reply to a notification will reach this address. Can differ from SMTP_FROM_EMAIL."
+default     = ""
+
+[[variables]]
+name        = "SMTP_SECURE"
+description = "'true' = require TLS (implicit or STARTTLS). 'false' = allow plaintext. Always 'true' in production."
+default     = "true"
+
+[[variables]]
+name        = "SMTP_PASSWORD"
+description = "SMTP password for authenticating with the mail server. Stored in vault. Leave empty when mail is disabled."
+secret      = true
+default     = ""
+
+[[variables]]
+name        = "DEFAULT_LANGUAGE"
+description = "Default UI language for new users. Accepts locale codes like 'en_US', 'de_DE', 'fr_FR'. Users can override this in their profile settings."
+default     = "en_US"
+
+[[variables]]
+name        = "LOG_LEVEL"
+description = "Log verbosity. 'info' for production. 'debug' for troubleshooting OIDC or database issues. 'error' for minimal logging on stable instances."
+default     = "info"
+
 [[setup.fields]]
 key           = "vault_outline_secret_key"
 label         = "Outline secret key (32+ chars)"

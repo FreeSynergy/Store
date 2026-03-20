@@ -55,6 +55,48 @@ OIDC_CLIENT_SECRET  = "{{ vault_zentinel_cp_oidc_client_secret | default('') }}"
 OIDC_REDIRECT_URI   = "https://{{ service_domain }}/auth/callback"
 OIDC_SCOPES         = "openid profile email"
 
+[[variables]]
+name        = "ZENTINEL_API_URL"
+description = "Internal URL of the Zentinel proxy container. The control plane uses this to push updated routing config without a full restart. Auto-derived from the parent instance name."
+required    = true
+
+[[variables]]
+name        = "ZENTINEL_CP_PORT"
+description = "HTTP port the control plane API listens on inside the container. Only reachable from within the Podman network — never exposed directly to the internet."
+required    = true
+default     = "8080"
+
+[[variables]]
+name        = "OIDC_ENABLED"
+description = "Protect the control plane dashboard with OIDC login via Kanidm. 'true' is strongly recommended — disabling it leaves the management UI publicly accessible."
+default     = "true"
+
+[[variables]]
+name        = "OIDC_ISSUER_URL"
+description = "OIDC discovery URL of the identity provider, pointing to the 'zentinel-cp' client. Auto-derived from the IAM service. Format: 'https://auth.example.com/oauth2/openid/zentinel-cp'."
+required    = true
+
+[[variables]]
+name        = "OIDC_CLIENT_ID"
+description = "OAuth2 client ID registered in Kanidm for the control plane. Default 'zentinel-cp' matches the Kanidm setup guide. Change only if you register the client under a different name."
+default     = "zentinel-cp"
+
+[[variables]]
+name        = "OIDC_CLIENT_SECRET"
+description = "OAuth2 client secret from Kanidm. Create an OAuth2 client named 'zentinel-cp' in Kanidm, enable PKCE, and paste the generated secret here."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "OIDC_REDIRECT_URI"
+description = "Callback URL registered in Kanidm for the OIDC flow. Must exactly match the 'Redirect URI' field in the Kanidm OAuth2 client configuration."
+required    = true
+
+[[variables]]
+name        = "OIDC_SCOPES"
+description = "OAuth2 scopes to request from Kanidm. 'openid profile email' is the minimum required to identify the user and display their name in the dashboard."
+default     = "openid profile email"
+
 [[setup.fields]]
 key         = "vault_zentinel_cp_oidc_client_secret"
 label       = "Zentinel Control Plane OIDC client secret (from Kanidm)"

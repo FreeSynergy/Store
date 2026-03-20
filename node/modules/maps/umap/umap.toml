@@ -69,6 +69,48 @@ REALTIME_ENABLED      = "{{ umap_realtime_enabled | default('true') }}"
 UMAP_ALLOW_ANONYMOUS  = "{{ umap_allow_anonymous | default('true') }}"
 DEBUG                 = "0"
 
+[[variables]]
+name        = "SECRET_KEY"
+description = "Django secret key used for cryptographic signing of cookies and CSRF tokens. Auto-generated and stored in vault. Must be kept secret — rotating it will log out all users."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "SITE_URL"
+description = "Public HTTPS URL of the uMap instance (e.g. 'https://maps.example.com'). Used to build absolute URLs in shared map links and embeds."
+required    = true
+
+[[variables]]
+name        = "SITE_NAME"
+description = "Display name shown in the uMap header and page titles. Defaults to the project domain suffixed with 'Maps'."
+default     = "<project_domain> Maps"
+
+[[variables]]
+name        = "DATABASE_URL"
+description = "PostGIS connection URL (auto-derived from the postgres sub-service). Must use the 'postgis://' scheme — plain 'postgres://' will fail because uMap requires the PostGIS extension."
+required    = true
+
+[[variables]]
+name        = "REDIS_URL"
+description = "Redis connection URL (auto-derived from the dragonfly sub-service). Used for caching and Celery task queue. Database index 0 is reserved for uMap."
+required    = true
+
+[[variables]]
+name        = "REALTIME_ENABLED"
+description = "Enable real-time collaborative editing via WebSocket. 'true' allows multiple users to edit the same map simultaneously. Requires the WebSocket proxy route to be configured."
+default     = "true"
+
+[[variables]]
+name        = "UMAP_ALLOW_ANONYMOUS"
+description = "Allow users who are not logged in to create and edit maps. 'true' makes uMap fully public. Set to 'false' to require login via OIDC for all map creation."
+default     = "true"
+
+[[variables]]
+name        = "DEBUG"
+description = "Django debug mode. '0' = off (required for production). '1' enables the debug toolbar and detailed error pages — never enable in production as it leaks internal information."
+required    = true
+default     = "0"
+
 [[setup.fields]]
 key           = "vault_umap_secret_key"
 label         = "uMap secret key"

@@ -96,6 +96,72 @@ PRETIX_MAIL_TLS             = "{{ pretix_mail_tls | default('on') }}"
 PRETIX_DATA_DIR             = "/data"
 AUTOMIGRATE                 = "{{ pretix_automigrate | default('yes') }}"
 
+[[variables]]
+name        = "PRETIX_PRETIX_INSTANCE_NAME"
+description = "Name of this pretix installation shown in the admin dashboard, emails and ticket PDFs. Defaults to the project domain with 'Tickets' appended."
+default     = "<project_domain> Tickets"
+
+[[variables]]
+name        = "PRETIX_PRETIX_URL"
+description = "Public HTTPS URL of this pretix instance. Used in email links, QR codes on tickets and the OpenAPI spec. Must exactly match the proxy hostname."
+required    = true
+
+[[variables]]
+name        = "PRETIX_PRETIX_CURRENCY"
+description = "Default currency for new events. ISO 4217 code (e.g. 'EUR', 'USD', 'GBP'). Can be overridden per event in the organizer settings."
+default     = "EUR"
+
+[[variables]]
+name        = "PRETIX_PRETIX_LOGLEVEL"
+description = "Log verbosity for the pretix application. 'INFO' for production. 'DEBUG' for troubleshooting payment flows or plugin issues."
+default     = "INFO"
+
+[[variables]]
+name        = "PRETIX_LOCALE_DEFAULT"
+description = "Default UI language for the shop and checkout. ISO 639-1 language code (e.g. 'de', 'en', 'fr'). Overridable per event and per organizer."
+default     = "de"
+
+[[variables]]
+name        = "PRETIX_LOCALE_TIMEZONE"
+description = "Default timezone for event dates and schedules. IANA timezone name (e.g. 'Europe/Berlin'). Overridable per event."
+default     = "Europe/Berlin"
+
+[[variables]]
+name        = "PRETIX_LANGUAGES_ENABLED"
+description = "Comma-separated list of language codes available in the organizer interface and shop. Restrict to languages you have staff for to avoid partial translations."
+default     = "de,en"
+
+[[variables]]
+name        = "PRETIX_REDIS_SESSIONS"
+description = "Store user sessions in Redis instead of the database. 'true' reduces database load and speeds up session lookups. Requires the Redis (Dragonfly) connection to be healthy."
+default     = "true"
+
+[[variables]]
+name        = "PRETIX_MAIL_PORT"
+description = "SMTP port for sending order confirmations, ticket PDFs and team notifications. 587 = STARTTLS (recommended with Stalwart). 465 = implicit TLS."
+default     = "587"
+
+[[variables]]
+name        = "PRETIX_MAIL_FROM"
+description = "Sender address for all pretix outgoing emails (order confirmations, cancellations, ticket PDFs). Must be a valid address on the configured SMTP server."
+default     = "tickets@<project_domain>"
+
+[[variables]]
+name        = "PRETIX_MAIL_TLS"
+description = "Enable TLS/STARTTLS for SMTP connections. 'on' = required (recommended). 'off' = plaintext only (insecure, never use in production)."
+default     = "on"
+
+[[variables]]
+name        = "PRETIX_DATA_DIR"
+description = "Directory inside the container for uploaded files, generated ticket PDFs, cached data and media assets. Backed by the data volume — ensure sufficient disk space for ticket volumes."
+required    = true
+default     = "/data"
+
+[[variables]]
+name        = "AUTOMIGRATE"
+description = "Automatically run database migrations on startup. 'yes' is safe for deployments managed by FSN. Set to 'no' to run migrations manually before starting — required for some major version upgrades."
+default     = "yes"
+
 [[setup.fields]]
 key         = "vault_pretix_mail_user"
 label       = "Pretix SMTP username (optional)"

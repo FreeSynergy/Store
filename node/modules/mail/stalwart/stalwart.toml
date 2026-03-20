@@ -53,6 +53,16 @@ STALWART_DOMAINS  = "{{ project_domain }}"
 #   SRV  _submission._tcp  587
 #   SRV  _imaps._tcp       993
 
+[[variables]]
+name        = "STALWART_HOSTNAME"
+description = "FQDN of this mail server (e.g. 'mail.example.com'). Used only during first-start initialization to set the server's EHLO hostname and TLS certificate domain. All further configuration is done via the Web Admin UI."
+required    = true
+
+[[variables]]
+name        = "STALWART_DOMAINS"
+description = "Comma-separated list of email domains this server accepts mail for (e.g. 'example.com'). Used only during first-start initialization. Additional domains can be added later via the Web Admin UI."
+required    = true
+
 [setup]
 
 [[setup.fields]]

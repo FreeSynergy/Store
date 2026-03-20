@@ -84,6 +84,68 @@ VIKUNJA_CORS_ORIGINS       = "https://{{ service_domain }}"
 
 VIKUNJA_LOG_LEVEL          = "{{ vikunja_log_level | default('INFO') }}"
 
+[[variables]]
+name        = "VIKUNJA_SERVICE_PUBLICURL"
+description = "Public HTTPS URL of this Vikunja instance. Used to build links in email notifications and in the OpenAPI spec. Must match the proxy hostname."
+required    = true
+
+[[variables]]
+name        = "VIKUNJA_SERVICE_JWTSECRET"
+description = "Secret used to sign JWT authentication tokens. Auto-generated and stored in vault. Rotating this value will invalidate all active sessions and force users to log in again."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "VIKUNJA_SERVICE_TIMEZONE"
+description = "Timezone for due dates, reminders and recurring tasks. Accepts IANA timezone names (e.g. 'Europe/Berlin', 'America/New_York'). Should match the timezone of most users."
+default     = "Europe/Berlin"
+
+[[variables]]
+name        = "VIKUNJA_DATABASE_DATABASE"
+description = "Name of the PostgreSQL database to connect to. Defaults to 'vikunja'. Must match the database created on the Postgres sub-service."
+default     = "vikunja"
+
+[[variables]]
+name        = "VIKUNJA_DATABASE_PASSWORD"
+description = "Password for the Postgres database user. Auto-generated and stored in vault. Shared with the Postgres sub-service."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "VIKUNJA_REDIS_DB"
+description = "Redis database index for Vikunja's cache and queue. Default 3 avoids collisions with other services that share the same Dragonfly instance (Forgejo uses 0–2, Outline uses default)."
+default     = "3"
+
+[[variables]]
+name        = "VIKUNJA_AUTH_LOCAL_ENABLED"
+description = "Allow users to sign in with a username and password stored locally in Vikunja. 'false' forces all authentication through OIDC (Kanidm). Keep 'false' for SSO-only deployments."
+default     = "false"
+
+[[variables]]
+name        = "VIKUNJA_MAILER_ENABLED"
+description = "Enable email notifications for task reminders, due dates and team invitations. Requires SMTP host to be set. Set 'false' if no mail server is available."
+default     = "true"
+
+[[variables]]
+name        = "VIKUNJA_MAILER_PORT"
+description = "SMTP port for sending notifications. 587 = STARTTLS (recommended with Stalwart). 465 = implicit TLS. 25 = plain SMTP (insecure, only for localhost)."
+default     = "587"
+
+[[variables]]
+name        = "VIKUNJA_MAILER_FROMEMAIL"
+description = "Sender address for all outgoing Vikunja emails. Must be a valid address on the configured SMTP server. Displayed as 'From' in notification emails."
+default     = "tasks@<project_domain>"
+
+[[variables]]
+name        = "VIKUNJA_CORS_ORIGINS"
+description = "Allowed CORS origins for browser API calls. Should match the public URL. Multiple origins separated by commas. '*' would allow all origins — do not use in production."
+required    = true
+
+[[variables]]
+name        = "VIKUNJA_LOG_LEVEL"
+description = "Log verbosity. 'INFO' for production. 'DEBUG' for troubleshooting API or database issues. 'ERROR' reduces noise on high-traffic instances."
+default     = "INFO"
+
 [[setup.fields]]
 key           = "vault_vikunja_jwt_secret"
 label         = "Vikunja JWT secret"

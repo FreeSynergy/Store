@@ -52,6 +52,64 @@ TUWUNEL_WELL_KNOWN_CLIENT         = "https://{{ service_domain }}"
 TUWUNEL_WELL_KNOWN_SERVER         = "{{ service_domain }}:443"
 TUWUNEL_LOG                       = "{{ tuwunel_log_level | default('info') }}"
 
+[[variables]]
+name        = "TUWUNEL_SERVER_NAME"
+description = "The Matrix server name — the domain part of every user's MXID (e.g. @alice:example.com). Must match the public domain. Cannot be changed after first start without a full data migration."
+required    = true
+
+[[variables]]
+name        = "TUWUNEL_DATABASE_PATH"
+description = "Directory inside the container where Tuwunel stores its RocksDB database. Backed by the named volume — do not change unless you remount the volume accordingly."
+required    = true
+default     = "/var/lib/tuwunel"
+
+[[variables]]
+name        = "TUWUNEL_PORT"
+description = "HTTP port the homeserver listens on inside the container. The reverse proxy forwards Matrix client and federation traffic here."
+required    = true
+default     = "8008"
+
+[[variables]]
+name        = "TUWUNEL_ADDRESS"
+description = "IP address to bind to inside the container. '0.0.0.0' binds all interfaces so the proxy can reach it. Never expose this port directly to the internet."
+required    = true
+default     = "0.0.0.0"
+
+[[variables]]
+name        = "TUWUNEL_ALLOW_REGISTRATION"
+description = "Allow new accounts to be created via the registration API. Set to 'false' on a private server; use invite links or admin-created accounts instead."
+default     = "false"
+
+[[variables]]
+name        = "TUWUNEL_REGISTRATION_TOKEN_REQUIRED"
+description = "Require a registration token when TUWUNEL_ALLOW_REGISTRATION is 'true'. Prevents open registration while still allowing invited users to sign up with a shared token."
+default     = "true"
+
+[[variables]]
+name        = "TUWUNEL_ALLOW_GUEST_REGISTRATION"
+description = "Allow unauthenticated guest sessions. Guests can read public rooms but cannot post. Keep 'false' for private deployments."
+default     = "false"
+
+[[variables]]
+name        = "TUWUNEL_ALLOW_FEDERATION"
+description = "Enable Matrix federation with other homeservers. 'true' allows users on this server to join rooms on other servers and vice versa. Requires correct DNS SRV or .well-known records."
+default     = "true"
+
+[[variables]]
+name        = "TUWUNEL_WELL_KNOWN_CLIENT"
+description = "URL returned in /.well-known/matrix/client so Matrix clients auto-discover this homeserver. Must be the public HTTPS URL including scheme."
+required    = true
+
+[[variables]]
+name        = "TUWUNEL_WELL_KNOWN_SERVER"
+description = "Hostname and port returned in /.well-known/matrix/server for federation discovery. Format: 'domain:443'. Must be reachable from other Matrix homeservers on the internet."
+required    = true
+
+[[variables]]
+name        = "TUWUNEL_LOG"
+description = "Log level filter. Accepts Rust tracing syntax: 'error', 'warn', 'info', 'debug'. Per-module example: 'tuwunel=debug,info'. Use 'info' for production."
+default     = "info"
+
 [setup]
 
 [[setup.fields]]

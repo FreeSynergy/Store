@@ -43,6 +43,33 @@ POSTGRES_PASSWORD         = "{{ vault_db_password }}"
 POSTGRES_INITDB_ARGS      = "{{ postgres_initdb_args | default('--auth-host=scram-sha-256') }}"
 POSTGRES_HOST_AUTH_METHOD = "scram-sha-256"
 
+[[variables]]
+name        = "POSTGRES_DB"
+description = "Name of the database created on first start. Defaults to the parent service's instance name (e.g. 'forgejo'). Must match what the parent service is configured to connect to."
+required    = true
+
+[[variables]]
+name        = "POSTGRES_USER"
+description = "Superuser name created on first start. Defaults to the parent service's instance name. The parent service connects with this user."
+required    = true
+
+[[variables]]
+name        = "POSTGRES_PASSWORD"
+description = "Password for the database superuser. Auto-generated and stored in vault. The parent service reads this from the vault at deploy time."
+secret      = true
+required    = true
+
+[[variables]]
+name        = "POSTGRES_INITDB_ARGS"
+description = "Extra arguments passed to initdb during the first start. '--auth-host=scram-sha-256' enforces modern password hashing for all client connections — do not remove."
+default     = "--auth-host=scram-sha-256"
+
+[[variables]]
+name        = "POSTGRES_HOST_AUTH_METHOD"
+description = "Authentication method for host connections. 'scram-sha-256' is the current best practice. Changing this to 'md5' or 'trust' reduces security significantly."
+required    = true
+default     = "scram-sha-256"
+
 [[setup.fields]]
 key           = "vault_db_password"
 label         = "PostgreSQL database password"

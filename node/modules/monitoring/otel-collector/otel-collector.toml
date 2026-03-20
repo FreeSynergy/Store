@@ -56,5 +56,11 @@ start_period = "15s"
 # Podman host (for docker_stats receiver compatibility)
 DOCKER_HOST = "unix:///var/run/docker.sock"
 
+[[variables]]
+name        = "DOCKER_HOST"
+description = "Path to the Podman socket exposed inside the container as a Docker-compatible socket. The docker_stats receiver uses this to collect per-container CPU and memory metrics. The socket is mounted read-only from the host."
+required    = true
+default     = "unix:///var/run/docker.sock"
+
 # No setup.fields – collector needs no secrets of its own;
 # OpenObserver credentials come from the openobserver sub-service.

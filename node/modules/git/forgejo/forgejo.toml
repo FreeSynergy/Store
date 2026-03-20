@@ -86,6 +86,112 @@ FORGEJO__log__LEVEL                    = "{{ log_level | default('info') }}"
 FORGEJO__security__INSTALL_LOCK        = "true"
 FORGEJO__security__SECRET_KEY          = "{{ vault_forgejo_secret_key }}"
 
+[[variables]]
+name        = "USER_UID"
+description = "UID the Forgejo process runs as inside the container. Must match the owner of the data volume to avoid permission errors. Default 1000 works for most Linux hosts."
+default     = "1000"
+
+[[variables]]
+name        = "USER_GID"
+description = "GID the Forgejo process runs as inside the container. Must match the data volume group. Default 1000 works for most Linux hosts."
+default     = "1000"
+
+[[variables]]
+name        = "FORGEJO__server__DOMAIN"
+description = "Public domain name of this Forgejo instance (without scheme). Used in clone URLs and emails. Must match the proxy hostname."
+required    = true
+
+[[variables]]
+name        = "FORGEJO__server__ROOT_URL"
+description = "Full public URL including scheme (https://). Forgejo uses this to build absolute links in emails and the web UI."
+required    = true
+
+[[variables]]
+name        = "FORGEJO__server__SSH_PORT"
+description = "SSH port number advertised to users for Git-over-SSH clone URLs. Set to 22 if the host exposes SSH on the standard port, or the actual external port if NAT is involved."
+default     = "22"
+
+[[variables]]
+name        = "FORGEJO__server__SSH_LISTEN_PORT"
+description = "Port the SSH server listens on inside the container. Typically 2222 to avoid conflicting with the host's own SSH daemon. Must be mapped by the proxy or firewall rules."
+default     = "2222"
+
+[[variables]]
+name        = "FORGEJO__server__LFS_START_SERVER"
+description = "Enable Git LFS (Large File Storage) support. 'true' allows large binaries to be stored separately. Requires adequate disk space on the data volume."
+default     = "true"
+
+[[variables]]
+name        = "FORGEJO__server__OFFLINE_MODE"
+description = "Disable loading of external resources (CDN assets, gravatar). Set to 'true' for air-gapped or privacy-focused deployments."
+default     = "false"
+
+[[variables]]
+name        = "FORGEJO__database__SSL_MODE"
+description = "PostgreSQL SSL mode for the database connection. 'disable' is correct when Postgres runs in the same Podman network. Use 'require' only when connecting to an external database over the internet."
+default     = "disable"
+
+[[variables]]
+name        = "FORGEJO__service__DISABLE_REGISTRATION"
+description = "Prevent new users from creating accounts via the web UI. 'true' for private instances where admins create all accounts. Users can still be added via the admin panel."
+default     = "true"
+
+[[variables]]
+name        = "FORGEJO__service__REQUIRE_SIGNIN_VIEW"
+description = "Require login to browse public repositories. 'false' allows anyone to read public repos. Set 'true' for fully private instances."
+default     = "false"
+
+[[variables]]
+name        = "FORGEJO__service__ENABLE_NOTIFY_MAIL"
+description = "Send email notifications for issues, pull requests and comments. Requires a working mailer configuration."
+default     = "false"
+
+[[variables]]
+name        = "FORGEJO__oauth2__JWT_SIGNING_ALGORITHM"
+description = "Algorithm for signing JWT tokens issued by Forgejo's built-in OAuth2 provider. 'ES256' (elliptic curve) is more secure than the older RS256."
+default     = "ES256"
+
+[[variables]]
+name        = "FORGEJO__openid__ENABLE_OPENID_SIGNUP"
+description = "Automatically create a Forgejo account when a user signs in via OIDC for the first time. 'true' is the recommended setting when Kanidm is the identity provider."
+default     = "true"
+
+[[variables]]
+name        = "FORGEJO__mailer__ENABLED"
+description = "Enable the built-in mailer for notifications, password resets and account confirmations. Requires SMTP host, port, user and password to be configured."
+default     = "false"
+
+[[variables]]
+name        = "FORGEJO__mailer__PROTOCOL"
+description = "SMTP connection protocol. 'smtps' (implicit TLS on port 465) or 'smtp+starttls' (STARTTLS on port 587). 'smtp' (plain) is insecure and should only be used on localhost."
+default     = "smtps"
+
+[[variables]]
+name        = "FORGEJO__mailer__SMTP_ADDR"
+description = "Hostname or IP of the SMTP server. When using the Stalwart sub-service, this is its container name. Leave empty to disable mail."
+default     = ""
+
+[[variables]]
+name        = "FORGEJO__mailer__SMTP_PORT"
+description = "SMTP port. 465 for implicit TLS (smtps), 587 for STARTTLS. Must match the protocol setting."
+default     = "465"
+
+[[variables]]
+name        = "FORGEJO__mailer__FROM"
+description = "Sender address for all outgoing emails (e.g. 'Forgejo <noreply@example.com>'). Must be a valid address on the configured SMTP server."
+default     = ""
+
+[[variables]]
+name        = "FORGEJO__log__LEVEL"
+description = "Log verbosity. 'info' for production. 'debug' for troubleshooting. 'warn' and 'error' reduce noise on very busy instances."
+default     = "info"
+
+[[variables]]
+name        = "FORGEJO__security__SECRET_KEY"
+description = "Cryptographic secret key used to sign cookies and tokens. Auto-generated and stored in vault. Never share or reuse across instances — rotating it will invalidate all active sessions."
+secret      = true
+required    = true
+
 [[setup.fields]]
 key           = "vault_forgejo_secret_key"
 label         = "Forgejo internal secret key"

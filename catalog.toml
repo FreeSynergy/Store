@@ -110,7 +110,6 @@ repo        = "https://github.com/FreeSynergy/mistral.rs"
 [packages.distribution]
 linux-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-x86_64.tar.gz"
 linux-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-aarch64.tar.gz"
-macos-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-x86_64.tar.gz"
 macos-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-aarch64.tar.gz"
 windows-x86_64 = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-windows-x86_64.zip"
 source         = "https://github.com/FreeSynergy/mistral.rs"

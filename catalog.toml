@@ -96,6 +96,26 @@ windows-x86_64 = "https://github.com/FreeSynergy/Browser/releases/download/v{ver
 source         = "https://github.com/FreeSynergy/Browser"
 
 [[packages]]
+id          = "mistral"
+name        = "Mistral.rs"
+type        = "app"
+version     = "0.7.1"
+description = "High-performance local LLM inference server — OpenAI-compatible API, ISQ quantization, GGUF support, CPU and GPU"
+icon        = "shared/icons/mistral.svg"
+license     = "MIT"
+author      = "Kal El"
+tags        = ["ai", "llm", "inference", "openai-api", "local-ai", "gguf", "isq"]
+repo        = "https://github.com/FreeSynergy/mistral.rs"
+
+[packages.distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-x86_64.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-aarch64.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-x86_64.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-aarch64.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-windows-x86_64.zip"
+source         = "https://github.com/FreeSynergy/mistral.rs"
+
+[[packages]]
 id          = "store"
 name        = "FreeSynergy Store"
 type        = "store"

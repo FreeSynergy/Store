@@ -1,0 +1,130 @@
+# Module class definition — maps to node/modules/ai/mistral/mistral.toml
+#
+# Field order (MANDATORY per RULES.md):
+#   module → vars → load → binary → service → healthcheck → environment → setup
+
+[module]
+name         = "mistral"
+alias        = ["llm", "inference"]
+type         = "ai"
+kind         = "binary"
+author       = "Kal El"
+license      = "MIT"
+version      = "0.0.1"
+tags         = ["ai", "llm", "inference", "openai-api", "local-ai", "gguf", "cpu"]
+description  = "High-performance local LLM inference server with OpenAI-compatible API — native binary, GGUF quantized models, CPU and Metal support"
+website      = "https://github.com/FreeSynergy/mistral.rs"
+repository   = "https://github.com/FreeSynergy/mistral.rs"
+port         = 1234
+health_path  = "/health"
+health_port  = 1234
+
+[module.constraints]
+# Only one inference server per host makes sense for CPU deployments.
+per_host = 1
+
+[vars]
+data_dir   = "{{ project_root }}/data/{{ instance_name }}"
+models_dir = "{{ module_vars.data_dir }}/models"
+log_file   = "{{ module_vars.data_dir }}/mistral.log"
+pid_file   = "{{ module_vars.data_dir }}/mistral.pid"
+
+[load.modules]
+[load.services]
+
+[binary]
+# Native binaries built from FreeSynergy/mistral.rs (CPU-only release, suffix -cpu)
+linux-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-x86_64.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-linux-aarch64.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-x86_64.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-macos-aarch64.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/mistral.rs/releases/download/v{version}-cpu/mistral-windows-x86_64.zip"
+install_dir    = "{{ project_root }}/bin/mistral"
+
+[service]
+# mistralrs-server uses: [global flags] <model-subcommand>
+# run = auto-loader subcommand, detects GGUF format automatically from file extension
+cmd         = "{{ binary.install_dir }}/mistralrs-server --port {{ mistral_port }} --serve-ip {{ mistral_host }} --max-seqs {{ mistral_max_seqs }} run -m {{ mistral_model_path }}"
+pid_file    = "{{ module_vars.pid_file }}"
+log_file    = "{{ module_vars.log_file }}"
+stop_signal = "SIGTERM"
+restart     = "on-failure"
+
+[healthcheck]
+cmd          = "curl -fsS http://localhost:{{ mistral_port }}/health || exit 1"
+interval     = "30s"
+timeout      = "10s"
+retries      = 3
+start_period = "120s"
+
+# ── Variables ─────────────────────────────────────────────────────────────────
+
+[[variables]]
+name        = "mistral_port"
+description = "TCP port the inference server listens on. 1234 is the mistral.rs default — used by Continue.dev and all OpenAI-compatible clients."
+required    = true
+default     = "1234"
+
+[[variables]]
+name        = "mistral_host"
+description = "IP address to bind on. '127.0.0.1' for local-only access (recommended for desktop use). '0.0.0.0' to expose via reverse proxy."
+required    = true
+default     = "127.0.0.1"
+
+[[variables]]
+name        = "mistral_model_path"
+description = "Absolute path to the GGUF model file on disk. Recommended: download Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf (~4.5 GB) from HuggingFace (bartowski/Qwen2.5-Coder-7B-Instruct-GGUF) and place it in the models dir."
+required    = true
+default     = ""
+
+[[variables]]
+name        = "mistral_max_seqs"
+description = "Maximum number of concurrent inference sequences. Lower values reduce RAM usage. 4 is a sensible default for interactive use on a 16 GB machine."
+default     = "4"
+
+# ── Setup wizard fields ───────────────────────────────────────────────────────
+
+[setup]
+
+[[setup.fields]]
+key         = "project_root"
+label       = "Data Directory"
+description = "Base path where the binary is installed and models are stored (e.g. /srv/fsn)"
+field_type  = "string"
+default     = "/srv/fsn"
+skip_if_set = true
+
+[[setup.fields]]
+key         = "mistral_model_path"
+label       = "Model File Path"
+description = "Full path to the GGUF model file. Download Qwen2.5-Coder-7B-Instruct-Q4_K_M.gguf from HuggingFace and set this path. Needs ~4.5 GB RAM."
+field_type  = "string"
+default     = ""
+skip_if_set = false
+
+[[setup.fields]]
+key         = "mistral_max_seqs"
+label       = "Max Concurrent Sequences"
+description = "Inference concurrency limit. 4 is recommended for 16 GB RAM. Reduce to 2 if RAM is needed for other tasks."
+field_type  = "string"
+default     = "4"
+skip_if_set = false
+
+[[setup.fields]]
+key         = "service_domain"
+label       = "Domain (optional)"
+description = "Domain for proxy access, e.g. ai.example.com. Leave empty for local-only use at localhost:1234."
+field_type  = "string"
+default     = ""
+skip_if_set = true
+
+# ── Proxy contract ────────────────────────────────────────────────────────────
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "api"
+path        = "/"
+strip       = false
+description = "OpenAI-compatible REST API — /v1/chat/completions, /v1/completions, /v1/embeddings"

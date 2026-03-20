@@ -188,17 +188,17 @@ path        = "node/modules/cache/dragonfly"
 tags        = ["cache", "redis", "memcached", "in-memory"]
 
 [[packages]]
-id          = "ai/ollama"
-name        = "Ollama"
-kind        = "container"
+id          = "ai/mistral"
+name        = "Mistral.rs"
+kind        = "binary"
 category    = "deploy.ai"
 version     = "0.0.1"
-description = "Local LLM inference server — run open models like Llama, Mistral and Gemma on your hardware"
-icon        = "node/modules/ai/ollama/ollama.svg"
+description = "High-performance local LLM inference server with OpenAI-compatible API — native binary, GGUF quantized models, CPU and Metal support"
+icon        = "node/modules/ai/mistral/mistral.svg"
 license     = "MIT"
-author     = "Kal El"
-path        = "node/modules/ai/ollama"
-tags        = ["ai", "llm", "inference", "ollama", "local-ai", "gpu"]
+author      = "Kal El"
+path        = "node/modules/ai/mistral"
+tags        = ["ai", "llm", "inference", "openai-api", "local-ai", "gguf", "cpu"]
 
 # ── Locales ───────────────────────────────────────────────────────────────────
 # All locales share the same We10X locale icon (preferences-desktop-locale).

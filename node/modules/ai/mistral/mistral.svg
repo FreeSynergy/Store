@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Flame shape representing inference speed -->
+  <path d="M50 8 C50 8 72 28 72 50 C72 65 62 78 50 85 C38 78 28 65 28 50 C28 36 38 22 44 15 C44 15 40 30 48 35 C52 22 46 8 50 8 Z" fill="#06b6d4"/>
+  <path d="M50 42 C50 42 60 52 60 62 C60 70 55 76 50 80 C45 76 40 70 40 62 C40 54 45 46 48 42 C48 42 46 50 50 52 C52 48 50 42 50 42 Z" fill="#ffffff" opacity="0.85"/>
+</svg>

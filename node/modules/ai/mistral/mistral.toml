@@ -96,9 +96,9 @@ default     = "4"
 [[setup.fields]]
 key         = "project_root"
 label       = "Data Directory"
-description = "Base path where the binary is installed and model cache is stored (e.g. /srv/fsn)"
+description = "Base path where the binary is installed and model cache is stored. Single-user default: ~/.local/share/fsn — server default: /srv/fsn"
 field_type  = "string"
-default     = "/srv/fsn"
+default     = "~/.local/share/fsn"
 skip_if_set = true
 
 [[setup.fields]]

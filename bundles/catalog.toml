@@ -1,0 +1,15 @@
+# FreeSynergy Store — Bundles
+#
+# Bundles live at the Store root (not under packages/).
+# They reference other packages by id and install them together.
+# A bundle contains no binaries — it is a pure reference list.
+
+[catalog]
+id      = "bundles"
+name    = "Bundles"
+icon    = "icon.svg"
+summary = "Install a curated set of packages in one step"
+
+[[packages]]
+id      = "zentinel"
+catalog = "zentinel/catalog.toml"

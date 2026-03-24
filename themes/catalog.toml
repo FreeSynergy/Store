@@ -1,8 +1,9 @@
-# FreeSynergy Store — Themes Namespace
+# FreeSynergy Store — Themes
 #
-# A theme is a bundle of up to 8 individually loadable theme resources:
-# color_scheme, style, font_set, cursor_set, icon_set, button_style,
-# window_chrome, animation_set.
+# Themes live at the Store root (not under packages/).
+# A theme is a Bundle subtype with a fixed structure:
+# color scheme, style, icon set, font set, cursor set,
+# button style, window chrome, and animation set.
 
 [catalog]
 id      = "themes"

@@ -3,7 +3,7 @@
 [package]
 id               = "nordic-dark"
 name             = "Nordic Dark"
-type             = "bundle"
+type             = "theme"
 version          = "0.1.0"
 summary          = "Nordic-inspired dark theme — muted arctic tones with a cool gray palette"
 description      = "Nordic Dark is inspired by the popular Nord color palette — muted arctic blues, cool grays, and soft teal accents. A calm and focused dark theme with lower contrast than Midnight Blue."

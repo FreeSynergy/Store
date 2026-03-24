@@ -3,7 +3,7 @@
 [package]
 id               = "cloud-white"
 name             = "Cloud White"
-type             = "bundle"
+type             = "theme"
 version          = "0.1.0"
 summary          = "Clean light desktop theme — bright white with sky blue accents"
 description      = "Cloud White is a clean, bright light theme for the FreeSynergy desktop. It uses white and light gray backgrounds with sky blue accents and dark charcoal text. Designed for well-lit environments and users who prefer light mode."

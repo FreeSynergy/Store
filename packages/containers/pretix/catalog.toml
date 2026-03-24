@@ -1,0 +1,34 @@
+# pretix — Event Ticketing Platform
+
+[package]
+id               = "pretix"
+name             = "pretix"
+type             = "container"
+version          = "2024.11.0"
+summary          = "Self-hosted event ticketing and registration platform — shop, check-in, payments"
+description      = "pretix is a self-hosted open-source event ticketing platform. It provides an online shop for tickets, registrations, and merchandise, with built-in check-in apps, flexible pricing, vouchers, waiting lists, and payment integrations."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["ticketing", "events", "registration", "shop", "payments", "checkin"]
+author           = "rami.io GmbH"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://pretix.eu"
+git       = "https://github.com/pretix/pretix"
+publisher = "rami.io GmbH"
+
+[provides]
+capabilities = ["event-ticketing", "online-shop"]
+
+[optional-dependencies]
+postgres = ">=15"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "pretix web shop and admin UI"

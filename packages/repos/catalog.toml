@@ -1,0 +1,14 @@
+# FreeSynergy Store — Repositories Namespace
+#
+# Repository packages register additional package sources.
+# Installing a repo package adds its catalog URL as a trusted source in the Store.
+
+[catalog]
+id      = "repos"
+name    = "Repositories"
+icon    = "icon.svg"
+summary = "Additional package repository sources — extend the Store with community packages"
+
+[[packages]]
+id      = "freesynergy-community"
+catalog = "freesynergy-community/catalog.toml"

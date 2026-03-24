@@ -1,0 +1,50 @@
+# FreeSynergy Store — Containers Namespace
+#
+# Container apps — run with Podman or Docker (runtime-agnostic).
+# No requires:podman tag needed; the Node detects the available runtime automatically.
+
+[catalog]
+id      = "containers"
+name    = "Containers"
+icon    = "icon.svg"
+summary = "Container apps — self-hosted services that run with Podman or Docker"
+
+[[packages]]
+id      = "forgejo"
+catalog = "forgejo/catalog.toml"
+
+[[packages]]
+id      = "postgres"
+catalog = "postgres/catalog.toml"
+
+[[packages]]
+id      = "outline"
+catalog = "outline/catalog.toml"
+
+[[packages]]
+id      = "cryptpad"
+catalog = "cryptpad/catalog.toml"
+
+[[packages]]
+id      = "dragonfly"
+catalog = "dragonfly/catalog.toml"
+
+[[packages]]
+id      = "vikunja"
+catalog = "vikunja/catalog.toml"
+
+[[packages]]
+id      = "pretix"
+catalog = "pretix/catalog.toml"
+
+[[packages]]
+id      = "umap"
+catalog = "umap/catalog.toml"
+
+[[packages]]
+id      = "openobserver"
+catalog = "openobserver/catalog.toml"
+
+[[packages]]
+id      = "otel-collector"
+catalog = "otel-collector/catalog.toml"

@@ -1,0 +1,25 @@
+# DragonflyDB — High-Performance In-Memory Data Store
+
+[package]
+id               = "dragonfly"
+name             = "DragonflyDB"
+type             = "container"
+version          = "1.24.0"
+summary          = "High-performance Redis/Memcached-compatible in-memory store — drop-in, lower memory"
+description      = "DragonflyDB is a modern, high-performance in-memory data store compatible with Redis and Memcached APIs. It is a drop-in replacement that uses significantly less memory and achieves higher throughput on multi-core systems. No code changes needed for existing Redis clients."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["cache", "redis", "memcached", "in-memory", "database", "performance"]
+author           = "DragonflyDB"
+license          = "BSL-1.1"
+
+[package.origin]
+website   = "https://www.dragonflydb.io"
+git       = "https://github.com/dragonflydb/dragonfly"
+publisher = "DragonflyDB"
+
+[provides]
+capabilities = ["redis-compatible", "cache", "in-memory-store"]
+
+[contract]
+upstream_tls = false

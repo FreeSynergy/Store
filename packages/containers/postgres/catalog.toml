@@ -1,0 +1,38 @@
+# PostgreSQL — Relational Database
+
+[package]
+id               = "postgres"
+name             = "PostgreSQL"
+type             = "container"
+version          = "17.0"
+summary          = "Reliable, ACID-compliant SQL database — the standard backing store for most services"
+description      = "PostgreSQL is a powerful, open-source relational database. It is the recommended backing store for Forgejo, Outline, Pretix, Vikunja, and other container apps in FreeSynergy."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["database", "sql", "postgres", "relational", "acid"]
+author           = "PostgreSQL Global Development Group"
+license          = "PostgreSQL"
+
+[provides]
+capabilities = ["sql-database", "postgresql", "database.postgres"]
+
+[[variables]]
+name       = "POSTGRES_DB"
+label      = "Database Name"
+description = "Name of the default database created on first start."
+required   = true
+default    = "freesynergy"
+
+[[variables]]
+name       = "POSTGRES_USER"
+label      = "Database User"
+description = "Superuser name for the default database."
+required   = true
+default    = "freesynergy"
+
+[[variables]]
+name          = "POSTGRES_PASSWORD"
+label         = "Database Password"
+description   = "Password for the database superuser. Auto-generated if empty."
+field_type    = "secret"
+auto_generate = true

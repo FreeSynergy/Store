@@ -1,0 +1,23 @@
+# Midnight Blue Theme
+
+[package]
+id               = "midnight-blue"
+name             = "Midnight Blue"
+type             = "bundle"
+version          = "0.1.0"
+summary          = "Dark blue desktop theme — deep navy tones with cyan accent, by KalEl"
+description      = "Midnight Blue is the default FreeSynergy desktop theme. It uses deep navy and dark blue tones with a cyan accent color, white text, and subtle glass-effect panels. Designed for long work sessions in dimly lit environments."
+description_file = "help/en/description.ftl"
+icon             = "preview.svg"
+tags             = ["theme", "dark", "blue", "navy", "cyan", "default"]
+author           = "KalEl / FreeSynergy"
+license          = "MIT"
+
+[provides]
+capabilities = ["theme"]
+
+[bundle]
+components = [
+    { type = "color_scheme",  file = "midnight-blue.css" },
+    { type = "style",         file = "style.css" },
+]

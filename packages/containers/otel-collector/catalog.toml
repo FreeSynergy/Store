@@ -1,0 +1,37 @@
+# OpenTelemetry Collector
+
+[package]
+id               = "otel-collector"
+name             = "OpenTelemetry Collector"
+type             = "container"
+version          = "0.115.0"
+summary          = "OpenTelemetry Collector — receive, process, and export telemetry data to any backend"
+description      = "The OpenTelemetry Collector is a vendor-agnostic agent for receiving, processing, and exporting logs, metrics, and traces. It acts as a central telemetry hub, receiving data from applications and forwarding it to backends like OpenObserve, Prometheus, or Jaeger."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["opentelemetry", "otel", "observability", "telemetry", "logs", "metrics", "traces", "collector"]
+author           = "OpenTelemetry Authors"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://opentelemetry.io/docs/collector"
+git       = "https://github.com/open-telemetry/opentelemetry-collector"
+publisher = "OpenTelemetry Authors"
+
+[provides]
+capabilities = ["otel-collector", "telemetry-pipeline"]
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "otlp-grpc"
+path        = "/otlp"
+proto       = "grpc"
+description = "OTLP gRPC ingest endpoint"
+
+[[contract.routes]]
+id          = "otlp-http"
+path        = "/otlp-http"
+strip       = false
+description = "OTLP HTTP ingest endpoint"

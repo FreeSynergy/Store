@@ -1,0 +1,86 @@
+# Zentinel — Reverse Proxy
+#
+# Native binary, built from FreeSynergy/fs-zentinel fork.
+# Handles TLS termination, ACME certificate renewal, HTTP routing, DNS plugins.
+# Typically installed via the zentinel bundle meta-package.
+
+[package]
+id               = "zentinel"
+name             = "Zentinel"
+type             = "app"
+version          = "0.1.0"
+summary          = "Reverse proxy — TLS termination, ACME certificates, HTTP routing, DNS plugins"
+description      = "Zentinel is the TLS termination and routing layer for FreeSynergy. It handles ACME certificate renewal (Let's Encrypt / ZeroSSL), HTTP routing to backend services, and DNS-01 challenges via configurable DNS provider plugins."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["proxy", "tls", "acme", "routing", "reverse-proxy", "letsencrypt", "rust", "platform:linux"]
+author           = "Zentinel Project / FreeSynergy Fork"
+license          = "Apache-2.0"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-zentinel"
+publisher = "Zentinel Project / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-zentinel"
+artifact = "zentinel-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "zentinel"
+service    = "zentinel.service"
+data_dir   = "{data_root}/zentinel"
+config_dir = "{config_root}/zentinel"
+
+[provides]
+capabilities = ["reverse-proxy", "tls", "acme", "tls-termination"]
+
+[requires]
+capabilities = ["systemd"]
+
+[[files.config]]
+source = "templates/zentinel-global.kdl.j2"
+dest   = "{config_root}/zentinel/global.kdl"
+
+[[files.units]]
+source = "templates/zentinel.service"
+dest   = "/etc/systemd/system/zentinel.service"
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/zentinel/certs", "mkdir -p {config_root}/zentinel"]
+post_install = ["systemctl daemon-reload", "systemctl enable zentinel.service"]
+pre_remove   = ["systemctl stop zentinel.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name          = "ZENTINEL_DOMAIN"
+label         = "Primary Domain"
+description   = "Primary domain this proxy serves (e.g. example.com). Used for the default route and ACME certificate."
+required      = true
+needs_restart = true
+
+[[variables]]
+name       = "ZENTINEL_ACME_EMAIL"
+label      = "ACME / Let's Encrypt Email"
+description = "Email for certificate renewal notifications from Let's Encrypt."
+required   = true
+
+[[variables]]
+name       = "ZENTINEL_DNS_PROVIDER"
+label      = "DNS Provider"
+description = "DNS provider for ACME DNS-01 challenges (e.g. 'cloudflare', 'hetzner'). Use 'none' for HTTP-01."
+default    = "none"
+
+[[variables]]
+name       = "ZENTINEL_HTTP_PORT"
+label      = "HTTP Port"
+description = "Port for plain HTTP (HTTP-01 ACME challenges and HTTP→HTTPS redirect)."
+field_type = "port"
+default    = "80"
+
+[[variables]]
+name       = "ZENTINEL_HTTPS_PORT"
+label      = "HTTPS Port"
+description = "Port for TLS-terminated HTTPS traffic."
+field_type = "port"
+default    = "443"

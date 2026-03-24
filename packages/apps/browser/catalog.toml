@@ -1,0 +1,51 @@
+# FreeSynergy Browser
+#
+# Dual-mode browser: graphical (desktop) and terminal (TUI).
+# Displays service UIs, the Store, and admin panels with automatic IAM token injection.
+
+[package]
+id               = "browser"
+name             = "FreeSynergy Browser"
+type             = "app"
+version          = "0.1.0"
+summary          = "Integrated web browser — service UIs with automatic IAM token injection, tab support"
+description      = "FreeSynergy Browser is the integrated web browser for the FreeSynergy desktop. It displays service UIs, the Store, and admin panels with automatic IAM token injection from Kanidm. Also available as a TUI for server-side administration."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["browser", "webview", "ui", "services", "tui", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-browser"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-browser"
+artifact = "fsbrowser-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-x86_64-windows.zip"
+
+[app]
+binary     = "fsbrowser"
+data_dir   = "{data_root}/browser"
+config_dir = "{config_root}/browser"
+
+[[variables]]
+name       = "BROWSER_DEFAULT_URL"
+label      = "Default URL"
+description = "URL opened when the browser starts. Set to the FreeSynergy dashboard URL for a managed environment."
+default    = ""
+
+[[variables]]
+name       = "BROWSER_TUI_MODE"
+label      = "Default to TUI"
+description = "Start in terminal mode by default, even when a graphical display is available."
+field_type = "bool"
+default    = "false"

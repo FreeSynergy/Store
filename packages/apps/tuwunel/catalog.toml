@@ -1,0 +1,121 @@
+# Tuwunel — Matrix Homeserver
+#
+# Native binary, built from FreeSynergy/fs-tuwunel fork.
+# Requires Kanidm for OIDC authentication.
+
+[package]
+id               = "tuwunel"
+name             = "Tuwunel"
+type             = "app"
+version          = "0.4.0"
+summary          = "High-performance Matrix homeserver — federation-ready, OIDC-native, built in Rust"
+description      = "Tuwunel is a fast, lightweight Matrix homeserver written in Rust. It supports full Matrix federation, OIDC-native authentication via Kanidm, and is designed for self-hosted deployments."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["chat", "matrix", "messaging", "federation", "homeserver", "oidc", "rust", "platform:linux"]
+author           = "matrix-construct / FreeSynergy Fork"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://matrix-construct.github.io/tuwunel/"
+git       = "https://github.com/FreeSynergy/fs-tuwunel"
+docs      = "https://matrix-construct.github.io/tuwunel/docs/"
+publisher = "matrix-construct / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-tuwunel"
+artifact = "tuwunel-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "tuwunel"
+service    = "tuwunel.service"
+data_dir   = "{data_root}/tuwunel"
+config_dir = "{config_root}/tuwunel"
+
+[provides]
+capabilities = ["matrix-server", "matrix-federation"]
+
+[requires]
+packages     = ["kanidm"]
+capabilities = ["systemd"]
+
+[[files.config]]
+source = "templates/tuwunel.toml.j2"
+dest   = "{config_root}/tuwunel/tuwunel.toml"
+
+[[files.units]]
+source = "templates/tuwunel.service"
+dest   = "/etc/systemd/system/tuwunel.service"
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/tuwunel", "mkdir -p {config_root}/tuwunel"]
+post_install = ["systemctl daemon-reload", "systemctl enable tuwunel.service"]
+pre_remove   = ["systemctl stop tuwunel.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name          = "TUWUNEL_SERVER_NAME"
+label         = "Server Name"
+description   = "Matrix server name — the domain part of every user's MXID (e.g. example.com). Cannot be changed after first start without a full data migration."
+required      = true
+needs_restart = true
+
+[[variables]]
+name       = "TUWUNEL_PORT"
+label      = "HTTP Port"
+description = "HTTP port the homeserver listens on. Zentinel proxies Matrix traffic here."
+field_type = "port"
+default    = "8008"
+
+[[variables]]
+name       = "TUWUNEL_ALLOW_REGISTRATION"
+label      = "Allow Registration"
+description = "Allow new accounts to be created. Disable for private/invite-only servers."
+field_type = "bool"
+default    = "false"
+
+[[variables]]
+name       = "TUWUNEL_ALLOW_FEDERATION"
+label      = "Enable Matrix Federation"
+description = "Enable federation with other Matrix homeservers. Requires correct DNS SRV records."
+field_type = "bool"
+default    = "true"
+
+[[variables]]
+name       = "TUWUNEL_LOG"
+label      = "Log Level"
+description = "Log level: 'error', 'warn', 'info', 'debug'. Use 'info' for production."
+default    = "info"
+
+[setup]
+
+[[setup.fields]]
+key         = "tuwunel_server_name"
+label       = "Matrix server name"
+description = "Domain part of Matrix user IDs (e.g. example.com). Cannot be changed after first start."
+field_type  = "text"
+skip_if_set = false
+
+[[setup.fields]]
+key        = "tuwunel_allow_registration"
+label      = "Allow new user registration"
+description = "Allow users to self-register. Disable for private servers."
+field_type = "bool"
+default    = "false"
+
+[[setup.fields]]
+key        = "tuwunel_allow_federation"
+label      = "Enable Matrix federation"
+description = "Allow federation with the wider Matrix network."
+field_type = "bool"
+default    = "true"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "matrix"
+path        = "/"
+strip       = false
+description = "Matrix client API + federation + .well-known"

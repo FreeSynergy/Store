@@ -1,0 +1,110 @@
+# Kanidm — Identity and Access Management
+#
+# Native Rust binary. FreeSynergy ships it from the FreeSynergy/fs-kanidm fork
+# to ensure controlled builds, signed releases, and backport patches.
+# Required by: tuwunel (OIDC), stalwart (OIDC), fs-node (auth)
+
+[package]
+id               = "kanidm"
+name             = "Kanidm"
+type             = "app"
+version          = "1.4.2"
+summary          = "Identity and access management — OAuth2, OIDC, LDAP, SCIM, WebAuthn, MFA"
+description      = "Kanidm is a modern identity and access management server built in Rust. It provides OAuth2, OIDC, LDAP, SCIM, WebAuthn and MFA out of the box. FreeSynergy uses it as the default IAM provider for all services."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["iam", "identity", "oidc", "oauth2", "ldap", "scim", "webauthn", "mfa", "rust", "platform:linux"]
+author           = "Kanidm Project / FreeSynergy Fork"
+license          = "MPL-2.0"
+
+[package.origin]
+website   = "https://kanidm.com"
+git       = "https://github.com/FreeSynergy/fs-kanidm"
+docs      = "https://kanidm.com/documentation/stable/"
+publisher = "Kanidm Project / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-kanidm"
+artifact = "kanidmd-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "kanidmd"
+service    = "kanidm.service"
+data_dir   = "{data_root}/kanidm"
+config_dir = "{config_root}/kanidm"
+
+[provides]
+capabilities = ["iam", "iam.oidc-provider", "iam.scim-server", "iam.webauthn", "iam.ldap"]
+
+[requires]
+capabilities = ["systemd"]
+
+[[files.config]]
+source = "templates/server.toml.j2"
+dest   = "{config_root}/kanidm/server.toml"
+
+[[files.units]]
+source = "templates/kanidm.service"
+dest   = "/etc/systemd/system/kanidm.service"
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/kanidm", "mkdir -p {config_root}/kanidm"]
+post_install = ["systemctl daemon-reload", "systemctl enable kanidm.service"]
+pre_remove   = ["systemctl stop kanidm.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name          = "KANIDM_DOMAIN"
+label         = "Domain"
+description   = "The domain Kanidm serves from (e.g. auth.example.com). Included in all OAuth2/OIDC tokens. Cannot be changed after the database is initialised."
+required      = true
+field_type    = "text"
+needs_restart = true
+
+[[variables]]
+name          = "KANIDM_HTTPS_PORT"
+label         = "HTTPS Port"
+description   = "Port for Kanidm's HTTPS API and web UI. Default 8443 avoids conflicts with other services. Zentinel proxies this publicly via 443."
+field_type    = "port"
+default       = "8443"
+needs_restart = true
+
+[[variables]]
+name       = "KANIDM_LDAP_PORT"
+label      = "LDAP Port"
+description = "Port for the optional LDAP interface. Set to 0 to disable LDAP."
+field_type = "port"
+default    = "3636"
+
+[[variables]]
+name       = "KANIDM_LOG_LEVEL"
+label      = "Log Level"
+description = "Log verbosity. Use 'info' in production. 'debug' and 'trace' produce large volumes of output."
+field_type = "text"
+default    = "info"
+
+[setup]
+
+[[setup.fields]]
+key         = "kanidm_domain"
+label       = "Kanidm domain"
+description = "The hostname Kanidm will serve from (e.g. auth.example.com). Must have a valid TLS certificate via Zentinel."
+field_type  = "text"
+skip_if_set = false
+
+[[setup.fields]]
+key           = "kanidm_admin_password"
+label         = "Initial admin password"
+description   = "Password for the Kanidm 'admin' account. Store this securely."
+field_type    = "secret"
+auto_generate = true
+
+[contract]
+upstream_tls = true
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Kanidm web UI + OAuth2/OIDC + LDAP REST API"

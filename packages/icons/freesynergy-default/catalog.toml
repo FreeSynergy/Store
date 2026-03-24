@@ -1,0 +1,22 @@
+# FreeSynergy Default Icon Set
+
+[package]
+id               = "freesynergy-default"
+name             = "FreeSynergy Default Icons"
+type             = "icon_set"
+version          = "0.1.0"
+summary          = "Default SVG icon set for FreeSynergy — apps, system, status, and file type icons"
+description      = "The official FreeSynergy icon set. Contains SVG icons for all system actions, application launchers, file types, status indicators, and UI elements. Designed in a clean, modern line style with full theme-color adaptation."
+description_file = "help/en/description.ftl"
+icon             = "preview.svg"
+tags             = ["icons", "svg", "system", "default", "icon-set"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[provides]
+capabilities = ["icon-set"]
+
+[icon_set]
+format   = "svg"
+sizes    = ["scalable"]
+categories = ["apps", "actions", "status", "mimetypes", "devices", "places"]

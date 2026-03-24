@@ -1,0 +1,44 @@
+# Forgejo — Self-hosted Git Service
+
+[package]
+id               = "forgejo"
+name             = "Forgejo"
+type             = "container"
+version          = "9.0.0"
+summary          = "Lightweight self-hosted Git service — repositories, CI/CD, packages, OIDC-native"
+description      = "Forgejo is a self-hosted Git service with repositories, issues, pull requests, CI/CD (Forgejo Actions), and package registry. It integrates natively with Kanidm via OIDC for single sign-on."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["git", "code", "forge", "repository", "cicd", "packages", "oidc"]
+author           = "Forgejo / FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+website   = "https://forgejo.org"
+git       = "https://codeberg.org/forgejo/forgejo"
+publisher = "Forgejo"
+
+[provides]
+capabilities = ["git-hosting", "git.api", "cicd"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+postgres = ">=15"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Forgejo web UI + Git HTTP + API"
+
+[[contract.routes]]
+id          = "ssh"
+path        = "/"
+proto       = "tcp"
+port        = 22
+description = "Forgejo SSH Git access"

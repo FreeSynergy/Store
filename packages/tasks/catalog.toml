@@ -1,0 +1,7 @@
+# FreeSynergy Store — Tasks Namespace
+
+[catalog]
+id      = "tasks"
+name    = "Tasks"
+icon    = "icon.svg"
+summary = "Automation task templates — connect services and automate workflows"

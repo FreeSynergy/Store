@@ -1,0 +1,31 @@
+# Weather Widget
+
+[package]
+id               = "weather"
+name             = "Weather"
+type             = "widget"
+version          = "0.1.0"
+summary          = "Current weather and 5-day forecast widget — powered by Open-Meteo (no API key)"
+description      = "Displays current weather conditions and a 5-day forecast for a configured location. Powered by Open-Meteo, a free and open weather API that requires no account or API key. Location can be set by city name or coordinates."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["weather", "forecast", "open-meteo", "widget", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[widget]
+min_size = { cols = 2, rows = 2 }
+max_size = { cols = 4, rows = 3 }
+
+[[variables]]
+name       = "WEATHER_LOCATION"
+label      = "Location"
+description = "City name (e.g. Vienna) or coordinates as 'lat,lon' (e.g. 48.2,16.3)."
+required   = true
+default    = ""
+
+[[variables]]
+name       = "WEATHER_UNITS"
+label      = "Temperature Units"
+description = "Temperature unit: 'celsius' or 'fahrenheit'."
+default    = "celsius"

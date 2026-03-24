@@ -1,0 +1,21 @@
+# Messages Widget
+
+[package]
+id               = "messages"
+name             = "Messages"
+type             = "widget"
+version          = "0.1.0"
+summary          = "Recent Matrix/Tuwunel messages widget — unread count and quick reply"
+description      = "Displays recent messages and unread counts from the user's Matrix rooms via the Tuwunel server. Shows room name, sender, and message preview. Tapping a message opens the full conversation in the FreeSynergy Browser."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["messages", "matrix", "chat", "tuwunel", "widget", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[requires]
+capabilities = ["matrix-server"]
+
+[widget]
+min_size = { cols = 2, rows = 2 }
+max_size = { cols = 4, rows = 4 }

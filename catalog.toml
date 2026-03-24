@@ -1,0 +1,78 @@
+# FreeSynergy Store — Root Catalog
+#
+# This is the namespace index. StoreClient reads this first to discover
+# all available namespaces and build the Store UI sidebar.
+#
+# Each namespace entry points to its own catalog.toml which lists the
+# packages within that namespace.
+
+[catalog]
+id      = "freesynergy-store"
+name    = "FreeSynergy Store"
+icon    = "icon.svg"
+summary = "The official FreeSynergy package registry"
+version = "1.0.0"
+
+# ── Special entries ────────────────────────────────────────────────────────────
+
+[[namespaces]]
+id      = "init"
+name    = "Init"
+catalog = "init/catalog.toml"
+
+# ── Package namespaces ─────────────────────────────────────────────────────────
+
+[[namespaces]]
+id      = "apps"
+name    = "Applications"
+catalog = "packages/apps/catalog.toml"
+
+[[namespaces]]
+id      = "containers"
+name    = "Containers"
+catalog = "packages/containers/catalog.toml"
+
+[[namespaces]]
+id      = "widgets"
+name    = "Widgets"
+catalog = "packages/widgets/catalog.toml"
+
+[[namespaces]]
+id      = "themes"
+name    = "Themes"
+catalog = "packages/themes/catalog.toml"
+
+[[namespaces]]
+id      = "i18n"
+name    = "Languages"
+catalog = "packages/i18n/catalog.toml"
+
+[[namespaces]]
+id      = "icons"
+name    = "Icon Sets"
+catalog = "packages/icons/catalog.toml"
+
+[[namespaces]]
+id      = "bots"
+name    = "Bots"
+catalog = "packages/bots/catalog.toml"
+
+[[namespaces]]
+id      = "tasks"
+name    = "Tasks"
+catalog = "packages/tasks/catalog.toml"
+
+[[namespaces]]
+id      = "bridges"
+name    = "Bridges"
+catalog = "packages/bridges/catalog.toml"
+
+[[namespaces]]
+id      = "bundles"
+name    = "Bundles"
+catalog = "packages/bundles/catalog.toml"
+
+[[namespaces]]
+id      = "repos"
+name    = "Repositories"
+catalog = "packages/repos/catalog.toml"

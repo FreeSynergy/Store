@@ -1,0 +1,37 @@
+# Vikunja — Self-Hosted Project Management
+
+[package]
+id               = "vikunja"
+name             = "Vikunja"
+type             = "container"
+version          = "0.24.0"
+summary          = "Self-hosted project management — tasks, projects, kanban, Gantt, teams, OIDC"
+description      = "Vikunja is a self-hosted, open-source project management and to-do application. It supports tasks, sub-tasks, due dates, reminders, kanban boards, Gantt charts, team collaboration, and OIDC authentication via Kanidm."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["project-management", "tasks", "todo", "kanban", "gantt", "teams", "oidc"]
+author           = "Vikunja"
+license          = "GPL-3.0"
+
+[package.origin]
+website   = "https://vikunja.io"
+git       = "https://code.vikunja.io/api"
+publisher = "Vikunja"
+
+[provides]
+capabilities = ["project-management", "task-tracking"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+postgres = ">=15"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Vikunja web UI and API"

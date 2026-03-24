@@ -1,0 +1,21 @@
+# My Tasks Widget
+
+[package]
+id               = "my-tasks"
+name             = "My Tasks"
+type             = "widget"
+version          = "0.1.0"
+summary          = "Upcoming and overdue tasks from Vikunja — at a glance on your desktop"
+description      = "Shows upcoming and overdue tasks assigned to the current user from the Vikunja project management service. Tasks can be checked off directly in the widget. Clicking a task opens it in Vikunja via the FreeSynergy Browser."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["tasks", "vikunja", "project-management", "todo", "widget", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[requires]
+capabilities = ["project-management"]
+
+[widget]
+min_size = { cols = 2, rows = 2 }
+max_size = { cols = 4, rows = 4 }

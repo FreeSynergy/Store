@@ -1,0 +1,25 @@
+# Quick Notes Widget
+
+[package]
+id               = "quick-notes"
+name             = "Quick Notes"
+type             = "widget"
+version          = "0.1.0"
+summary          = "Sticky-note widget — jot down quick text snippets on your FreeSynergy desktop"
+description      = "A simple sticky-note widget for the FreeSynergy desktop. Stores notes locally in the Node database. Supports plain text and Markdown preview. Multiple note widgets can be placed on the same desktop layout."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["notes", "sticky", "text", "markdown", "widget", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[widget]
+min_size = { cols = 2, rows = 2 }
+max_size = { cols = 6, rows = 6 }
+
+[[variables]]
+name       = "NOTES_MARKDOWN"
+label      = "Markdown Preview"
+description = "Render note content as Markdown instead of plain text."
+field_type = "bool"
+default    = "false"

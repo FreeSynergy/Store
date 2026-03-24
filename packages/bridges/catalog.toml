@@ -1,0 +1,7 @@
+# FreeSynergy Store — Bridges Namespace
+
+[catalog]
+id      = "bridges"
+name    = "Bridges"
+icon    = "icon.svg"
+summary = "Service bridges — map standardized role APIs to concrete service implementations"

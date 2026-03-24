@@ -1,0 +1,45 @@
+# FreeSynergy Store — Applications Namespace
+#
+# Native Rust binaries — cross-platform, no container runtime required.
+# Kanidm, Stalwart, Zentinel, Mistral and others are native binaries even though
+# they may be well-known projects; FreeSynergy ships them from our own fork.
+#
+# Binaries are never stored here. Each package references its GitHub Release URLs.
+
+[catalog]
+id      = "apps"
+name    = "Applications"
+icon    = "icon.svg"
+summary = "Native Rust applications — the core programs of FreeSynergy"
+
+[[packages]]
+id      = "node"
+catalog = "node/catalog.toml"
+
+[[packages]]
+id      = "kanidm"
+catalog = "kanidm/catalog.toml"
+
+[[packages]]
+id      = "stalwart"
+catalog = "stalwart/catalog.toml"
+
+[[packages]]
+id      = "tuwunel"
+catalog = "tuwunel/catalog.toml"
+
+[[packages]]
+id      = "zentinel"
+catalog = "zentinel/catalog.toml"
+
+[[packages]]
+id      = "zentinel-control-plane"
+catalog = "zentinel-control-plane/catalog.toml"
+
+[[packages]]
+id      = "mistral"
+catalog = "mistral/catalog.toml"
+
+[[packages]]
+id      = "browser"
+catalog = "browser/catalog.toml"

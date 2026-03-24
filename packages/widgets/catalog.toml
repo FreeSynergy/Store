@@ -1,0 +1,31 @@
+# FreeSynergy Store — Widgets Namespace
+
+[catalog]
+id      = "widgets"
+name    = "Widgets"
+icon    = "icon.svg"
+summary = "Desktop widgets — live data on your FreeSynergy desktop"
+
+[[packages]]
+id      = "clock"
+catalog = "clock/catalog.toml"
+
+[[packages]]
+id      = "system-info"
+catalog = "system-info/catalog.toml"
+
+[[packages]]
+id      = "messages"
+catalog = "messages/catalog.toml"
+
+[[packages]]
+id      = "my-tasks"
+catalog = "my-tasks/catalog.toml"
+
+[[packages]]
+id      = "quick-notes"
+catalog = "quick-notes/catalog.toml"
+
+[[packages]]
+id      = "weather"
+catalog = "weather/catalog.toml"

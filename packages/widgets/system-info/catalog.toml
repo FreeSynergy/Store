@@ -1,0 +1,28 @@
+# System Info Widget
+
+[package]
+id               = "system-info"
+name             = "System Info"
+type             = "widget"
+version          = "0.1.0"
+summary          = "Live CPU, RAM, disk, and network usage widget for the FreeSynergy desktop"
+description      = "Displays live system resource usage: CPU load per core, RAM and swap usage, disk space, and network throughput. Data is sourced from fs-sysinfo via the local Node."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["system", "cpu", "ram", "disk", "network", "monitoring", "widget"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[requires]
+capabilities = ["node.sysinfo"]
+
+[widget]
+min_size = { cols = 2, rows = 2 }
+max_size = { cols = 4, rows = 3 }
+
+[[variables]]
+name       = "SYSINFO_SHOW_NETWORK"
+label      = "Show Network"
+description = "Display network throughput (upload/download)."
+field_type = "bool"
+default    = "true"

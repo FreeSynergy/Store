@@ -1,0 +1,36 @@
+# Outline — Collaborative Wiki
+
+[package]
+id               = "outline"
+name             = "Outline"
+type             = "container"
+version          = "0.81.0"
+summary          = "Collaborative wiki and knowledge base with OIDC login and rich markdown editing"
+description      = "Outline is a collaborative wiki and knowledge base for teams. It features rich markdown editing, real-time collaboration, OIDC single sign-on via Kanidm, and S3 storage for attachments."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["wiki", "knowledge", "docs", "team", "collaboration", "markdown", "oidc"]
+author           = "Outline"
+license          = "BSL-1.1"
+
+[package.origin]
+website = "https://www.getoutline.com"
+git     = "https://github.com/outline/outline"
+
+[provides]
+capabilities = ["wiki", "wiki.create-page", "wiki.search", "wiki.api"]
+
+[requires]
+capabilities = ["iam.oidc-provider", "database.postgres"]
+
+[optional-dependencies]
+dragonfly = ">=1.0"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id   = "main"
+path = "/"
+strip = false
+description = "Outline web UI and API"

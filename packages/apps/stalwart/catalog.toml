@@ -1,0 +1,136 @@
+# Stalwart — All-in-One Mail Server
+#
+# Native binary, built from FreeSynergy/fs-stalwart fork.
+# Provides SMTP, IMAP, JMAP, CalDAV and CardDAV in a single binary.
+# Requires Kanidm for OIDC single sign-on.
+
+[package]
+id               = "stalwart"
+name             = "Stalwart"
+type             = "app"
+version          = "0.11.0"
+summary          = "All-in-one mail server — SMTP, IMAP, JMAP, CalDAV, CardDAV, WebAdmin, OIDC"
+description      = "Stalwart is an all-in-one mail and collaboration server written in Rust. It handles SMTP, IMAP, JMAP, CalDAV and CardDAV in a single binary with built-in OIDC integration via Kanidm."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["mail", "smtp", "imap", "jmap", "caldav", "carddav", "email", "rust", "platform:linux"]
+author           = "Stalwart Labs / FreeSynergy Fork"
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://stalw.art"
+git       = "https://github.com/FreeSynergy/fs-stalwart"
+docs      = "https://stalw.art/docs/get-started"
+publisher = "Stalwart Labs / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-stalwart"
+artifact = "stalwart-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "stalwart"
+service    = "stalwart.service"
+data_dir   = "{data_root}/stalwart"
+config_dir = "{config_root}/stalwart"
+
+[provides]
+capabilities = ["smtp", "smtp.sender", "imap", "jmap", "caldav", "carddav"]
+
+[requires]
+packages     = ["kanidm"]
+capabilities = ["systemd"]
+
+[[files.config]]
+source = "templates/config.toml.j2"
+dest   = "{config_root}/stalwart/config.toml"
+
+[[files.units]]
+source = "templates/stalwart.service"
+dest   = "/etc/systemd/system/stalwart.service"
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/stalwart", "mkdir -p {config_root}/stalwart"]
+post_install = ["systemctl daemon-reload", "systemctl enable stalwart.service"]
+pre_remove   = ["systemctl stop stalwart.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name          = "STALWART_HOSTNAME"
+label         = "Mail Server Hostname"
+description   = "Fully-qualified domain name (e.g. mail.example.com). Used for EHLO, TLS certificate, and MX record."
+required      = true
+needs_restart = true
+
+[[variables]]
+name          = "STALWART_DOMAINS"
+label         = "Mail Domains"
+description   = "Comma-separated list of email domains to accept mail for (e.g. example.com)."
+required      = true
+needs_restart = true
+
+[[variables]]
+name       = "STALWART_HTTP_PORT"
+label      = "HTTP Port (Admin UI)"
+description = "Port for the web admin interface and JMAP API."
+field_type = "port"
+default    = "8080"
+
+[[variables]]
+name       = "STALWART_SMTP_PORT"
+label      = "SMTP Port"
+description = "Port for incoming server-to-server SMTP (MX). Standard is 25."
+field_type = "port"
+default    = "25"
+
+[[variables]]
+name       = "STALWART_SUBMISSION_PORT"
+label      = "Mail Submission Port"
+description = "Port for mail client submission (RFC 6409). Standard is 587 (STARTTLS)."
+field_type = "port"
+default    = "587"
+
+[[variables]]
+name       = "STALWART_IMAP_PORT"
+label      = "IMAP Port"
+description = "Port for IMAP client connections. Standard is 993 (IMAPS)."
+field_type = "port"
+default    = "993"
+
+[[variables]]
+name       = "STALWART_LOG_LEVEL"
+label      = "Log Level"
+description = "Log verbosity. Use 'info' for production."
+default    = "info"
+
+[setup]
+
+[[setup.fields]]
+key         = "stalwart_hostname"
+label       = "Mail server hostname"
+description = "FQDN of this mail server (e.g. mail.example.com)."
+field_type  = "text"
+skip_if_set = false
+
+[[setup.fields]]
+key         = "stalwart_domains"
+label       = "Email domains"
+description = "Comma-separated list of domains to accept mail for."
+field_type  = "text"
+skip_if_set = false
+
+[[setup.fields]]
+key           = "stalwart_admin_password"
+label         = "Admin password"
+description   = "Password for the Stalwart web admin UI."
+field_type    = "secret"
+auto_generate = true
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "webmail"
+path        = "/"
+strip       = false
+description = "Stalwart web admin UI + JMAP API"

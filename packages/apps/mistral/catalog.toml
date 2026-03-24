@@ -1,0 +1,78 @@
+# Mistral.rs — Local LLM Inference Server
+#
+# Native binary, built from FreeSynergy/fs-mistral fork.
+# Provides an OpenAI-compatible REST API for local AI inference.
+# Supports ISQ quantization (no pre-quantized files needed) and GGUF.
+# Runs on CPU — no GPU required (GPU optional for faster inference).
+
+[package]
+id               = "mistral"
+name             = "Mistral.rs"
+type             = "app"
+version          = "0.4.0"
+summary          = "Local LLM inference server — OpenAI-compatible API, ISQ quantization, CPU and GPU"
+description      = "Mistral.rs is a high-performance local LLM inference server with an OpenAI-compatible API. It supports ISQ in-situ quantization (no pre-quantized files needed), GGUF, and can run on CPU without a GPU."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["ai", "llm", "inference", "openai-api", "local-ai", "isq", "gguf", "cpu", "rust", "platform:linux"]
+author           = "Eric L. Buehler / FreeSynergy Fork"
+license          = "MIT"
+
+[package.origin]
+website   = "https://github.com/EricLBuehler/mistral.rs"
+git       = "https://github.com/FreeSynergy/fs-mistral"
+docs      = "https://github.com/EricLBuehler/mistral.rs/blob/master/README.md"
+publisher = "Eric L. Buehler / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-mistral"
+artifact = "mistralrs-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "mistralrs"
+service    = "mistral.service"
+data_dir   = "{data_root}/mistral"
+config_dir = "{config_root}/mistral"
+
+[provides]
+capabilities = ["llm-inference", "openai-api"]
+
+[requires]
+capabilities = ["systemd"]
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/mistral/models", "mkdir -p {config_root}/mistral"]
+post_install = ["systemctl daemon-reload", "systemctl enable mistral.service"]
+pre_remove   = ["systemctl stop mistral.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name          = "MISTRAL_MODEL_ID"
+label         = "Model ID"
+description   = "HuggingFace model ID (e.g. Qwen/Qwen3-4B) or path to a .gguf file. ISQ mode: use a HF repo ID and set MISTRAL_ISQ. GGUF mode: set to an absolute path and leave MISTRAL_ISQ empty."
+required      = true
+default       = "Qwen/Qwen3-4B"
+needs_restart = true
+
+[[variables]]
+name       = "MISTRAL_ISQ"
+label      = "ISQ Quantization"
+description = "In-Situ Quantization type. Recommended: 'q4k' (~3 GB RAM for a 4B model). Leave empty when using a .gguf file."
+default    = "q4k"
+
+[[variables]]
+name       = "MISTRAL_PORT"
+label      = "API Port"
+description = "Port for the OpenAI-compatible REST API."
+field_type = "port"
+default    = "1234"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "api"
+path        = "/v1"
+strip       = false
+description = "OpenAI-compatible inference API"

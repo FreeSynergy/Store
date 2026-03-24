@@ -1,0 +1,62 @@
+# Zentinel Control Plane — Configuration API and Dashboard
+#
+# Native binary, built from FreeSynergy/fs-zentinel-plane fork.
+# Provides a REST API and web dashboard for configuring Zentinel routes.
+# Typically installed via the zentinel bundle meta-package.
+
+[package]
+id               = "zentinel-control-plane"
+name             = "Zentinel Control Plane"
+type             = "app"
+version          = "0.1.0"
+summary          = "Zentinel configuration API and dashboard — manage routes, certificates, and providers"
+description      = "Zentinel Control Plane provides the REST API and web dashboard for configuring Zentinel. It manages routes, TLS certificates, ACME providers, and DNS plugins through a clean UI."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["proxy", "control-plane", "configuration", "dashboard", "rust", "platform:linux"]
+author           = "Zentinel Project / FreeSynergy Fork"
+license          = "Apache-2.0"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-zentinel-plane"
+publisher = "Zentinel Project / FreeSynergy Fork"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-zentinel-plane"
+artifact = "zentinel-plane-x86_64-unknown-linux-gnu.tar.gz"
+
+[app]
+binary     = "zentinel-plane"
+service    = "zentinel-plane.service"
+data_dir   = "{data_root}/zentinel-plane"
+config_dir = "{config_root}/zentinel-plane"
+
+[provides]
+capabilities = ["proxy-config", "proxy-dashboard"]
+
+[requires]
+packages     = ["zentinel"]
+capabilities = ["systemd"]
+
+[hooks]
+pre_install  = ["mkdir -p {data_root}/zentinel-plane", "mkdir -p {config_root}/zentinel-plane"]
+post_install = ["systemctl daemon-reload", "systemctl enable zentinel-plane.service"]
+pre_remove   = ["systemctl stop zentinel-plane.service || true"]
+post_remove  = ["systemctl daemon-reload"]
+
+[[variables]]
+name       = "ZENTINEL_PLANE_PORT"
+label      = "Port"
+description = "Port the Control Plane API and dashboard listen on."
+field_type = "port"
+default    = "9000"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "dashboard"
+path        = "/"
+strip       = false
+description = "Zentinel Control Plane dashboard and REST API"

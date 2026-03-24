@@ -1,0 +1,38 @@
+# FreeSynergy Init — Bootstrap Entry
+#
+# This is not an installable package. It is the bootstrap binary that
+# you download before the Store exists — it clones the Store and sets
+# everything up on a new machine.
+#
+# The Store UI shows this as a special download page, not a normal package.
+
+[package]
+id               = "fs-init"
+name             = "FreeSynergy Init"
+type             = "bootstrap"
+version          = "0.1.0"
+summary          = "Bootstrap binary — clones the Store and installs FreeSynergy on a new machine"
+description      = "FreeSynergy Init is the one-time bootstrap tool. Download it, run it, and it clones this Store repository and sets up your FreeSynergy installation automatically."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["bootstrap", "init", "installer", "setup"]
+author           = "FreeSynergy"
+license          = "MIT"
+protected        = true
+
+[package.origin]
+git     = "https://github.com/FreeSynergy/fs-init"
+website = "https://freesynergy.net"
+
+# ── Download URLs per platform ─────────────────────────────────────────────────
+# {version} is replaced at runtime by the Store UI.
+
+[bootstrap]
+versions = ["0.1.0"]
+
+[bootstrap.downloads]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-x86_64-linux"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-aarch64-linux"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-x86_64-macos"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-aarch64-macos"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-x86_64-windows.exe"

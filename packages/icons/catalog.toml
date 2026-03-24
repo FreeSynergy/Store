@@ -1,0 +1,14 @@
+# FreeSynergy Store — Icon Sets Namespace
+#
+# Icon sets can override the default FreeSynergy icon set.
+# Custom sets can be created, saved, and shared through the Store.
+
+[catalog]
+id      = "icons"
+name    = "Icon Sets"
+icon    = "icon.svg"
+summary = "SVG icon sets — override the default FreeSynergy icons or share your own"
+
+[[packages]]
+id      = "freesynergy-default"
+catalog = "freesynergy-default/catalog.toml"

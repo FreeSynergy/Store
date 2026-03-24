@@ -1,0 +1,19 @@
+# FreeSynergy Store — Languages Namespace
+#
+# Language packages contain shared Mozilla Fluent snippets used by all programs:
+# actions (save, cancel, delete), status messages, confirmations, time expressions.
+#
+# Program-specific translations are bundled inside each program's own package.
+# When a language is activated, the Store object coordinates the i18n collection:
+# it queries the Inventory for all installed packages and retrieves their .ftl files.
+# Only Store + Inventory know what is installed.
+
+[catalog]
+id      = "i18n"
+name    = "Languages"
+icon    = "icon.svg"
+summary = "Shared language snippets — common strings used across all FreeSynergy programs"
+
+[[packages]]
+id      = "de"
+catalog = "de/catalog.toml"

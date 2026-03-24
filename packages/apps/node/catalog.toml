@@ -1,0 +1,40 @@
+# FreeSynergy Node — Deployment Engine
+
+[package]
+id               = "node"
+name             = "FreeSynergy Node"
+type             = "app"
+version          = "0.1.0"
+summary          = "Modular deployment engine for self-hosted services — CLI, API, S3 server"
+description      = "FreeSynergy Node is the server-side core of FreeSynergy. It manages projects, hosts, federation, and provides an S3-compatible storage server. All other programs connect to it via its REST API."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["server", "deployment", "infrastructure", "cli", "api", "s3", "platform:linux"]
+author           = "FreeSynergy"
+license          = "MIT"
+protected        = true
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-node"
+website   = "https://freesynergy.net"
+publisher = "FreeSynergy"
+
+[interfaces]
+cli  = true
+api  = true
+wgui = false
+tui  = false
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-node"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-node/releases/download/v{version}/fs-node-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-node/releases/download/v{version}/fs-node-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-node/releases/download/v{version}/fs-node-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-node/releases/download/v{version}/fs-node-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-node/releases/download/v{version}/fs-node-x86_64-windows.zip"
+
+[requires]
+capabilities = ["systemd"]

@@ -1,0 +1,23 @@
+# FreeSynergy Store — Themes Namespace
+#
+# A theme is a bundle of up to 8 individually loadable theme resources:
+# color_scheme, style, font_set, cursor_set, icon_set, button_style,
+# window_chrome, animation_set.
+
+[catalog]
+id      = "themes"
+name    = "Themes"
+icon    = "icon.svg"
+summary = "Visual themes for the FreeSynergy desktop"
+
+[[packages]]
+id      = "midnight-blue"
+catalog = "midnight-blue/catalog.toml"
+
+[[packages]]
+id      = "nordic-dark"
+catalog = "nordic-dark/catalog.toml"
+
+[[packages]]
+id      = "cloud-white"
+catalog = "cloud-white/catalog.toml"

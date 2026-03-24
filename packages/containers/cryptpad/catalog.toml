@@ -1,0 +1,34 @@
+# CryptPad — Encrypted Collaborative Office Suite
+
+[package]
+id               = "cryptpad"
+name             = "CryptPad"
+type             = "container"
+version          = "2024.12.0"
+summary          = "End-to-end encrypted collaborative office suite — documents, spreadsheets, kanban"
+description      = "CryptPad is a privacy-first collaborative office suite. All documents are encrypted client-side before being stored — the server never sees plaintext. Includes rich text, code, spreadsheets, presentations, whiteboards, kanban, and forms."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["office", "collaboration", "encrypted", "e2e", "documents", "privacy", "kanban"]
+author           = "XWiki Labs"
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://cryptpad.org"
+git       = "https://github.com/cryptpad/cryptpad"
+publisher = "XWiki Labs"
+
+[provides]
+capabilities = ["office-suite", "document-collaboration", "encrypted-storage"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "CryptPad web UI"

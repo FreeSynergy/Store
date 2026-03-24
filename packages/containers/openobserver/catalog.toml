@@ -1,0 +1,31 @@
+# OpenObserve — Observability Platform
+
+[package]
+id               = "openobserver"
+name             = "OpenObserve"
+type             = "container"
+version          = "0.14.0"
+summary          = "Rust-native observability platform — logs, metrics, traces, dashboards, alerts"
+description      = "OpenObserve is a cloud-native observability platform built in Rust. It ingests logs, metrics, and traces via OpenTelemetry and provides a powerful query engine with SQL support, dashboards, alerts, and a built-in UI. Extremely low storage cost compared to Elasticsearch."
+description_file = "help/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["observability", "logs", "metrics", "traces", "opentelemetry", "otel", "rust", "dashboards"]
+author           = "OpenObserve Inc."
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://openobserve.ai"
+git       = "https://github.com/openobserve/openobserve"
+publisher = "OpenObserve Inc."
+
+[provides]
+capabilities = ["observability", "log-aggregation", "metrics-store", "trace-store", "dashboards"]
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "OpenObserve web UI and ingest API"

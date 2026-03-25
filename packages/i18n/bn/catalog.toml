@@ -1,0 +1,23 @@
+# বাংলা Language Pack
+
+[package]
+id           = "bn"
+name         = "বাংলা"
+type         = "language"
+version      = "1.1.0"
+summary      = "বাংলা (bn-BD) language pack for FreeSynergy"
+description  = "বাংলা language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "bn"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "bn-BD"
+name_native  = "বাংলা"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Asia"

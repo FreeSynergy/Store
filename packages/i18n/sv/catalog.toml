@@ -1,0 +1,23 @@
+# Svenska Language Pack
+
+[package]
+id           = "sv"
+name         = "Svenska"
+type         = "language"
+version      = "1.1.0"
+summary      = "Svenska (sv-SE) language pack for FreeSynergy"
+description  = "Svenska language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "sv"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "sv-SE"
+name_native  = "Svenska"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

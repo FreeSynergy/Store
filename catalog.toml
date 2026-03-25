@@ -3,11 +3,20 @@
 # This is the namespace index. StoreClient reads this first to discover
 # all available namespaces and build the Store UI sidebar.
 #
+# All namespaces live under packages/ — each represents a package category.
+#
 # Layout:
-#   init/         — bootstrap package (not installable, only downloadable)
-#   bundles/      — root-level bundles: reference packages by id, no binaries
-#   themes/       — root-level themes: Bundle subtype with fixed design structure
-#   packages/     — all installable packages (apps, containers, widgets, ...)
+#   init/             — bootstrap package (not installable, only downloadable)
+#   packages/apps/    — native FreeSynergy binaries
+#   packages/bundles/ — meta-packages referencing other packages by id
+#   packages/containers/ — Podman/Docker containers
+#   packages/external/ — non-self-hostable services (metadata only)
+#   packages/i18n/    — language packs (shared UI translation snippets)
+#   packages/icons/   — SVG icon sets
+#   packages/repos/   — additional Store repository sources
+#   packages/tasks/   — community automation templates
+#   packages/themes/  — visual themes (colors, typography)
+#   packages/widgets/ — desktop widgets
 
 [catalog]
 id      = "freesynergy-store"
@@ -16,25 +25,13 @@ icon    = "icon.svg"
 summary = "The official FreeSynergy package registry"
 version = "1.0.0"
 
-# ── Special root entries ───────────────────────────────────────────────────────
+# ── Bootstrap ─────────────────────────────────────────────────────────────────
 
 [[namespaces]]
 id      = "init"
 name    = "Init"
 type    = "bootstrap"
 catalog = "init/catalog.toml"
-
-[[namespaces]]
-id      = "bundles"
-name    = "Bundles"
-type    = "bundle"
-catalog = "bundles/catalog.toml"
-
-[[namespaces]]
-id      = "themes"
-name    = "Themes"
-type    = "theme"
-catalog = "themes/catalog.toml"
 
 # ── Package namespaces ─────────────────────────────────────────────────────────
 
@@ -45,16 +42,22 @@ type    = "app"
 catalog = "packages/apps/catalog.toml"
 
 [[namespaces]]
+id      = "bundles"
+name    = "Bundles"
+type    = "bundle"
+catalog = "packages/bundles/catalog.toml"
+
+[[namespaces]]
 id      = "containers"
 name    = "Containers"
 type    = "container"
 catalog = "packages/containers/catalog.toml"
 
 [[namespaces]]
-id      = "widgets"
-name    = "Widgets"
-type    = "widget"
-catalog = "packages/widgets/catalog.toml"
+id      = "external"
+name    = "External Services"
+type    = "external"
+catalog = "packages/external/catalog.toml"
 
 [[namespaces]]
 id      = "i18n"
@@ -69,10 +72,10 @@ type    = "icon_set"
 catalog = "packages/icons/catalog.toml"
 
 [[namespaces]]
-id      = "external"
-name    = "External Services"
-type    = "external"
-catalog = "packages/external/catalog.toml"
+id      = "repos"
+name    = "Repositories"
+type    = "repo"
+catalog = "packages/repos/catalog.toml"
 
 [[namespaces]]
 id      = "tasks"
@@ -81,7 +84,13 @@ type    = "task"
 catalog = "packages/tasks/catalog.toml"
 
 [[namespaces]]
-id      = "repos"
-name    = "Repositories"
-type    = "repo"
-catalog = "packages/repos/catalog.toml"
+id      = "themes"
+name    = "Themes"
+type    = "theme"
+catalog = "packages/themes/catalog.toml"
+
+[[namespaces]]
+id      = "widgets"
+name    = "Widgets"
+type    = "widget"
+catalog = "packages/widgets/catalog.toml"

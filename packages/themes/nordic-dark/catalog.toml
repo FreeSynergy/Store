@@ -1,0 +1,46 @@
+# Nordic Dark Theme
+
+[package]
+id               = "nordic-dark"
+name             = "Nordic Dark"
+type             = "theme"
+version          = "1.0.0"
+summary          = "Nordic-inspired dark theme — muted arctic tones with a cool gray palette"
+description      = "Nordic Dark is inspired by the popular Nord color palette — muted arctic blues, cool grays, and soft teal accents. A calm and focused dark theme with lower contrast than Midnight Blue."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["theme", "dark", "nordic", "nord", "gray", "arctic"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[provides]
+capabilities = ["theme"]
+
+# Color variables — applied platform-wide (each program prefixes with --fs-)
+[colors]
+# Backgrounds (Nord Polar Night)
+bg_base     = "#2e3440"
+bg_surface  = "#3b4252"
+bg_elevated = "#434c5e"
+bg_card     = "#3b4252"
+bg_input    = "#3b4252"
+
+# Text (Nord Snow Storm)
+text_primary   = "#eceff4"
+text_secondary = "#d8dee9"
+text_muted     = "#4c566a"
+
+# Accent — Nord Frost (arctic blue)
+primary       = "#88c0d0"
+primary_hover = "#8fbcbb"
+primary_text  = "#2e3440"
+accent        = "#81a1c1"
+
+# Semantic (Nord Aurora)
+success = "#a3be8c"
+warning = "#ebcb8b"
+error   = "#bf616a"
+
+# Borders
+border       = "#4c566a"
+border_focus = "#88c0d0"

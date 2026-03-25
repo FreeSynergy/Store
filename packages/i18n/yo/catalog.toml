@@ -1,0 +1,23 @@
+# Yorùbá Language Pack
+
+[package]
+id           = "yo"
+name         = "Yorùbá"
+type         = "language"
+version      = "1.1.0"
+summary      = "Yorùbá (yo-NG) language pack for FreeSynergy"
+description  = "Yorùbá language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "yo"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "yo-NG"
+name_native  = "Yorùbá"
+direction    = "ltr"
+coverage     = 100
+family       = "Niger-Congo"
+continent    = "Africa"

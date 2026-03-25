@@ -1,0 +1,23 @@
+# Kiswahili Language Pack
+
+[package]
+id           = "sw"
+name         = "Kiswahili"
+type         = "language"
+version      = "1.1.0"
+summary      = "Kiswahili (sw-KE) language pack for FreeSynergy"
+description  = "Kiswahili language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "sw"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "sw-KE"
+name_native  = "Kiswahili"
+direction    = "ltr"
+coverage     = 100
+family       = "Niger-Congo"
+continent    = "Africa"

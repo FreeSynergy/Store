@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <!-- Speech bubble background -->
+  <path d="M2 1 Q2 0 3 0 H21 Q22 0 22 1 V15 Q22 16 21 16 H14 L10.5 20.5 L10.5 16 H3 Q2 16 2 15 Z" fill="#7C3AED"/>
+  <!-- Subtle inner shadow -->
+  <path d="M2 1 Q2 0 3 0 H21 Q22 0 22 1 V15 Q22 16 21 16 H14 L10.5 20.5 L10.5 16 H3 Q2 16 2 15 Z" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="0.5"/>
+  <!-- Language code text -->
+  <text x="12" y="10" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="800" fill="white" text-anchor="middle" dominant-baseline="middle" letter-spacing="0.3">HA</text>
+</svg>

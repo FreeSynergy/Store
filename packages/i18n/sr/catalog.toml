@@ -1,0 +1,23 @@
+# Српски Language Pack
+
+[package]
+id           = "sr"
+name         = "Српски"
+type         = "language"
+version      = "1.1.0"
+summary      = "Српски (sr-RS) language pack for FreeSynergy"
+description  = "Српски language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "sr"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "sr-RS"
+name_native  = "Српски"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

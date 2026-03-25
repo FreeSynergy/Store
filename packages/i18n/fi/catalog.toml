@@ -1,0 +1,23 @@
+# Suomi Language Pack
+
+[package]
+id           = "fi"
+name         = "Suomi"
+type         = "language"
+version      = "1.1.0"
+summary      = "Suomi (fi-FI) language pack for FreeSynergy"
+description  = "Suomi language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "fi"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "fi-FI"
+name_native  = "Suomi"
+direction    = "ltr"
+coverage     = 100
+family       = "Uralic"
+continent    = "Europe"

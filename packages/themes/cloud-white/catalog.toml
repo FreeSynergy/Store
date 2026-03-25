@@ -1,0 +1,46 @@
+# Cloud White Theme
+
+[package]
+id               = "cloud-white"
+name             = "Cloud White"
+type             = "theme"
+version          = "1.0.0"
+summary          = "Clean light desktop theme — bright white with sky blue accents"
+description      = "Cloud White is a clean, bright light theme for the FreeSynergy desktop. It uses white and light gray backgrounds with sky blue accents and dark charcoal text. Designed for well-lit environments and users who prefer light mode."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["theme", "light", "white", "bright", "blue", "clean"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[provides]
+capabilities = ["theme"]
+
+# Color variables — applied platform-wide (each program prefixes with --fs-)
+[colors]
+# Backgrounds
+bg_base     = "#f8fafc"
+bg_surface  = "#ffffff"
+bg_elevated = "#f1f5f9"
+bg_card     = "#ffffff"
+bg_input    = "#f8fafc"
+
+# Text
+text_primary   = "#0f172a"
+text_secondary = "#475569"
+text_muted     = "#94a3b8"
+
+# Accent — Ocean Blue
+primary       = "#0077b6"
+primary_hover = "#023e8a"
+primary_text  = "#ffffff"
+accent        = "#0096c7"
+
+# Semantic
+success = "#059669"
+warning = "#d97706"
+error   = "#dc2626"
+
+# Borders
+border       = "#e2e8f0"
+border_focus = "#0077b6"

@@ -1,0 +1,23 @@
+# English Language Pack
+
+[package]
+id           = "en"
+name         = "English"
+type         = "language"
+version      = "1.1.0"
+summary      = "English (en-US) language pack for FreeSynergy"
+description  = "English language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "en"]
+author       = "FreeSynergy"
+license      = "MIT"
+
+[language]
+snippets_dir = "snippets"
+locale       = "en-US"
+name_native  = "English"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

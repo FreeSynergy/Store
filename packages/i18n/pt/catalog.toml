@@ -1,0 +1,23 @@
+# Português Language Pack
+
+[package]
+id           = "pt"
+name         = "Português"
+type         = "language"
+version      = "1.1.0"
+summary      = "Português (pt-PT) language pack for FreeSynergy"
+description  = "Português language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "pt"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "pt-PT"
+name_native  = "Português"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

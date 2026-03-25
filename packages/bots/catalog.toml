@@ -1,7 +1,0 @@
-# FreeSynergy Store — Bots Namespace
-
-[catalog]
-id      = "bots"
-name    = "Bots"
-icon    = "icon.svg"
-summary = "Bots — automated agents that connect messaging channels to FreeSynergy events"

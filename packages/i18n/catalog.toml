@@ -1,19 +1,228 @@
 # FreeSynergy Store — Languages Namespace
 #
-# Language packages contain shared Mozilla Fluent snippets used by all programs:
-# actions (save, cancel, delete), status messages, confirmations, time expressions.
+# Language packages contain shared Mozilla Fluent translation snippets used across all programs:
+# actions (save, cancel, delete), labels, status messages, confirmations, time expressions.
 #
-# Program-specific translations are bundled inside each program's own package.
-# When a language is activated, the Store object coordinates the i18n collection:
-# it queries the Inventory for all installed packages and retrieves their .ftl files.
-# Only Store + Inventory know what is installed.
+# Each package contains:
+#   - catalog.toml          — package metadata (name, locale, direction, coverage, snippets_dir)
+#   - icon.svg              — language/flag icon
+#   - i18n/en/description.ftl — Store description of this language pack (English)
+#   - i18n/de/description.ftl — Store description of this language pack (German)
+#   - snippets/             — translation snippet files (the actual package content):
+#       actions.toml        — verb actions (save, cancel, delete, ...)
+#       labels.toml         — UI labels and headings
+#       nouns.toml          — common nouns (file, user, package, ...)
+#       errors.toml         — error messages
+#       confirmations.toml  — confirmation dialogs
+#       notifications.toml  — system notifications
+#       phrases.toml        — common phrases and sentences
+#       status.toml         — status strings (running, stopped, pending, ...)
+#       time.toml           — time and date expressions
+#       validation.toml     — form validation messages
+#       help.toml           — general help text snippets
 
 [catalog]
 id      = "i18n"
 name    = "Languages"
 icon    = "icon.svg"
-summary = "Shared language snippets — common strings used across all FreeSynergy programs"
+summary = "Shared language snippets — common UI strings used across all FreeSynergy programs"
+
+[[packages]]
+id      = "am"
+catalog = "am/catalog.toml"
+
+[[packages]]
+id      = "ar"
+catalog = "ar/catalog.toml"
+
+[[packages]]
+id      = "be"
+catalog = "be/catalog.toml"
+
+[[packages]]
+id      = "bg"
+catalog = "bg/catalog.toml"
+
+[[packages]]
+id      = "bn"
+catalog = "bn/catalog.toml"
+
+[[packages]]
+id      = "cs"
+catalog = "cs/catalog.toml"
+
+[[packages]]
+id      = "da"
+catalog = "da/catalog.toml"
 
 [[packages]]
 id      = "de"
 catalog = "de/catalog.toml"
+
+[[packages]]
+id      = "el"
+catalog = "el/catalog.toml"
+
+[[packages]]
+id      = "en"
+catalog = "en/catalog.toml"
+
+[[packages]]
+id      = "es"
+catalog = "es/catalog.toml"
+
+[[packages]]
+id      = "et"
+catalog = "et/catalog.toml"
+
+[[packages]]
+id      = "fa"
+catalog = "fa/catalog.toml"
+
+[[packages]]
+id      = "fi"
+catalog = "fi/catalog.toml"
+
+[[packages]]
+id      = "fr"
+catalog = "fr/catalog.toml"
+
+[[packages]]
+id      = "ha"
+catalog = "ha/catalog.toml"
+
+[[packages]]
+id      = "hi"
+catalog = "hi/catalog.toml"
+
+[[packages]]
+id      = "hr"
+catalog = "hr/catalog.toml"
+
+[[packages]]
+id      = "hu"
+catalog = "hu/catalog.toml"
+
+[[packages]]
+id      = "id"
+catalog = "id/catalog.toml"
+
+[[packages]]
+id      = "it"
+catalog = "it/catalog.toml"
+
+[[packages]]
+id      = "ja"
+catalog = "ja/catalog.toml"
+
+[[packages]]
+id      = "jv"
+catalog = "jv/catalog.toml"
+
+[[packages]]
+id      = "ko"
+catalog = "ko/catalog.toml"
+
+[[packages]]
+id      = "lt"
+catalog = "lt/catalog.toml"
+
+[[packages]]
+id      = "lv"
+catalog = "lv/catalog.toml"
+
+[[packages]]
+id      = "mr"
+catalog = "mr/catalog.toml"
+
+[[packages]]
+id      = "nl"
+catalog = "nl/catalog.toml"
+
+[[packages]]
+id      = "no"
+catalog = "no/catalog.toml"
+
+[[packages]]
+id      = "pa"
+catalog = "pa/catalog.toml"
+
+[[packages]]
+id      = "pl"
+catalog = "pl/catalog.toml"
+
+[[packages]]
+id      = "ps"
+catalog = "ps/catalog.toml"
+
+[[packages]]
+id      = "pt"
+catalog = "pt/catalog.toml"
+
+[[packages]]
+id      = "ro"
+catalog = "ro/catalog.toml"
+
+[[packages]]
+id      = "ru"
+catalog = "ru/catalog.toml"
+
+[[packages]]
+id      = "sk"
+catalog = "sk/catalog.toml"
+
+[[packages]]
+id      = "sl"
+catalog = "sl/catalog.toml"
+
+[[packages]]
+id      = "sq"
+catalog = "sq/catalog.toml"
+
+[[packages]]
+id      = "sr"
+catalog = "sr/catalog.toml"
+
+[[packages]]
+id      = "sv"
+catalog = "sv/catalog.toml"
+
+[[packages]]
+id      = "sw"
+catalog = "sw/catalog.toml"
+
+[[packages]]
+id      = "ta"
+catalog = "ta/catalog.toml"
+
+[[packages]]
+id      = "te"
+catalog = "te/catalog.toml"
+
+[[packages]]
+id      = "th"
+catalog = "th/catalog.toml"
+
+[[packages]]
+id      = "tr"
+catalog = "tr/catalog.toml"
+
+[[packages]]
+id      = "uk"
+catalog = "uk/catalog.toml"
+
+[[packages]]
+id      = "ur"
+catalog = "ur/catalog.toml"
+
+[[packages]]
+id      = "vi"
+catalog = "vi/catalog.toml"
+
+[[packages]]
+id      = "yo"
+catalog = "yo/catalog.toml"
+
+[[packages]]
+id      = "yue"
+catalog = "yue/catalog.toml"

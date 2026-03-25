@@ -1,0 +1,23 @@
+# Български Language Pack
+
+[package]
+id           = "bg"
+name         = "Български"
+type         = "language"
+version      = "1.1.0"
+summary      = "Български (bg-BG) language pack for FreeSynergy"
+description  = "Български language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "bg"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "bg-BG"
+name_native  = "Български"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

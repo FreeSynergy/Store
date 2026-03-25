@@ -1,0 +1,23 @@
+# Беларуская Language Pack
+
+[package]
+id           = "be"
+name         = "Беларуская"
+type         = "language"
+version      = "1.1.0"
+summary      = "Беларуская (be-BY) language pack for FreeSynergy"
+description  = "Беларуская language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "be"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "be-BY"
+name_native  = "Беларуская"
+direction    = "ltr"
+coverage     = 100
+family       = "Indo-European"
+continent    = "Europe"

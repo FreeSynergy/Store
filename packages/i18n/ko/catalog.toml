@@ -1,0 +1,23 @@
+# 한국어 Language Pack
+
+[package]
+id           = "ko"
+name         = "한국어"
+type         = "language"
+version      = "1.1.0"
+summary      = "한국어 (ko-KR) language pack for FreeSynergy"
+description  = "한국어 language pack for FreeSynergy. Provides UI translations for the desktop shell, all built-in applications, and Store descriptions."
+icon         = "icon.svg"
+description_file = "i18n/en/description.ftl"
+tags         = ["language", "i18n", "ko"]
+author       = "FreeSynergy"
+license      = "Apache-2.0"
+
+[language]
+snippets_dir = "snippets"
+locale       = "ko-KR"
+name_native  = "한국어"
+direction    = "ltr"
+coverage     = 100
+family       = "Koreanic"
+continent    = "Asia"

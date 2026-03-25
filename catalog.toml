@@ -69,22 +69,16 @@ type    = "icon_set"
 catalog = "packages/icons/catalog.toml"
 
 [[namespaces]]
-id      = "bots"
-name    = "Bots"
-type    = "bot"
-catalog = "packages/bots/catalog.toml"
+id      = "external"
+name    = "External Services"
+type    = "external"
+catalog = "packages/external/catalog.toml"
 
 [[namespaces]]
 id      = "tasks"
 name    = "Tasks"
 type    = "task"
 catalog = "packages/tasks/catalog.toml"
-
-[[namespaces]]
-id      = "bridges"
-name    = "Bridges"
-type    = "bridge"
-catalog = "packages/bridges/catalog.toml"
 
 [[namespaces]]
 id      = "repos"

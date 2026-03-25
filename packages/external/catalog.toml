@@ -1,0 +1,13 @@
+# FreeSynergy Store — External Services Namespace
+#
+# External services that cannot be self-hosted.
+# These appear in the Store for discovery, API integration, and bridge wiring.
+# No source, no files, no hooks — metadata and links only.
+
+[namespace]
+id      = "external"
+name    = "External Services"
+type    = "external"
+summary = "Third-party services that integrate with FreeSynergy via the API layer"
+
+# [[packages]] entries will be added here as external services are catalogued.

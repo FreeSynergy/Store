@@ -1,0 +1,58 @@
+# FreeSynergy Store
+#
+# The package manager and discovery frontend for FreeSynergy.
+# Installable as a standalone app — bootstrapped via fs-init or installed by Node.
+
+[package]
+id               = "store"
+name             = "FreeSynergy Store"
+type             = "app"
+version          = "0.1.0"
+summary          = "Package manager and app store — discover, install, and update all FreeSynergy packages"
+description      = "FreeSynergy Store is the unified package manager for the FreeSynergy platform. It reads the Store catalog (a Git repository) and provides a graphical interface for discovering, installing, updating, and removing packages of all types: apps, containers, themes, widgets, tasks, and more."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["store", "packages", "installer", "updates", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-store"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-store"
+artifact = "fs-store-app-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-store/releases/download/v{version}/fs-store-app-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-store/releases/download/v{version}/fs-store-app-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-store/releases/download/v{version}/fs-store-app-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-store/releases/download/v{version}/fs-store-app-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-store/releases/download/v{version}/fs-store-app-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/store"
+config_dir = "{config_root}/store"
+
+[[binaries]]
+name   = "fs-store-app"
+binary = "fs-store-app"
+
+[provides]
+bus_messages = ["installer::packages"]
+
+capabilities = []
+[[variables]]
+name        = "STORE_CATALOG_URL"
+label       = "Catalog URL"
+description = "URL or local path of the primary Store catalog Git repository."
+default     = "https://github.com/FreeSynergy/Store.git"
+
+[[variables]]
+name        = "STORE_AUTO_UPDATE"
+label       = "Auto-update catalog"
+description = "Automatically sync the catalog in the background on startup."
+field_type  = "bool"
+default     = "true"

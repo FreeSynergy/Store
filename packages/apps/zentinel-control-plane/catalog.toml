@@ -27,18 +27,23 @@ repo     = "FreeSynergy/fs-zentinel-plane"
 artifact = "zentinel-plane-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "zentinel-plane"
 service    = "zentinel-plane.service"
 data_dir   = "{data_root}/zentinel-plane"
 config_dir = "{config_root}/zentinel-plane"
 
+[[binaries]]
+name   = "zentinel-plane"
+binary = "zentinel-plane"
+
 [provides]
 capabilities = ["proxy-config", "proxy-dashboard"]
 
+bus_messages = []
 [requires]
 packages     = ["zentinel"]
 capabilities = ["systemd"]
 
+bus_messages = []
 [hooks]
 pre_install  = ["mkdir -p {data_root}/zentinel-plane", "mkdir -p {config_root}/zentinel-plane"]
 post_install = ["systemctl daemon-reload", "systemctl enable zentinel-plane.service"]

@@ -1,0 +1,11 @@
+# FreeSynergy Store — Archive Namespace
+#
+# Packages that are not yet implemented or have been absorbed into other programs.
+# They are preserved here for reference until a real repository exists.
+
+[catalog]
+id      = "archive"
+name    = "Archive"
+icon    = "icon.svg"
+summary = "Packages not yet implemented — moved here until a real repo exists"
+type    = "archived"

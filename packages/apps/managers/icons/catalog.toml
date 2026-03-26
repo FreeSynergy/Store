@@ -1,0 +1,42 @@
+# FreeSynergy Manager — Icons
+
+[package]
+id               = "managers.icons"
+name             = "Icon Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Install icon sets and activate them platform-wide"
+description      = "The Icon Manager installs icon sets from the Store and activates them for the entire platform. Switch icon sets per context — file manager, toolbar, and status icons can each use a different set."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["icons", "appearance", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-icons-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-icons-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-icons-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-icons-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-icons-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-icons-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/icons"
+config_dir = "{config_root}/managers/icons"
+
+[[binaries]]
+name   = "fs-manager-icons"
+binary = "fs-manager-icons"
+
+[provides]
+capabilities = []
+bus_messages = []

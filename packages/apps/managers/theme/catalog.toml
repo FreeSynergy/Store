@@ -1,0 +1,42 @@
+# FreeSynergy Manager — Theme
+
+[package]
+id               = "managers.theme"
+name             = "Theme Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Install themes and set colors, typography, and window chrome platform-wide"
+description      = "The Theme Manager installs themes from the Store and applies them across the entire platform via CSS custom properties. Customize accent colors, typography, and window chrome. All programs respond to theme changes in real time without restart."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["theme", "appearance", "colors", "typography", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-theme-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-theme-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-theme-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-theme-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-theme-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-theme-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/theme"
+config_dir = "{config_root}/managers/theme"
+
+[[binaries]]
+name   = "fs-manager-theme"
+binary = "fs-manager-theme"
+
+[provides]
+capabilities = []
+bus_messages = []

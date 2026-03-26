@@ -43,3 +43,47 @@ catalog = "mistral/catalog.toml"
 [[packages]]
 id      = "browser"
 catalog = "browser/catalog.toml"
+
+[[packages]]
+id      = "store"
+catalog = "store/catalog.toml"
+
+[[packages]]
+id      = "desktop"
+catalog = "desktop/catalog.toml"
+
+[[packages]]
+id      = "lenses"
+catalog = "lenses/catalog.toml"
+
+[[packages]]
+id      = "tasks"
+catalog = "tasks/catalog.toml"
+
+[[packages]]
+id      = "bots"
+catalog = "bots/catalog.toml"
+
+[[packages]]
+id      = "ai"
+catalog = "ai/catalog.toml"
+
+[[packages]]
+id      = "container-app"
+catalog = "container-app/catalog.toml"
+
+[[packages]]
+id      = "managers"
+catalog = "managers/catalog.toml"
+
+[[packages]]
+id      = "inventory"
+catalog = "inventory/catalog.toml"
+
+[[packages]]
+id      = "session"
+catalog = "session/catalog.toml"
+
+[[packages]]
+id      = "registry"
+catalog = "registry/catalog.toml"

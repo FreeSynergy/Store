@@ -1,0 +1,49 @@
+# FreeSynergy Container Manager
+#
+# Container, service, and deployment management.
+# Manages Podman Quadlet services — no Docker socket required.
+
+[package]
+id               = "container-app"
+name             = "FreeSynergy Container Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Container and service manager — install, configure, and monitor Podman-based services"
+description      = "FreeSynergy Container Manager is the graphical interface for managing containerized services on a FreeSynergy node. It installs services from the Store, generates Podman Quadlet service files, manages configuration, and monitors running services — without requiring a Docker socket or daemon."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["containers", "services", "podman", "quadlet", "management"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-container-app-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-container-app-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-container-app-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-container-app-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-container-app-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-container-app-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/container-app"
+config_dir = "{config_root}/container-app"
+
+[[binaries]]
+name   = "fs-container-app"
+binary = "fs-container-app"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+capabilities = []
+bus_messages = []

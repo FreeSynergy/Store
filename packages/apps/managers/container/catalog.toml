@@ -1,0 +1,42 @@
+# FreeSynergy Manager — Container
+
+[package]
+id               = "managers.container"
+name             = "Container Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Deploy and manage container services registered in the Store"
+description      = "The Container Manager deploys, starts, stops, and monitors container-based services. It reads container app packages from the Store, manages their lifecycle, and registers running instances in the fs-registry so other programs can find them via the bus."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["container", "services", "deployment", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-container-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-container-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-container-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-container-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-container-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-container-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/container"
+config_dir = "{config_root}/managers/container"
+
+[[binaries]]
+name   = "fs-manager-container"
+binary = "fs-manager-container"
+
+[provides]
+capabilities = []
+bus_messages = []

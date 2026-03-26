@@ -1,0 +1,38 @@
+# FreeSynergy Builder
+#
+# Package and resource creator: analyze Docker Compose files, build container packages,
+# create bridge definitions, and publish to the Store catalog.
+
+[package]
+id               = "builder"
+name             = "FreeSynergy Builder"
+type             = "app"
+version          = "0.1.0"
+summary          = "Package creator — analyze, build, and publish FreeSynergy packages from Docker Compose or from scratch"
+description      = "FreeSynergy Builder is the tool for creating and publishing FreeSynergy packages. Import a Docker Compose file to generate a container package automatically, build bridge definitions for service integrations, or create packages from scratch. Publish directly to the Store catalog."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["builder", "packages", "docker", "compose", "publish", "tools"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-builder-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-builder-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-builder-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-builder-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-builder-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-builder-x86_64-windows.zip"
+
+[app]
+binary     = "fs-builder"
+data_dir   = "{data_root}/builder"
+config_dir = "{config_root}/builder"

@@ -1,0 +1,49 @@
+# FreeSynergy Tasks
+#
+# Task manager and pipeline editor.
+# Organizational workflows, pipelines, and automations across all services.
+
+[package]
+id               = "tasks"
+name             = "FreeSynergy Tasks"
+type             = "app"
+version          = "0.1.0"
+summary          = "Task manager and pipeline editor — workflows and automations across all connected services"
+description      = "FreeSynergy Tasks is the organizational workflow engine for the FreeSynergy platform. Create tasks, build multi-step pipelines, and set up automations that run across all connected services. Where Lenses displays, Tasks acts."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["tasks", "workflows", "pipelines", "automation", "productivity"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-tasks-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-tasks-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-tasks-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-tasks-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-tasks-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-tasks-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/tasks"
+config_dir = "{config_root}/tasks"
+
+[[binaries]]
+name   = "fs-tasks"
+binary = "fs-tasks"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+capabilities = []
+bus_messages = []

@@ -28,18 +28,23 @@ repo     = "FreeSynergy/fs-tuwunel"
 artifact = "tuwunel-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "tuwunel"
 service    = "tuwunel.service"
 data_dir   = "{data_root}/tuwunel"
 config_dir = "{config_root}/tuwunel"
 
+[[binaries]]
+name   = "tuwunel"
+binary = "tuwunel"
+
 [provides]
 capabilities = ["matrix-server", "matrix-federation"]
 
+bus_messages = []
 [requires]
 packages     = ["kanidm"]
 capabilities = ["systemd"]
 
+bus_messages = []
 [[files.config]]
 source = "templates/tuwunel.toml.j2"
 dest   = "{config_root}/tuwunel/tuwunel.toml"

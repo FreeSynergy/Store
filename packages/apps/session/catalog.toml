@@ -1,0 +1,50 @@
+# FreeSynergy Session
+#
+# User session manager: who is logged in and which programs are open.
+# Background service — solves the minimize problem.
+# Desktop queries Session to restore windows instead of starting new instances.
+
+[package]
+id               = "session"
+name             = "FreeSynergy Session"
+type             = "app"
+version          = "0.1.0"
+summary          = "User session manager — tracks the active user and the state of all open programs"
+description      = "FreeSynergy Session manages the active user session: who is logged in and which programs are open, minimized, or focused. It solves the minimize problem — when a user minimizes a program and clicks its icon again, the Desktop restores the existing window instead of launching a new instance. Session state is stored in a local SQLite database."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["session", "state", "background", "system", "windows"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-session"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-session"
+artifact = "fs-session-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/session"
+config_dir = "{config_root}/session"
+
+[[binaries]]
+name   = "fs-session"
+binary = "fs-session"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+bus_messages = ["session::user", "session::programs"]
+capabilities = []

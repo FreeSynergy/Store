@@ -1,0 +1,46 @@
+# FreeSynergy Inventory
+#
+# The single source of truth for what is installed on this node.
+# Background service — never started directly by users.
+# All managers write to it; all programs read from it.
+
+[package]
+id               = "inventory"
+name             = "FreeSynergy Inventory"
+type             = "app"
+version          = "0.1.0"
+summary          = "Installation state database — the single source of truth for what is installed on this node"
+description      = "FreeSynergy Inventory is the authoritative record of everything installed on a FreeSynergy node. All managers write to it after every install, update, or removal. All programs read from it instead of querying the file system or container runtime directly. No program may maintain its own installation list."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["inventory", "state", "background", "system", "database"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-inventory"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-inventory"
+artifact = "fs-inventory-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/inventory"
+config_dir = "{config_root}/inventory"
+
+[[binaries]]
+name   = "fs-inventory"
+binary = "fs-inventory"
+
+[provides]
+bus_messages = ["inventory::packages", "inventory::services", "inventory::status"]
+capabilities = []

@@ -1,0 +1,38 @@
+# FreeSynergy Settings
+#
+# System settings app — appearance, language, service roles, network, security.
+# The single place to configure all platform-wide and per-user preferences.
+
+[package]
+id               = "settings"
+name             = "FreeSynergy Settings"
+type             = "app"
+version          = "0.1.0"
+summary          = "System settings — platform-wide and per-user preferences, service roles, appearance, and security"
+description      = "FreeSynergy Settings is the central configuration app for the FreeSynergy platform. Configure appearance, language and locale, service roles, network settings, security options, and per-user preferences. All settings are organized in clear sections with inline help."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["settings", "configuration", "preferences", "system", "desktop"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-desktop"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-desktop"
+artifact = "fs-settings-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-settings-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-settings-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-settings-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-settings-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-settings-x86_64-windows.zip"
+
+[app]
+binary     = "fs-settings"
+data_dir   = "{data_root}/settings"
+config_dir = "{config_root}/settings"

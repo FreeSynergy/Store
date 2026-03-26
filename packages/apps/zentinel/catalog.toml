@@ -27,17 +27,22 @@ repo     = "FreeSynergy/fs-zentinel"
 artifact = "zentinel-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "zentinel"
 service    = "zentinel.service"
 data_dir   = "{data_root}/zentinel"
 config_dir = "{config_root}/zentinel"
 
+[[binaries]]
+name   = "zentinel"
+binary = "zentinel"
+
 [provides]
 capabilities = ["reverse-proxy", "tls", "acme", "tls-termination"]
 
+bus_messages = []
 [requires]
 capabilities = ["systemd"]
 
+bus_messages = []
 [[files.config]]
 source = "templates/zentinel-global.kdl.j2"
 dest   = "{config_root}/zentinel/global.kdl"

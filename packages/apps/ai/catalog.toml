@@ -1,0 +1,69 @@
+# FreeSynergy AI
+#
+# AI assistant app — local LLM via fs-mistral, context-aware platform integration.
+# Uses the message bus to access platform data without exposing raw credentials.
+
+[package]
+id               = "ai"
+name             = "FreeSynergy AI"
+type             = "app"
+version          = "0.1.0"
+summary          = "AI assistant — local LLM with platform context, tools, and message bus integration"
+description      = "FreeSynergy AI is the integrated AI assistant for the FreeSynergy platform. It runs a local language model via fs-mistral (no data leaves the node), has access to platform context through the message bus, and can call tools: search wiki, query tasks, read git history, and more."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["ai", "assistant", "llm", "local", "tools", "chat"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-ai-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-ai-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-ai-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-ai-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-ai-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-ai-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/ai"
+config_dir = "{config_root}/ai"
+
+[[binaries]]
+name   = "fs-ai"
+binary = "fs-ai"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[[variables]]
+name        = "AI_MODEL"
+label       = "Model"
+description = "Name of the local LLM model to load via fs-mistral. Must be a model available in the fs-mistral model registry."
+default     = "mistral-7b-instruct"
+
+[[variables]]
+name        = "AI_CONTEXT_WINDOW"
+label       = "Context window (tokens)"
+description = "Maximum number of tokens in the context window. Larger values use more RAM."
+field_type  = "int"
+default     = "8192"
+
+[[variables]]
+name        = "AI_TOOLS_ENABLED"
+label       = "Enable platform tools"
+description = "Allow the AI to call platform tools (wiki search, task query, etc.) via the message bus."
+field_type  = "bool"
+default     = "true"
+
+[provides]
+capabilities = []
+bus_messages = []

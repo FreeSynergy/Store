@@ -29,18 +29,23 @@ repo     = "FreeSynergy/fs-stalwart"
 artifact = "stalwart-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "stalwart"
 service    = "stalwart.service"
 data_dir   = "{data_root}/stalwart"
 config_dir = "{config_root}/stalwart"
 
+[[binaries]]
+name   = "stalwart"
+binary = "stalwart"
+
 [provides]
 capabilities = ["smtp", "smtp.sender", "imap", "jmap", "caldav", "carddav"]
 
+bus_messages = []
 [requires]
 packages     = ["kanidm"]
 capabilities = ["systemd"]
 
+bus_messages = []
 [[files.config]]
 source = "templates/config.toml.j2"
 dest   = "{config_root}/stalwart/config.toml"

@@ -1,0 +1,42 @@
+# FreeSynergy Manager — AI
+
+[package]
+id               = "managers.ai"
+name             = "AI Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Configure AI models, select the active LLM, and manage inference settings"
+description      = "The AI Manager configures the AI runtime (fs-ai). Select which LLM backend to use (local via fs-mistral, remote via API), set inference parameters, and manage model downloads. Other programs access AI capabilities through fs-ai — they never talk to the model directly."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["ai", "llm", "models", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-ai-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-ai-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-ai-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-ai-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-ai-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-ai-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/ai"
+config_dir = "{config_root}/managers/ai"
+
+[[binaries]]
+name   = "fs-manager-ai"
+binary = "fs-manager-ai"
+
+[provides]
+capabilities = []
+bus_messages = []

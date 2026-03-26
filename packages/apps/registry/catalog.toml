@@ -1,0 +1,46 @@
+# FreeSynergy Registry
+#
+# Service and capability registry: which services are running and what they provide.
+# Background service — started at node boot, before any user logs in.
+# Services register themselves at startup; the Bus queries Registry for routing.
+
+[package]
+id               = "registry"
+name             = "FreeSynergy Registry"
+type             = "app"
+version          = "0.1.0"
+summary          = "Service capability registry — tracks which services are running and which platform roles they provide"
+description      = "FreeSynergy Registry is the live capability directory for a FreeSynergy node. Services register themselves at startup with the capabilities they provide (auth, mail, git, wiki, chat, etc.). The message bus queries the Registry to route events to the correct service. The Registry replaces the former Bridge system with a type-safe adapter pattern."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["registry", "capabilities", "services", "background", "system", "routing"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-registry"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-registry"
+artifact = "fs-registry-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/registry"
+config_dir = "{config_root}/registry"
+
+[[binaries]]
+name   = "fs-registry"
+binary = "fs-registry"
+
+[provides]
+bus_messages = ["registry::services", "registry::capabilities", "registry::roles"]
+capabilities = []

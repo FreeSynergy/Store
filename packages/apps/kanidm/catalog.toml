@@ -29,17 +29,22 @@ repo     = "FreeSynergy/fs-kanidm"
 artifact = "kanidmd-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "kanidmd"
 service    = "kanidm.service"
 data_dir   = "{data_root}/kanidm"
 config_dir = "{config_root}/kanidm"
 
+[[binaries]]
+name   = "kanidmd"
+binary = "kanidmd"
+
 [provides]
 capabilities = ["iam", "iam.oidc-provider", "iam.scim-server", "iam.webauthn", "iam.ldap"]
 
+bus_messages = []
 [requires]
 capabilities = ["systemd"]
 
+bus_messages = []
 [[files.config]]
 source = "templates/server.toml.j2"
 dest   = "{config_root}/kanidm/server.toml"

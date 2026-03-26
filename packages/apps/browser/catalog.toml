@@ -33,9 +33,12 @@ macos-aarch64  = "https://github.com/FreeSynergy/fs-browser/releases/download/v{
 windows-x86_64 = "https://github.com/FreeSynergy/fs-browser/releases/download/v{version}/fs-browser-x86_64-windows.zip"
 
 [app]
-binary     = "fsbrowser"
 data_dir   = "{data_root}/browser"
 config_dir = "{config_root}/browser"
+
+[[binaries]]
+name   = "fsbrowser"
+binary = "fsbrowser"
 
 [[variables]]
 name       = "BROWSER_DEFAULT_URL"
@@ -49,3 +52,7 @@ label      = "Default to TUI"
 description = "Start in terminal mode by default, even when a graphical display is available."
 field_type = "bool"
 default    = "false"
+
+[provides]
+capabilities = []
+bus_messages = []

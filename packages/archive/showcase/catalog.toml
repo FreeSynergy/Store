@@ -1,0 +1,38 @@
+# FreeSynergy Showcase
+#
+# Component gallery and design system reference.
+# Shows all UI components, design tokens, and patterns used across the platform.
+
+[package]
+id               = "showcase"
+name             = "FreeSynergy Showcase"
+type             = "app"
+version          = "0.1.0"
+summary          = "Component gallery and design system reference — all UI components, tokens, and patterns in one place"
+description      = "FreeSynergy Showcase is the living component gallery for the FreeSynergy platform. It documents and demonstrates all UI components, design tokens (CSS variables), layout patterns, and interaction behaviours used across the platform. Useful for developers building apps or themes."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["showcase", "components", "design", "gallery", "developer", "ui"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-desktop"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-desktop"
+artifact = "fs-showcase-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-showcase-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-showcase-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-showcase-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-showcase-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-showcase-x86_64-windows.zip"
+
+[app]
+binary     = "fs-showcase"
+data_dir   = "{data_root}/showcase"
+config_dir = "{config_root}/showcase"

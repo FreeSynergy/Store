@@ -30,17 +30,22 @@ repo     = "FreeSynergy/fs-mistral"
 artifact = "mistralrs-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]
-binary     = "mistralrs"
 service    = "mistral.service"
 data_dir   = "{data_root}/mistral"
 config_dir = "{config_root}/mistral"
 
+[[binaries]]
+name   = "mistralrs"
+binary = "mistralrs"
+
 [provides]
 capabilities = ["llm-inference", "openai-api"]
 
+bus_messages = []
 [requires]
 capabilities = ["systemd"]
 
+bus_messages = []
 [hooks]
 pre_install  = ["mkdir -p {data_root}/mistral/models", "mkdir -p {config_root}/mistral"]
 post_install = ["systemctl daemon-reload", "systemctl enable mistral.service"]

@@ -1,0 +1,42 @@
+# FreeSynergy Manager — Language
+
+[package]
+id               = "managers.language"
+name             = "Language Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Install language packs and set the platform language and locale"
+description      = "The Language Manager installs language packs from the Store and activates them platform-wide. Set the active language, regional locale, and fallback language. All programs respond to language changes via fs-i18n without restart."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["language", "i18n", "locale", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-language-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-language-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-language-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-language-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-language-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-language-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/language"
+config_dir = "{config_root}/managers/language"
+
+[[binaries]]
+name   = "fs-manager-language"
+binary = "fs-manager-language"
+
+[provides]
+capabilities = []
+bus_messages = []

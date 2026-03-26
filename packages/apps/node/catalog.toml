@@ -38,3 +38,8 @@ windows-x86_64 = "https://github.com/FreeSynergy/fs-node/releases/download/v{ver
 
 [requires]
 capabilities = ["systemd"]
+
+bus_messages = []
+[provides]
+capabilities = []
+bus_messages = []

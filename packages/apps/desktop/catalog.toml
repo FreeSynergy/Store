@@ -1,0 +1,49 @@
+# FreeSynergy Desktop
+#
+# The graphical shell for the FreeSynergy platform.
+# Provides the workspace, taskbar, window manager, and embeds all desktop apps.
+
+[package]
+id               = "desktop"
+name             = "FreeSynergy Desktop"
+type             = "app"
+version          = "0.1.0"
+summary          = "Graphical desktop shell — workspace, taskbar, window manager, and app launcher"
+description      = "FreeSynergy Desktop is the graphical shell for the FreeSynergy platform. It provides the workspace with taskbar, window manager, and wallpaper support, and embeds all FreeSynergy apps in a unified environment. Built with Dioxus and available in desktop (webview), web (WASM), and TUI modes."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["desktop", "shell", "workspace", "ui", "launcher"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-desktop"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-desktop"
+artifact = "fs-app-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-app-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-app-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-app-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-app-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-app-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/desktop"
+config_dir = "{config_root}/desktop"
+
+[[binaries]]
+name   = "fs-app"
+binary = "fs-app"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+capabilities = []
+bus_messages = []

@@ -1,0 +1,42 @@
+# FreeSynergy Manager — Bots
+
+[package]
+id               = "managers.bots"
+name             = "Bot Manager"
+type             = "app"
+version          = "0.1.0"
+summary          = "Configure and monitor bots and their messenger connections"
+description      = "The Bot Manager configures bots and their connections to external messenger services (Telegram, Matrix, etc.). It manages bot credentials, assigns bus subscriptions, and monitors bot health. Bots themselves run as separate binaries from the fs-bots workspace."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["bots", "automation", "messenger", "managers"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-managers"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-managers"
+artifact = "fs-manager-bots-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-bots-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-bots-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-bots-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-bots-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-managers/releases/download/v{version}/fs-manager-bots-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/managers/bots"
+config_dir = "{config_root}/managers/bots"
+
+[[binaries]]
+name   = "fs-manager-bots"
+binary = "fs-manager-bots"
+
+[provides]
+capabilities = []
+bus_messages = []

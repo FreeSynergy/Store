@@ -1,0 +1,38 @@
+# FreeSynergy Managers — Namespace
+#
+# Each manager is a separate binary from the fs-managers workspace.
+# All are installed independently; they share no runtime coupling.
+
+[catalog]
+id      = "managers"
+name    = "Managers"
+icon    = "icon.svg"
+summary = "Platform managers — language, theme, icons, cursor, container, bots, and AI"
+
+[[packages]]
+id      = "language"
+catalog = "language/catalog.toml"
+
+[[packages]]
+id      = "theme"
+catalog = "theme/catalog.toml"
+
+[[packages]]
+id      = "icons"
+catalog = "icons/catalog.toml"
+
+[[packages]]
+id      = "cursor"
+catalog = "cursor/catalog.toml"
+
+[[packages]]
+id      = "container"
+catalog = "container/catalog.toml"
+
+[[packages]]
+id      = "bots"
+catalog = "bots/catalog.toml"
+
+[[packages]]
+id      = "ai"
+catalog = "ai/catalog.toml"

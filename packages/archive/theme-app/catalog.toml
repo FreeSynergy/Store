@@ -1,0 +1,38 @@
+# FreeSynergy Themes
+#
+# Theme manager: colors, typography, cursors, window chrome.
+# Applies themes platform-wide — all apps respond to theme changes via CSS variables.
+
+[package]
+id               = "theme-app"
+name             = "FreeSynergy Themes"
+type             = "app"
+version          = "0.1.0"
+summary          = "Visual theme manager — colors, typography, cursors, and window chrome for the entire platform"
+description      = "FreeSynergy Themes manages the visual appearance of the entire FreeSynergy platform. Install and switch between themes, customize accent colors, typography, and cursor styles. All apps respond to theme changes in real time via CSS custom properties."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["themes", "appearance", "colors", "typography", "ui"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-theme-app-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-theme-app-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-theme-app-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-theme-app-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-theme-app-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-theme-app-x86_64-windows.zip"
+
+[app]
+binary     = "fs-theme-app"
+data_dir   = "{data_root}/theme-app"
+config_dir = "{config_root}/theme-app"

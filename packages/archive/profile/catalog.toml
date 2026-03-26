@@ -1,0 +1,40 @@
+# FreeSynergy Profile
+#
+# User profile management: avatar, display name, contact info, linked accounts, privacy.
+
+[package]
+id               = "profile"
+name             = "FreeSynergy Profile"
+type             = "app"
+version          = "0.1.0"
+summary          = "User profile management — avatar, display name, contact info, linked accounts, and privacy settings"
+description      = "FreeSynergy Profile manages the user's identity on the FreeSynergy platform. Set a display name, avatar, bio, and contact information. Link accounts from connected services. Control which profile fields are visible to other users on the node and across federated nodes."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["profile", "identity", "user", "avatar", "privacy"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-desktop"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-desktop"
+artifact = "fs-profile-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-profile-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-profile-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-profile-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-profile-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-desktop/releases/download/v{version}/fs-profile-x86_64-windows.zip"
+
+[app]
+binary     = "fs-profile"
+data_dir   = "{data_root}/profile"
+config_dir = "{config_root}/profile"
+
+[requires]
+bus = ["iam.oidc-provider"]

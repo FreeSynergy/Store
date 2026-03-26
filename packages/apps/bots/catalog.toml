@@ -1,0 +1,49 @@
+# FreeSynergy Bots
+#
+# Bot management UI — create, configure, and monitor bots that interact
+# with chat services via the message bus.
+
+[package]
+id               = "bots"
+name             = "FreeSynergy Bots"
+type             = "app"
+version          = "0.1.0"
+summary          = "Bot management — create and configure bots that interact with chat, notifications, and service events"
+description      = "FreeSynergy Bots is the management interface for bots on the FreeSynergy platform. Create bots that listen to service events via the message bus and respond through chat, notifications, or other service actions. Bots are Bus-native: they declare what they subscribe to and what they emit."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["bots", "automation", "chat", "notifications", "bus"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-bots"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-bots"
+artifact = "fs-bots-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-bots/releases/download/v{version}/fs-bots-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-bots/releases/download/v{version}/fs-bots-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-bots/releases/download/v{version}/fs-bots-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-bots/releases/download/v{version}/fs-bots-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-bots/releases/download/v{version}/fs-bots-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/bots"
+config_dir = "{config_root}/bots"
+
+[[binaries]]
+name   = "fs-bots"
+binary = "fs-bots"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+capabilities = []
+bus_messages = []

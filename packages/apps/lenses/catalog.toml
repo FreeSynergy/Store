@@ -1,0 +1,49 @@
+# FreeSynergy Lenses
+#
+# Aggregated cross-service data views — pulls data from wiki, map, chat, tasks, git via Bus.
+# Display-only: shows summaries and links, never modifies data.
+
+[package]
+id               = "lenses"
+name             = "FreeSynergy Lenses"
+type             = "app"
+version          = "0.1.0"
+summary          = "Cross-service data aggregator — unified views across wiki, chat, tasks, git, and map"
+description      = "FreeSynergy Lenses aggregates data from all connected services and presents it in unified views. Search once and see results from wiki, chat, task trackers, git repositories, and maps simultaneously — with links back to the original service. Display-only: Lenses shows, Tasks acts."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["lenses", "aggregator", "search", "overview", "services"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-apps"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-apps"
+artifact = "fs-lenses-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-lenses-x86_64-linux.tar.gz"
+linux-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-lenses-aarch64-linux.tar.gz"
+macos-x86_64   = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-lenses-x86_64-macos.tar.gz"
+macos-aarch64  = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-lenses-aarch64-macos.tar.gz"
+windows-x86_64 = "https://github.com/FreeSynergy/fs-apps/releases/download/v{version}/fs-lenses-x86_64-windows.zip"
+
+[app]
+data_dir   = "{data_root}/lenses"
+config_dir = "{config_root}/lenses"
+
+[[binaries]]
+name   = "fs-lenses"
+binary = "fs-lenses"
+
+[requires]
+bus_messages = ["iam.oidc-provider"]
+
+capabilities = []
+[provides]
+capabilities = []
+bus_messages = []

@@ -90,6 +90,12 @@ type    = "theme"
 catalog = "packages/themes/catalog.toml"
 
 [[namespaces]]
+id      = "managers"
+name    = "Managers"
+type    = "app"
+catalog = "packages/apps/managers/catalog.toml"
+
+[[namespaces]]
 id      = "widgets"
 name    = "Widgets"
 type    = "widget"

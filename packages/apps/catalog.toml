@@ -73,10 +73,6 @@ id      = "container-app"
 catalog = "container-app/catalog.toml"
 
 [[packages]]
-id      = "managers"
-catalog = "managers/catalog.toml"
-
-[[packages]]
 id      = "inventory"
 catalog = "inventory/catalog.toml"
 

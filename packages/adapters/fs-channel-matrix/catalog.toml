@@ -1,0 +1,18 @@
+# fs-channel-matrix — Matrix Channel Adapter
+
+[package]
+id          = "freeSynergy.channel-matrix"
+name        = "FreeSynergy Matrix Channel"
+type        = "adapter"
+version     = "0.1.0"
+summary     = "Matrix channel adapter — implements Channel-Trait via matrix-sdk"
+icon        = "icon.svg"
+tags        = ["messaging", "matrix", "channel", "adapter"]
+author      = "FreeSynergy.Net"
+license     = "MIT"
+
+[provides]
+capabilities = ["channel.matrix"]
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-channel-matrix"

@@ -1,0 +1,18 @@
+# fs-db-engine-postgres — PostgreSQL Database Engine Adapter
+
+[package]
+id          = "freeSynergy.db-engine-postgres"
+name        = "FreeSynergy PostgreSQL Engine"
+type        = "adapter"
+version     = "0.1.0"
+summary     = "PostgreSQL database engine adapter — implements DbEngine-Trait"
+icon        = "icon.svg"
+tags        = ["database", "postgres", "adapter", "db-engine"]
+author      = "FreeSynergy.Net"
+license     = "MIT"
+
+[provides]
+capabilities = ["db.engine.postgres"]
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-db-engine-postgres"

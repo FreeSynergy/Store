@@ -1,0 +1,18 @@
+# fs-llm-openai — OpenAI LLM Adapter
+
+[package]
+id          = "freeSynergy.llm-openai"
+name        = "FreeSynergy OpenAI LLM"
+type        = "adapter"
+version     = "0.1.0"
+summary     = "OpenAI LLM adapter — implements LlmProvider-Trait via OpenAI API"
+icon        = "icon.svg"
+tags        = ["ai", "llm", "openai", "adapter"]
+author      = "FreeSynergy.Net"
+license     = "MIT"
+
+[provides]
+capabilities = ["llm.openai"]
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-llm-openai"

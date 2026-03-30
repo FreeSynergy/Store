@@ -1,0 +1,40 @@
+# FreeSynergy Workstation Bundle
+
+[package]
+id      = "freeSynergy.bundle.workstation"
+name    = "FreeSynergy Workstation"
+type    = "bundle"
+version = "0.1.0"
+summary = "Full desktop environment — Server + Desktop + Apps + Managers"
+description = "The Workstation bundle installs everything needed for a FreeSynergy desktop. Includes the full Server bundle plus fs-desktop (shell), fs-gui-engine-iced (UI renderer), fs-managers (language/theme/icon/cursor/container managers), and all core apps. Designed for daily-driver workstation use on Wayland."
+icon    = "icon.svg"
+tags    = ["bundle", "workstation", "desktop", "platform:linux"]
+author  = "FreeSynergy"
+license = "MIT"
+
+[provides]
+capabilities = ["bundle.workstation"]
+
+[bundle]
+components = [
+    # Server stack (all required)
+    { id = "node",               catalog = "../apps/node/catalog.toml",                        optional = false },
+    { id = "auth",               catalog = "../apps/kanidm/catalog.toml",                      optional = false },
+    { id = "registry",           catalog = "../apps/registry/catalog.toml",                    optional = false },
+    { id = "inventory",          catalog = "../apps/inventory/catalog.toml",                   optional = false },
+    { id = "session",            catalog = "../apps/session/catalog.toml",                     optional = false },
+    { id = "db-engine-sqlite",   catalog = "../adapters/fs-db-engine-sqlite/catalog.toml",     optional = false },
+    # Desktop shell
+    { id = "desktop",            catalog = "../apps/desktop/catalog.toml",                     optional = false },
+    { id = "gui-engine-iced",    catalog = "../apps/managers/catalog.toml",                    optional = false },
+    # Managers
+    { id = "managers",           catalog = "../apps/managers/catalog.toml",                    optional = false },
+    # Core apps
+    { id = "store",              catalog = "../apps/store/catalog.toml",                       optional = false },
+    { id = "lenses",             catalog = "../apps/lenses/catalog.toml",                      optional = true  },
+    { id = "browser",            catalog = "../apps/browser/catalog.toml",                     optional = true  },
+    { id = "tasks",              catalog = "../apps/tasks/catalog.toml",                       optional = true  },
+    { id = "ai",                 catalog = "../apps/ai/catalog.toml",                          optional = true  },
+    # Routing
+    { id = "zentinel",           catalog = "zentinel/catalog.toml",                            optional = true  },
+]

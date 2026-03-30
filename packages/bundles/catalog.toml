@@ -11,5 +11,17 @@ icon    = "icon.svg"
 summary = "Install a curated set of packages in one step"
 
 [[packages]]
+id      = "minimal"
+catalog = "minimal/catalog.toml"
+
+[[packages]]
+id      = "server"
+catalog = "server/catalog.toml"
+
+[[packages]]
+id      = "workstation"
+catalog = "workstation/catalog.toml"
+
+[[packages]]
 id      = "zentinel"
 catalog = "zentinel/catalog.toml"

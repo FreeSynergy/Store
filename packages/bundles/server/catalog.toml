@@ -1,0 +1,28 @@
+# FreeSynergy Server Bundle
+
+[package]
+id      = "freeSynergy.bundle.server"
+name    = "FreeSynergy Server"
+type    = "bundle"
+version = "0.1.0"
+summary = "Core server stack — Node, Auth, Registry, Inventory, Session, DB"
+description = "The Server bundle installs the complete FreeSynergy server stack. Includes fs-node (deployment engine), fs-auth (identity, OAuth, SCIM), fs-registry (service discovery), fs-inventory (package state), fs-session (login state), and the default SQLite DB engine adapter. Suitable for self-hosted server deployments without a desktop environment."
+icon    = "icon.svg"
+tags    = ["bundle", "server", "infrastructure", "platform:linux"]
+author  = "FreeSynergy"
+license = "MIT"
+
+[provides]
+capabilities = ["bundle.server"]
+
+[bundle]
+components = [
+    { id = "node",                catalog = "../apps/node/catalog.toml",                              optional = false },
+    { id = "auth",                catalog = "../apps/kanidm/catalog.toml",                            optional = false },
+    { id = "registry",            catalog = "../apps/registry/catalog.toml",                          optional = false },
+    { id = "inventory",           catalog = "../apps/inventory/catalog.toml",                         optional = false },
+    { id = "session",             catalog = "../apps/session/catalog.toml",                           optional = false },
+    { id = "db-engine-sqlite",    catalog = "../adapters/fs-db-engine-sqlite/catalog.toml",           optional = false },
+    { id = "db-engine-postgres",  catalog = "../adapters/fs-db-engine-postgres/catalog.toml",         optional = true  },
+    { id = "zentinel",            catalog = "zentinel/catalog.toml",                                  optional = true  },
+]

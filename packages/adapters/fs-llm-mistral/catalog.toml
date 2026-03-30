@@ -1,0 +1,18 @@
+# fs-llm-mistral — Mistral LLM Adapter
+
+[package]
+id          = "freeSynergy.llm-mistral"
+name        = "FreeSynergy Mistral LLM"
+type        = "adapter"
+version     = "0.1.0"
+summary     = "Mistral LLM adapter — implements LlmProvider-Trait via mistral.rs"
+icon        = "icon.svg"
+tags        = ["ai", "llm", "mistral", "adapter"]
+author      = "FreeSynergy.Net"
+license     = "MIT"
+
+[provides]
+capabilities = ["llm.mistral"]
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-llm-mistral"

@@ -1,0 +1,18 @@
+# fs-channel-telegram — Telegram Channel Adapter
+
+[package]
+id          = "freeSynergy.channel-telegram"
+name        = "FreeSynergy Telegram Channel"
+type        = "adapter"
+version     = "0.1.0"
+summary     = "Telegram channel adapter — implements Channel-Trait via teloxide"
+icon        = "icon.svg"
+tags        = ["messaging", "telegram", "channel", "adapter"]
+author      = "FreeSynergy.Net"
+license     = "MIT"
+
+[provides]
+capabilities = ["channel.telegram"]
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-channel-telegram"

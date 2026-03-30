@@ -83,3 +83,7 @@ catalog = "session/catalog.toml"
 [[packages]]
 id      = "registry"
 catalog = "registry/catalog.toml"
+
+[[packages]]
+id      = "bootc"
+catalog = "bootc/catalog.toml"

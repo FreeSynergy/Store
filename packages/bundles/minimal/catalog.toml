@@ -1,0 +1,23 @@
+# FreeSynergy Minimal Bundle
+
+[package]
+id      = "freeSynergy.bundle.minimal"
+name    = "FreeSynergy Minimal"
+type    = "bundle"
+version = "0.1.0"
+summary = "Absolute minimum — Node + Registry + SQLite only"
+description = "The Minimal bundle installs only what is strictly required to run a FreeSynergy node. Suitable for embedded systems, CI environments, or as a base for custom stacks. Includes fs-node and the SQLite DB engine; everything else is optional and can be added à la carte."
+icon    = "icon.svg"
+tags    = ["bundle", "minimal", "embedded", "platform:linux"]
+author  = "FreeSynergy"
+license = "MIT"
+
+[provides]
+capabilities = ["bundle.minimal"]
+
+[bundle]
+components = [
+    { id = "node",              catalog = "../apps/node/catalog.toml",                    optional = false },
+    { id = "registry",          catalog = "../apps/registry/catalog.toml",                optional = false },
+    { id = "db-engine-sqlite",  catalog = "../adapters/fs-db-engine-sqlite/catalog.toml", optional = false },
+]

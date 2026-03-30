@@ -1,0 +1,35 @@
+# fs-bootc — bootc OS Images
+
+[package]
+id               = "freeSynergy.bootc"
+name             = "FreeSynergy OS Images"
+type             = "program"
+version          = "0.1.0"
+summary          = "Fedora bootc OS images — fs-server and fs-workstation variants"
+description      = "Immutable, image-based OS variants built on Fedora bootc. fs-server provides a minimal server environment with podman, systemd, and openssh. fs-workstation adds a Wayland desktop with Pipewire audio and mesa graphics drivers. Images are built and pushed via the fs-bootc CLI."
+icon             = "icon.svg"
+tags             = ["os", "bootc", "fedora", "immutable", "server", "workstation", "container-image"]
+author           = "FreeSynergy.Net"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-bootc"
+website   = "https://freesynergy.net"
+publisher = "FreeSynergy"
+
+[interfaces]
+cli  = true
+api  = false
+wgui = false
+tui  = false
+
+[source]
+type = "github_release"
+repo = "FreeSynergy/fs-bootc"
+
+[provides]
+capabilities = ["os.server", "os.workstation"]
+
+[variants]
+server      = "ghcr.io/freesynergy/fs-server:latest"
+workstation = "ghcr.io/freesynergy/fs-workstation:latest"

@@ -1,0 +1,36 @@
+# FreeSynergy Store — Adapters Namespace
+#
+# Adapters implement a Rust trait and register a capability in fs-registry.
+# They are loaded as artifacts — global or per-package — by the Store installer.
+#
+# No binaries stored here. Each adapter references its GitHub repo.
+
+[catalog]
+id      = "adapters"
+name    = "Adapters"
+icon    = "icon.svg"
+summary = "Trait implementations — swap out engines, LLMs, channels and DB backends"
+
+[[packages]]
+id      = "fs-db-engine-sqlite"
+catalog = "fs-db-engine-sqlite/catalog.toml"
+
+[[packages]]
+id      = "fs-db-engine-postgres"
+catalog = "fs-db-engine-postgres/catalog.toml"
+
+[[packages]]
+id      = "fs-llm-mistral"
+catalog = "fs-llm-mistral/catalog.toml"
+
+[[packages]]
+id      = "fs-llm-openai"
+catalog = "fs-llm-openai/catalog.toml"
+
+[[packages]]
+id      = "fs-channel-matrix"
+catalog = "fs-channel-matrix/catalog.toml"
+
+[[packages]]
+id      = "fs-channel-telegram"
+catalog = "fs-channel-telegram/catalog.toml"

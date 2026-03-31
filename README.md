@@ -10,6 +10,7 @@ All packages live under `packages/`. The root `catalog.toml` lists all namespace
 |---|---|---|
 | `init/` | bootstrap | Bootstrap package — not installable, only downloadable |
 | `packages/apps/` | app | Native Rust binaries (kanidm, stalwart, tuwunel, zentinel, …) |
+| `packages/adapters/` | adapter | Trait implementations — swap DB engines, LLM providers, channels |
 | `packages/bundles/` | bundle | Meta-packages referencing other packages by id |
 | `packages/containers/` | container | Podman/Docker containers (forgejo, postgres, outline, …) |
 | `packages/external/` | external | Non-self-hostable services (Telegram, Discord, …) — metadata only |

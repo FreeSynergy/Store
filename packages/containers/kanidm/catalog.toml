@@ -1,0 +1,48 @@
+# Kanidm — Identity and Access Management
+
+[package]
+id               = "kanidm"
+name             = "Kanidm"
+type             = "container"
+version          = "1.5.0"
+summary          = "Modern LDAP + OIDC identity provider — users, groups, SSH keys, RADIUS, MFA"
+description      = "Kanidm is a modern identity management system providing LDAP, OIDC/OAuth2, and RADIUS authentication. FreeSynergy ships a fork with additional SCIM sync and PAM integration for the FreeSynergy auth layer."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["iam", "auth", "ldap", "oidc", "oauth2", "radius", "mfa", "identity"]
+author           = "Kanidm / FreeSynergy"
+license          = "MPL-2.0"
+
+[package.origin]
+website   = "https://kanidm.com"
+git       = "https://github.com/kanidm/kanidm"
+publisher = "Kanidm Project"
+
+[package.fork]
+source     = "fork"
+fork_of    = "kanidm/kanidm"
+fork_repo  = "FreeSynergy/kanidm"
+fork_url   = "https://github.com/FreeSynergy/kanidm"
+
+[provides]
+capabilities = ["iam.oidc-provider", "iam.ldap", "iam.radius", "iam.scim", "iam.pam"]
+
+[requires]
+capabilities = []
+
+[contract]
+upstream_tls = true
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Kanidm web UI + API"
+port        = 8443
+
+[[contract.routes]]
+id          = "ldap"
+path        = "/"
+proto       = "tcp"
+port        = 3636
+description = "Kanidm LDAPS"

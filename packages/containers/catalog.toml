@@ -48,3 +48,29 @@ catalog = "openobserver/catalog.toml"
 [[packages]]
 id      = "otel-collector"
 catalog = "otel-collector/catalog.toml"
+
+# ── FreeSynergy forks ─────────────────────────────────────────────────────────
+
+[[packages]]
+id      = "kanidm"
+catalog = "kanidm/catalog.toml"
+
+[[packages]]
+id      = "stalwart"
+catalog = "stalwart/catalog.toml"
+
+[[packages]]
+id      = "tuwunel"
+catalog = "tuwunel/catalog.toml"
+
+[[packages]]
+id      = "mistral"
+catalog = "mistral/catalog.toml"
+
+[[packages]]
+id      = "zentinel"
+catalog = "zentinel/catalog.toml"
+
+[[packages]]
+id      = "zentinel-plane"
+catalog = "zentinel-plane/catalog.toml"

@@ -1,0 +1,44 @@
+# Mistral.rs — Local LLM Inference
+
+[package]
+id               = "mistral"
+name             = "Mistral.rs"
+type             = "container"
+version          = "0.4.0"
+summary          = "Blazing-fast local LLM inference — Mistral, Llama, Phi, Gemma, GGUF, vision"
+description      = "Mistral.rs is a high-performance local LLM inference engine supporting Mistral, Llama, Phi, Gemma, and more in GGUF/GGML format. FreeSynergy ships a fork as the inference backend for fs-llm, with OpenAI-compatible API."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["llm", "ai", "inference", "mistral", "llama", "gpu", "openai-compat"]
+author           = "Eric Buehler / FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+website   = "https://github.com/EricLBuehler/mistral.rs"
+git       = "https://github.com/EricLBuehler/mistral.rs"
+publisher = "Eric Buehler"
+
+[package.fork]
+source     = "fork"
+fork_of    = "EricLBuehler/mistral.rs"
+fork_repo  = "FreeSynergy/mistral.rs"
+fork_url   = "https://github.com/FreeSynergy/mistral.rs"
+
+[provides]
+capabilities = ["llm.inference", "llm.openai-api"]
+
+[requires]
+capabilities = []
+
+[optional-dependencies]
+cuda = ">=12"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "api"
+path        = "/"
+strip       = false
+description = "OpenAI-compatible LLM API"
+port        = 1234

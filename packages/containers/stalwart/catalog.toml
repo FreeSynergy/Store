@@ -1,0 +1,72 @@
+# Stalwart — All-in-one Mail Server
+
+[package]
+id               = "stalwart"
+name             = "Stalwart Mail"
+type             = "container"
+version          = "0.11.0"
+summary          = "SMTP + IMAP + JMAP all-in-one mail server with anti-spam and OIDC login"
+description      = "Stalwart is a modern all-in-one mail server supporting SMTP, IMAP, and JMAP. FreeSynergy ships a fork pre-configured with Kanidm OIDC authentication and S3-compatible storage for message data."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["mail", "smtp", "imap", "jmap", "email", "antispam", "oidc"]
+author           = "Stalwart Labs / FreeSynergy"
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://stalw.art"
+git       = "https://github.com/stalwartlabs/stalwart"
+publisher = "Stalwart Labs"
+
+[package.fork]
+source     = "fork"
+fork_of    = "stalwartlabs/stalwart"
+fork_repo  = "FreeSynergy/stalwart"
+fork_url   = "https://github.com/FreeSynergy/stalwart"
+
+[provides]
+capabilities = ["mail.smtp", "mail.imap", "mail.jmap"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+s3 = ">=1"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "smtp"
+path        = "/"
+proto       = "tcp"
+port        = 25
+description = "SMTP"
+
+[[contract.routes]]
+id          = "smtps"
+path        = "/"
+proto       = "tcp"
+port        = 465
+description = "SMTP over TLS"
+
+[[contract.routes]]
+id          = "submission"
+path        = "/"
+proto       = "tcp"
+port        = 587
+description = "SMTP submission"
+
+[[contract.routes]]
+id          = "imap"
+path        = "/"
+proto       = "tcp"
+port        = 143
+description = "IMAP"
+
+[[contract.routes]]
+id          = "imaps"
+path        = "/"
+proto       = "tcp"
+port        = 993
+description = "IMAP over TLS"

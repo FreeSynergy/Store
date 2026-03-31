@@ -1,0 +1,48 @@
+# Zentinel — Reverse Proxy + Gateway
+
+[package]
+id               = "zentinel"
+name             = "Zentinel"
+type             = "container"
+version          = "0.3.0"
+summary          = "Rust-native reverse proxy with TLS termination, routing, and rate limiting"
+description      = "Zentinel is a Rust-native reverse proxy and API gateway with dynamic TLS termination, HTTP/2, load balancing, and rate limiting. FreeSynergy uses it as the ingress layer in front of all container services."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["proxy", "gateway", "ingress", "tls", "routing", "loadbalancer"]
+author           = "Zentinel / FreeSynergy"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://github.com/zentinelproxy/zentinel"
+git       = "https://github.com/zentinelproxy/zentinel"
+publisher = "Zentinel Proxy"
+
+[package.fork]
+source     = "fork"
+fork_of    = "zentinelproxy/zentinel"
+fork_repo  = "FreeSynergy/zentinel"
+fork_url   = "https://github.com/FreeSynergy/zentinel"
+
+[provides]
+capabilities = ["proxy.ingress", "proxy.tls", "proxy.gateway"]
+
+[requires]
+capabilities = []
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "http"
+path        = "/"
+proto       = "tcp"
+port        = 8080
+description = "HTTP ingress"
+
+[[contract.routes]]
+id          = "https"
+path        = "/"
+proto       = "tcp"
+port        = 8443
+description = "HTTPS ingress (TLS termination)"

@@ -1,0 +1,51 @@
+# Tuwunel — Matrix Homeserver
+
+[package]
+id               = "tuwunel"
+name             = "Tuwunel"
+type             = "container"
+version          = "0.5.0"
+summary          = "High-performance Matrix homeserver — federation, E2EE, bridges, rooms"
+description      = "Tuwunel is a high-performance Matrix homeserver written in Rust. FreeSynergy ships a fork pre-configured with Kanidm SSO and S3 media storage. Supports federation, E2EE, and Matrix bridges."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["matrix", "chat", "messaging", "e2ee", "federation", "rooms", "voip"]
+author           = "Tuwunel / FreeSynergy"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://github.com/matrix-construct/tuwunel"
+git       = "https://github.com/matrix-construct/tuwunel"
+publisher = "Matrix Construct"
+
+[package.fork]
+source     = "fork"
+fork_of    = "matrix-construct/tuwunel"
+fork_repo  = "FreeSynergy/tuwunel"
+fork_url   = "https://github.com/FreeSynergy/tuwunel"
+
+[provides]
+capabilities = ["matrix.homeserver", "chat.matrix"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+s3 = ">=1"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Matrix Client-Server + Federation API"
+port        = 8448
+
+[[contract.routes]]
+id          = "turn"
+path        = "/"
+proto       = "udp"
+port        = 6167
+description = "TURN/STUN for VoIP"

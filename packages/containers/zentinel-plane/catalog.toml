@@ -1,0 +1,41 @@
+# Zentinel Control Plane
+
+[package]
+id               = "zentinel-plane"
+name             = "Zentinel Control Plane"
+type             = "container"
+version          = "0.3.0"
+summary          = "Control plane for Zentinel proxy fleet — dynamic route configuration and TLS management"
+description      = "The Zentinel Control Plane manages a fleet of Zentinel proxy instances with dynamic route configuration, TLS certificate provisioning, and health monitoring. FreeSynergy uses it for centralized ingress management."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["proxy", "control-plane", "routing", "tls", "management"]
+author           = "Zentinel / FreeSynergy"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://github.com/zentinelproxy/zentinel-control-plane"
+git       = "https://github.com/zentinelproxy/zentinel-control-plane"
+publisher = "Zentinel Proxy"
+
+[package.fork]
+source     = "fork"
+fork_of    = "zentinelproxy/zentinel-control-plane"
+fork_repo  = "FreeSynergy/zentinel-control-plane"
+fork_url   = "https://github.com/FreeSynergy/zentinel-control-plane"
+
+[provides]
+capabilities = ["proxy.control-plane"]
+
+[requires]
+capabilities = ["proxy.ingress"]
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "api"
+path        = "/"
+strip       = false
+description = "Control Plane API + Dashboard"
+port        = 9090

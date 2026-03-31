@@ -22,8 +22,9 @@ git       = "https://github.com/FreeSynergy/fs-zentinel-plane"
 publisher = "Zentinel Project / FreeSynergy Fork"
 
 [source]
-type     = "github_release"
+type     = "fork"
 repo     = "FreeSynergy/fs-zentinel-plane"
+upstream = "https://github.com/zentinelproxy/zentinel-control-plane"
 artifact = "zentinel-plane-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]

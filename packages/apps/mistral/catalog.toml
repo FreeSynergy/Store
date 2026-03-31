@@ -25,8 +25,9 @@ docs      = "https://github.com/EricLBuehler/mistral.rs/blob/master/README.md"
 publisher = "Eric L. Buehler / FreeSynergy Fork"
 
 [source]
-type     = "github_release"
+type     = "fork"
 repo     = "FreeSynergy/fs-mistral"
+upstream = "https://github.com/EricLBuehler/mistral.rs"
 artifact = "mistralrs-x86_64-unknown-linux-gnu.tar.gz"
 
 [app]

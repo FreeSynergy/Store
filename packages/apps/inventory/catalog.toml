@@ -33,10 +33,6 @@ macos-x86_64   = "https://github.com/FreeSynergy/fs-inventory/releases/download/
 macos-aarch64  = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-aarch64-macos.tar.gz"
 windows-x86_64 = "https://github.com/FreeSynergy/fs-inventory/releases/download/v{version}/fs-inventory-x86_64-windows.zip"
 
-[app]
-data_dir   = "{data_root}/inventory"
-config_dir = "{config_root}/inventory"
-
 [[binaries]]
 name   = "fs-inventory"
 binary = "fs-inventory"
@@ -44,3 +40,26 @@ binary = "fs-inventory"
 [provides]
 bus_messages = ["inventory::packages", "inventory::services", "inventory::status"]
 capabilities = []
+
+[storage]
+global = "/var/lib/freesynergy/inventory"
+config = "/etc/freesynergy/inventory"
+
+[install_targets]
+container = false
+rpm       = true
+deb       = true
+flatpak   = false
+
+[[api.grpc]]
+service     = "FreeSynergy.Inventory"
+proto       = "inventory.proto"
+port        = 50053
+description = "Inventory gRPC — upsert/query installed packages and services"
+
+[[api.rest]]
+base        = "/api/v1/inventory"
+port        = 8082
+proto       = "http"
+description = "Inventory REST API"
+spec        = "/api/v1/inventory/openapi.json"

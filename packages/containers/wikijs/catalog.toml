@@ -1,0 +1,62 @@
+# Wiki.js — Modern Wiki Platform
+
+[package]
+id               = "wikijs"
+name             = "Wiki.js"
+type             = "container"
+version          = "3.0.0"
+summary          = "Modern, lightweight wiki platform with Markdown, WYSIWYG, and Git-backed storage"
+description      = "Wiki.js is a powerful, fast, and extensible wiki platform built on Node.js. It supports Markdown, WYSIWYG, and dozens of editor formats. FreeSynergy ships it pre-configured with Kanidm OIDC authentication and optional S3 asset storage. Implements the WikiProvider trait — interchangeable with Outline."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["wiki", "documentation", "knowledge-base", "markdown", "oidc"]
+author           = "Wiki.js / FreeSynergy"
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://js.wiki"
+git       = "https://github.com/requarks/wiki"
+publisher = "requarks"
+
+[provides]
+capabilities = ["wiki.provider", "wiki.search"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+postgres = ">=13"
+s3       = ">=1"
+
+[storage]
+global = "/var/lib/freesynergy/wikijs"
+config = "/etc/freesynergy/wikijs"
+cache  = "/var/cache/freesynergy/wikijs"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/_api"
+port        = 3000
+proto       = "http"
+description = "Wiki.js internal REST API"
+
+[[api.rest]]
+base        = "/graphql"
+port        = 3000
+proto       = "http"
+description = "Wiki.js GraphQL API"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Wiki.js web UI + GraphQL"
+port        = 3000

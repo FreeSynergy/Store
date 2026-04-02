@@ -33,18 +33,37 @@ macos-x86_64   = "https://github.com/FreeSynergy/fs-session/releases/download/v{
 macos-aarch64  = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-aarch64-macos.tar.gz"
 windows-x86_64 = "https://github.com/FreeSynergy/fs-session/releases/download/v{version}/fs-session-x86_64-windows.zip"
 
-[app]
-data_dir   = "{data_root}/session"
-config_dir = "{config_root}/session"
-
 [[binaries]]
 name   = "fs-session"
 binary = "fs-session"
 
 [requires]
-bus_messages = ["iam.oidc-provider"]
+capabilities = ["iam.oidc-provider"]
+bus_messages = []
 
-capabilities = []
 [provides]
 bus_messages = ["session::user", "session::programs"]
 capabilities = []
+
+[storage]
+user   = "~/.local/share/freesynergy/session"
+config = "~/.config/freesynergy/session"
+
+[install_targets]
+container = false
+rpm       = true
+deb       = true
+flatpak   = false
+
+[[api.grpc]]
+service     = "FreeSynergy.Session"
+proto       = "session.proto"
+port        = 50054
+description = "Session gRPC — login state, open programs, window focus"
+
+[[api.rest]]
+base        = "/api/v1/session"
+port        = 8083
+proto       = "http"
+description = "Session REST API"
+spec        = "/api/v1/session/openapi.json"

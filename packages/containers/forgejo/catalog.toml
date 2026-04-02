@@ -27,6 +27,24 @@ capabilities = ["iam.oidc-provider"]
 [optional-dependencies]
 postgres = ">=15"
 
+[storage]
+global = "/var/lib/freesynergy/forgejo"
+config = "/etc/freesynergy/forgejo"
+cache  = "/var/cache/freesynergy/forgejo"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api/v1"
+port        = 3000
+proto       = "http"
+description = "Forgejo REST API (Gitea-compatible)"
+spec        = "/api/swagger"
+
 [contract]
 upstream_tls = false
 

@@ -33,6 +33,22 @@ capabilities = ["iam.oidc-provider"]
 [optional-dependencies]
 s3 = ">=1"
 
+[storage]
+global = "/var/lib/freesynergy/stalwart"
+config = "/etc/freesynergy/stalwart"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api/admin"
+port        = 443
+proto       = "https"
+description = "Stalwart management REST API"
+
 [contract]
 upstream_tls = false
 

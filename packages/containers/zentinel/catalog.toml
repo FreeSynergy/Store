@@ -30,6 +30,22 @@ capabilities = ["proxy.ingress", "proxy.tls", "proxy.gateway"]
 [requires]
 capabilities = []
 
+[storage]
+config = "/etc/freesynergy/zentinel"
+cache  = "/var/cache/freesynergy/zentinel"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/_zentinel/api"
+port        = 9443
+proto       = "https"
+description = "Zentinel admin API — routes, TLS certs, health"
+
 [contract]
 upstream_tls = false
 

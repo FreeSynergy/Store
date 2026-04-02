@@ -38,8 +38,32 @@ windows-x86_64 = "https://github.com/FreeSynergy/fs-node/releases/download/v{ver
 
 [requires]
 capabilities = ["systemd"]
-
 bus_messages = []
+
 [provides]
 capabilities = []
-bus_messages = []
+bus_messages = ["node::started", "node::stopped", "node::health"]
+
+[storage]
+global = "/var/lib/freesynergy/node"
+config = "/etc/freesynergy/node"
+cache  = "/var/cache/freesynergy/node"
+
+[install_targets]
+container = false
+rpm       = true
+deb       = true
+flatpak   = false
+
+[[api.grpc]]
+service     = "FreeSynergy.Node"
+proto       = "node.proto"
+port        = 50051
+description = "FreeSynergy Node gRPC API — projects, hosts, federation, S3"
+
+[[api.rest]]
+base        = "/api/v1"
+port        = 8080
+proto       = "http"
+description = "FreeSynergy Node REST API"
+spec        = "/api/v1/openapi.json"

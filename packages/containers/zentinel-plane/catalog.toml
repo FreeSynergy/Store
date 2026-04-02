@@ -30,6 +30,22 @@ capabilities = ["proxy.control-plane"]
 [requires]
 capabilities = ["proxy.ingress"]
 
+[storage]
+global = "/var/lib/freesynergy/zentinel-plane"
+config = "/etc/freesynergy/zentinel-plane"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api"
+port        = 9090
+proto       = "http"
+description = "Control Plane REST API — route configuration, fleet management, TLS"
+
 [contract]
 upstream_tls = false
 

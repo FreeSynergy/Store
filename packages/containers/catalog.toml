@@ -74,3 +74,13 @@ catalog = "zentinel/catalog.toml"
 [[packages]]
 id      = "zentinel-plane"
 catalog = "zentinel-plane/catalog.toml"
+
+# ── New packages (Phase 2) ────────────────────────────────────────────────────
+
+[[packages]]
+id      = "wikijs"
+catalog = "wikijs/catalog.toml"
+
+[[packages]]
+id      = "bulwark"
+catalog = "bulwark/catalog.toml"

@@ -1,0 +1,50 @@
+# Bulwark Mail — Webmail Frontend
+
+[package]
+id               = "bulwark"
+name             = "Bulwark Mail"
+type             = "container"
+version          = "0.1.0"
+summary          = "Webmail frontend for Stalwart — IMAP/JMAP-based, OIDC-native"
+description      = "Bulwark Mail is the FreeSynergy webmail frontend, designed to work with Stalwart as the backend. It connects via JMAP for mail access and uses Kanidm OIDC for authentication. Lightweight, responsive, and built for self-hosted deployments."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["mail", "webmail", "frontend", "jmap", "imap", "oidc"]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/bulwark-mail"
+publisher = "FreeSynergy"
+
+[provides]
+capabilities = ["mail.webmail"]
+
+[requires]
+capabilities = ["mail.jmap", "iam.oidc-provider"]
+
+[storage]
+config = "/etc/freesynergy/bulwark"
+cache  = "/var/cache/freesynergy/bulwark"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api"
+port        = 3001
+proto       = "http"
+description = "Bulwark Mail internal API"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Bulwark Mail webmail UI"
+port        = 3001

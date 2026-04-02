@@ -30,6 +30,27 @@ capabilities = ["iam.oidc-provider", "iam.ldap", "iam.radius", "iam.scim", "iam.
 [requires]
 capabilities = []
 
+[adapter]
+id = "fs-auth"
+repo = "FreeSynergy/fs-auth"
+
+[storage]
+global = "/var/lib/freesynergy/kanidm"
+config = "/etc/freesynergy/kanidm"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/"
+port        = 8443
+proto       = "https"
+description = "Kanidm REST API + web UI"
+spec        = "https://github.com/FreeSynergy/kanidm/blob/main/openapi.json"
+
 [contract]
 upstream_tls = true
 

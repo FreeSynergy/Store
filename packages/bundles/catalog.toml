@@ -25,3 +25,7 @@ catalog = "workstation/catalog.toml"
 [[packages]]
 id      = "zentinel"
 catalog = "zentinel/catalog.toml"
+
+[[packages]]
+id      = "developer"
+catalog = "developer/catalog.toml"

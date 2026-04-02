@@ -15,6 +15,27 @@ license = "MIT"
 [provides]
 capabilities = ["bundle.workstation"]
 
+# Render engine choices shown to the user during install.
+# fs-info detects display_server availability to suggest a default.
+# "engine_choice = true" means the installer shows a selection step.
+[[bundle.render_engines]]
+id      = "gui-engine-iced"
+catalog = "../apps/gui-engine-iced/catalog.toml"
+default = true
+label   = "iced (recommended — Wayland/X11)"
+
+[[bundle.render_engines]]
+id      = "gui-engine-bevy"
+catalog = "../apps/gui-engine-bevy/catalog.toml"
+default = false
+label   = "Bevy (3D-capable, experimental)"
+
+[[bundle.render_engines]]
+id      = "tui-engine"
+catalog = "../apps/tui-engine/catalog.toml"
+default = false
+label   = "TUI (terminal only — no display server required)"
+
 [bundle]
 components = [
     # Server stack (all required)
@@ -26,7 +47,8 @@ components = [
     { id = "db-engine-sqlite",   catalog = "../adapters/fs-db-engine-sqlite/catalog.toml",     optional = false },
     # Desktop shell
     { id = "desktop",            catalog = "../apps/desktop/catalog.toml",                     optional = false },
-    { id = "gui-engine-iced",    catalog = "../apps/managers/catalog.toml",                    optional = false },
+    # Render engine — user selects from bundle.render_engines at install time
+    { id = "render-engine",      optional = false, engine_choice = true                                        },
     # Managers
     { id = "managers",           catalog = "../apps/managers/catalog.toml",                    optional = false },
     # Core apps

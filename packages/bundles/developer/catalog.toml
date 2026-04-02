@@ -1,0 +1,45 @@
+# FreeSynergy Developer Bundle
+
+[package]
+id      = "freeSynergy.bundle.developer"
+name    = "FreeSynergy Developer"
+type    = "bundle"
+version = "0.1.0"
+summary = "Full developer environment — Workstation + Forgejo + extended manager tools"
+description = "The Developer bundle builds on the Workstation bundle and adds everything needed for software development on FreeSynergy. Includes Forgejo (self-hosted Git), the fs-builder pipeline, extended manager tools, and optional services for CI/CD workflows."
+icon    = "icon.svg"
+tags    = ["bundle", "developer", "desktop", "git", "cicd", "platform:linux"]
+author  = "FreeSynergy"
+license = "MIT"
+
+[provides]
+capabilities = ["bundle.developer"]
+
+[bundle]
+components = [
+    # Full server stack (all required)
+    { id = "node",               catalog = "../apps/node/catalog.toml",                      optional = false },
+    { id = "auth",               catalog = "../apps/kanidm/catalog.toml",                    optional = false },
+    { id = "registry",           catalog = "../apps/registry/catalog.toml",                  optional = false },
+    { id = "inventory",          catalog = "../apps/inventory/catalog.toml",                  optional = false },
+    { id = "session",            catalog = "../apps/session/catalog.toml",                    optional = false },
+    { id = "db-engine-sqlite",   catalog = "../adapters/fs-db-engine-sqlite/catalog.toml",    optional = false },
+    # Desktop shell
+    { id = "desktop",            catalog = "../apps/desktop/catalog.toml",                    optional = false },
+    # Render engine (user chooses at install time)
+    { id = "render-engine",      catalog = "../apps/managers/catalog.toml",                   optional = false, engine_choice = true },
+    # Core managers
+    { id = "managers",           catalog = "../apps/managers/catalog.toml",                   optional = false },
+    # Core apps
+    { id = "store",              catalog = "../apps/store/catalog.toml",                      optional = false },
+    { id = "lenses",             catalog = "../apps/lenses/catalog.toml",                     optional = false },
+    { id = "browser",            catalog = "../apps/browser/catalog.toml",                    optional = true  },
+    { id = "tasks",              catalog = "../apps/tasks/catalog.toml",                      optional = false },
+    { id = "ai",                 catalog = "../apps/ai/catalog.toml",                         optional = true  },
+    # Developer-specific services
+    { id = "forgejo",            catalog = "../containers/forgejo/catalog.toml",               optional = false },
+    { id = "db-engine-postgres", catalog = "../adapters/fs-db-engine-postgres/catalog.toml",  optional = true  },
+    # Routing
+    { id = "zentinel",           catalog = "zentinel/catalog.toml",                           optional = true  },
+    { id = "zentinel-plane",     catalog = "zentinel-plane/catalog.toml",                     optional = true  },
+]

@@ -33,10 +33,6 @@ macos-x86_64   = "https://github.com/FreeSynergy/fs-registry/releases/download/v
 macos-aarch64  = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-aarch64-macos.tar.gz"
 windows-x86_64 = "https://github.com/FreeSynergy/fs-registry/releases/download/v{version}/fs-registry-x86_64-windows.zip"
 
-[app]
-data_dir   = "{data_root}/registry"
-config_dir = "{config_root}/registry"
-
 [[binaries]]
 name   = "fs-registry"
 binary = "fs-registry"
@@ -44,3 +40,26 @@ binary = "fs-registry"
 [provides]
 bus_messages = ["registry::services", "registry::capabilities", "registry::roles"]
 capabilities = []
+
+[storage]
+global = "/var/lib/freesynergy/registry"
+config = "/etc/freesynergy/registry"
+
+[install_targets]
+container = false
+rpm       = true
+deb       = true
+flatpak   = false
+
+[[api.grpc]]
+service     = "FreeSynergy.Registry"
+proto       = "registry.proto"
+port        = 50052
+description = "Registry gRPC — register/query service capabilities"
+
+[[api.rest]]
+base        = "/api/v1/registry"
+port        = 8081
+proto       = "http"
+description = "Registry REST API"
+spec        = "/api/v1/registry/openapi.json"

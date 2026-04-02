@@ -33,6 +33,32 @@ capabilities = ["iam.oidc-provider"]
 [optional-dependencies]
 s3 = ">=1"
 
+[adapter]
+id   = "fs-channel-matrix"
+repo = "FreeSynergy/fs-channel-matrix"
+
+[storage]
+global = "/var/lib/freesynergy/tuwunel"
+config = "/etc/freesynergy/tuwunel"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/_matrix"
+port        = 8448
+proto       = "https"
+description = "Matrix Client-Server API (CS-API r0/v3)"
+
+[[api.rest]]
+base        = "/_matrix/federation"
+port        = 8448
+proto       = "https"
+description = "Matrix Server-Server Federation API"
+
 [contract]
 upstream_tls = false
 

@@ -14,5 +14,11 @@ license     = "MIT"
 [provides]
 capabilities = ["channel.telegram"]
 
+[requires]
+capabilities = ["config.bot-token"]
+
+[install_targets]
+artifact = true
+
 [sources]
 repo = "https://github.com/FreeSynergy/fs-channel-telegram"

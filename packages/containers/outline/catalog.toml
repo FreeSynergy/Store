@@ -26,11 +26,30 @@ capabilities = ["iam.oidc-provider", "database.postgres"]
 [optional-dependencies]
 dragonfly = ">=1.0"
 
+[storage]
+global = "/var/lib/freesynergy/outline"
+config = "/etc/freesynergy/outline"
+cache  = "/var/cache/freesynergy/outline"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api"
+port        = 3000
+proto       = "http"
+description = "Outline REST API"
+spec        = "/api.json"
+
 [contract]
 upstream_tls = false
 
 [[contract.routes]]
-id   = "main"
-path = "/"
-strip = false
+id          = "main"
+path        = "/"
+strip       = false
 description = "Outline web UI and API"
+port        = 3000

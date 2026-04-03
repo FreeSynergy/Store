@@ -30,6 +30,10 @@ capabilities = ["mail.smtp", "mail.imap", "mail.jmap"]
 [requires]
 capabilities = ["iam.oidc-provider"]
 
+[adapter]
+id   = "fs-mail"
+repo = "FreeSynergy/fs-mail"
+
 [optional-dependencies]
 s3 = ">=1"
 
@@ -86,3 +90,17 @@ path        = "/"
 proto       = "tcp"
 port        = 993
 description = "IMAP over TLS"
+
+[[contract.routes]]
+id          = "jmap"
+path        = "/.well-known/jmap"
+proto       = "http"
+port        = 8080
+description = "JMAP session endpoint (used by Bulwark Mail)"
+
+[[contract.routes]]
+id          = "web-admin"
+path        = "/admin"
+proto       = "http"
+port        = 8080
+description = "Stalwart web admin UI"

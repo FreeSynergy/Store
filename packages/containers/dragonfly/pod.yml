@@ -1,0 +1,61 @@
+# DragonflyDB Pod — High-Performance In-Memory Store
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   dragonfly            — Redis/Memcached-compatible in-memory store
+#   fs-container-adapter — sidecar; registers cache capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dragonfly
+  labels:
+    app: freesynergy
+    package: dragonfly
+spec:
+  restartPolicy: Always
+  containers:
+    - name: dragonfly
+      image: docker.io/docker.dragonflydb.io/dragonfly:${DRAGONFLY_VERSION}
+      ports:
+        - containerPort: 6379
+          hostPort: 6379
+          protocol: TCP
+          name: redis
+      env:
+        - name: DFLY_requirepass
+          value: "${DRAGONFLY_PASSWORD}"
+        - name: DFLY_maxmemory
+          value: "${DRAGONFLY_MAX_MEMORY}"
+      volumeMounts:
+        - name: dragonfly-data
+          mountPath: /data
+      readinessProbe:
+        exec:
+          command: ["redis-cli", "-a", "$(DRAGONFLY_PASSWORD)", "ping"]
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "dragonfly"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "redis-compatible,cache,in-memory-store"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: dragonfly-data
+      hostPath:
+        path: /var/lib/freesynergy/dragonfly
+        type: DirectoryOrCreate

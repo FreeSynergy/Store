@@ -1,0 +1,70 @@
+# Mistral.rs Pod — Local LLM Inference
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   mistral              — LLM inference engine (fork: FreeSynergy/mistral.rs)
+#   fs-container-adapter — sidecar; registers llm.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mistral
+  labels:
+    app: freesynergy
+    package: mistral
+spec:
+  restartPolicy: Always
+  containers:
+    - name: mistral
+      image: ghcr.io/freesynergy/mistral-rs:${MISTRAL_VERSION}
+      ports:
+        - containerPort: 1234
+          protocol: TCP
+          name: api
+      env:
+        - name: MISTRAL_MODEL_PATH
+          value: "${MISTRAL_MODEL_PATH}"
+        - name: MISTRAL_MODEL_ID
+          value: "${MISTRAL_MODEL_ID}"
+        - name: MISTRAL_NUM_THREADS
+          value: "${MISTRAL_NUM_THREADS}"
+        - name: MISTRAL_CONTEXT_LENGTH
+          value: "${MISTRAL_CONTEXT_LENGTH}"
+        - name: MISTRAL_LOG_LEVEL
+          value: "${MISTRAL_LOG_LEVEL}"
+      volumeMounts:
+        - name: mistral-models
+          mountPath: /models
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /v1/models
+          port: 1234
+        initialDelaySeconds: 30
+        periodSeconds: 20
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "mistral"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "llm.inference,llm.openai-api"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:1234/v1/models"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: mistral-models
+      hostPath:
+        path: /var/lib/freesynergy/mistral/models
+        type: DirectoryOrCreate

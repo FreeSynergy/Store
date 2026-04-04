@@ -1,0 +1,67 @@
+# uMap Pod — Self-Hosted Map Editor
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   umap                 — OpenStreetMap-based map editor
+#   fs-container-adapter — sidecar; registers map-editor capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: umap
+  labels:
+    app: freesynergy
+    package: umap
+spec:
+  restartPolicy: Always
+  containers:
+    - name: umap
+      image: docker.io/umap/umap:${UMAP_VERSION}
+      ports:
+        - containerPort: 8000
+          protocol: TCP
+          name: http
+      env:
+        - name: UMAP_SECRET_KEY
+          value: "${UMAP_SECRET_KEY}"
+        - name: UMAP_SITE_URL
+          value: "https://${UMAP_DOMAIN}"
+        - name: DATABASE_URL
+          value: "postgis://${UMAP_DB_USER}:${UMAP_DB_PASSWORD}@${UMAP_DB_HOST}:5432/${UMAP_DB_NAME}"
+        - name: UMAP_ALLOW_ANONYMOUS
+          value: "${UMAP_ALLOW_ANONYMOUS}"
+      volumeMounts:
+        - name: umap-data
+          mountPath: /srv/umap
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 8000
+        initialDelaySeconds: 15
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "umap"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "map-editor,geospatial"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:8000/"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: umap-data
+      hostPath:
+        path: /var/lib/freesynergy/umap
+        type: DirectoryOrCreate

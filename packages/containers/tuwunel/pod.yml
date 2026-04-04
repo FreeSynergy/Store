@@ -1,0 +1,87 @@
+# Tuwunel Pod — Matrix Homeserver
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   tuwunel           — Matrix homeserver (fork: FreeSynergy/tuwunel)
+#   fs-channel-matrix — adapter sidecar; registers matrix.* capabilities in fs-registry
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tuwunel
+  labels:
+    app: freesynergy
+    package: tuwunel
+spec:
+  restartPolicy: Always
+  containers:
+    - name: tuwunel
+      image: ghcr.io/freesynergy/tuwunel:${TUWUNEL_VERSION}
+      ports:
+        - containerPort: 8448
+          hostPort: 8448
+          protocol: TCP
+          name: matrix
+        - containerPort: 6167
+          hostPort: 6167
+          protocol: UDP
+          name: turn
+      env:
+        - name: TUWUNEL_SERVER_NAME
+          value: "${TUWUNEL_SERVER_NAME}"
+        - name: TUWUNEL_DATABASE_PATH
+          value: "/var/lib/tuwunel/db"
+        - name: TUWUNEL_OIDC_ISSUER
+          value: "${TUWUNEL_OIDC_ISSUER}"
+        - name: TUWUNEL_OIDC_CLIENT_ID
+          value: "${TUWUNEL_OIDC_CLIENT_ID}"
+        - name: TUWUNEL_OIDC_CLIENT_SECRET
+          value: "${TUWUNEL_OIDC_CLIENT_SECRET}"
+        - name: TUWUNEL_S3_ENDPOINT
+          value: "${TUWUNEL_S3_ENDPOINT}"
+        - name: TUWUNEL_S3_BUCKET
+          value: "${TUWUNEL_S3_BUCKET}"
+        - name: TUWUNEL_S3_ACCESS_KEY
+          value: "${TUWUNEL_S3_ACCESS_KEY}"
+        - name: TUWUNEL_S3_SECRET_KEY
+          value: "${TUWUNEL_S3_SECRET_KEY}"
+      volumeMounts:
+        - name: tuwunel-data
+          mountPath: /var/lib/tuwunel
+        - name: tuwunel-config
+          mountPath: /etc/tuwunel
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /_matrix/client/versions
+          port: 8448
+        initialDelaySeconds: 10
+        periodSeconds: 15
+
+    - name: fs-channel-matrix
+      image: ghcr.io/freesynergy/fs-channel-matrix:${FS_CHANNEL_MATRIX_VERSION}
+      env:
+        - name: FS_MATRIX_HOMESERVER_URL
+          value: "http://localhost:8448"
+        - name: FS_MATRIX_SERVER_NAME
+          value: "${TUWUNEL_SERVER_NAME}"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: tuwunel-data
+      hostPath:
+        path: /var/lib/freesynergy/tuwunel
+        type: DirectoryOrCreate
+    - name: tuwunel-config
+      hostPath:
+        path: /etc/freesynergy/tuwunel
+        type: DirectoryOrCreate

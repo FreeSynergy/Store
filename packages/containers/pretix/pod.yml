@@ -1,0 +1,83 @@
+# pretix Pod — Event Ticketing Platform
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   pretix               — event ticketing and registration platform
+#   fs-container-adapter — sidecar; registers event-ticketing capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pretix
+  labels:
+    app: freesynergy
+    package: pretix
+spec:
+  restartPolicy: Always
+  containers:
+    - name: pretix
+      image: docker.io/pretix/standalone:${PRETIX_VERSION}
+      ports:
+        - containerPort: 80
+          protocol: TCP
+          name: http
+      env:
+        - name: PRETIX_SITE_URL
+          value: "https://${PRETIX_DOMAIN}"
+        - name: PRETIX_DJANGO_SECRET
+          value: "${PRETIX_SECRET_KEY}"
+        - name: PRETIX_DB_ENGINE
+          value: "postgresql"
+        - name: PRETIX_DB_NAME
+          value: "${PRETIX_DB_NAME}"
+        - name: PRETIX_DB_USER
+          value: "${PRETIX_DB_USER}"
+        - name: PRETIX_DB_PASSWORD
+          value: "${PRETIX_DB_PASSWORD}"
+        - name: PRETIX_DB_HOST
+          value: "${PRETIX_DB_HOST}"
+        - name: PRETIX_MAIL_HOST
+          value: "${PRETIX_SMTP_HOST}"
+        - name: PRETIX_MAIL_PORT
+          value: "${PRETIX_SMTP_PORT}"
+        - name: PRETIX_MAIL_USER
+          value: "${PRETIX_SMTP_USER}"
+        - name: PRETIX_MAIL_PASSWORD
+          value: "${PRETIX_SMTP_PASSWORD}"
+        - name: PRETIX_MAIL_FROM
+          value: "${PRETIX_MAIL_FROM}"
+      volumeMounts:
+        - name: pretix-data
+          mountPath: /var/pretix/data
+      readinessProbe:
+        httpGet:
+          path: /healthcheck
+          port: 80
+        initialDelaySeconds: 30
+        periodSeconds: 20
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "pretix"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "event-ticketing,online-shop"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:80/healthcheck"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: pretix-data
+      hostPath:
+        path: /var/lib/freesynergy/pretix
+        type: DirectoryOrCreate

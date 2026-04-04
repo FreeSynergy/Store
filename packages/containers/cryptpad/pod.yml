@@ -1,0 +1,83 @@
+# CryptPad Pod — Encrypted Collaborative Office Suite
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   cryptpad             — E2E-encrypted collaborative office suite
+#   fs-container-adapter — sidecar; registers office-suite capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cryptpad
+  labels:
+    app: freesynergy
+    package: cryptpad
+spec:
+  restartPolicy: Always
+  containers:
+    - name: cryptpad
+      image: docker.io/cryptpad/cryptpad:${CRYPTPAD_VERSION}
+      ports:
+        - containerPort: 3000
+          protocol: TCP
+          name: http
+        - containerPort: 3001
+          protocol: TCP
+          name: sandbox
+      env:
+        - name: CPAD_MAIN_DOMAIN
+          value: "${CRYPTPAD_DOMAIN}"
+        - name: CPAD_SANDBOX_DOMAIN
+          value: "${CRYPTPAD_SANDBOX_DOMAIN}"
+        - name: CPAD_ADMIN_KEYS
+          value: "${CRYPTPAD_ADMIN_KEYS}"
+        - name: CPAD_HTTP_UNSAFE_ORIGIN
+          value: "${CRYPTPAD_HTTPS_ORIGIN}"
+        - name: CPAD_OIDC_ISSUER
+          value: "${CRYPTPAD_OIDC_ISSUER}"
+        - name: CPAD_OIDC_CLIENT_ID
+          value: "${CRYPTPAD_OIDC_CLIENT_ID}"
+        - name: CPAD_OIDC_CLIENT_SECRET
+          value: "${CRYPTPAD_OIDC_CLIENT_SECRET}"
+      volumeMounts:
+        - name: cryptpad-data
+          mountPath: /cryptpad/data
+        - name: cryptpad-config
+          mountPath: /cryptpad/config
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /api/config
+          port: 3000
+        initialDelaySeconds: 15
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "cryptpad"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "office-suite,document-collaboration,encrypted-storage"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3000/api/config"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: cryptpad-data
+      hostPath:
+        path: /var/lib/freesynergy/cryptpad
+        type: DirectoryOrCreate
+    - name: cryptpad-config
+      hostPath:
+        path: /etc/freesynergy/cryptpad
+        type: DirectoryOrCreate

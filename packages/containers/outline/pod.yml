@@ -1,0 +1,102 @@
+# Outline Pod — Collaborative Wiki
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   outline              — wiki and knowledge base
+#   fs-container-adapter — sidecar; registers wiki.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: outline
+  labels:
+    app: freesynergy
+    package: outline
+spec:
+  restartPolicy: Always
+  containers:
+    - name: outline
+      image: docker.io/outlinewiki/outline:${OUTLINE_VERSION}
+      ports:
+        - containerPort: 3000
+          protocol: TCP
+          name: http
+      env:
+        - name: NODE_ENV
+          value: "production"
+        - name: SECRET_KEY
+          value: "${OUTLINE_SECRET_KEY}"
+        - name: UTILS_SECRET
+          value: "${OUTLINE_UTILS_SECRET}"
+        - name: DATABASE_URL
+          value: "postgres://${OUTLINE_DB_USER}:${OUTLINE_DB_PASSWORD}@${OUTLINE_DB_HOST}:5432/${OUTLINE_DB_NAME}"
+        - name: REDIS_URL
+          value: "${OUTLINE_REDIS_URL}"
+        - name: URL
+          value: "https://${OUTLINE_DOMAIN}"
+        - name: PORT
+          value: "3000"
+        - name: OIDC_CLIENT_ID
+          value: "${OUTLINE_OIDC_CLIENT_ID}"
+        - name: OIDC_CLIENT_SECRET
+          value: "${OUTLINE_OIDC_CLIENT_SECRET}"
+        - name: OIDC_AUTH_URI
+          value: "${OUTLINE_OIDC_AUTH_URI}"
+        - name: OIDC_TOKEN_URI
+          value: "${OUTLINE_OIDC_TOKEN_URI}"
+        - name: OIDC_USERINFO_URI
+          value: "${OUTLINE_OIDC_USERINFO_URI}"
+        - name: OIDC_DISPLAY_NAME
+          value: "FreeSynergy"
+        - name: FILE_STORAGE
+          value: "${OUTLINE_FILE_STORAGE}"
+        - name: AWS_S3_UPLOAD_BUCKET_URL
+          value: "${OUTLINE_S3_BUCKET_URL}"
+        - name: AWS_S3_UPLOAD_BUCKET_NAME
+          value: "${OUTLINE_S3_BUCKET_NAME}"
+        - name: AWS_ACCESS_KEY_ID
+          value: "${OUTLINE_S3_ACCESS_KEY}"
+        - name: AWS_SECRET_ACCESS_KEY
+          value: "${OUTLINE_S3_SECRET_KEY}"
+      volumeMounts:
+        - name: outline-data
+          mountPath: /var/lib/outline/data
+        - name: outline-config
+          mountPath: /etc/outline
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /_health
+          port: 3000
+        initialDelaySeconds: 20
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "outline"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "wiki,wiki.create-page,wiki.search,wiki.api"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3000/_health"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: outline-data
+      hostPath:
+        path: /var/lib/freesynergy/outline
+        type: DirectoryOrCreate
+    - name: outline-config
+      hostPath:
+        path: /etc/freesynergy/outline
+        type: DirectoryOrCreate

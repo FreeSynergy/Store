@@ -1,0 +1,99 @@
+# Stalwart Mail Pod — SMTP + IMAP + JMAP
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   stalwart      — mail server (fork: FreeSynergy/stalwart)
+#   fs-mail       — adapter sidecar; registers mail.* capabilities in fs-registry
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stalwart
+  labels:
+    app: freesynergy
+    package: stalwart
+spec:
+  restartPolicy: Always
+  containers:
+    - name: stalwart
+      image: ghcr.io/freesynergy/stalwart:${STALWART_VERSION}
+      ports:
+        - containerPort: 25
+          hostPort: 25
+          protocol: TCP
+          name: smtp
+        - containerPort: 465
+          hostPort: 465
+          protocol: TCP
+          name: smtps
+        - containerPort: 587
+          hostPort: 587
+          protocol: TCP
+          name: submission
+        - containerPort: 143
+          hostPort: 143
+          protocol: TCP
+          name: imap
+        - containerPort: 993
+          hostPort: 993
+          protocol: TCP
+          name: imaps
+        - containerPort: 8080
+          hostPort: 8080
+          protocol: TCP
+          name: http
+      env:
+        - name: STALWART_DOMAIN
+          value: "${STALWART_DOMAIN}"
+        - name: STALWART_OIDC_URL
+          value: "${STALWART_OIDC_URL}"
+        - name: STALWART_OIDC_CLIENT_ID
+          value: "${STALWART_OIDC_CLIENT_ID}"
+        - name: STALWART_OIDC_CLIENT_SECRET
+          value: "${STALWART_OIDC_CLIENT_SECRET}"
+        - name: STALWART_S3_ENDPOINT
+          value: "${STALWART_S3_ENDPOINT}"
+        - name: STALWART_S3_BUCKET
+          value: "${STALWART_S3_BUCKET}"
+        - name: STALWART_S3_ACCESS_KEY
+          value: "${STALWART_S3_ACCESS_KEY}"
+        - name: STALWART_S3_SECRET_KEY
+          value: "${STALWART_S3_SECRET_KEY}"
+      volumeMounts:
+        - name: stalwart-data
+          mountPath: /var/lib/stalwart-mail
+        - name: stalwart-config
+          mountPath: /etc/stalwart
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /healthz
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 15
+
+    - name: fs-mail
+      image: ghcr.io/freesynergy/fs-mail:${FS_MAIL_VERSION}
+      env:
+        - name: FS_MAIL_STALWART_URL
+          value: "http://localhost:8080"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: stalwart-data
+      hostPath:
+        path: /var/lib/freesynergy/stalwart
+        type: DirectoryOrCreate
+    - name: stalwart-config
+      hostPath:
+        path: /etc/freesynergy/stalwart
+        type: DirectoryOrCreate

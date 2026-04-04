@@ -1,0 +1,76 @@
+# OpenObserve Pod — Observability Platform
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   openobserver         — logs, metrics, traces, dashboards
+#   fs-container-adapter — sidecar; registers observability capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: openobserver
+  labels:
+    app: freesynergy
+    package: openobserver
+spec:
+  restartPolicy: Always
+  containers:
+    - name: openobserver
+      image: public.ecr.aws/zinclabs/openobserve:${OPENOBSERVER_VERSION}
+      ports:
+        - containerPort: 5080
+          protocol: TCP
+          name: http
+        - containerPort: 5081
+          protocol: TCP
+          name: grpc-ingest
+      env:
+        - name: ZO_ROOT_USER_EMAIL
+          value: "${OPENOBSERVER_ADMIN_EMAIL}"
+        - name: ZO_ROOT_USER_PASSWORD
+          value: "${OPENOBSERVER_ADMIN_PASSWORD}"
+        - name: ZO_DATA_DIR
+          value: "/data"
+        - name: ZO_S3_SERVER_URL
+          value: "${OPENOBSERVER_S3_URL}"
+        - name: ZO_S3_ACCESS_KEY
+          value: "${OPENOBSERVER_S3_ACCESS_KEY}"
+        - name: ZO_S3_SECRET_KEY
+          value: "${OPENOBSERVER_S3_SECRET_KEY}"
+        - name: ZO_S3_BUCKET_NAME
+          value: "${OPENOBSERVER_S3_BUCKET}"
+      volumeMounts:
+        - name: openobserver-data
+          mountPath: /data
+      readinessProbe:
+        httpGet:
+          path: /healthz
+          port: 5080
+        initialDelaySeconds: 15
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "openobserver"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "observability,log-aggregation,metrics-store,trace-store,dashboards"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:5080/healthz"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: openobserver-data
+      hostPath:
+        path: /var/lib/freesynergy/openobserver
+        type: DirectoryOrCreate

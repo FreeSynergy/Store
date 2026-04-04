@@ -1,0 +1,71 @@
+# Zentinel Control Plane Pod
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   zentinel-plane       — centralized route + TLS management (fork: FreeSynergy/zentinel-control-plane)
+#   fs-container-adapter — sidecar; registers proxy.control-plane capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zentinel-plane
+  labels:
+    app: freesynergy
+    package: zentinel-plane
+spec:
+  restartPolicy: Always
+  containers:
+    - name: zentinel-plane
+      image: ghcr.io/freesynergy/zentinel-control-plane:${ZENTINEL_PLANE_VERSION}
+      ports:
+        - containerPort: 9090
+          hostPort: 9090
+          protocol: TCP
+          name: api
+      env:
+        - name: ZENTINEL_PLANE_SECRET
+          value: "${ZENTINEL_PLANE_SECRET}"
+        - name: ZENTINEL_PLANE_LOG_LEVEL
+          value: "${ZENTINEL_PLANE_LOG_LEVEL}"
+      volumeMounts:
+        - name: zentinel-plane-data
+          mountPath: /var/lib/zentinel-plane
+        - name: zentinel-plane-config
+          mountPath: /etc/zentinel-plane
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /api/health
+          port: 9090
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "zentinel-plane"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "proxy.control-plane"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:9090/api/health"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: zentinel-plane-data
+      hostPath:
+        path: /var/lib/freesynergy/zentinel-plane
+        type: DirectoryOrCreate
+    - name: zentinel-plane-config
+      hostPath:
+        path: /etc/freesynergy/zentinel-plane
+        type: DirectoryOrCreate

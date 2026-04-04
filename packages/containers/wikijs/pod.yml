@@ -1,0 +1,102 @@
+# Wiki.js Pod — Modern Wiki Platform
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   wikijs               — wiki platform (implements WikiProvider — interchangeable with Outline)
+#   fs-container-adapter — sidecar; registers wiki.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wikijs
+  labels:
+    app: freesynergy
+    package: wikijs
+spec:
+  restartPolicy: Always
+  containers:
+    - name: wikijs
+      image: ghcr.io/requarks/wiki:${WIKIJS_VERSION}
+      ports:
+        - containerPort: 3000
+          protocol: TCP
+          name: http
+      env:
+        - name: DB_TYPE
+          value: "postgres"
+        - name: DB_HOST
+          value: "${WIKIJS_DB_HOST}"
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_NAME
+          value: "${WIKIJS_DB_NAME}"
+        - name: DB_USER
+          value: "${WIKIJS_DB_USER}"
+        - name: DB_PASS
+          value: "${WIKIJS_DB_PASSWORD}"
+        - name: WIKI_ADMIN_EMAIL
+          value: "${WIKIJS_ADMIN_EMAIL}"
+        - name: WIKI_SECRET
+          value: "${WIKIJS_SECRET}"
+        - name: OIDC_CLIENT_ID
+          value: "${WIKIJS_OIDC_CLIENT_ID}"
+        - name: OIDC_CLIENT_SECRET
+          value: "${WIKIJS_OIDC_CLIENT_SECRET}"
+        - name: OIDC_ISSUER
+          value: "${WIKIJS_OIDC_ISSUER}"
+        - name: S3_ENDPOINT
+          value: "${WIKIJS_S3_ENDPOINT}"
+        - name: S3_BUCKET
+          value: "${WIKIJS_S3_BUCKET}"
+        - name: S3_ACCESS_KEY_ID
+          value: "${WIKIJS_S3_ACCESS_KEY}"
+        - name: S3_SECRET_ACCESS_KEY
+          value: "${WIKIJS_S3_SECRET_KEY}"
+      volumeMounts:
+        - name: wikijs-data
+          mountPath: /wiki/data
+        - name: wikijs-config
+          mountPath: /wiki/config
+          readOnly: true
+        - name: wikijs-cache
+          mountPath: /wiki/cache
+      readinessProbe:
+        httpGet:
+          path: /healthz
+          port: 3000
+        initialDelaySeconds: 20
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "wikijs"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "wiki.provider,wiki.search"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3000/healthz"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: wikijs-data
+      hostPath:
+        path: /var/lib/freesynergy/wikijs
+        type: DirectoryOrCreate
+    - name: wikijs-config
+      hostPath:
+        path: /etc/freesynergy/wikijs
+        type: DirectoryOrCreate
+    - name: wikijs-cache
+      hostPath:
+        path: /var/cache/freesynergy/wikijs
+        type: DirectoryOrCreate

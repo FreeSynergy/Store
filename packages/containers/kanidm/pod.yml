@@ -1,0 +1,76 @@
+# Kanidm Pod — Identity and Access Management
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   kanidm        — main IAM service (fork: FreeSynergy/kanidm)
+#   fs-auth       — adapter sidecar; registers iam.* capabilities in fs-registry
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kanidm
+  labels:
+    app: freesynergy
+    package: kanidm
+spec:
+  restartPolicy: Always
+  containers:
+    - name: kanidm
+      image: ghcr.io/freesynergy/kanidm:${KANIDM_VERSION}
+      ports:
+        - containerPort: 8443
+          hostPort: 8443
+          protocol: TCP
+          name: https
+        - containerPort: 3636
+          hostPort: 3636
+          protocol: TCP
+          name: ldaps
+      env:
+        - name: KANIDM_DOMAIN
+          value: "${KANIDM_DOMAIN}"
+        - name: KANIDM_HTTPS_PORT
+          value: "${KANIDM_HTTPS_PORT}"
+        - name: KANIDM_LDAP_PORT
+          value: "${KANIDM_LDAP_PORT}"
+        - name: KANIDM_LOG_LEVEL
+          value: "${KANIDM_LOG_LEVEL}"
+      volumeMounts:
+        - name: kanidm-data
+          mountPath: /var/lib/kanidm
+        - name: kanidm-config
+          mountPath: /etc/kanidm
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /status
+          port: 8443
+          scheme: HTTPS
+        initialDelaySeconds: 10
+        periodSeconds: 15
+
+    - name: fs-auth
+      image: ghcr.io/freesynergy/fs-auth:${FS_AUTH_VERSION}
+      env:
+        - name: FS_AUTH_KANIDM_URL
+          value: "https://localhost:8443"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: kanidm-data
+      hostPath:
+        path: /var/lib/freesynergy/kanidm
+        type: DirectoryOrCreate
+    - name: kanidm-config
+      hostPath:
+        path: /etc/freesynergy/kanidm
+        type: DirectoryOrCreate

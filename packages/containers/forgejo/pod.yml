@@ -1,0 +1,95 @@
+# Forgejo Pod — Self-hosted Git Service
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   forgejo              — Git forge (Gitea fork maintained by Forgejo project)
+#   fs-container-adapter — sidecar; registers git.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: forgejo
+  labels:
+    app: freesynergy
+    package: forgejo
+spec:
+  restartPolicy: Always
+  containers:
+    - name: forgejo
+      image: codeberg.org/forgejo/forgejo:${FORGEJO_VERSION}
+      ports:
+        - containerPort: 3000
+          hostPort: 3000
+          protocol: TCP
+          name: http
+        - containerPort: 22
+          hostPort: 2222
+          protocol: TCP
+          name: ssh
+      env:
+        - name: FORGEJO__server__DOMAIN
+          value: "${FORGEJO_DOMAIN}"
+        - name: FORGEJO__server__ROOT_URL
+          value: "https://${FORGEJO_DOMAIN}/"
+        - name: FORGEJO__server__SSH_DOMAIN
+          value: "${FORGEJO_DOMAIN}"
+        - name: FORGEJO__database__DB_TYPE
+          value: "postgres"
+        - name: FORGEJO__database__HOST
+          value: "${FORGEJO_DB_HOST}"
+        - name: FORGEJO__database__NAME
+          value: "${FORGEJO_DB_NAME}"
+        - name: FORGEJO__database__USER
+          value: "${FORGEJO_DB_USER}"
+        - name: FORGEJO__database__PASSWD
+          value: "${FORGEJO_DB_PASSWORD}"
+        - name: FORGEJO__oauth2_client__ENABLE_AUTO_REGISTRATION
+          value: "true"
+        - name: FORGEJO__oauth2_client__OPENID_CONNECT_SCOPES
+          value: "openid email profile groups"
+        - name: FORGEJO__security__SECRET_KEY
+          value: "${FORGEJO_SECRET_KEY}"
+        - name: FORGEJO__security__INTERNAL_TOKEN
+          value: "${FORGEJO_INTERNAL_TOKEN}"
+      volumeMounts:
+        - name: forgejo-data
+          mountPath: /var/lib/gitea
+        - name: forgejo-config
+          mountPath: /etc/gitea
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /api/healthz
+          port: 3000
+        initialDelaySeconds: 15
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "forgejo"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "git-hosting,git.api,cicd"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3000/api/healthz"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: forgejo-data
+      hostPath:
+        path: /var/lib/freesynergy/forgejo
+        type: DirectoryOrCreate
+    - name: forgejo-config
+      hostPath:
+        path: /etc/freesynergy/forgejo
+        type: DirectoryOrCreate

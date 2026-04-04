@@ -1,0 +1,93 @@
+# Vikunja Pod — Self-Hosted Project Management
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   vikunja              — tasks, kanban, Gantt, teams
+#   fs-container-adapter — sidecar; registers project-management capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vikunja
+  labels:
+    app: freesynergy
+    package: vikunja
+spec:
+  restartPolicy: Always
+  containers:
+    - name: vikunja
+      image: docker.io/vikunja/vikunja:${VIKUNJA_VERSION}
+      ports:
+        - containerPort: 3456
+          protocol: TCP
+          name: http
+      env:
+        - name: VIKUNJA_SERVICE_PUBLICURL
+          value: "https://${VIKUNJA_DOMAIN}"
+        - name: VIKUNJA_SERVICE_JWTSECRET
+          value: "${VIKUNJA_JWT_SECRET}"
+        - name: VIKUNJA_DATABASE_TYPE
+          value: "postgres"
+        - name: VIKUNJA_DATABASE_HOST
+          value: "${VIKUNJA_DB_HOST}"
+        - name: VIKUNJA_DATABASE_DATABASE
+          value: "${VIKUNJA_DB_NAME}"
+        - name: VIKUNJA_DATABASE_USER
+          value: "${VIKUNJA_DB_USER}"
+        - name: VIKUNJA_DATABASE_PASSWORD
+          value: "${VIKUNJA_DB_PASSWORD}"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_ENABLED
+          value: "true"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_REDIRECTURL
+          value: "https://${VIKUNJA_DOMAIN}/auth/openid/kanidm"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_PROVIDERS_0_NAME
+          value: "kanidm"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_PROVIDERS_0_AUTHURL
+          value: "${VIKUNJA_OIDC_ISSUER}"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_PROVIDERS_0_CLIENTID
+          value: "${VIKUNJA_OIDC_CLIENT_ID}"
+        - name: VIKUNJA_AUTH_OPENIDCONNECT_PROVIDERS_0_CLIENTSECRET
+          value: "${VIKUNJA_OIDC_CLIENT_SECRET}"
+        - name: VIKUNJA_MAILER_HOST
+          value: "${VIKUNJA_SMTP_HOST}"
+        - name: VIKUNJA_MAILER_PORT
+          value: "${VIKUNJA_SMTP_PORT}"
+        - name: VIKUNJA_MAILER_USERNAME
+          value: "${VIKUNJA_SMTP_USER}"
+        - name: VIKUNJA_MAILER_PASSWORD
+          value: "${VIKUNJA_SMTP_PASSWORD}"
+      volumeMounts:
+        - name: vikunja-files
+          mountPath: /app/vikunja/files
+      readinessProbe:
+        httpGet:
+          path: /api/v1/info
+          port: 3456
+        initialDelaySeconds: 15
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "vikunja"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "project-management,task-tracking"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3456/api/v1/info"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: vikunja-files
+      hostPath:
+        path: /var/lib/freesynergy/vikunja
+        type: DirectoryOrCreate

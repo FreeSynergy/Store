@@ -1,0 +1,76 @@
+# Bulwark Mail Pod — Webmail Frontend
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   bulwark              — JMAP webmail frontend for Stalwart
+#   fs-container-adapter — sidecar; registers mail.webmail capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bulwark
+  labels:
+    app: freesynergy
+    package: bulwark
+spec:
+  restartPolicy: Always
+  containers:
+    - name: bulwark
+      image: ghcr.io/freesynergy/bulwark:${BULWARK_VERSION}
+      ports:
+        - containerPort: 3001
+          protocol: TCP
+          name: http
+      env:
+        - name: BULWARK_JMAP_URL
+          value: "${BULWARK_JMAP_URL}"
+        - name: BULWARK_OIDC_ISSUER
+          value: "${BULWARK_OIDC_ISSUER}"
+        - name: BULWARK_OIDC_CLIENT_ID
+          value: "${BULWARK_OIDC_CLIENT_ID}"
+        - name: BULWARK_OIDC_CLIENT_SECRET
+          value: "${BULWARK_OIDC_CLIENT_SECRET}"
+        - name: BULWARK_BASE_URL
+          value: "https://${BULWARK_DOMAIN}"
+      volumeMounts:
+        - name: bulwark-config
+          mountPath: /etc/bulwark
+          readOnly: true
+        - name: bulwark-cache
+          mountPath: /var/cache/bulwark
+      readinessProbe:
+        httpGet:
+          path: /api/health
+          port: 3001
+        initialDelaySeconds: 10
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "bulwark"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "mail.webmail"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:3001/api/health"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: bulwark-config
+      hostPath:
+        path: /etc/freesynergy/bulwark
+        type: DirectoryOrCreate
+    - name: bulwark-cache
+      hostPath:
+        path: /var/cache/freesynergy/bulwark
+        type: DirectoryOrCreate

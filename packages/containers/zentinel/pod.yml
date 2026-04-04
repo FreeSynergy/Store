@@ -1,0 +1,83 @@
+# Zentinel Pod — Reverse Proxy + Gateway
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   zentinel          — ingress proxy (fork: FreeSynergy/zentinel)
+#   fs-container-adapter — sidecar; registers proxy.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zentinel
+  labels:
+    app: freesynergy
+    package: zentinel
+spec:
+  restartPolicy: Always
+  containers:
+    - name: zentinel
+      image: ghcr.io/freesynergy/zentinel:${ZENTINEL_VERSION}
+      ports:
+        - containerPort: 8080
+          hostPort: 80
+          protocol: TCP
+          name: http
+        - containerPort: 8443
+          hostPort: 443
+          protocol: TCP
+          name: https
+        - containerPort: 9443
+          protocol: TCP
+          name: admin
+      env:
+        - name: ZENTINEL_CONTROL_PLANE_URL
+          value: "${ZENTINEL_CONTROL_PLANE_URL}"
+        - name: ZENTINEL_TLS_ACME_EMAIL
+          value: "${ZENTINEL_TLS_ACME_EMAIL}"
+        - name: ZENTINEL_TLS_ACME_DIRECTORY
+          value: "${ZENTINEL_TLS_ACME_DIRECTORY}"
+        - name: ZENTINEL_LOG_LEVEL
+          value: "${ZENTINEL_LOG_LEVEL}"
+      volumeMounts:
+        - name: zentinel-config
+          mountPath: /etc/zentinel
+          readOnly: true
+        - name: zentinel-cache
+          mountPath: /var/cache/zentinel
+      readinessProbe:
+        httpGet:
+          path: /_zentinel/health
+          port: 9443
+          scheme: HTTPS
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "zentinel"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "proxy.ingress,proxy.tls,proxy.gateway"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "https://localhost:9443/_zentinel/health"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: zentinel-config
+      hostPath:
+        path: /etc/freesynergy/zentinel
+        type: DirectoryOrCreate
+    - name: zentinel-cache
+      hostPath:
+        path: /var/cache/freesynergy/zentinel
+        type: DirectoryOrCreate

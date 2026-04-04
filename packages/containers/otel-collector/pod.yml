@@ -1,0 +1,75 @@
+# OpenTelemetry Collector Pod
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   otel-collector       — telemetry pipeline (receive → process → export)
+#   fs-container-adapter — sidecar; registers otel-collector capability in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: otel-collector
+  labels:
+    app: freesynergy
+    package: otel-collector
+spec:
+  restartPolicy: Always
+  containers:
+    - name: otel-collector
+      image: docker.io/otel/opentelemetry-collector-contrib:${OTEL_VERSION}
+      ports:
+        - containerPort: 4317
+          protocol: TCP
+          name: otlp-grpc
+        - containerPort: 4318
+          protocol: TCP
+          name: otlp-http
+        - containerPort: 8888
+          protocol: TCP
+          name: metrics
+        - containerPort: 13133
+          protocol: TCP
+          name: health
+      env:
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: "${OTEL_EXPORT_ENDPOINT}"
+        - name: OTEL_EXPORTER_BASIC_AUTH_USERNAME
+          value: "${OTEL_EXPORT_USERNAME}"
+        - name: OTEL_EXPORTER_BASIC_AUTH_PASSWORD
+          value: "${OTEL_EXPORT_PASSWORD}"
+      volumeMounts:
+        - name: otel-config
+          mountPath: /etc/otelcol-contrib
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 13133
+        initialDelaySeconds: 5
+        periodSeconds: 10
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "otel-collector"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "otel-collector,telemetry-pipeline"
+        - name: FS_ADAPTER_HEALTH_URL
+          value: "http://localhost:13133/"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: otel-config
+      hostPath:
+        path: /etc/freesynergy/otel-collector
+        type: DirectoryOrCreate

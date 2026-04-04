@@ -5,20 +5,51 @@ id          = "freeSynergy.channel-telegram"
 name        = "FreeSynergy Telegram Channel"
 type        = "adapter"
 version     = "0.1.0"
-summary     = "Telegram channel adapter — implements Channel-Trait via teloxide"
+summary     = "Telegram channel adapter — implements Channel-Trait via Telegram Bot API (teloxide)"
 icon        = "icon.svg"
-tags        = ["messaging", "telegram", "channel", "adapter"]
+tags        = ["messaging", "telegram", "channel", "adapter", "bot"]
 author      = "FreeSynergy.Net"
 license     = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-channel-telegram"
+publisher = "FreeSynergy"
 
 [provides]
 capabilities = ["channel.telegram"]
 
+# The bot token is NEVER stored in plain text.
+# Use env:FS_TELEGRAM_BOT_TOKEN or file:/run/secrets/tg_token.
 [requires]
-capabilities = ["config.bot-token"]
+capabilities = ["config.secret-ref"]
+
+[notes]
+bot_feature = "telegram"
+token_ref   = "env:FS_TELEGRAM_BOT_TOKEN (default) or file:<path>"
+external    = "Telegram runs externally — FreeSynergy installs only the adapter"
+setup       = "Run 'fs-telegram setup' after install to configure the bot token"
+
+[storage]
+config = "~/.config/freesynergy/telegram"
+
+[[api.grpc]]
+service     = "FreeSynergy.Channel.Telegram"
+proto       = "channel.proto"
+port        = 50072
+description = "Telegram Channel gRPC — send messages, health check"
+
+[[api.rest]]
+base        = "/api/v1/channel/telegram"
+port        = 8072
+proto       = "http"
+description = "Telegram Channel REST API"
+spec        = "/swagger-ui"
 
 [install_targets]
-artifact = true
+container = true
+rpm       = true
+deb       = true
+artifact  = true
 
 [sources]
 repo = "https://github.com/FreeSynergy/fs-channel-telegram"

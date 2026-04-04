@@ -28,14 +28,23 @@ fork_url   = "https://github.com/FreeSynergy/tuwunel"
 capabilities = ["matrix.homeserver", "chat.matrix"]
 
 [requires]
+# Kanidm OIDC is mandatory — all Matrix accounts are backed by FreeSynergy identities.
 capabilities = ["iam.oidc-provider"]
 
 [optional-dependencies]
 s3 = ">=1"
 
 [adapter]
-id   = "fs-channel-matrix"
-repo = "FreeSynergy/fs-channel-matrix"
+id      = "fs-channel-matrix"
+repo    = "FreeSynergy/fs-channel-matrix"
+manager = "fs-manager-matrix"
+
+[setup]
+wizard        = "TuwunelSetupWizard"
+wizard_repo   = "FreeSynergy/fs-managers"
+wizard_crate  = "fs-manager-matrix"
+iam_required  = true
+iam_note      = "Kanidm OIDC must be configured before starting Tuwunel. All Matrix accounts are Kanidm identities."
 
 [storage]
 global = "/var/lib/freesynergy/tuwunel"

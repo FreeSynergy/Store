@@ -64,6 +64,12 @@ spec:
           value: "${FS_INVENTORY_URL}"
         - name: FS_BUS_URL
           value: "${FS_BUS_URL}"
+        - name: FS_IAM_ISSUER
+          value: "${FS_IAM_ISSUER}"
+        - name: FS_IAM_CLIENT_ID
+          value: "${FS_IAM_CLIENT_ID}"
+        - name: FS_IAM_CLIENT_SECRET
+          value: "${FS_IAM_CLIENT_SECRET}"
       ports:
         - containerPort: 50051
           protocol: TCP

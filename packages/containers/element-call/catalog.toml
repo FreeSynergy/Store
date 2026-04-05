@@ -1,0 +1,71 @@
+# Element Call + coturn — WebRTC Voice/Video for Matrix
+
+[package]
+id               = "element-call"
+name             = "Element Call"
+type             = "container"
+version          = "0.9.0"
+summary          = "WebRTC voice/video calling for Matrix — Element Call + coturn TURN server"
+description      = "Element Call provides native voice and video calling for the Matrix protocol. This package bundles Element Call (the WebRTC frontend) together with coturn (the TURN/STUN relay server required for NAT traversal). Requires Tuwunel as the Matrix homeserver."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["voip", "video-call", "webrtc", "matrix", "turn", "stun", "coturn", "calling"]
+author           = "Element / FreeSynergy"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://call.element.io"
+git       = "https://github.com/element-hq/element-call"
+publisher = "Element"
+
+[provides]
+capabilities = ["voip.webrtc", "voip.turn", "matrix.calling"]
+
+[requires]
+capabilities = ["matrix.homeserver"]
+
+[storage]
+global = "/var/lib/freesynergy/element-call"
+config = "/etc/freesynergy/element-call"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/"
+port        = 8080
+proto       = "http"
+description = "Element Call web frontend"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "web"
+path        = "/"
+strip       = false
+description = "Element Call web UI"
+
+[[contract.routes]]
+id          = "turn-udp"
+path        = "/"
+proto       = "udp"
+port        = 3478
+description = "coturn STUN/TURN (UDP)"
+
+[[contract.routes]]
+id          = "turn-tcp"
+path        = "/"
+proto       = "tcp"
+port        = 3478
+description = "coturn STUN/TURN (TCP)"
+
+[[contract.routes]]
+id          = "turns"
+path        = "/"
+proto       = "tcp"
+port        = 5349
+description = "coturn TURN over TLS"

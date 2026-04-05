@@ -1,0 +1,99 @@
+# Vaultwarden Pod — Self-hosted Password Manager
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   vaultwarden          — Bitwarden-compatible password vault server
+#   fs-container-adapter — sidecar; registers password-manager capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vaultwarden
+  labels:
+    app: freesynergy
+    package: vaultwarden
+spec:
+  restartPolicy: Always
+  containers:
+    - name: vaultwarden
+      image: docker.io/vaultwarden/server:${VAULTWARDEN_VERSION}
+      ports:
+        - containerPort: 80
+          hostPort: 8222
+          protocol: TCP
+          name: http
+        - containerPort: 3012
+          hostPort: 3012
+          protocol: TCP
+          name: ws
+      env:
+        - name: DOMAIN
+          value: "https://${VAULTWARDEN_DOMAIN}"
+        - name: SIGNUPS_ALLOWED
+          value: "false"
+        - name: ADMIN_TOKEN
+          value: "${VAULTWARDEN_ADMIN_TOKEN}"
+        - name: WEBSOCKET_ENABLED
+          value: "true"
+        - name: WEBSOCKET_PORT
+          value: "3012"
+        - name: SSO_ENABLED
+          value: "true"
+        - name: SSO_ONLY
+          value: "true"
+        - name: SSO_AUTHORITY
+          value: "${VAULTWARDEN_OIDC_ISSUER}"
+        - name: SSO_CLIENT_ID
+          value: "${VAULTWARDEN_OIDC_CLIENT_ID}"
+        - name: SSO_CLIENT_SECRET
+          value: "${VAULTWARDEN_OIDC_CLIENT_SECRET}"
+        - name: DATABASE_URL
+          value: "${VAULTWARDEN_DATABASE_URL}"
+        - name: DATA_FOLDER
+          value: "/data"
+      volumeMounts:
+        - name: vaultwarden-data
+          mountPath: /data
+        - name: vaultwarden-config
+          mountPath: /etc/vaultwarden
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /alive
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "vaultwarden"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "password-manager,secrets.vault"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+        - name: FS_IAM_ISSUER
+          value: "${FS_IAM_ISSUER}"
+        - name: FS_IAM_CLIENT_ID
+          value: "${FS_IAM_CLIENT_ID}"
+        - name: FS_IAM_CLIENT_SECRET
+          value: "${FS_IAM_CLIENT_SECRET}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: vaultwarden-data
+      hostPath:
+        path: /var/lib/freesynergy/vaultwarden
+        type: DirectoryOrCreate
+    - name: vaultwarden-config
+      hostPath:
+        path: /etc/freesynergy/vaultwarden
+        type: DirectoryOrCreate

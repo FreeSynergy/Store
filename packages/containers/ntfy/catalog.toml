@@ -1,0 +1,54 @@
+# Ntfy — Self-hosted Push Notifications
+
+[package]
+id               = "ntfy"
+name             = "Ntfy"
+type             = "container"
+version          = "2.11.0"
+summary          = "Self-hosted HTTP push notification service — UnifiedPush compatible"
+description      = "Ntfy is a simple, self-hosted HTTP-based push notification service. It enables FreeSynergy to send real-time alerts and notifications to any device. Supports UnifiedPush for FOSS Android apps, direct HTTP, and WebSocket delivery."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["notifications", "push", "alerts", "unifiedpush", "mobile", "webhooks"]
+author           = "binwiederhier / FreeSynergy"
+license          = "Apache-2.0"
+
+[package.origin]
+website   = "https://ntfy.sh"
+git       = "https://github.com/binwiederhier/ntfy"
+publisher = "binwiederhier"
+
+[provides]
+capabilities = ["notifications.push", "notifications.unifiedpush"]
+
+[requires]
+# No mandatory deps — ntfy runs standalone.
+capabilities = []
+
+[optional-dependencies]
+iam = ">=1"
+
+[storage]
+global = "/var/lib/freesynergy/ntfy"
+config = "/etc/freesynergy/ntfy"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/"
+port        = 80
+proto       = "http"
+description = "Ntfy HTTP publish / subscribe API"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Ntfy web UI + HTTP API + WebSocket"

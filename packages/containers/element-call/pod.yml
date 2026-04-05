@@ -1,0 +1,120 @@
+# Element Call Pod — WebRTC Voice/Video for Matrix
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   element-call         — WebRTC calling frontend (served as static web app)
+#   coturn               — TURN/STUN relay server for NAT traversal
+#   fs-container-adapter — sidecar; registers voip.* + matrix.calling capabilities
+apiVersion: v1
+kind: Pod
+metadata:
+  name: element-call
+  labels:
+    app: freesynergy
+    package: element-call
+spec:
+  restartPolicy: Always
+  containers:
+    - name: element-call
+      image: ghcr.io/element-hq/element-call:${ELEMENT_CALL_VERSION}
+      ports:
+        - containerPort: 8080
+          hostPort: 8224
+          protocol: TCP
+          name: http
+      env:
+        - name: EW_HOMESERVER_URL
+          value: "https://${ELEMENT_CALL_HOMESERVER_URL}"
+        - name: EW_HOMESERVER_NAME
+          value: "${ELEMENT_CALL_HOMESERVER_NAME}"
+        - name: EW_TURN_SERVER_URL
+          value: "turns:${ELEMENT_CALL_DOMAIN}:5349?transport=tcp"
+        - name: EW_TURN_USERNAME
+          value: "${ELEMENT_CALL_TURN_USERNAME}"
+        - name: EW_TURN_CREDENTIAL
+          value: "${ELEMENT_CALL_TURN_CREDENTIAL}"
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 15
+
+    - name: coturn
+      image: docker.io/coturn/coturn:${COTURN_VERSION}
+      ports:
+        - containerPort: 3478
+          hostPort: 3478
+          protocol: UDP
+          name: stun-udp
+        - containerPort: 3478
+          hostPort: 3478
+          protocol: TCP
+          name: stun-tcp
+        - containerPort: 5349
+          hostPort: 5349
+          protocol: TCP
+          name: turns
+        - containerPort: 49152
+          hostPort: 49152
+          protocol: UDP
+          name: media-min
+        - containerPort: 65535
+          hostPort: 65535
+          protocol: UDP
+          name: media-max
+      env:
+        - name: TURN_REALM
+          value: "${ELEMENT_CALL_DOMAIN}"
+        - name: TURN_SECRET
+          value: "${ELEMENT_CALL_TURN_SECRET}"
+        - name: TURN_TLS_CERT
+          value: "/etc/coturn/tls/cert.pem"
+        - name: TURN_TLS_KEY
+          value: "/etc/coturn/tls/key.pem"
+      volumeMounts:
+        - name: coturn-tls
+          mountPath: /etc/coturn/tls
+          readOnly: true
+        - name: coturn-data
+          mountPath: /var/lib/coturn
+      readinessProbe:
+        tcpSocket:
+          port: 3478
+        initialDelaySeconds: 5
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "element-call"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "voip.webrtc,voip.turn,matrix.calling"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+        - name: FS_IAM_ISSUER
+          value: "${FS_IAM_ISSUER}"
+        - name: FS_IAM_CLIENT_ID
+          value: "${FS_IAM_CLIENT_ID}"
+        - name: FS_IAM_CLIENT_SECRET
+          value: "${FS_IAM_CLIENT_SECRET}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: coturn-tls
+      hostPath:
+        path: /etc/freesynergy/element-call/tls
+        type: DirectoryOrCreate
+    - name: coturn-data
+      hostPath:
+        path: /var/lib/freesynergy/element-call
+        type: DirectoryOrCreate

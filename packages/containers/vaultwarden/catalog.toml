@@ -1,0 +1,66 @@
+# Vaultwarden — Self-hosted Password Manager
+
+[package]
+id               = "vaultwarden"
+name             = "Vaultwarden"
+type             = "container"
+version          = "1.32.0"
+summary          = "Lightweight Bitwarden-compatible password manager with OIDC login"
+description      = "Vaultwarden is a lightweight self-hosted implementation of the Bitwarden server API, written in Rust. It provides password vault, secure notes, and TOTP management. Users authenticate via Kanidm OIDC — no separate Vaultwarden accounts are needed."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["password-manager", "secrets", "vault", "bitwarden", "totp", "oidc", "security"]
+author           = "dani-garcia / FreeSynergy"
+license          = "AGPL-3.0"
+
+[package.origin]
+website   = "https://github.com/dani-garcia/vaultwarden"
+git       = "https://github.com/dani-garcia/vaultwarden"
+publisher = "dani-garcia"
+
+[provides]
+capabilities = ["password-manager", "secrets.vault"]
+
+[requires]
+capabilities = ["iam.oidc-provider"]
+
+[optional-dependencies]
+postgres = ">=15"
+
+[storage]
+global = "/var/lib/freesynergy/vaultwarden"
+config = "/etc/freesynergy/vaultwarden"
+
+[install_targets]
+container = true
+rpm       = false
+deb       = false
+flatpak   = false
+
+[[api.rest]]
+base        = "/api"
+port        = 80
+proto       = "http"
+description = "Vaultwarden / Bitwarden-compatible REST API"
+
+[[api.rest]]
+base        = "/admin"
+port        = 80
+proto       = "http"
+description = "Vaultwarden admin panel"
+
+[contract]
+upstream_tls = false
+
+[[contract.routes]]
+id          = "main"
+path        = "/"
+strip       = false
+description = "Vaultwarden web vault UI + Bitwarden API"
+
+[[contract.routes]]
+id          = "notifications"
+path        = "/notifications/hub"
+proto       = "websocket"
+port        = 3012
+description = "Vaultwarden WebSocket notification hub"

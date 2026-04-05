@@ -1,0 +1,91 @@
+# Ntfy Pod — Self-hosted Push Notifications
+# Deployed via: podman play kube pod.yml
+# Env vars substituted by fs-store before deploy.
+#
+# Containers:
+#   ntfy                 — HTTP push notification server
+#   fs-container-adapter — sidecar; registers notifications.* capabilities in fs-registry + fs-bus
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ntfy
+  labels:
+    app: freesynergy
+    package: ntfy
+spec:
+  restartPolicy: Always
+  containers:
+    - name: ntfy
+      image: docker.io/binwiederhier/ntfy:${NTFY_VERSION}
+      args:
+        - serve
+      ports:
+        - containerPort: 80
+          hostPort: 8223
+          protocol: TCP
+          name: http
+      env:
+        - name: NTFY_BASE_URL
+          value: "https://${NTFY_DOMAIN}"
+        - name: NTFY_CACHE_FILE
+          value: "/var/cache/ntfy/cache.db"
+        - name: NTFY_AUTH_FILE
+          value: "/var/lib/ntfy/user.db"
+        - name: NTFY_AUTH_DEFAULT_ACCESS
+          value: "deny-all"
+        - name: NTFY_BEHIND_PROXY
+          value: "true"
+        - name: NTFY_UPSTREAM_BASE_URL
+          value: "https://ntfy.sh"
+      volumeMounts:
+        - name: ntfy-data
+          mountPath: /var/lib/ntfy
+        - name: ntfy-cache
+          mountPath: /var/cache/ntfy
+        - name: ntfy-config
+          mountPath: /etc/ntfy
+          readOnly: true
+      readinessProbe:
+        httpGet:
+          path: /v1/health
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 15
+
+    - name: fs-container-adapter
+      image: ghcr.io/freesynergy/fs-container-adapter:${FS_ADAPTER_VERSION}
+      env:
+        - name: FS_ADAPTER_PACKAGE_ID
+          value: "ntfy"
+        - name: FS_ADAPTER_CAPABILITIES
+          value: "notifications.push,notifications.unifiedpush"
+        - name: FS_REGISTRY_URL
+          value: "${FS_REGISTRY_URL}"
+        - name: FS_INVENTORY_URL
+          value: "${FS_INVENTORY_URL}"
+        - name: FS_BUS_URL
+          value: "${FS_BUS_URL}"
+        - name: FS_IAM_ISSUER
+          value: "${FS_IAM_ISSUER}"
+        - name: FS_IAM_CLIENT_ID
+          value: "${FS_IAM_CLIENT_ID}"
+        - name: FS_IAM_CLIENT_SECRET
+          value: "${FS_IAM_CLIENT_SECRET}"
+      ports:
+        - containerPort: 50051
+          protocol: TCP
+          name: grpc
+
+  volumes:
+    - name: ntfy-data
+      hostPath:
+        path: /var/lib/freesynergy/ntfy
+        type: DirectoryOrCreate
+    - name: ntfy-cache
+      hostPath:
+        path: /var/cache/freesynergy/ntfy
+        type: DirectoryOrCreate
+    - name: ntfy-config
+      hostPath:
+        path: /etc/freesynergy/ntfy
+        type: DirectoryOrCreate

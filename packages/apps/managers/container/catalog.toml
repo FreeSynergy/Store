@@ -10,6 +10,7 @@ description      = "The Container Manager deploys, starts, stops, and monitors c
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["container", "services", "deployment", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-container-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

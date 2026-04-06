@@ -10,6 +10,7 @@ description      = "The Language Manager installs language packs from the Store 
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["language", "i18n", "locale", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-language-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

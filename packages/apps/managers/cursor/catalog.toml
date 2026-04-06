@@ -10,6 +10,7 @@ description      = "The Cursor Manager installs cursor themes from the Store and
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["cursor", "appearance", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-cursor-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

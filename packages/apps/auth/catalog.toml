@@ -1,0 +1,63 @@
+# FreeSynergy Auth
+#
+# Identity and access management for FreeSynergy.
+# Implements 4 protocol traits: OAuthProvider, ScimProvider, SsoProvider, PamProvider.
+# Kanidm-backed by default.
+
+[package]
+id               = "auth"
+name             = "FreeSynergy Auth"
+type             = "app"
+version          = "0.1.0"
+summary          = "Identity and access management — OAuth2, SCIM, SSO, and PAM via Kanidm"
+description      = "FreeSynergy Auth provides identity and access management for the platform. It implements four protocol traits (OAuthProvider, ScimProvider, SsoProvider, PamProvider) backed by Kanidm. Includes a setup wizard, user management UI, and CLI for token management."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["auth", "iam", "oauth2", "sso", "scim", "kanidm", "identity"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/auth-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/auth-2.png",
+]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-auth"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-auth"
+artifact = "fs-auth-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64  = "https://github.com/FreeSynergy/fs-auth/releases/download/v{version}/fs-auth-x86_64-linux.tar.gz"
+linux-aarch64 = "https://github.com/FreeSynergy/fs-auth/releases/download/v{version}/fs-auth-aarch64-linux.tar.gz"
+
+[app]
+data_dir   = "{data_root}/auth"
+config_dir = "{config_root}/auth"
+
+[[binaries]]
+name   = "fs-auth"
+binary = "fs-auth"
+
+[provides]
+capabilities = ["auth.oauth2", "auth.scim", "auth.sso", "auth.pam"]
+bus_messages = ["iam.oidc-provider", "iam.user-created", "iam.user-removed"]
+
+[requires]
+capabilities = ["db.engine.sqlite"]
+
+[[api.grpc]]
+service     = "FreeSynergy.Auth"
+proto       = "auth.proto"
+port        = 50090
+description = "Auth gRPC — token introspection, user management, capability check"
+
+[[api.rest]]
+base        = "/api/v1/auth"
+port        = 8090
+proto       = "http"
+description = "Auth REST API — OIDC endpoints, health"
+spec        = "/swagger-ui"

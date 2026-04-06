@@ -1,0 +1,34 @@
+# fs-gui-engine-tui — ratatui TUI Render Engine Adapter
+
+[package]
+id               = "freeSynergy.gui-engine-tui"
+name             = "FreeSynergy TUI Render Engine"
+type             = "adapter"
+version          = "0.1.0"
+summary          = "ratatui-based TUI render engine — implements RenderEngine trait for terminal environments"
+description      = "The TUI render engine adapter provides a terminal-based interface for FreeSynergy, activated automatically when no display server is available (SSH, headless server). It implements the RenderEngine trait using ratatui + tachyonfx and supports all navigation and layout components in a terminal environment."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["tui", "render-engine", "terminal", "ratatui", "adapter", "headless"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/gui-engine-tui-1.png",
+]
+author           = "FreeSynergy.Net"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-gui-engine-tui"
+publisher = "FreeSynergy"
+
+[provides]
+capabilities = ["render.engine.tui", "render.engine.terminal"]
+
+[requires]
+capabilities = []
+
+[install_targets]
+artifact  = true
+container = false
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-gui-engine-tui"

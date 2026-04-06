@@ -34,3 +34,15 @@ catalog = "fs-channel-matrix/catalog.toml"
 [[packages]]
 id      = "fs-channel-telegram"
 catalog = "fs-channel-telegram/catalog.toml"
+
+[[packages]]
+id      = "fs-gui-engine-iced"
+catalog = "fs-gui-engine-iced/catalog.toml"
+
+[[packages]]
+id      = "fs-gui-engine-tui"
+catalog = "fs-gui-engine-tui/catalog.toml"
+
+[[packages]]
+id      = "fs-gui-engine-bevy"
+catalog = "fs-gui-engine-bevy/catalog.toml"

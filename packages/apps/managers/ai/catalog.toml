@@ -10,6 +10,7 @@ description      = "The AI Manager configures the AI runtime (fs-ai). Select whi
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["ai", "llm", "models", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-ai-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

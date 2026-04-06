@@ -1,0 +1,49 @@
+# FreeSynergy Init
+#
+# First-run setup wizard and capability detection for FreeSynergy.
+# Bootstraps the system and installs the Store — everything else follows.
+
+[package]
+id               = "init"
+name             = "FreeSynergy Init"
+type             = "app"
+version          = "0.1.0"
+summary          = "First-run setup wizard — detects system capabilities and bootstraps FreeSynergy"
+description      = "FreeSynergy Init is the entry point for every FreeSynergy installation. It detects hardware capabilities (display server, GPU, terminal type), walks the user through bundle selection, and bootstraps the Store and Node. After Init completes, the system manages itself."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["init", "setup", "wizard", "bootstrap", "installer"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/init-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/init-2.png",
+]
+author           = "FreeSynergy"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-init"
+publisher = "FreeSynergy"
+
+[source]
+type     = "github_release"
+repo     = "FreeSynergy/fs-init"
+artifact = "fs-init-x86_64-unknown-linux-gnu.tar.gz"
+
+[distribution]
+linux-x86_64  = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-x86_64-linux.tar.gz"
+linux-aarch64 = "https://github.com/FreeSynergy/fs-init/releases/download/v{version}/fs-init-aarch64-linux.tar.gz"
+
+[app]
+data_dir   = "{data_root}/init"
+config_dir = "{config_root}/init"
+
+[[binaries]]
+name   = "fs-init"
+binary = "fs-init"
+
+[provides]
+capabilities = []
+bus_messages = ["system.bootstrap.complete"]
+
+[requires]
+capabilities = []

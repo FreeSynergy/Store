@@ -13,6 +13,10 @@ description      = "FreeSynergy Store is the unified package manager for the Fre
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["store", "packages", "installer", "updates", "desktop"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/store-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/store-2.png",
+]
 author           = "FreeSynergy"
 license          = "MIT"
 

@@ -1,0 +1,34 @@
+# fs-gui-engine-bevy — Bevy 3D Render Engine Adapter
+
+[package]
+id               = "freeSynergy.gui-engine-bevy"
+name             = "FreeSynergy Bevy Render Engine"
+type             = "adapter"
+version          = "0.1.0"
+summary          = "Bevy-based 3D render engine — implements RenderEngine trait with 3D-capable rendering"
+description      = "The Bevy render engine adapter provides a 3D-capable graphical interface for FreeSynergy. It implements the RenderEngine trait using the Bevy game engine, enabling spatial UI, 3D visualizations, and immersive desktop experiences. Best suited for workstations with dedicated GPU."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["gui", "render-engine", "bevy", "3d", "desktop", "adapter", "gpu"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/gui-engine-bevy-1.png",
+]
+author           = "FreeSynergy.Net"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-gui-engine-bevy"
+publisher = "FreeSynergy"
+
+[provides]
+capabilities = ["render.engine.bevy", "render.engine.gui", "render.engine.3d"]
+
+[requires]
+capabilities = ["system.display-server", "system.gpu"]
+
+[install_targets]
+artifact  = true
+container = false
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-gui-engine-bevy"

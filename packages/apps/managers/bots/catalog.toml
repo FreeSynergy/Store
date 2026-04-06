@@ -10,6 +10,7 @@ description      = "The Bot Manager configures bots and their connections to ext
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["bots", "automation", "messenger", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-bots-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

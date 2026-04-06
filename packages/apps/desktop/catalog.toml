@@ -13,6 +13,11 @@ description      = "FreeSynergy Desktop is the graphical shell for the FreeSyner
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["desktop", "shell", "workspace", "ui", "launcher"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/desktop-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/desktop-2.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/desktop-3.png",
+]
 author           = "FreeSynergy"
 license          = "MIT"
 

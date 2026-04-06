@@ -8,6 +8,9 @@ version     = "0.1.0"
 summary     = "Telegram channel adapter — implements Channel-Trait via Telegram Bot API (teloxide)"
 icon        = "icon.svg"
 tags        = ["messaging", "telegram", "channel", "adapter", "bot"]
+screenshots = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/channel-telegram-1.png",
+]
 author      = "FreeSynergy.Net"
 license     = "MIT"
 

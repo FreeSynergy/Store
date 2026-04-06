@@ -1,0 +1,35 @@
+# fs-gui-engine-iced — iced GUI Render Engine Adapter
+
+[package]
+id               = "freeSynergy.gui-engine-iced"
+name             = "FreeSynergy iced Render Engine"
+type             = "adapter"
+version          = "0.1.0"
+summary          = "iced-based GUI render engine — implements RenderEngine trait for graphical desktop"
+description      = "The iced render engine adapter provides a native GPU-accelerated graphical interface for FreeSynergy on Linux, macOS, and Windows. It implements the RenderEngine trait and supports all DesktopShell layouts and navigation components. Based on iced + libcosmic for consistent platform integration."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["gui", "render-engine", "iced", "desktop", "adapter", "graphics"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/gui-engine-iced-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/gui-engine-iced-2.png",
+]
+author           = "FreeSynergy.Net"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-gui-engine-iced"
+publisher = "FreeSynergy"
+
+[provides]
+capabilities = ["render.engine.iced", "render.engine.gui"]
+
+[requires]
+capabilities = ["system.display-server"]
+
+[install_targets]
+artifact  = true
+container = false
+
+[sources]
+repo = "https://github.com/FreeSynergy/fs-gui-engine-iced"

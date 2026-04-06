@@ -13,6 +13,14 @@ icon    = "icon.svg"
 summary = "Native Rust applications — the core programs of FreeSynergy"
 
 [[packages]]
+id      = "init"
+catalog = "init/catalog.toml"
+
+[[packages]]
+id      = "auth"
+catalog = "auth/catalog.toml"
+
+[[packages]]
 id      = "node"
 catalog = "node/catalog.toml"
 

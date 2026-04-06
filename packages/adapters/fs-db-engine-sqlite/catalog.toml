@@ -1,18 +1,34 @@
 # fs-db-engine-sqlite — SQLite Database Engine Adapter
 
 [package]
-id          = "freeSynergy.db-engine-sqlite"
-name        = "FreeSynergy SQLite Engine"
-type        = "adapter"
-version     = "0.1.0"
-summary     = "SQLite database engine adapter — implements DbEngine-Trait"
-icon        = "icon.svg"
-tags        = ["database", "sqlite", "adapter", "db-engine"]
-author      = "FreeSynergy.Net"
-license     = "MIT"
+id               = "freeSynergy.db-engine-sqlite"
+name             = "FreeSynergy SQLite Engine"
+type             = "adapter"
+version          = "0.1.0"
+summary          = "SQLite database engine adapter — implements DbEngine-Trait"
+description      = "The SQLite database engine adapter provides an embedded, zero-configuration database backend for FreeSynergy. It implements the DbEngine trait and is the default engine for single-node and development deployments. No separate server process is required."
+description_file = "i18n/en/description.ftl"
+icon             = "icon.svg"
+tags             = ["database", "sqlite", "adapter", "db-engine", "embedded"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/db-engine-sqlite-1.png",
+]
+author           = "FreeSynergy.Net"
+license          = "MIT"
+
+[package.origin]
+git       = "https://github.com/FreeSynergy/fs-db-engine-sqlite"
+publisher = "FreeSynergy"
 
 [provides]
 capabilities = ["db.engine.sqlite"]
+
+[requires]
+capabilities = []
+
+[install_targets]
+artifact  = true
+container = false
 
 [sources]
 repo = "https://github.com/FreeSynergy/fs-db-engine-sqlite"

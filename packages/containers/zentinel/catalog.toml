@@ -10,6 +10,10 @@ description      = "Zentinel is a Rust-native reverse proxy and API gateway with
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["proxy", "gateway", "ingress", "tls", "routing", "loadbalancer"]
+screenshots      = [
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/zentinel-1.png",
+    "https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/zentinel-2.png",
+]
 author           = "Zentinel / FreeSynergy"
 license          = "Apache-2.0"
 

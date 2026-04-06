@@ -10,6 +10,7 @@ description      = "The Theme Manager installs themes from the Store and applies
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["theme", "appearance", "colors", "typography", "managers"]
+screenshots      = ["https://raw.githubusercontent.com/FreeSynergy/Store/main/screenshots/manager-theme-1.png"]
 author           = "FreeSynergy"
 license          = "MIT"
 

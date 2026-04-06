@@ -10,6 +10,7 @@ description      = "Kanidm is a modern identity management system providing LDAP
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["iam", "auth", "ldap", "oidc", "oauth2", "radius", "mfa", "identity"]
+screenshots      = ["screenshots/01-login.png", "screenshots/02-user-management.png", "screenshots/03-oauth2-apps.png"]
 author           = "Kanidm / FreeSynergy"
 license          = "MPL-2.0"
 

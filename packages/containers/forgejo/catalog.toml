@@ -10,6 +10,7 @@ description      = "Forgejo is a self-hosted Git service with repositories, issu
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["git", "code", "forge", "repository", "cicd", "packages", "oidc"]
+screenshots      = ["screenshots/01-repos.png", "screenshots/02-issues.png", "screenshots/03-cicd.png"]
 author           = "Forgejo / FreeSynergy"
 license          = "MIT"
 

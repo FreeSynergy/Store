@@ -10,6 +10,7 @@ description      = "Stalwart is a modern all-in-one mail server supporting SMTP,
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["mail", "smtp", "imap", "jmap", "email", "antispam", "oidc"]
+screenshots      = ["screenshots/01-dashboard.png", "screenshots/02-queues.png", "screenshots/03-spam-filter.png"]
 author           = "Stalwart Labs / FreeSynergy"
 license          = "AGPL-3.0"
 

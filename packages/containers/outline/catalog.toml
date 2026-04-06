@@ -10,6 +10,7 @@ description      = "Outline is a collaborative wiki and knowledge base for teams
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["wiki", "knowledge", "docs", "team", "collaboration", "markdown", "oidc"]
+screenshots      = ["screenshots/01-documents.png", "screenshots/02-editor.png"]
 author           = "Outline"
 license          = "BSL-1.1"
 

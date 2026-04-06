@@ -10,6 +10,7 @@ description      = "Wiki.js is a powerful, fast, and extensible wiki platform bu
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["wiki", "documentation", "knowledge-base", "markdown", "oidc"]
+screenshots      = ["screenshots/01-pages.png", "screenshots/02-editor.png"]
 author           = "Wiki.js / FreeSynergy"
 license          = "AGPL-3.0"
 

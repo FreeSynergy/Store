@@ -10,6 +10,7 @@ description      = "Tuwunel is a high-performance Matrix homeserver written in R
 description_file = "i18n/en/description.ftl"
 icon             = "icon.svg"
 tags             = ["matrix", "chat", "messaging", "e2ee", "federation", "rooms", "voip"]
+screenshots      = ["screenshots/01-rooms.png", "screenshots/02-federation.png"]
 author           = "Tuwunel / FreeSynergy"
 license          = "Apache-2.0"
 
